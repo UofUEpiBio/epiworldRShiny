@@ -32,11 +32,11 @@ function(input, output) {
                 main = "SEIR Model Reproductive Number"
                 )
             # Output list
-            list(
+            return(list(
               plot_epicurves         = plot_seir,
               plot_reproductive = reproductive_seir,
               print_summary      = summary_seir
-              )
+              ))
          }
         if(input$model == "SIR"){
             model_sir <- ModelSIR(name = input$sir_disease_name,
@@ -64,11 +64,11 @@ function(input, output) {
                 main = "SIR Model Reproductive Number"
                 )
             # Output list
-            list(
+            return(list(
               plot_epicurves         = plot_sir,
               plot_reproductive = reproductive_sir,
               print_summary      = summary_sir
-              )
+              ))
         }
         # if(input$model == "SIS"){
         #     model_sis <- ModelSIS(name = input$sis_disease_name,

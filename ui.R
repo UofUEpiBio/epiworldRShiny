@@ -206,7 +206,7 @@ body <- dashboardBody(
   HTML("<br>"),
   fluidRow(
     column(6, verbatimTextOutput("model_summary")) #,
-    #column(6, dataTableOutput("model_data_table"))
+    #column(6, dataTableOutput("model_table"))
   )
 
 )

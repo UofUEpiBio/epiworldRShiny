@@ -63,9 +63,46 @@
     <h2>Value</h2>
     
 
-<p>Allows for the ability to specify network parameters</p>
+<p>Returns an object of class shiny.tag.list.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">network_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="network_header_SEIRD"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="network_inputs_SEIRD" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_population_size-label" for="SEIRD_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_k-label" for="SEIRD_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="SEIRD_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_directed-label" for="SEIRD_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;select id="SEIRD_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;script type="application/json" data-for="SEIRD_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_prob_rewiring-label" for="SEIRD_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

@@ -63,9 +63,47 @@
     <h2>Value</h2>
     
 
-<p>Allows the ability to specify npi/tool characteristics</p>
+<p>Returns an object of class shiny.tag.list.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">npis_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="npis_header_SEIRD"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="npis_inputs_SEIRD" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_prevalence-label" for="SEIRD_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_masking_prevalence-label" for="SEIRD_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_prevalence-label" for="SEIRD_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_day-label" for="SEIRD_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="SEIRD_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

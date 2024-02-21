@@ -57,9 +57,840 @@
     <h2>Value</h2>
     
 
-<p>Function to set up models</p>
+<p>Returns an object of class list.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">models_setup</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $seir_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;Network SEIR Function&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_disease_name-label" for="seir_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_prevalence-label" for="seir_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seir_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_transmission_rate-label" for="seir_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seir_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_recovery_rate-label" for="seir_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seir_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_incubation_days-label" for="seir_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_n_days-label" for="seir_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_seed-label" for="seir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_seir"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_seir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_population_size-label" for="seir_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_k-label" for="seir_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_directed-label" for="seir_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="seir_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="seir_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_prob_rewiring-label" for="seir_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seir"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_prevalence-label" for="seir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_masking_prevalence-label" for="seir_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_prevalence-label" for="seir_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_day-label" for="seir_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $seirconn_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;SEIR&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_disease_name-label" for="seirconn_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_prevalence-label" for="seirconn_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconn_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_transmission_rate-label" for="seirconn_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconn_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_recovery_rate-label" for="seirconn_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconn_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_contact_rate-label" for="seirconn_contact_rate"&gt;Contact Rate&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconn_contact_rate" data-skin="shiny" data-min="0" data-max="20" data-from="4" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_incubation_days-label" for="seirconn_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_population_size-label" for="seirconn_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconn_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_n_days-label" for="seirconn_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_seed-label" for="seirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seirconn"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seirconn" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_prevalence-label" for="seirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_masking_prevalence-label" for="seirconn_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_prevalence-label" for="seirconn_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_day-label" for="seirconn_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $seirconnequity_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;SEIR Equity&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_disease_name-label" for="seirconnequity_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_prevalence-label" for="seirconnequity_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconnequity_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_transmission_rate-label" for="seirconnequity_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconnequity_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_recovery_rate-label" for="seirconnequity_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconnequity_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_contact_rate-label" for="seirconnequity_contact_rate"&gt;Contact Rate&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconnequity_contact_rate" data-skin="shiny" data-min="0" data-max="20" data-from="4" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_incubation_days-label" for="seirconnequity_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_population_size-label" for="seirconnequity_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seirconnequity_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_n_days-label" for="seirconnequity_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_seed-label" for="seirconnequity_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconnequity" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="population_header_seirconnequity"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population (equity)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="population_inputs_seirconnequity" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_prop_hispanic-label" for="seirconnequity_prop_hispanic"&gt;% Hispanic&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_prop_hispanic" data-skin="shiny" data-min="0" data-max="1" data-from="0.5" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_prop_female-label" for="seirconnequity_prop_female"&gt;% Female&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_prop_female" data-skin="shiny" data-min="0" data-max="1" data-from="0.5" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_prop_ages-label" for="seirconnequity_prop_ages"&gt;Age distribution (&amp;lt; 20, &amp;lt; 60, 60+)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_prop_ages" data-skin="shiny" data-type="double" data-min="0" data-max="1" data-from="0.3" data-to="0.6" data-step="0.01" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-drag-interval="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seirconnequity"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seirconnequity" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_prevalence-label" for="seirconnequity_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_masking_prevalence-label" for="seirconnequity_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_prevalence-label" for="seirconnequity_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_day-label" for="seirconnequity_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seirconnequity_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $seird_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;Network SEIRD&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_disease_name-label" for="seird_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_prevalence-label" for="seird_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seird_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_transmission_rate-label" for="seird_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seird_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_recovery_rate-label" for="seird_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seird_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_death_rate-label" for="seird_death_rate"&gt;Probability of death (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="seird_death_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.01" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_incubation_days-label" for="seird_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_n_days-label" for="seird_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_seed-label" for="seird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_seird"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_seird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_population_size-label" for="seird_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_k-label" for="seird_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_directed-label" for="seird_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="seird_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="seird_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_prob_rewiring-label" for="seird_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seird"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_prevalence-label" for="seird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_masking_prevalence-label" for="seird_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_prevalence-label" for="seird_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_day-label" for="seird_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sir_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;SIR Network&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_disease_name-label" for="sir_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_prevalence-label" for="sir_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sir_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_transmission_rate-label" for="sir_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sir_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_recovery_rate-label" for="sir_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sir_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_n_days-label" for="sir_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_seed-label" for="sir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sir"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_population_size-label" for="sir_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_k-label" for="sir_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_directed-label" for="sir_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="sir_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sir_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_prob_rewiring-label" for="sir_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sir"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_prevalence-label" for="sir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_masking_prevalence-label" for="sir_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_prevalence-label" for="sir_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_day-label" for="sir_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sirconn_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;SIR&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_disease_name-label" for="sirconn_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_prevalence-label" for="sirconn_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sirconn_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_transmission_rate-label" for="sirconn_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sirconn_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_recovery_rate-label" for="sirconn_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sirconn_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_contact_rate-label" for="sirconn_contact_rate"&gt;Contact Rate&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sirconn_contact_rate" data-skin="shiny" data-min="0" data-max="20" data-from="4" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_population_size-label" for="sirconn_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sirconn_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_n_days-label" for="sirconn_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_seed-label" for="sirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sirconn"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sirconn" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_prevalence-label" for="sirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_masking_prevalence-label" for="sirconn_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_prevalence-label" for="sirconn_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_day-label" for="sirconn_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sird_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;Network SIRD&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_disease_name-label" for="sird_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_prevalence-label" for="sird_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sird_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_transmission_rate-label" for="sird_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sird_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_recovery_rate-label" for="sird_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sird_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_death_rate-label" for="sird_death_rate"&gt;Probability of death (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sird_death_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.01" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_n_days-label" for="sird_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_seed-label" for="sird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sird"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_population_size-label" for="sird_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_k-label" for="sird_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_directed-label" for="sird_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="sird_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sird_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_prob_rewiring-label" for="sird_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sird"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_prevalence-label" for="sird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_masking_prevalence-label" for="sird_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_prevalence-label" for="sird_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_day-label" for="sird_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sis_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;Network SIS&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_disease_name-label" for="sis_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_prevalence-label" for="sis_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sis_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_transmission_rate-label" for="sis_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sis_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_recovery_rate-label" for="sis_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sis_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_n_days-label" for="sis_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_seed-label" for="sis_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sis" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sis"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sis" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_population_size-label" for="sis_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_k-label" for="sis_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sis_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_directed-label" for="sis_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="sis_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sis_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_prob_rewiring-label" for="sis_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sis"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sis" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_prevalence-label" for="sis_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_masking_prevalence-label" for="sis_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_prevalence-label" for="sis_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_day-label" for="sis_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sis_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sisd_panel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div data-display-if="input.model == &amp;#39;Network SISD&amp;#39;" data-ns-prefix=""&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_disease_name-label" for="sisd_disease_name"&gt;Disease&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_prevalence-label" for="sisd_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sisd_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_transmission_rate-label" for="sisd_transmission_rate"&gt;Probability of exposure (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sisd_transmission_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.05" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_recovery_rate-label" for="sisd_recovery_rate"&gt;Recovery probability (daily)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sisd_recovery_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.14" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_death_rate-label" for="sisd_death_rate"&gt;Death Rate&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="sisd_death_rate" data-skin="shiny" data-min="0" data-max="1" data-from="0.01" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_n_days-label" for="sisd_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_seed-label" for="sisd_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sisd" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sisd"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Population structure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sisd" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_population_size-label" for="sisd_population_size"&gt;Population Size&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_k-label" for="sisd_k"&gt;Number of Ties&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sisd_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_directed-label" for="sisd_directed"&gt;Directed&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;select id="sisd_directed" class="shiny-input-select"&gt;&lt;option value="TRUE"&gt;TRUE&lt;/option&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;option value="FALSE" selected&gt;FALSE&lt;/option&gt;&lt;/select&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sisd_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_prob_rewiring-label" for="sisd_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sisd"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Interventions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sisd" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_prevalence-label" for="sisd_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_masking_prevalence-label" for="sisd_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;School Closure&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_prevalence-label" for="sisd_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_day-label" for="sisd_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sisd_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

@@ -77,9 +77,10 @@ substituted with the model name.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UofUEpiBio/epiworldR" class="external-link">epiworldR</a></span><span class="op">)</span> <span class="co"># for ModelSEIR function</span></span></span>
-<span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://uofuepibio.github.io/epiworldR/reference/ModelSEIR.html" class="external-link">ModelSEIR</a></span><span class="op">(</span><span class="st">"COVID-19"</span>, prevalence <span class="op">=</span> <span class="fl">0.7</span>, transmission_rate <span class="op">=</span> <span class="fl">0.3</span>,</span></span>
-<span class="r-in"><span>                   incubation_days <span class="op">=</span> <span class="fl">6</span>, recovery_rate <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UofUEpiBio/epiworldR" class="external-link">epiworldR</a></span><span class="op">)</span> <span class="co"># for ModelSEIRCONN function</span></span></span>
+<span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://uofuepibio.github.io/epiworldR/reference/ModelSEIRCONN.html" class="external-link">ModelSEIRCONN</a></span><span class="op">(</span><span class="st">"COVID-19"</span>, n <span class="op">=</span> <span class="fl">1000</span>, prevalence <span class="op">=</span> <span class="fl">0.05</span>,</span></span>
+<span class="r-in"><span>                       contact_rate <span class="op">=</span> <span class="fl">4</span>, transmission_rate <span class="op">=</span> <span class="fl">0.1</span>,</span></span>
+<span class="r-in"><span>                       incubation_days <span class="op">=</span> <span class="fl">7</span>, recovery_rate <span class="op">=</span> <span class="fl">0.14</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">npi_add_school_closure</span><span class="op">(</span><span class="va">model</span>, preval <span class="op">=</span> <span class="fl">.8</span>, day <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>

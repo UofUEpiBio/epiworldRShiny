@@ -67,30 +67,30 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>To run this ShinyApp, you need to type the following:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/epiworldRShiny.html">epiworldRShiny</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This R package provides a user-friendly application for <a href="https://github.com/UofUEpiBio/epiworldR" target="_blank" class="external-link">epiworldR</a>, a wrapper of the C++ library <a href="https://github.com/UofUEpiBio/epiworld" target="_blank" class="external-link">epiworld</a>. It provides a general framework for modeling disease transmission using <a href="https://en.wikipedia.org/w/index.php?title=Agent-based_model&amp;oldid=1153634802" target="_blank" class="external-link">agent-based models</a>. Some of the main features include:</p>
 <ul>
 <li>Fast simulation with an average of 30 million agents/day per second.</li>
-<li>One model can include multiple diseases.</li>
-<li>Policies (tools) can be multiple and user-defined.</li>
-<li>Transmission can be a function of agents’ features.</li>
-<li>Out-of-the-box parallelization for multiple simulations.</li>
+<li>9 different epidemiological models to choose from.</li>
+<li>Built-in capability for user-defined interventions.</li>
+<li>Built-in capability to define population and disease parameters.</li>
+<li>Informative visualizations and tables provided after running each simulation.</li>
 </ul>
-<p>From package description of <a href="https://github.com/UofUEpiBio/epiworldR" target="_blank" class="external-link">epiworldR</a>:</p>
-<blockquote>
-<p>A flexible framework for Agent-Based Models (ABM), the epiworldR package provides methods for prototyping disease outbreaks and transmission models using a C++ backend, making it very fast. It supports multiple epidemiological models, including the Susceptible-Infected-Susceptible (SIS), Susceptible-Infected-Removed (SIR), Susceptible-Exposed-Infected-Removed (SEIR), and others, involving arbitrary mitigation policies and multiple-disease models. Users can specify infectiousness/susceptibility rates as a function of agents’ features, providing great complexity for the model dynamics. Furthermore, epiworldR is ideal for simulation studies featuring large populations.</p>
-</blockquote>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the development version of epiworldRShiny from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"UofUEpiBio/epiworldRShiny"</span><span class="op">)</span></span></code></pre></div>
 <p>Or from CRAN</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"epiworldRShiny"</span><span class="op">)</span></span></code></pre></div>
+<p>To run this ShinyApp, you need to type the following:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/epiworldRShiny.html">epiworldRShiny</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
 </div>
 </div>
   </div>

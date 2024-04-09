@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Getting started with epiworldRShiny • epiworldRShiny</title>
+<title>Equity Model • epiworldRShiny</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Getting started with epiworldRShiny">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Equity Model">
 <meta property="og:description" content="epiworldRShiny">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -81,7 +81,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Getting started with epiworldRShiny</h1>
+      <h1 data-toc-skip>Equity Model</h1>
                         <h4 data-toc-skip class="author">Derek
 Meyer</h4>
                         <h4 data-toc-skip class="author">George Vega
@@ -89,26 +89,15 @@ Yon</h4>
             
             <h4 data-toc-skip class="date">2024-04-09</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/UofUEpiBio/epiworldRShiny/blob/HEAD/vignettes/getting_started.Rmd" class="external-link"><code>vignettes/getting_started.Rmd</code></a></small>
-      <div class="hidden name"><code>getting_started.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/UofUEpiBio/epiworldRShiny/blob/HEAD/vignettes/equity.Rmd" class="external-link"><code>vignettes/equity.Rmd</code></a></small>
+      <div class="hidden name"><code>equity.Rmd</code></div>
 
     </div>
 
     
     
-<p>Welcome to epiworldRShiny, a powerful Shiny app designed to enhance
-the functionality of the epiworldR package for simulating agent-based
-models. The package offers a user-friendly interface that enables users
-to simulate infectious diseases using nine different epidemiological
-models. With epiworldRShiny, incorporating various interventions such as
-vaccines, masking, and school closures into your simulations can be done
-with ease. The package also provides intuitive visualization tools to
-help interpret and analyze simulation results. Whether you’re a
-researcher, healthcare professional, or student, epiworldRShiny
-simplifies the process of simulating and understanding the dynamics of
-infectious diseases.</p>
 <div class="section level2">
-<h2 id="example-1-simulating-a-seir-network-model">Example 1: Simulating a SEIR Network Model<a class="anchor" aria-label="anchor" href="#example-1-simulating-a-seir-network-model"></a>
+<h2 id="example-3-simulating-a-seir-equity-model">Example 3: Simulating a SEIR Equity Model<a class="anchor" aria-label="anchor" href="#example-3-simulating-a-seir-equity-model"></a>
 </h2>
 <div class="section level3">
 <h3 id="running-the-application">Running the application<a class="anchor" aria-label="anchor" href="#running-the-application"></a>
@@ -125,15 +114,15 @@ application, use call the function, epiworldRShiny().</p>
 <div class="section level3">
 <h3 id="model-set-up">Model set-up<a class="anchor" aria-label="anchor" href="#model-set-up"></a>
 </h3>
-<p>After launching the application, notice the sidebar contains many
-disease and model parameters which can be modified. Altering these
-parameters will affect the spread of the infectious disease in the
-simulated population. Name the disease of interest, specify the
-parameters of choice (listed below), and select “run simulation”.</p>
+<p>This example features the SEIR equity model. This model is unique
+because it accounts for demographic diversity in a population, such as
+race, gender, and age. This allows for the comparison of disease spread
+among different demographics. For example, the user can specify the
+proportions of different age groups to simulate an older, younger, or
+balanced population.</p>
 <ul>
 <li>
-<strong>Model</strong>: Network SEIR<br>
-</li>
+<strong>Model</strong>: SEIR equity model</li>
 <li>
 <strong>Disease</strong>: COVID-19<br>
 </li>
@@ -153,38 +142,46 @@ parameters of choice (listed below), and select “run simulation”.</p>
 <strong>Simulation time</strong> = 100<br>
 </li>
 <li>
-<strong>Seed</strong> = 2023</li>
+<strong>% Hispanic</strong> = 0.3<br>
+</li>
+<li>
+<strong>% Female</strong> = 0.52<br>
+</li>
+<li>
+<strong>Age distribution &lt;20</strong> = 0.3<br>
+</li>
+<li>
+<strong>Age distribution &lt;60, &gt;20</strong> = 0.3</li>
 </ul>
 </div>
 <div class="section level3">
 <h3 id="running-the-model">Running the model<a class="anchor" aria-label="anchor" href="#running-the-model"></a>
 </h3>
-<p><img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/f4e7d313-e3b6-4ebb-9c0a-ca4d53ef9cea" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/20aeb62d-cb42-4882-8577-a3406f167bca" width="80%" style="display: block; margin: auto;"></p>
 <p>The above graphic demonstrates launching the application and running
 the model with COVID-19 as the disease. After running the simulation,
-plots of the distributions of states and the disease’s reproductive
-number over time, a model summary, and table of each state’s counts over
-time are all displayed.</p>
+plots of the distributions of states based on the specified demographics
+and the disease’s reproductive number over time, a model summary, and
+table of each state’s counts over time are all displayed.</p>
 </div>
 <div class="section level3">
 <h3 id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
 </h3>
-<p>In this example, the model of choice is a SEIR Network model. Notice
-the day of peak infections occurs on day 12, maxing at about 18,000
-infections. After roughly 40 days, the state’s curves taper off, meaning
-that the majority of the population has recovered from the disease. The
-reproductive number plot demonstrates that the disease spread rapidly at
-the beginning of the simulation, and drastically decreased over the
-first 10 days. The model summary returns important information about the
-simulation such as the model choice, population size, simulation speed,
-disease(s) present, any tool(s) present, and model parameters. The
-distribution table displays the counts for each state at baseline and
-conclusion. The transition probabilities table displays the probability
-of moving between states. For example, the probability that a
-susceptible agent remains in the susceptible state is 0.62, with a
-probability of moving to the exposed state 0.38. Lastly, the counts
-table shows the state’s counts over time, marking the peak infection
-count in bold font.</p>
+<p>In this example, the model of choice is a SEIR equity model. Notice
+the first section of output, displaying the total number of infected
+individuals in the Hispanic and non-Hispanic demographics. According to
+the simulation, more Hispanic agents were infected with COVID-19 than
+the non-Hispanic group. This figure further stratifies by sex and age
+group. Notice that there aren’t any significant differences in total
+number of infected among females and males, indicating that the risk of
+infection for females is about the same for males. When analyzing age
+group, it is clear that those 60 years or older had the most infections
+out of any other age group.</p>
+<p>This model leads to the conclusion that agents who are Hispanic and
+60 years or older have the highest occurrence of COVID-19 infections
+with very little distinction between sex. This information can be
+helpful to public health officials in informing public policy targeted
+towards benefiting select demographics.</p>
 </div>
 </div>
   </div>

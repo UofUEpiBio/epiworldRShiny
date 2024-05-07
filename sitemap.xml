@@ -31,6 +31,36 @@
     <loc>/reference/epiworldRShiny.html</loc>
   </url>
   <url>
+    <loc>/reference/epiworldRenv.html</loc>
+  </url>
+  <url>
+    <loc>/reference/epiworldrshiny-ui.html</loc>
+  </url>
+  <url>
+    <loc>/reference/find_scale.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/npi_add_all.html</loc>
+  </url>
+  <url>
+    <loc>/reference/npi_add_masking.html</loc>
+  </url>
+  <url>
+    <loc>/reference/npi_add_school_closure.html</loc>
+  </url>
+  <url>
+    <loc>/reference/npi_add_vaccine.html</loc>
+  </url>
+  <url>
+    <loc>/reference/plot_epi.html</loc>
+  </url>
+  <url>
+    <loc>/reference/plot_reproductive_epi.html</loc>
+  </url>
+  <url>
+    <loc>/reference/pop_generator.html</loc>
   </url>
 </urlset>

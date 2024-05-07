@@ -31,63 +31,6 @@
     <loc>/reference/epiworldRShiny.html</loc>
   </url>
   <url>
-    <loc>/reference/epiworldRenv.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_scale.html</loc>
-  </url>
-  <url>
     <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/models_setup.html</loc>
-  </url>
-  <url>
-    <loc>/reference/network_input.html</loc>
-  </url>
-  <url>
-    <loc>/reference/npi_add_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/npi_add_masking.html</loc>
-  </url>
-  <url>
-    <loc>/reference/npi_add_school_closure.html</loc>
-  </url>
-  <url>
-    <loc>/reference/npi_add_vaccine.html</loc>
-  </url>
-  <url>
-    <loc>/reference/npis_input.html</loc>
-  </url>
-  <url>
-    <loc>/reference/numeric_input_ndays.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot_epi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot_reproductive_epi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pop_generator.html</loc>
-  </url>
-  <url>
-    <loc>/reference/population_input.html</loc>
-  </url>
-  <url>
-    <loc>/reference/seed_input.html</loc>
-  </url>
-  <url>
-    <loc>/reference/simulate_button.html</loc>
-  </url>
-  <url>
-    <loc>/reference/slider_input_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/slider_prevalence.html</loc>
-  </url>
-  <url>
-    <loc>/reference/text_input_disease_name.html</loc>
   </url>
 </urlset>

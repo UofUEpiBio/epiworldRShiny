@@ -66,7 +66,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi_add_school_closure</span><span class="op">(</span><span class="va">model</span>, <span class="va">preval</span>, <span class="va">day</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi_add_school_closure</span><span class="op">(</span><span class="va">model</span>, <span class="va">preval</span>, <span class="va">day</span>, reduction <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -82,6 +82,10 @@
 <dt>day</dt>
 <dd><p>Day in the simulation where school closure goes into effect.</p></dd>
 
+
+<dt>reduction</dt>
+<dd><p>Reduction in transmission probability due to school closure.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -89,6 +93,13 @@
 
 <p>Returns an object of class epiworld_model, where model is
 substituted with the model name.</p>
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p>Other npis: 
+<code><a href="npi_add_all.html">npi_add_all</a>()</code>,
+<code><a href="npi_add_masking.html">npi_add_masking</a>()</code>,
+<code><a href="npi_add_vaccine.html">npi_add_vaccine</a>()</code></p></div>
     </div>
 
     <div id="ref-examples">

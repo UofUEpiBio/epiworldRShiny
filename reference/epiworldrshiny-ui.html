@@ -154,14 +154,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="network_inputs_SEIRD" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_population_size-label" for="SEIRD_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -170,6 +164,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_k-label" for="SEIRD_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="SEIRD_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_directed-label" for="SEIRD_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div&gt;</span>
@@ -178,10 +175,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;script type="application/json" data-for="SEIRD_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_prob_rewiring-label" for="SEIRD_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">npis_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="npis_header_SEIRD"&gt;</span>
@@ -195,6 +197,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="npis_inputs_SEIRD" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_prevalence-label" for="SEIRD_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -266,14 +275,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_seir" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_population_size-label" for="seir_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -282,6 +285,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_k-label" for="seir_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_directed-label" for="seir_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -290,10 +296,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="seir_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_prob_rewiring-label" for="seir_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seir"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -306,6 +317,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_prevalence-label" for="seir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -380,6 +398,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seirconn" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_prevalence-label" for="seirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -478,6 +503,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seirconnequity" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_prevalence-label" for="seirconnequity_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -549,14 +581,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_seird" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_population_size-label" for="seird_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -565,6 +591,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_k-label" for="seird_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_directed-label" for="seird_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -573,10 +602,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="seird_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_prob_rewiring-label" for="seird_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seird"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -589,6 +623,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_seird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_prevalence-label" for="seird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -652,14 +693,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sir" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_population_size-label" for="sir_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -668,6 +703,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_k-label" for="sir_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_directed-label" for="sir_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -676,10 +714,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sir_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_prob_rewiring-label" for="sir_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sir"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -692,6 +735,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sir" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_prevalence-label" for="sir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -762,6 +812,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sirconn" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_prevalence-label" for="sirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -829,14 +886,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sird" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_population_size-label" for="sird_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -845,6 +896,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_k-label" for="sird_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_directed-label" for="sird_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -853,10 +907,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sird_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_prob_rewiring-label" for="sird_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sird"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -869,6 +928,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sird" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_prevalence-label" for="sird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -932,14 +998,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sis" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_population_size-label" for="sis_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -948,6 +1008,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_k-label" for="sis_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sis_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_directed-label" for="sis_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -956,10 +1019,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sis_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_prob_rewiring-label" for="sis_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sis"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -972,6 +1040,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sis" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_prevalence-label" for="sis_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -1039,14 +1114,8 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_inputs_sisd" class="shinyjs-hide"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;This input option allows for the modification of population</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    structure parameters. Number of ties refers to the number of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on average.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Directed referes to whether or not an interaction between two</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents goes one-way or two-way. The probability of rewiring is</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    the probability that an agent becomes disconnected from their</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    location within the network, and relocates to another location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    within the same network. &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The below parameters affect the network structure and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_population_size-label" for="sisd_population_size"&gt;Population Size&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_population_size" data-skin="shiny" data-min="0" data-max="100000" data-from="50000" data-step="1000" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
@@ -1055,6 +1124,9 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_k-label" for="sisd_k"&gt;Number of Ties&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sisd_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The number of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    agents each individual agent is expected to meet, on</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    average.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_directed-label" for="sisd_directed"&gt;Directed&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div&gt;</span>
@@ -1063,10 +1135,15 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;script type="application/json" data-for="sisd_directed" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;Whether or not an interaction between two agents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    is one-way or two-way.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_prob_rewiring-label" for="sisd_prob_rewiring"&gt;Probability of Rewiring&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_prob_rewiring" data-skin="shiny" data-min="0" data-max="1" data-from="0.20" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;The probability that an agent becomes disconnected from</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     their location within the network, and relocates to another</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     location within the same network&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sisd"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
@@ -1079,6 +1156,13 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_inputs_sisd" class="shinyjs-hide"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;style&gt;p { padding: 0 20px; }&lt;/style&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       More details about the implementation of the below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 interventions can be found in the epiworldRShiny</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_prevalence-label" for="sisd_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>

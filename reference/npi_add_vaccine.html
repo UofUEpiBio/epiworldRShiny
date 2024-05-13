@@ -66,14 +66,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi_add_vaccine</span><span class="op">(</span></span>
-<span>  <span class="va">model</span>,</span>
-<span>  <span class="va">preval</span>,</span>
-<span>  susceptibility_reduction <span class="op">=</span> <span class="fl">0.9</span>,</span>
-<span>  transmission_reduction <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  recovery_enhancer <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  death_reduction <span class="op">=</span> <span class="fl">0.9</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi_add_vaccine</span><span class="op">(</span><span class="va">model</span>, <span class="va">preval</span>, <span class="va">sus_red</span>, <span class="va">trans_red</span>, <span class="va">rec_enhan</span>, <span class="va">death_red</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -133,6 +126,7 @@ substituted with the model name.</p>
 <span class="r-in"><span><span class="fu">npi_add_vaccine</span><span class="op">(</span><span class="va">model</span>, preval <span class="op">=</span> <span class="fl">.8</span>, susceptibility_reduction <span class="op">=</span> <span class="fl">.9</span>,</span></span>
 <span class="r-in"><span>                transmission_reduction <span class="op">=</span> <span class="fl">.5</span>, recovery_enhancer <span class="op">=</span> <span class="fl">.5</span>,</span></span>
 <span class="r-in"><span>                death_reduction <span class="op">=</span> <span class="fl">.9</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in npi_add_vaccine(model, preval = 0.8, susceptibility_reduction = 0.9,     transmission_reduction = 0.5, recovery_enhancer = 0.5, death_reduction = 0.9):</span> unused arguments (susceptibility_reduction = 0.9, transmission_reduction = 0.5, recovery_enhancer = 0.5, death_reduction = 0.9)</span>
 </code></pre></div>
     </div>
   </div>

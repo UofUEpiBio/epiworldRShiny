@@ -204,13 +204,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_prevalence-label" for="SEIRD_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_susceptibility_reduction-label" for="SEIRD_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_transmission_reduction-label" for="SEIRD_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_recovery_enhancer-label" for="SEIRD_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_vaccine_death_reduction-label" for="SEIRD_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_masking_prevalence-label" for="SEIRD_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_masking_transmission_reduction-label" for="SEIRD_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;h1&gt;</span>
@@ -218,12 +248,16 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_prevalence-label" for="SEIRD_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_prevalence-label" for="SEIRD_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_day-label" for="SEIRD_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_day-label" for="SEIRD_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="SEIRD_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="SEIRD_school_closure_transmission_reduction-label" for="SEIRD_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input class="js-range-slider" id="SEIRD_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">seed_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
@@ -262,7 +296,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_seed-label" for="seir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_seir"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -324,13 +357,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_prevalence-label" for="seir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_susceptibility_reduction-label" for="seir_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_transmission_reduction-label" for="seir_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_recovery_enhancer-label" for="seir_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_vaccine_death_reduction-label" for="seir_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_masking_prevalence-label" for="seir_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_masking_transmission_reduction-label" for="seir_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -338,14 +401,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_prevalence-label" for="seir_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_prevalence-label" for="seir_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_day-label" for="seir_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_day-label" for="seir_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seir_school_closure_transmission_reduction-label" for="seir_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seir_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $seirconn_panel</span>
@@ -386,7 +454,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_seed-label" for="seirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_seirconn"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -405,13 +472,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_prevalence-label" for="seirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_susceptibility_reduction-label" for="seirconn_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_transmission_reduction-label" for="seirconn_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_recovery_enhancer-label" for="seirconn_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_vaccine_death_reduction-label" for="seirconn_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_masking_prevalence-label" for="seirconn_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_masking_transmission_reduction-label" for="seirconn_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -419,14 +516,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_prevalence-label" for="seirconn_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_prevalence-label" for="seirconn_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_day-label" for="seirconn_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_day-label" for="seirconn_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconn_school_closure_transmission_reduction-label" for="seirconn_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconn_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $seirconnequity_panel</span>
@@ -467,7 +569,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_seed-label" for="seirconnequity_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconnequity" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="population_header_seirconnequity"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -510,13 +611,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_prevalence-label" for="seirconnequity_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_susceptibility_reduction-label" for="seirconnequity_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_transmission_reduction-label" for="seirconnequity_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_recovery_enhancer-label" for="seirconnequity_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_vaccine_death_reduction-label" for="seirconnequity_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_masking_prevalence-label" for="seirconnequity_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_masking_transmission_reduction-label" for="seirconnequity_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -524,14 +655,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_prevalence-label" for="seirconnequity_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_prevalence-label" for="seirconnequity_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_day-label" for="seirconnequity_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_day-label" for="seirconnequity_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seirconnequity_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seirconnequity_school_closure_transmission_reduction-label" for="seirconnequity_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seirconnequity_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seirconnequity" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $seird_panel</span>
@@ -568,7 +704,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_seed-label" for="seird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_seird"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -630,13 +765,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_prevalence-label" for="seird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_susceptibility_reduction-label" for="seird_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_transmission_reduction-label" for="seird_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_recovery_enhancer-label" for="seird_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_vaccine_death_reduction-label" for="seird_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_masking_prevalence-label" for="seird_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_masking_transmission_reduction-label" for="seird_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -644,14 +809,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_prevalence-label" for="seird_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_prevalence-label" for="seird_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_day-label" for="seird_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_day-label" for="seird_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="seird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="seird_school_closure_transmission_reduction-label" for="seird_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="seird_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_seird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sir_panel</span>
@@ -680,7 +850,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_seed-label" for="sir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sir"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -742,13 +911,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_prevalence-label" for="sir_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_susceptibility_reduction-label" for="sir_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_transmission_reduction-label" for="sir_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_recovery_enhancer-label" for="sir_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_vaccine_death_reduction-label" for="sir_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_masking_prevalence-label" for="sir_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_masking_transmission_reduction-label" for="sir_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -756,14 +955,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_prevalence-label" for="sir_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_prevalence-label" for="sir_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_day-label" for="sir_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_day-label" for="sir_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sir_school_closure_transmission_reduction-label" for="sir_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sir_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sir" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sirconn_panel</span>
@@ -800,7 +1004,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_seed-label" for="sirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="npis_header_sirconn"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -819,13 +1022,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_prevalence-label" for="sirconn_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_susceptibility_reduction-label" for="sirconn_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_transmission_reduction-label" for="sirconn_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_recovery_enhancer-label" for="sirconn_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_vaccine_death_reduction-label" for="sirconn_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_masking_prevalence-label" for="sirconn_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_masking_transmission_reduction-label" for="sirconn_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -833,14 +1066,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_prevalence-label" for="sirconn_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_prevalence-label" for="sirconn_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_day-label" for="sirconn_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_day-label" for="sirconn_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sirconn_school_closure_transmission_reduction-label" for="sirconn_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sirconn_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sirconn" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sird_panel</span>
@@ -873,7 +1111,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_seed-label" for="sird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sird"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -935,13 +1172,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_prevalence-label" for="sird_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_susceptibility_reduction-label" for="sird_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_transmission_reduction-label" for="sird_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_recovery_enhancer-label" for="sird_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_vaccine_death_reduction-label" for="sird_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_masking_prevalence-label" for="sird_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_masking_transmission_reduction-label" for="sird_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -949,14 +1216,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_prevalence-label" for="sird_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_prevalence-label" for="sird_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_day-label" for="sird_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_day-label" for="sird_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sird_school_closure_transmission_reduction-label" for="sird_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sird_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sird" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sis_panel</span>
@@ -985,7 +1257,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_seed-label" for="sis_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sis" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sis"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -1047,13 +1318,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_prevalence-label" for="sis_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_susceptibility_reduction-label" for="sis_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_transmission_reduction-label" for="sis_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_recovery_enhancer-label" for="sis_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_vaccine_death_reduction-label" for="sis_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_masking_prevalence-label" for="sis_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_masking_transmission_reduction-label" for="sis_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -1061,14 +1362,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_prevalence-label" for="sis_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_prevalence-label" for="sis_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_day-label" for="sis_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_day-label" for="sis_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sis_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sis_school_closure_transmission_reduction-label" for="sis_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sis_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sis" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sisd_panel</span>
@@ -1101,7 +1407,6 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_seed-label" for="sisd_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sisd" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="network_header_sisd"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -1163,13 +1468,43 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;a href="https://uofuepibio.github.io/epiworldRShiny/reference/index.html"&gt;reference manual&lt;/a&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/p&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Vaccination&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_prevalence-label" for="sisd_vaccine_prevalence"&gt;% of agents vaccinated&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_susceptibility_reduction-label" for="sisd_vaccine_susceptibility_reduction"&gt;probability reduction of susceptibility&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_susceptibility_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_transmission_reduction-label" for="sisd_vaccine_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_recovery_enhancer-label" for="sisd_vaccine_recovery_enhancer"&gt;probability increase of recovery&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_recovery_enhancer" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_vaccine_death_reduction-label" for="sisd_vaccine_death_reduction"&gt;probability reduction of death&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_vaccine_death_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;h4&gt;Masking&lt;/h4&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_masking_prevalence-label" for="sisd_masking_prevalence"&gt;% of agents using masks&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_masking_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_masking_transmission_reduction-label" for="sisd_masking_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_masking_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="col-sm-12"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;h1&gt;</span>
@@ -1177,14 +1512,19 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/h1&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_prevalence-label" for="sisd_school_closure_prevalence"&gt;Prevalence&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_prevalence-label" for="sisd_school_closure_prevalence"&gt;prevalence&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_school_closure_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_day-label" for="sisd_school_closure_day"&gt;Implementation day&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_day-label" for="sisd_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="sisd_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="sisd_school_closure_transmission_reduction-label" for="sisd_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input class="js-range-slider" id="sisd_school_closure_transmission_reduction" data-skin="shiny" data-min="0" data-max="1" data-from="0" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;button id="simulate_sisd" type="button" class="btn btn-default action-button"&gt;Run Simulation&lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">population_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>

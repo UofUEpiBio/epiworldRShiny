@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="An RShiny wrapper of the R package epiworldR">
-<meta property="og:description" content="This shiny wrapper provides a user-friendly interface to the R package epiworldR. Currently, the package features the SEIR equity, SIS, SIR, SEIR, SISD, SIRD, and SEIRD models, networked and fully connected versions. Using agent-based modeling, it simulates user-defined infectious diseases through user-defined populations and returns useful insights about the spread of the disease over time.">
+<meta property="og:description" content="This shiny wrapper provides a user-friendly interface to the R package epiworldR. Currently, the package features the SEIR equity, SIS, SIR, SEIR, SISD, SIRD, and SEIRD models, networked and fully connected versions. Using epiworldRShiny, users can easily run simulations, visualize results interactively, and generate synthetic data.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -91,7 +91,7 @@
 <li>9 different epidemiological models to choose from.</li>
 <li>Built-in capability for user-defined interventions.</li>
 <li>Built-in capability to define population and disease parameters.</li>
-<li>Informative visualizations and tables provided after running each simulation.</li>
+<li>Informative visualizations and tables after running each simulation.</li>
 </ul>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -104,7 +104,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"epiworldRShiny"</span><span class="op">)</span></span></code></pre></div>
 <p>To run this ShinyApp, you need to type the following:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/epiworldRShiny.html">epiworldRShiny</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">epiworldRShiny</span><span class="fu">::</span><span class="fu"><a href="reference/epiworldRShiny.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -112,15 +112,15 @@
 <div class="section level3">
 <h3 id="example-1">Example #1<a class="anchor" aria-label="anchor" href="#example-1"></a>
 </h3>
-<p>This first example demonstrates how to run the Shiny app, run a simulation, and observe results. Notice the sidebar contains many disease and model parameters which can be altered. Changing these parameters will affect the spread of the infectious disease in the simulated population. After running the simulation, a plot of the distribution of states over time, a plot of the disease’s reproductive number over time, a model summary, and table of states counts over time are displayed.</p>
+<p>This first example demonstrates how to run the Shiny app, run a simulation, and observe results. Notice the sidebar contains many disease and model parameters that can be altered. Changing these parameters will affect the spread of the infectious disease in the simulated population. After running the simulation, a plot of the distribution of states over time, a plot of the disease’s reproductive number, a model summary, and a table of counts over time are displayed.</p>
 <p>This example features: - SEIR network model for COVID-19<br>
-- Day of peak infections occurs on day 12, maxing at about 18,000 infections.<br>
-- The disease spreads rapidly at the beginning of the simulation, and drastically decreased over the first 10 days.<br>
+The day of peak infections occurs on day 12, maxing at about 18,000 infections.<br>
+- The disease spreads rapidly at the simulation’s beginning, drastically decreasing over the first ten days.<br>
 - Model summary<br>
 - State counts table</p>
-<div class="float">
-<img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/f4e7d313-e3b6-4ebb-9c0a-ca4d53ef9cea" alt="example 1 GIF"><div class="figcaption">example 1 GIF</div>
-</div>
+<figure><img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/f4e7d313-e3b6-4ebb-9c0a-ca4d53ef9cea" alt="example 1 GIF"><figcaption aria-hidden="true">
+example 1 GIF
+</figcaption></figure>
 </div>
 <div class="section level3">
 <h3 id="example-2">Example #2<a class="anchor" aria-label="anchor" href="#example-2"></a>
@@ -128,22 +128,22 @@
 <p>This example features the implementation of the vaccine and school closure interventions to curb disease spread. All model output can be interpreted using the same logic from example #1.</p>
 <p>Key features: - SEIRD network model for COVID-19<br>
 - Vaccine prevalence = 70%<br>
-- School closure prevalance = 50%<br>
+- School closure prevalence = 50%<br>
 - Day of school closure implementation = 7<br>
 - Significantly decreased number of infections and deaths.<br>
-- Majority of population recovered or susceptible by day 30.</p>
-<div class="float">
-<img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/d5405162-f7fe-4a42-8a4c-e9a2ac31be73" alt="example 2 GIF"><div class="figcaption">example 2 GIF</div>
-</div>
+- The majority of the population recovered or was susceptible by day 30.</p>
+<figure><img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/d5405162-f7fe-4a42-8a4c-e9a2ac31be73" alt="example 2 GIF"><figcaption aria-hidden="true">
+example 2 GIF
+</figcaption></figure>
 </div>
 <div class="section level3">
 <h3 id="example-3">Example #3<a class="anchor" aria-label="anchor" href="#example-3"></a>
 </h3>
-<p>The last example features the SEIR equity model. This model is unique because it accounts for demographic diversity in a population, such as race, gender, and age. This allows for the comparison of disease spread among different demographics, unlike the previous two examples.</p>
+<p>The last example features the SEIR equity model. This model is unique because it accounts for demographic diversity in a population, such as race, gender, and age. This allows for comparing disease spread among different demographics, unlike the previous two examples.</p>
 <p>Key features: - SEIR equity model for COVID-19 - 30% hispanic population, 70% non-hispanic - 52% female population - 30% of population younger than 20 years old - 30% of population between 20 and 60 years old - 40% of population older than 60.</p>
-<div class="float">
-<img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/20aeb62d-cb42-4882-8577-a3406f167bca" alt="example 3 GIF"><div class="figcaption">example 3 GIF</div>
-</div>
+<figure><img src="https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/20aeb62d-cb42-4882-8577-a3406f167bca" alt="example 3 GIF"><figcaption aria-hidden="true">
+example 3 GIF
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -194,6 +194,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml" class="external-link"><img src="https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://CRAN.R-project.org/package=epiworldRShiny" class="external-link"><img src="https://www.r-pkg.org/badges/version/epiworldRShiny" alt="CRAN status"></a></li>
 </ul>
 </div>
 

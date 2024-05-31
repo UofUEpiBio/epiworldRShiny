@@ -129,7 +129,11 @@ build the UI for the epiworldRShiny app.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_disease_name-label" for="SEIRD_disease_name"&gt;Disease&lt;/label&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
-<span class="r-in"><span><span class="co"># slider_prevalence("SEIRD")</span></span></span>
+<span class="r-in"><span><span class="fu">slider_prevalence</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_prevalence-label" for="SEIRD_prevalence"&gt;% of population infected&lt;/label&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input class="js-range-slider" id="SEIRD_prevalence" data-skin="shiny" data-min="0" data-max="1" data-from="0.1" data-step="0.01" data-grid="false" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">numeric_input_ndays</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_n_days-label" for="SEIRD_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>

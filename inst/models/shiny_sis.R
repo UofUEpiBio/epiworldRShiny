@@ -74,7 +74,7 @@ sis_panel <- function(model_alt) {
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("sis"),
     slider_prevalence("sis"),
-    slider_input_rate("sis", "Probability of exposure (daily)", 0.05, input_label = "transmission_rate"),
+    slider_input_rate("sis", "Transmission probability", 0.05, input_label = "transmission_rate"),
     slider_input_rate("sis", "Recovery probability (daily)", 0.14, input_label = "recovery_rate"),
     numeric_input_ndays("sis"),
     seed_input("sis"),

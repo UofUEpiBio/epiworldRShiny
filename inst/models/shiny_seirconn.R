@@ -52,7 +52,7 @@ seirconn_panel <- function(model_alt) {
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("seirconn"),
     slider_prevalence("seirconn"),
-    slider_input_rate("seirconn", "Probability of exposure (daily)", 0.1, input_label = "transmission_rate"),
+    slider_input_rate("seirconn", "Transmission probability", 0.1, input_label = "transmission_rate"),
     slider_input_rate("seirconn", "Recovery probability (daily)", 0.14, input_label = "recovery_rate"),
     slider_input_rate("seirconn", "Contact Rate", 4, maxval = 20),
     shiny::numericInput(

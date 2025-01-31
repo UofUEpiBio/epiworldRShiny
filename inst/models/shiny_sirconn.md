@@ -8,7 +8,7 @@ The SIR model has the following parameters:
 
 - **Disease Name**: The name of the disease being modeled.
 - **% of Population Infected**: The percentage of the population that is infected at the start of the simulation.
-- **Probability of exposure (daily)**: The probability that an individual will be exposed to the virus on a given day.
+- **Transmission probability**: Probability of becoming infected (or exposed, depending on the model) when interacting with an infectious agent.
 - **Recovery probability (daily)**: The probability that an individual will recover from the virus on a given day.
 - **Contact rate**: The number of average contacts that an individual has per day.
 - **Simulation Time (Days)**: The number of days to simulate.

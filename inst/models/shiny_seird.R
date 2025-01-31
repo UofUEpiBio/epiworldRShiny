@@ -75,7 +75,7 @@ seird_panel <- function(model_alt) {
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("seird"),
     slider_prevalence("seird"),
-    slider_input_rate("seird", "Probability of exposure (daily)", "0.05", input_label = "transmission_rate"),
+    slider_input_rate("seird", "Transmission probability", "0.05", input_label = "transmission_rate"),
     slider_input_rate("seird", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
     slider_input_rate("seird", "Probability of death (daily)", 0.01, input_label = "death_rate"),
     shiny::numericInput(

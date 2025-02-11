@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.3.3
+FROM rocker/tidyverse:4.4.1
 
 # Installing only packages that are not already installed in the base image
 RUN install2.r -s \

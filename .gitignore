@@ -1,3 +1,5 @@
 .Rproj.user
 .Rhistory
 .secrets.R
+
+*.DS_Store

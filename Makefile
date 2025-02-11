@@ -21,6 +21,8 @@ install:
 run:
 	Rscript --vanilla -e 'epiworldRShiny::epiworldRShiny()'
 
+dev: build install run
+
 check:
 	cd .. && R CMD check $(PKG_NAME)_$(PKG_VERSION).tar.gz
 

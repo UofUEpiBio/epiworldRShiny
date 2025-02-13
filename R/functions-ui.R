@@ -305,7 +305,7 @@ seed_input <- function(model_name) {
 #' @rdname epiworldrshiny-ui
 #' @examples
 #' models_setup()
-models_setup <- function(custom_models_path) {
+models_setup <- function(custom_models_path = NULL) {
 
   # Getting the environment
   env <- parent.frame()

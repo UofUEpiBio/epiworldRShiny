@@ -28,7 +28,7 @@ npis_input(model_name)
 
 seed_input(model_name)
 
-models_setup(custom_models_path)
+models_setup(custom_models_path = NULL)
 
 population_input(model_name)
 

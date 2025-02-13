@@ -34,6 +34,12 @@ library(epiworldRShiny)
 # epiworldRShiny()
 ```
 
+The application comes with many pre-built models (SIR, SEIR, etc.), but you can use the app with custom-built models by passing a path to your models when running the app
+```
+# epiworldRShiny("path/to/custom/models")
+```
+Custom models will be added to the top of the list of available models (above the pre-built options) and tagged as "(custom)".
+
 ## Model set-up
   
 After launching the application, notice the sidebar contains many disease and model parameters which can be modified. Altering these parameters will affect the spread of the infectious disease in the simulated population. Name the disease 

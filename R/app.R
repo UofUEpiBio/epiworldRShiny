@@ -150,10 +150,16 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     output$model_description <- shiny::renderText({
 
       # Reading the model description from the package
+      # - First check the prebuilt models
       fn <- system.file(
         "models", paste0("shiny_", model_id(), ".md"),
         package = "epiworldRShiny"
       )
+
+      # If the model is not found in the prebuilt models, check the custom models
+      if (!file.exists(fn)) {
+        fn <- paste0(custom_models_path, paste0("/shiny_", model_id(), ".md"))
+      }
 
       contents <- if (file.exists(fn))
         readLines(fn, warn = FALSE)

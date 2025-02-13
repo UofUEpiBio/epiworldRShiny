@@ -33,15 +33,16 @@ epiworldRenv <- function() {
 }
 
 #' @export
+#' @param custom_models_path Optional path to custom model files.
 #' @rdname epiworldRShiny
-epiworldRShiny <- function(...) {
+epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   # If the package is not loaded, load it
   if (!"epiworldRShiny" %in% search()) {
     library(epiworldRShiny)
   }
 
-  models_setup()
+  models_setup(custom_models_path)
 
   header <- shinydashboard::dashboardHeader(
     title = shiny::HTML(
@@ -49,6 +50,7 @@ epiworldRShiny <- function(...) {
       )
   )
 
+  # Sets CSS cursor style for headers
   cursor_header_pointer <-
     sprintf(
       "#npis_header_%1$s, #network_header_%1$s, #population_header_%1$s",

@@ -319,6 +319,9 @@ models_setup <- function(custom_models_path) {
       full.names = TRUE
       )
 
+
+    # Read in custom models
+    num_custom_models <- 0
     if (!is.null(custom_models_path)) {
       custom_models <- list.files(
         custom_models_path,
@@ -326,6 +329,7 @@ models_setup <- function(custom_models_path) {
         full.names = TRUE
         )
 
+      num_custom_models <- length(custom_models)
       models <- c(custom_models, models)
     }
 
@@ -335,8 +339,6 @@ models_setup <- function(custom_models_path) {
     }
 
     # Capturing alt names
-    # - TODO: need to prepend "(custom)" to just the models added by the user
-    #   - custom_models <- paste("(custom)", custom_models, sep = " ")
     models_names <- sapply(models, \(f) {
 
       # Only on the first line
@@ -352,6 +354,12 @@ models_setup <- function(custom_models_path) {
       altname
 
     })
+
+    # If model is custom (user-defined), prepend "(custom)"
+    if (num_custom_models > 0) {
+      for (i in 1:num_custom_models) 
+        models_names[i] <- paste("(custom)", models_names[i], sep = " ")
+    }    
 
     # Get the model names from the file names
     models <- gsub("^.+shiny_([^.]+).R$", "\\1", models)

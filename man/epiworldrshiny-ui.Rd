@@ -28,7 +28,7 @@ npis_input(model_name)
 
 seed_input(model_name)
 
-models_setup()
+models_setup(custom_models_path)
 
 population_input(model_name)
 
@@ -44,6 +44,8 @@ simulate_button(model_name)
 \item{maxval}{Maxiumum value for the slider.}
 
 \item{input_label}{Aids in creating the appropriate slider name.}
+
+\item{custom_models_path}{Path to custom model files.}
 }
 \value{
 \itemize{

@@ -11,6 +11,7 @@ README.html
 Dockerimage
 epishiny
 Dockerfile
+.devcontainer
 
 # Adding the vignettes as these are heavy
 vignettes/

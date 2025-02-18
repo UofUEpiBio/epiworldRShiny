@@ -1,13 +1,15 @@
 Package: epiworldRShiny
 Type: Package
 Title: A 'shiny' Wrapper of the R Package 'epiworldR'
-Version: 0.1-1
-Date: 2025-01-30
+Version: 0.1-2
+Date: 2025-02-18
 Authors@R: c(
   person("George", "Vega Yon", role=c("aut"),
   email="g.vegayon@gmail.com", comment = c(ORCID = "0000-0002-3171-0844")),
   person("Derek", "Meyer", role=c("aut","cre"), 
   email="derekmeyer37@gmail.com", comment = c(ORCID = "0009-0005-1350-6988")),
+  person("Andrew", "Pulsipher", role=c("aut"),
+  email="pulsipher.a@gmail.com", comment = c(ORCID = "0000-0002-0773-3210")),
   person("Centers for Disease Control and Prevention", role="fnd", comment = "Award number 1U01CK000585; 75D30121F00003"
   ),
   person("Lindsay", "Keegan", role=c("ctb"), email="lindsay.keegan@utah.edu", comment = c(ORCID = "0000-0002-8526-3007")),

@@ -51,7 +51,7 @@ sirconn_panel <- function(model_alt) {
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("sirconn"),
     slider_prevalence("sirconn"),
-    slider_input_rate("sirconn", "Probability of exposure (daily)", 0.1, input_label = "transmission_rate"),
+    slider_input_rate("sirconn", "Transmission probability", 0.1, input_label = "transmission_rate"),
     slider_input_rate("sirconn", "Recovery probability (daily)", 0.14, input_label = "recovery_rate"),
     slider_input_rate("sirconn", "Contact Rate", 4, maxval = 20),
     shiny::sliderInput(

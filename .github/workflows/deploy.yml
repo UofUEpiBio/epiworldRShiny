@@ -9,7 +9,7 @@ jobs:
     container: 
       image: gvegayon/epiworldrshiny:latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Deploy
         env:

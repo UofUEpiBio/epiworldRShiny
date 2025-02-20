@@ -10,7 +10,7 @@ epiworldRShiny(custom_models_path = NULL, ...)
 run_app(custom_models_path = NULL, ...)
 }
 \arguments{
-\item{custom_models_path}{Optional path to custom model files.}
+\item{custom_models_path}{Optional path to custom model files (see details).}
 
 \item{...}{Currently ignored.}
 }
@@ -23,4 +23,17 @@ the package's website: \url{https://UofUEpiBio.github.io/epiworldRShiny/}.
 
 \code{run_app} is a wrapper for the \code{epiworldRShiny} function. It is a
 convenience function to run the app.
+}
+\details{
+When \code{custom_models_path} is specified, the function will look for valid model files
+at the specified path. These will be added to the list of available models.
+The function expects R files named \verb{shiny_<model_name>.R} which contain the model.
+The function will also look for optional Markdown files named \verb{shiny_<model_name>.md}
+which contain the model description.
+}
+\examples{
+# Launch the app with default models only:
+epiworldRShiny()
+# Launch the app with default and custom models:
+# epiworldRShiny(custom_models_path = "path/to/custom/models")
 }

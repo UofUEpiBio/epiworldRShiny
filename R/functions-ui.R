@@ -299,12 +299,19 @@ seed_input <- function(model_name) {
 }
 
 #' @export
-#' @param custom_models_path Path to custom model files.
+#' @param custom_models_path Optional path to custom model files (see details).
+#' @details
+#' When `custom_models_path` is specified, the function will look for valid model files
+#' at the specified path. These will be added to the list of available models.
+#' The function expects R files named `shiny_<model_name>.R` which contain the model.
 #' @return
 #' - `models_setup` returns an object of class list.
 #' @rdname epiworldrshiny-ui
 #' @examples
+#' # Setup with default models only:
 #' models_setup()
+#' # Setup with default and custom models:
+#' # models_setup(custom_models_path = "path/to/custom/models")
 models_setup <- function(custom_models_path = NULL) {
 
   # Getting the environment

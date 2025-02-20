@@ -33,8 +33,19 @@ epiworldRenv <- function() {
 }
 
 #' @export
-#' @param custom_models_path Optional path to custom model files.
+#' @param custom_models_path Optional path to custom model files (see details).
+#' @details
+#' When `custom_models_path` is specified, the function will look for valid model files
+#' at the specified path. These will be added to the list of available models.
+#' The function expects R files named `shiny_<model_name>.R` which contain the model.
+#' The function will also look for optional Markdown files named `shiny_<model_name>.md`
+#' which contain the model description.
 #' @rdname epiworldRShiny
+#' @examples
+#' # Launch the app with default models only:
+#' epiworldRShiny()
+#' # Launch the app with default and custom models:
+#' # epiworldRShiny(custom_models_path = "path/to/custom/models")
 epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   # If the package is not loaded, load it

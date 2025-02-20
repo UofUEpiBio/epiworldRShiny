@@ -45,7 +45,7 @@ simulate_button(model_name)
 
 \item{input_label}{Aids in creating the appropriate slider name.}
 
-\item{custom_models_path}{Path to custom model files.}
+\item{custom_models_path}{Optional path to custom model files (see details).}
 }
 \value{
 \itemize{
@@ -72,6 +72,11 @@ simulate_button(model_name)
 All functions in this section are for internal use only. They are used to
 build the UI for the epiworldRShiny app.
 }
+\details{
+When \code{custom_models_path} is specified, the function will look for valid model files
+at the specified path. These will be added to the list of available models.
+The function expects R files named \verb{shiny_<model_name>.R} which contain the model.
+}
 \examples{
 text_input_disease_name("SEIRD")
 slider_prevalence("SEIRD")
@@ -81,7 +86,10 @@ input_label = NULL)
 network_input("SEIRD")
 npis_input("SEIRD")
 seed_input("SEIRD")
+# Setup with default models only:
 models_setup()
+# Setup with default and custom models:
+# models_setup(custom_models_path = "path/to/custom/models")
 population_input("SEIRD")
 simulate_button("SEIRD")
 }

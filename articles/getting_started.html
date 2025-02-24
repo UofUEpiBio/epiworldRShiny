@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">epiworldRShiny</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1-2</span>
       </span>
     </div>
 
@@ -86,7 +86,7 @@ Meyer</h4>
                         <h4 data-toc-skip class="author">George Vega
 Yon</h4>
             
-            <h4 data-toc-skip class="date">2025-02-19</h4>
+            <h4 data-toc-skip class="date">2025-02-24</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UofUEpiBio/epiworldRShiny/blob/main/vignettes/getting_started.Rmd" class="external-link"><code>vignettes/getting_started.Rmd</code></a></small>
       <div class="hidden name"><code>getting_started.Rmd</code></div>
@@ -120,6 +120,12 @@ application, use call the function, epiworldRShiny().</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UofUEpiBio/epiworldRShiny/" class="external-link">epiworldRShiny</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: shiny</span></span>
 <span><span class="co"># epiworldRShiny()</span></span></code></pre></div>
+<p>The application comes with many pre-built models (SIR, SEIR, etc.),
+but you can use the app with custom-built models by passing a path to
+your models when running the app</p>
+<pre><code><span><span class="co"># epiworldRShiny("path/to/custom/models")</span></span></code></pre>
+<p>Custom models will be added to the top of the list of available
+models (above the pre-built options) and tagged as “(custom)”.</p>
 </div>
 <div class="section level3">
 <h3 id="model-set-up">Model set-up<a class="anchor" aria-label="anchor" href="#model-set-up"></a>
@@ -198,7 +204,7 @@ count in bold font.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by George Vega Yon, Derek Meyer, Centers for Disease Control and Prevention.</p>
+<p>Developed by George Vega Yon, Derek Meyer, Andrew Pulsipher, Centers for Disease Control and Prevention.</p>
 </div>
 
 <div class="pkgdown">

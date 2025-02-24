@@ -20,7 +20,7 @@ convenience function to run the app."><!-- mathjax --><script src="https://cdnjs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">epiworldRShiny</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1-2</span>
       </span>
     </div>
 
@@ -72,22 +72,34 @@ convenience function to run the app.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">epiworldRShiny</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">epiworldRShiny</span><span class="op">(</span>custom_models_path <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">run_app</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">run_app</span><span class="op">(</span>custom_models_path <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dl><dt id="arg-custom-models-path">custom_models_path<a class="anchor" aria-label="anchor" href="#arg-custom-models-path"></a></dt>
+<dd><p>Optional path to custom model files (see details).</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Currently ignored.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>Loads and opens the R shiny app for the epiworldR package</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>When <code>custom_models_path</code> is specified, the function will look for valid model files
+at the specified path. These will be added to the list of available models.
+The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which contain the model.
+The function will also look for optional Markdown files named <code>shiny_&lt;model_name&gt;.md</code>
+which contain the model description.</p>
     </div>
 
   </div>
@@ -98,7 +110,7 @@ convenience function to run the app.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by George Vega Yon, Derek Meyer, Centers for Disease Control and Prevention.</p>
+  <p></p><p>Developed by George Vega Yon, Derek Meyer, Andrew Pulsipher, Centers for Disease Control and Prevention.</p>
 </div>
 
 <div class="pkgdown">

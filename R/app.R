@@ -45,7 +45,7 @@ epiworldRenv <- function() {
 #' # Launch the app with default models only:
 #' epiworldRShiny()
 #' # Launch the app with default and custom models:
-#' # epiworldRShiny(custom_models_path = "path/to/custom/models")
+#' \dontrun{epiworldRShiny(custom_models_path = "path/to/custom/models")}
 epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   # If the package is not loaded, load it

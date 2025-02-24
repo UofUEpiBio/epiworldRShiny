@@ -311,7 +311,7 @@ seed_input <- function(model_name) {
 #' # Setup with default models only:
 #' models_setup()
 #' # Setup with default and custom models:
-#' # models_setup(custom_models_path = "path/to/custom/models")
+#' \dontrun{models_setup(custom_models_path = "path/to/custom/models")}
 models_setup <- function(custom_models_path = NULL) {
 
   # Getting the environment

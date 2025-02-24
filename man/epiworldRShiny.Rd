@@ -35,5 +35,5 @@ which contain the model description.
 # Launch the app with default models only:
 epiworldRShiny()
 # Launch the app with default and custom models:
-# epiworldRShiny(custom_models_path = "path/to/custom/models")
+\dontrun{epiworldRShiny(custom_models_path = "path/to/custom/models")}
 }

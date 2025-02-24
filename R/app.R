@@ -41,11 +41,6 @@ epiworldRenv <- function() {
 #' The function will also look for optional Markdown files named `shiny_<model_name>.md`
 #' which contain the model description.
 #' @rdname epiworldRShiny
-#' @examples
-#' # Launch the app with default models only:
-#' epiworldRShiny()
-#' # Launch the app with default and custom models:
-#' \dontrun{epiworldRShiny(custom_models_path = "path/to/custom/models")}
 epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   # If the package is not loaded, load it

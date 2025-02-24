@@ -31,9 +31,3 @@ The function expects R files named \verb{shiny_<model_name>.R} which contain the
 The function will also look for optional Markdown files named \verb{shiny_<model_name>.md}
 which contain the model description.
 }
-\examples{
-# Launch the app with default models only:
-epiworldRShiny()
-# Launch the app with default and custom models:
-\dontrun{epiworldRShiny(custom_models_path = "path/to/custom/models")}
-}

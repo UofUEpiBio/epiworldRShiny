@@ -49,6 +49,7 @@ shiny_seirconn <- function(input) {
 
 seirconn_panel <- function(model_alt) {
   shiny::conditionalPanel(
+    simulate_button("seirconn"),
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("seirconn"),
     slider_prevalence("seirconn"),
@@ -74,8 +75,7 @@ seirconn_panel <- function(model_alt) {
     ),
     numeric_input_ndays("seirconn"),
     seed_input("seirconn"),
-    npis_input("seirconn"),
-    simulate_button("seirconn")
+    npis_input("seirconn")
   )
 }
 

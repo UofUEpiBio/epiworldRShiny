@@ -59,6 +59,7 @@ shiny_sird <- function(input) {
 sird_panel <- function(model_alt) {
 
   shiny::conditionalPanel(
+    simulate_button("sird"),
     condition = sprintf("input.model == '%s'", model_alt),
     text_input_disease_name("sird"),
     slider_prevalence("sird"),
@@ -68,8 +69,7 @@ sird_panel <- function(model_alt) {
     numeric_input_ndays("sird"),
     seed_input("sird"),
     network_input("sird"),
-    npis_input("sird"),
-    simulate_button("sird")
+    npis_input("sird")
   )
 
 }

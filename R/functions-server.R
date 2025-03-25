@@ -98,8 +98,10 @@ plot_epi <- function(model, mark_max) {
     mark_max <- "Infected"
 
   # Obtain time of peak infections
-  df_model <- epiworldR::get_hist_total(model)[epiworldR::get_hist_total(model)$state
-                                          == mark_max,]
+  df_model <- epiworldR::get_hist_total(model)[
+    epiworldR::get_hist_total(model)$state %in% mark_max,
+    ]
+
   peak_time <- which.max(df_model$counts) - 1
 
   # Begin plotting code
@@ -129,7 +131,7 @@ plot_epi <- function(model, mark_max) {
   )
 
   # Defining range of x values by max date as the max
-  curves <- curves[curves$date < max_date,]
+  # curves <- curves[curves$date < max_date,]
   # Defining range of y values
   counts_range <- range(curves$counts)
 

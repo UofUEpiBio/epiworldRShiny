@@ -19,7 +19,7 @@ install:
 	cd .. && R CMD INSTALL $(PKG_NAME)_$(PKG_VERSION).tar.gz
 
 run:
-	Rscript --vanilla -e 'epiworldRShiny::epiworldRShiny()'
+	Rscript --vanilla -e 'epiworldRShiny::epiworldRShiny(".")'
 
 dev: build install run
 

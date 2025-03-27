@@ -1,7 +1,7 @@
 Package: epiworldRShiny
 Type: Package
 Title: A 'shiny' Wrapper of the R Package 'epiworldR'
-Version: 0.1-2
+Version: 0.2-0
 Date: 2025-02-18
 Authors@R: c(
   person("George", "Vega Yon", role=c("aut"),
@@ -30,9 +30,7 @@ Roxygen: list(markdown = TRUE)
 Suggests:
     knitr
 Imports: 
-    shinyjs,
     utils,
-    shinydashboard,
     DT,
     ggplot2,
     epiworldR,

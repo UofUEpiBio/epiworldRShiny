@@ -5,12 +5,10 @@
 #' the package's website: <https://UofUEpiBio.github.io/epiworldRShiny/>.
 #' 
 #' @import epiworldR
-#' @import shinydashboard
 #' @importFrom DT dataTableOutput renderDataTable
 #' @import ggplot2
 #' @import shinycssloaders
 #' @importFrom plotly plot_ly add_markers add_segments layout
-#' @importFrom shinyjs hidden useShinyjs toggle
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion
 #'
@@ -19,6 +17,8 @@
 #' @export
 #' @name epiworldRShiny
 NULL
+# @import shinydashboard
+# @importFrom shinyjs hidden useShinyjs toggle
 
 epiworldR_env <- new.env()
 
@@ -50,7 +50,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   models_setup(custom_models_path)
 
-  header <- shinydashboard::dashboardHeader(
+  header <- shiny::titlePanel( # shinydashboard::dashboardHeader(
     title = shiny::HTML(
       'epiworldR <text style="color: gray; font-size:50%">(beta)</text>'
       )
@@ -66,24 +66,21 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     paste("{\n  cursor: pointer;\n}\n")
 
   sidebar <- do.call(
-    "dashboardSidebar",
+    bslib::sidebar,
     c(
       list(
-        width = NULL,
-        shiny::tags$style(
-          paste0(
-            "#sidebarItemExpanded {overflow: auto;max-height: 100vh;}",
-            cursor_header_pointer
-          )
-        ),
-        shinyjs::useShinyjs(),
+        width = 300,
+        # shinyjs::useShinyjs(),
         shiny::selectInput(
           inputId = "model",
           label = shiny::h3("Model"),
           choices = unname(epiworldRenv()$models_names)
         )
       ),
-      mget(paste0(epiworldRenv()$models, "_panel"), envir = epiworldRenv())
+      # Need to pass it unnamed
+      unname(
+        mget(paste0(epiworldRenv()$models, "_panel"), envir = epiworldRenv())
+        )
     )
   )
 
@@ -91,10 +88,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   epiworldRShiny_version <- utils::packageVersion("epiworldRShiny")
   epiworldR_version <- utils::packageVersion("epiworldR")
 
-  body <- shinydashboard::dashboardBody(
-    shiny::fluidRow(
-      shiny::column(12, shiny::htmlOutput("model_description"))
-    ),
+  body <- shiny::mainPanel(# shinydashboard::dashboardBody(
     shiny::uiOutput("model_body"),
     shiny::htmlOutput("download_button"),
     shiny::tags$style(type = 'text/css', "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
@@ -114,25 +108,24 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     )
   )
 
-    ui <- shinydashboard::dashboardPage(
-      header = header,
-      sidebar = sidebar,
-      body = body,
-      skin = "black"
-    )
+  ui <- bslib::page_sidebar( # shinydashboard::dashboardPage(
+    title = header,
+    sidebar = sidebar,
+    body
+  )
 
   server <- function(input, output, session) {
 
-    # Functions to toggle the advanced options
-    for (i in c("npis", "network", "population", "advanced")) {
-      for (m in epiworldRenv()$models) {
-        local({
-          id0 <- paste0(i, "_header_", m)
-          id1 <- paste0(i, "_inputs_", m)
-          shinyjs::onclick(id = id0, shinyjs::toggle(id = id1, anim = TRUE))
-        })
-      }
-    }
+    # # Functions to toggle the advanced options
+    # for (i in c("npis", "network", "population", "advanced")) {
+    #   for (m in epiworldRenv()$models) {
+    #     local({
+    #       id0 <- paste0(i, "_header_", m)
+    #       id1 <- paste0(i, "_inputs_", m)
+    #       shinyjs::onclick(id = id0, shinyjs::toggle(id = id1, anim = TRUE))
+    #     })
+    #   }
+    # }
 
     # Getting the model ID
     model_id <- shiny::reactive(epiworldRenv()$models[input$model])
@@ -174,7 +167,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       if (exists(paste0("body_", model_id()), envir = epiworldRenv())) {
 
         body_fun <- get(paste0("body_", model_id()), envir = epiworldRenv())
-        body_fun(model_output, output)
+        body_fun(input, model_output, output)
 
       } else {
 
@@ -197,13 +190,16 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
         shiny::tagList(
           shiny::fluidRow(
-            shiny::column(6, plotly::plotlyOutput("model_plot") |> shinycssloaders::withSpinner(color = "#009bff")),
-            shiny::column(6, plotly::plotlyOutput("model_reproductive_plot") |> shinycssloaders::withSpinner(color = "#cfd9e0"))
+            shiny::column(12, shiny::htmlOutput("model_description"))
+          ),
+          shiny::fluidRow(
+            shiny::column(6, plotly::plotlyOutput("model_plot") |> spinner()),
+            shiny::column(6, plotly::plotlyOutput("model_reproductive_plot") |> spinner())
           ),
           shiny::HTML("<br>"),
           shiny::fluidRow(
-            shiny::column(6, shiny::verbatimTextOutput("model_summary") |> shinycssloaders::withSpinner(color = "#009bff")),
-            shiny::column(6, DT::dataTableOutput("model_table") |> shinycssloaders::withSpinner(color = "#009bff"))
+            shiny::column(6, shiny::verbatimTextOutput("model_summary") |> spinner()),
+            shiny::column(6, DT::dataTableOutput("model_table") |> spinner())
           )
         )
       }

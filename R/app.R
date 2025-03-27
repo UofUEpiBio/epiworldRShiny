@@ -59,7 +59,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   # Sets CSS cursor style for headers
   cursor_header_pointer <-
     sprintf(
-      "#npis_header_%1$s, #network_header_%1$s, #population_header_%1$s",
+      "#npis_header_%1$s, #network_header_%1$s, #population_header_%1$s, #advanced_header_%1$s",
       epiworldRenv()$models
     ) |>
     paste0(collapse = ", ") |>
@@ -131,7 +131,8 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   server <- function(input, output, session) {
 
-    for (i in c("npis", "network", "population")) {
+    # Functions to toggle the advanced options
+    for (i in c("npis", "network", "population", "advanced")) {
       for (m in epiworldRenv()$models) {
         local({
           id0 <- paste0(i, "_header_", m)

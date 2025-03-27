@@ -1,6 +1,7 @@
 # alt-name: Measles Quarantine
 shiny_measlesquarantine <- function(input) {
 
+  # For debugging
   # saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measlesquarantine <- epiworldR::ModelMeaslesQuarantine(
@@ -22,7 +23,7 @@ shiny_measlesquarantine <- function(input) {
     )
 
   # NPIs -----------------------------------------------------------------------
-  interventions_add_all(model_measlesquarantine, "measlesquarantine", input)
+  # interventions_add_all(model_measlesquarantine, "measlesquarantine", input)
 
   # Running and printing
   epiworldR::verbose_off(model_measlesquarantine)
@@ -83,8 +84,6 @@ shiny_measlesquarantine <- function(input) {
 
   }
 
-
-
   # Output list
   return(
     list(
@@ -110,12 +109,6 @@ measlesquarantine_panel <- function(model_alt) {
       step    = 1000,
       ticks   = FALSE
     ),
-    slider_input_rate(
-      "measlesquarantine",
-      "Contact Rate",
-      15/.99/(4 + 3),
-      maxval = 20
-      ),
     shiny::numericInput(
       inputId = "measlesquarantine_prevalence",
       label   = "Prevalence",
@@ -124,48 +117,11 @@ measlesquarantine_panel <- function(model_alt) {
       max     = NA,
       step    = 1
     ),
-    slider_input_rate("measlesquarantine", "Transmission probability", "0.99", input_label = "transmission_rate"),
-    slider_input_rate("measlesquarantine", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
-    slider_input_rate("measlesquarantine", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
-    slider_input_rate("measlesquarantine", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
-    shiny::numericInput(
-      inputId = "measlesquarantine_incubation_days",
-      label   = "Incubation Days",
-      value   = "12",
-      min     = 0,
-      max     = NA,
-      step    = 1
-      ),
-    shiny::numericInput(
-      inputId = "measlesquarantine_prodromal_period",
-      label   = "Prodromal Period (days)",
-      value   = "4",
-      min     = 0,
-      max     = NA,
-      step    = 1
-    ),
-    shiny::numericInput(
-      inputId = "measlesquarantine_rash_period",
-      label   = "Rash Period (days)",
-      value   = "3",
-      min     = 0,
-      max     = NA,
-      step    = 1
-    ),
     shiny::numericInput(
       inputId = "measlesquarantine_days_undetected",
       label   = "Days Undetected",
       value   = "2",
       min     = -1,
-      max     = NA,
-      step    = 1
-    ),
-    slider_input_rate("measlesquarantine", "Hospitalization Rate", 0.2, maxval = 1),
-    shiny::numericInput(
-      inputId = "measlesquarantine_hospitalization_duration",
-      label   = "Hospitalization Duration (days)",
-      value   = "7",
-      min     = 0,
       max     = NA,
       step    = 1
     ),
@@ -187,7 +143,78 @@ measlesquarantine_panel <- function(model_alt) {
       ),
     numeric_input_ndays("measlesquarantine"),
     seed_input("measlesquarantine"),
-    network_input("measlesquarantine"),
-    npis_input("measlesquarantine")
+    # Adding a hidden input to keep most parameters
+    shiny::tagList(
+      shiny::div(
+        id = paste0("advanced_header_", "measlesquarantine"),
+        shiny::headerPanel(
+          shiny::h4(
+            shiny::tagList(
+              shiny::icon("circle-info"),
+              "Advanced Parameters"
+            )
+          )
+        )
+      ),
+      shinyjs::hidden(
+        shiny::div(
+          id = paste0("advanced_inputs_", "measlesquarantine"),
+          shiny::tagList(
+            shiny::tags$style("p { padding: 0 20px; }"),
+            shiny::p("The below parameters are advanced and control disease dynamics."),
+            shiny::numericInput(
+              inputId = "measlesquarantine_hospitalization_duration",
+              label   = "Hospitalization Duration (days)",
+              value   = "7",
+              min     = 0,
+              max     = NA,
+              step    = 1
+              ),
+            slider_input_rate(
+              "measlesquarantine",
+              "Contact Rate",
+              15/.99/(4 + 3),
+              maxval = 20
+            ),
+            slider_input_rate(
+              "measlesquarantine", "Hospitalization Rate", 0.2, maxval = 1
+            ),
+            slider_input_rate(
+              "measlesquarantine", "Transmission probability", "0.99", input_label = "transmission_rate"),
+            slider_input_rate(
+              "measlesquarantine", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
+            slider_input_rate(
+              "measlesquarantine", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
+            slider_input_rate(
+              "measlesquarantine", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
+            shiny::numericInput(
+              inputId = "measlesquarantine_incubation_days",
+              label   = "Incubation Days",
+              value   = "12",
+              min     = 0,
+              max     = NA,
+              step    = 1
+              ),
+            shiny::numericInput(
+              inputId = "measlesquarantine_prodromal_period",
+              label   = "Prodromal Period (days)",
+              value   = "4",
+              min     = 0,
+              max     = NA,
+              step    = 1
+            ),
+            shiny::numericInput(
+              inputId = "measlesquarantine_rash_period",
+              label   = "Rash Period (days)",
+              value   = "3",
+              min     = 0,
+              max     = NA,
+              step    = 1
+            )
+          )
+        )
+      )
+    ) #,
+    # npis_input("measlesquarantine")
   )
 }

@@ -27,7 +27,110 @@ shiny_measlesquarantine <- function(input) {
 
   # Running and printing
   epiworldR::verbose_off(model_measlesquarantine)
-  epiworldR::run(model_measlesquarantine, ndays = input$measlesquarantine_n_days, seed = input$measlesquarantine_seed)
+
+  epiworldR::run_multiple(
+    m = model_measlesquarantine,
+    ndays = input$measlesquarantine_n_days,
+    nsims = input$measlesquarantine_n_sims,
+    seed = input$measlesquarantine_seed,
+    saver = make_saver("total_hist")
+  )
+
+  table_summary_measles <- function() {
+
+
+    histories <- run_multiple_get_results(model_measlesquarantine)$total_hist 
+
+    exposed <- c(
+      "Exposed",
+      "Prodromal",
+      "Rash",
+      "Isolated",
+      "Quarantined Exposed",
+      "Quarantined Prodromal",
+      "Quarantined Recovered",
+      "Hospitalized",
+      "Recovered"
+      )
+
+    counts <- subset(
+      histories, (state %in% exposed) & (date == max(date))
+    )
+    counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
+    colnames(counts) <- c("Simulation", "Total")
+
+    sizes <- c(2, 5, 10, 20)
+    sizes <- data.frame(
+      Size = sizes,
+      Probability = sapply(sizes, \(x) {
+        sum(counts$Total >= x)/nrow(counts)
+      }),
+      "Likely size (if > Size)" = sapply(sizes, \(s){
+        sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total >= s], .025),
+          quantile(counts$Total[counts$Total >= s], .975)
+        )}),
+        check.names = FALSE
+      )
+
+
+    sizes$Probability <- ifelse(
+      sizes$Probability <= 0.01,
+      "< 0.01",
+      sprintf("%.2f", sizes$Probability)
+    )
+
+    # Replaces NAs
+    sizes$`Likely size (if > Size)` <- ifelse(
+      grepl("NA", sizes$`Likely size (if > Size)`),
+      "-",
+      sizes$`Likely size (if > Size)`
+    )
+
+
+    median_cases <- quantile(counts$Total, probs=.5)
+    mean_cases <- mean(counts$Total, probs=.5)
+
+    sizes <- rbind(
+      sizes,
+      data.frame(
+        Size = median_cases,
+        Probability = "Median (50%>)",
+        "Likely size (if > Size)" = sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total > median_cases], probs=.025),
+          quantile(counts$Total[counts$Total > median_cases], probs=.975)
+        ),
+        check.names = FALSE
+      ),
+      data.frame(
+        Size = mean_cases,
+        Probability = "Mean (average)",
+        "Likely size (if > Size)" = sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total > mean_cases], probs=.025),
+          quantile(counts$Total[counts$Total > mean_cases], probs=.975)
+        ),
+        check.names = FALSE
+      )
+    )
+
+    sizes
+    # knitr::kable(
+    #   sizes,
+    #   caption = paste(
+    #       "Likely sizes of the outbreak based on",
+    #       "many",
+    #       "simulations."
+    #   ), format = "html"
+    # )
+
+  }
+
+
+
+  # epiworldR::run(model_measlesquarantine, ndays = input$measlesquarantine_n_days, seed = input$measlesquarantine_seed)
   # Plot
   plot_measlesquarantine <- function() plot_epi(
     model_measlesquarantine,
@@ -36,7 +139,7 @@ shiny_measlesquarantine <- function(input) {
   # Summary
   summary_measlesquarantine <- function() summary(model_measlesquarantine)
   # Reproductive Number
-  reproductive_measlesquarantine <- function() plot_reproductive_epi(model_measlesquarantine)
+
   # Table
   table_measlesquarantine <- function() {
 
@@ -87,10 +190,10 @@ shiny_measlesquarantine <- function(input) {
   # Output list
   return(
     list(
-      epicurves_plot     = plot_measlesquarantine,
-      reproductive_plot  = reproductive_measlesquarantine,
-      model_summary      = summary_measlesquarantine,
-      model_table        = table_measlesquarantine
+      epicurves_plot = plot_measlesquarantine,
+      table_summary  = table_summary_measles,
+      model_summary  = summary_measlesquarantine,
+      model_table    = table_measlesquarantine
     )
   )
 
@@ -106,7 +209,7 @@ measlesquarantine_panel <- function(model_alt) {
       min     = 0,
       max     = 50000,
       value   = 2000,
-      step    = 1000,
+      step    = 1,
       ticks   = FALSE
     ),
     shiny::numericInput(
@@ -117,6 +220,7 @@ measlesquarantine_panel <- function(model_alt) {
       max     = NA,
       step    = 1
     ),
+    shiny::p("If days undetected is set to -1, then the quarantine is not implemented."),
     shiny::numericInput(
       inputId = "measlesquarantine_days_undetected",
       label   = "Days Undetected",
@@ -126,7 +230,7 @@ measlesquarantine_panel <- function(model_alt) {
       step    = 1
     ),
     slider_input_rate(
-      "measlesquarantine", "Proportion Vaccinated", 0.7, 
+      "measlesquarantine", "Proportion Vaccinated", 0.0, 
       maxval = 1, input_label = "prop_vaccinated"
       ),
     shiny::numericInput(
@@ -142,7 +246,6 @@ measlesquarantine_panel <- function(model_alt) {
       maxval = 1, input_label = "quarantine_willigness"
       ),
     numeric_input_ndays("measlesquarantine"),
-    seed_input("measlesquarantine"),
     # Adding a hidden input to keep most parameters
     shiny::tagList(
       shiny::div(
@@ -170,6 +273,14 @@ measlesquarantine_panel <- function(model_alt) {
               max     = NA,
               step    = 1
               ),
+            shiny::numericInput(
+              inputId = "measlesquarantine_n_sims",
+              label   = "Number of simulations",
+              value   = "100",
+              min     = 1,
+              max     = 2000,
+              step    = 1
+            ),
             slider_input_rate(
               "measlesquarantine",
               "Contact Rate",
@@ -210,11 +321,31 @@ measlesquarantine_panel <- function(model_alt) {
               min     = 0,
               max     = NA,
               step    = 1
-            )
+            ),
+            seed_input("measlesquarantine")
           )
         )
       )
     ) #,
     # npis_input("measlesquarantine")
+  )
+}
+
+body_measlesquarantine <- function(model_output, output) {
+
+  output$table_summary <- shiny::renderTable({
+      model_output()$table_summary()
+  })
+
+  cat("Working alright here\n")
+
+  shiny::tagList(
+    shiny::fluidRow(
+      shiny::column(
+        width = 6,
+        shiny::h4("Epidemic Curves"),
+        shiny::tableOutput("table_summary")
+      )
+    )
   )
 }

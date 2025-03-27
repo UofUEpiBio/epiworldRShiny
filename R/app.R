@@ -95,15 +95,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     shiny::fluidRow(
       shiny::column(12, shiny::htmlOutput("model_description"))
     ),
-    shiny::fluidRow(
-      shiny::column(6, plotly::plotlyOutput("model_plot") |> shinycssloaders::withSpinner(color = "#009bff")),
-      shiny::column(6, plotly::plotlyOutput("model_reproductive_plot") |> shinycssloaders::withSpinner(color = "#009bff"))
-    ),
-    shiny::HTML("<br>"),
-    shiny::fluidRow(
-      shiny::column(6, shiny::verbatimTextOutput("model_summary") |> shinycssloaders::withSpinner(color = "#009bff")),
-      shiny::column(6, DT::dataTableOutput("model_table") |> shinycssloaders::withSpinner(color = "#009bff"))
-    ),
+    shiny::uiOutput("model_body"),
     shiny::htmlOutput("download_button"),
     shiny::tags$style(type = 'text/css', "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
     shiny::fluidRow(
@@ -142,6 +134,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       }
     }
 
+    # Getting the model ID
     model_id <- shiny::reactive(epiworldRenv()$models[input$model])
 
     model_output <- shiny::eventReactive(
@@ -176,22 +169,47 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       shiny::markdown(contents)
     })
 
-    output$model_plot <- plotly::renderPlotly({
-      model_output()$epicurves_plot()
+    output$model_body <- shiny::renderUI({
+      # If the user has a function to create the body
+      if (exists(paste0("body_", model_id()), envir = epiworldRenv())) {
+
+        body_fun <- get(paste0("body_", model_id()), envir = epiworldRenv())
+        body_fun(model_output, output)
+
+      } else {
+
+        output$model_plot <- plotly::renderPlotly({
+          model_output()$epicurves_plot()
+        })
+        output$model_reproductive_plot <- plotly::renderPlotly({
+          model_output()$reproductive_plot()
+        })
+        output$model_summary <- shiny::renderPrint({
+          model_output()$model_summary()
+        })
+        output$model_table <- DT::renderDataTable({
+          model_output()$model_table()
+        }, options = list(
+          scrollY = '600px',
+          lengthMenu = c(16, 25, 50),
+          pageLength = 16
+        ), escape = FALSE)
+
+        shiny::tagList(
+          shiny::fluidRow(
+            shiny::column(6, plotly::plotlyOutput("model_plot") |> shinycssloaders::withSpinner(color = "#009bff")),
+            shiny::column(6, plotly::plotlyOutput("model_reproductive_plot") |> shinycssloaders::withSpinner(color = "#cfd9e0"))
+          ),
+          shiny::HTML("<br>"),
+          shiny::fluidRow(
+            shiny::column(6, shiny::verbatimTextOutput("model_summary") |> shinycssloaders::withSpinner(color = "#009bff")),
+            shiny::column(6, DT::dataTableOutput("model_table") |> shinycssloaders::withSpinner(color = "#009bff"))
+          )
+        )
+      }
     })
-    output$model_reproductive_plot <- plotly::renderPlotly({
-      model_output()$reproductive_plot()
-    })
-    output$model_summary <- shiny::renderPrint({
-      model_output()$model_summary()
-    })
-    output$model_table <- DT::renderDataTable({
-      model_output()$model_table()
-    }, options = list(
-      scrollY = '600px',
-      lengthMenu = c(16, 25, 50),
-      pageLength = 16
-    ), escape = FALSE)
+
+    
 
     output$downloadData <- shiny::downloadHandler(
       filename = function() {

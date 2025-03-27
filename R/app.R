@@ -116,17 +116,6 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   server <- function(input, output, session) {
 
-    # # Functions to toggle the advanced options
-    # for (i in c("npis", "network", "population", "advanced")) {
-    #   for (m in epiworldRenv()$models) {
-    #     local({
-    #       id0 <- paste0(i, "_header_", m)
-    #       id1 <- paste0(i, "_inputs_", m)
-    #       shinyjs::onclick(id = id0, shinyjs::toggle(id = id1, anim = TRUE))
-    #     })
-    #   }
-    # }
-
     # Getting the model ID
     model_id <- shiny::reactive(epiworldRenv()$models[input$model])
 

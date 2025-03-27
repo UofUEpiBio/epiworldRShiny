@@ -1,0 +1,373 @@
+# alt-name: Measles
+shiny_measles <- function(input) {
+
+  # For debugging
+  saveRDS(as.list(input), "~/Downloads/input.rds")
+
+  model_measles <- epiworldR::ModelMeaslesQuarantine(
+    n                        = as.integer(input$measles_population_size),
+    contact_rate             = input$measles_contact_rate, 
+    prevalence               = as.integer(input$measles_prevalence),
+    transmission_rate        = input$measles_transmission_rate,
+    vax_efficacy             = input$measles_vax_efficacy,
+    vax_improved_recovery    = input$measles_vax_improved_recovery,
+    incubation_period        = input$measles_incubation_days,
+    prodromal_period         = input$measles_prodromal_period,
+    rash_period              = input$measles_rash_period,
+    days_undetected          = if (input$measles_quarantine)
+      input$measles_days_undetected
+    else
+      -1,
+    hospitalization_rate     = input$measles_hospitalization_rate,
+    hospitalization_duration = input$measles_hospitalization_duration,
+    prop_vaccinated          = input$measles_prop_vaccinated,
+    quarantine_days          = input$measles_quarantine_days,
+    quarantine_willigness    = input$measles_quarantine_willigness
+    )
+
+  # NPIs -----------------------------------------------------------------------
+  # interventions_add_all(model_measles, "measles", input)
+
+  # Running and printing
+  epiworldR::verbose_off(model_measles)
+
+  epiworldR::run_multiple(
+    m = model_measles,
+    ndays = input$measles_n_days,
+    nsims = input$measles_n_sims,
+    seed = input$measles_seed,
+    saver =
+      if (!input$measles_show_debug)
+        make_saver("total_hist")
+      else {
+        make_saver("total_hist", "transition")
+      }
+  )
+
+  histories <- run_multiple_get_results(model_measles)$total_hist 
+  active_cases_statuses <- c(
+      "Exposed",
+      "Prodromal",
+      "Rash",
+      "Isolated",
+      "Quarantined Exposed",
+      "Quarantined Prodromal",
+      "Quarantined Recovered",
+      "Hospitalized"
+      )
+
+  # Table with total outbreak size
+  table_summary_measles <- function() {
+
+    exposed <- c(
+      active_cases_statuses,
+      "Recovered"
+      )
+
+    counts <- subset(
+      histories, (state %in% exposed) & (date == max(date))
+    )
+
+    data.table::fwrite(counts, file = "counts.csv")
+
+    counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
+    colnames(counts) <- c("Simulation", "Total")
+
+    sizes <- c(2, 5, 10, 20)
+    sizes <- data.frame(
+      Size = sizes,
+      Probability = sapply(sizes, \(x) {
+        sum(counts$Total >= x)/nrow(counts)
+      }),
+      "Likely size (if > Size)" = sapply(sizes, \(s){
+        sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total >= s], .025),
+          quantile(counts$Total[counts$Total >= s], .975)
+        )}),
+        check.names = FALSE
+      )
+
+
+    sizes$Probability <- ifelse(
+      sizes$Probability <= 0.01,
+      "< 0.01",
+      sprintf("%.2f", sizes$Probability)
+    )
+
+    # Replaces NAs
+    sizes$`Likely size (if > Size)` <- ifelse(
+      grepl("NA", sizes$`Likely size (if > Size)`),
+      "-",
+      sizes$`Likely size (if > Size)`
+    )
+
+
+    median_cases <- quantile(counts$Total, probs=.5)
+    mean_cases <- mean(counts$Total, probs=.5)
+
+    sizes <- rbind(
+      sizes,
+      data.frame(
+        Size = median_cases,
+        Probability = "Median (50%>)",
+        "Likely size (if > Size)" = sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total > median_cases], probs=.025),
+          quantile(counts$Total[counts$Total > median_cases], probs=.975)
+        ),
+        check.names = FALSE
+      ),
+      data.frame(
+        Size = mean_cases,
+        Probability = "Mean (average)",
+        "Likely size (if > Size)" = sprintf(
+          "[%.2f, %.2f]",
+          quantile(counts$Total[counts$Total > mean_cases], probs=.025),
+          quantile(counts$Total[counts$Total > mean_cases], probs=.975)
+        ),
+        check.names = FALSE
+      )
+    )
+
+    sizes
+
+  }
+
+  # epiworldR::run(model_measles, ndays = input$measles_n_days, seed = input$measles_seed)
+  # Plot
+  plot_measles <- function() {
+
+    # Getting the infected cases
+    dat <- subset(histories, state %in% active_cases_statuses)
+
+    # Aggregating the data
+    dat <- stats::aggregate(counts ~ sim_num + date, data=dat, FUN=sum)
+
+    # Aggregating by computing quantiles .025 and .975
+    dat <- stats::aggregate(
+      counts ~ date,
+      data = dat,
+      FUN = function(x) {
+        c(
+          p50 = stats::quantile(x, .5),
+          lower = stats::quantile(x, .025),
+          upper = stats::quantile(x, .975)
+        )
+      }
+    ) 
+  
+    dat <- cbind(data.frame(dat[[1]]), data.frame(dat[[2]]))
+
+    colnames(dat) <- c("date", "p50", "lower", "upper")
+
+    # Greating figure with plotly
+    plotly::plot_ly(
+      data = dat,
+      x = ~date,
+      y = ~p50,
+      type = 'scatter',
+      mode = 'lines+markers',
+      name = "Median"
+    ) |>
+      plotly::add_ribbons(
+        ymin = ~lower,
+        ymax = ~upper,
+        name = "95% CI",
+        fillcolor = "rgba(0, 100, 80, 0.2)",
+        line = list(width = 0)
+      ) |>
+      plotly::layout(
+        title  = NULL,
+        xaxis  = list(title = 'Day'),
+        yaxis  = list(title = 'Active cases')
+      )
+  }
+  # Summary
+  summary_measles <- function() {
+    if (!input$measles_show_debug)
+      return(NULL)
+    summary(model_measles)
+  }
+  # Data
+  model_data <- function() {histories}
+
+  # Output list
+  return(
+    list(
+      epicurves_plot = plot_measles,
+      model_summary  = summary_measles,
+      summary_table  = table_summary_measles,
+      model_table    = model_data
+    )
+  )
+
+}
+
+measles_panel <- function(model_alt) {
+
+  shiny::conditionalPanel(
+    simulate_button("measles"),
+    condition = sprintf("input.model == '%s'", model_alt),
+    shiny::numericInput(
+      inputId = "measles_population_size",
+      label   = "Population Size",
+      min     = 0,
+      max     = 50000,
+      value   = 500
+    ),
+    shiny::numericInput(
+      inputId = "measles_prevalence",
+      label   = "Prevalence",
+      value   = 1,
+      min     = 1,
+      max     = NA,
+      step    = 1
+    ),
+    slider_input_rate(
+      "measles", "Proportion Vaccinated", 0.85, 
+      maxval = 1, input_label = "prop_vaccinated"
+      ),
+    numeric_input_ndays("measles"),
+    bslib::accordion(
+      open = FALSE,
+      bslib::accordion_panel(
+        title = "Quarantine",
+        shiny::checkboxInput(
+          inputId = "measles_quarantine",
+          label   = "Quarantine",
+          value   = FALSE
+        ),
+        shiny::numericInput(
+          inputId = "measles_days_undetected",
+          label   = "Days Undetected",
+          value   = "2",
+          min     = 0,
+          max     = NA,
+          step    = .5
+        ),
+        shiny::numericInput(
+          inputId = "measles_quarantine_days",
+          label   = "Quarantine Days",
+          value   = "21",
+          min     = 0,
+          max     = NA,
+          step    = 1
+        ),
+        slider_input_rate(
+          "measles", "Quarantine Willingness", 1.0, 
+          maxval = 1, input_label = "quarantine_willigness"
+        )
+      )
+    ),
+    # Adding a hidden input to keep most parameters
+    bslib::accordion(
+      open = FALSE,
+      bslib::accordion_panel(
+        "Advanced parameters",
+        shiny::p("The below parameters are advanced and control disease dynamics."),
+        shiny::numericInput(
+          inputId = "measles_hospitalization_duration",
+          label   = "Hospitalization Duration (days)",
+          value   = "7",
+          min     = 0,
+          max     = NA,
+          step    = 1
+          ),
+        shiny::numericInput(
+          inputId = "measles_n_sims",
+          label   = "Number of simulations",
+          value   = "200",
+          min     = 1,
+          max     = 2000,
+          step    = 1
+        ),
+        slider_input_rate(
+          "measles",
+          "Contact Rate",
+          15/.99/(4 + 3),
+          maxval = 20
+        ),
+        slider_input_rate(
+          "measles", "Hospitalization Rate", 0.2, maxval = 1
+        ),
+        slider_input_rate(
+          "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
+        slider_input_rate(
+          "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
+        slider_input_rate(
+          "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
+        slider_input_rate(
+          "measles", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
+        shiny::numericInput(
+          inputId = "measles_incubation_days",
+          label   = "Incubation Days",
+          value   = "12",
+          min     = 0,
+          max     = NA,
+          step    = 1
+          ),
+        shiny::numericInput(
+          inputId = "measles_prodromal_period",
+          label   = "Prodromal Period (days)",
+          value   = "4",
+          min     = 0,
+          max     = NA,
+          step    = 1
+        ),
+        shiny::numericInput(
+          inputId = "measles_rash_period",
+          label   = "Rash Period (days)",
+          value   = "3",
+          min     = 0,
+          max     = NA,
+          step    = 1
+        ),
+        seed_input("measles"),
+        shiny::checkboxInput(
+          inputId = "measles_show_debug",
+          label   = "Show Debugging Information",
+          value   = FALSE
+        )
+      )
+    )
+  )  # npis_input("measles")
+}
+
+body_measles <- function(input, model_output, output) {
+
+  output$summary_table <- shiny::renderTable({
+      model_output()$summary_table()
+  })
+
+  output$model_summary <- shiny::renderPrint({
+    model_output()$model_summary()
+  })
+
+  output$epicurves_plot <- plotly::renderPlotly({
+    model_output()$epicurves_plot()
+  })
+
+  list(
+    bslib::card(      
+      shiny::htmlOutput("model_description")
+    ),
+    bslib::card(
+      bslib::card_header("Epidemic Curve"),
+      plotly::plotlyOutput("epicurves_plot") |> spinner()
+    ),
+    bslib::card(
+      bslib::card_header("Outbreak Size"),
+      shiny::p(
+          "The table below shows the number of cases at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
+        ),
+      shiny::tableOutput("summary_table") |> spinner()
+    ),
+    if (length(input$measles_show_debug) && input$measles_show_debug) {
+      bslib::card(
+        width = 6,
+        shiny::verbatimTextOutput("model_summary") |> spinner()
+      )
+    } else NULL
+  )
+}

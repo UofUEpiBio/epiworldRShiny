@@ -118,8 +118,14 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     target = "_blank"
   )
 
+  # Rendering the NEWS file
+  news_file <- system.file(
+    "NEWS.md",
+    package = "epiworldRShiny"
+  ) |> readLines() |> shiny::markdown()
+
   ui <- bslib::page_navbar( # shinydashboard::dashboardPage(
-    bslib::nav_panel(title = NULL, body),
+    bslib::nav_panel(title = "Home", body),
     bslib::nav_spacer(),
     bslib::nav_menu(
       title = "Links",
@@ -127,6 +133,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       bslib::nav_item(link_epiworldr),
       bslib::nav_item(link_epiworldrshiny)
     ),
+    bslib::nav_panel(title = "News", news_file),
     title        = header,
     sidebar      = sidebar,
     window_title = "epiworldRShiny: An R Shiny App for epiworldR",

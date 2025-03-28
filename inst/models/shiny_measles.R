@@ -283,7 +283,7 @@ measles_panel <- function(model_alt) {
     ),
     shiny::numericInput(
       inputId = "measles_prevalence",
-      label   = "Prevalence",
+      label   = "Initial cases",
       value   = 1,
       min     = 1,
       max     = NA,

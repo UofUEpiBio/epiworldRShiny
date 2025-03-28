@@ -50,10 +50,8 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   models_setup(custom_models_path)
 
-  header <- shiny::titlePanel( # shinydashboard::dashboardHeader(
-    title = shiny::HTML(
-      'epiworldR <text style="color: gray; font-size:50%">(beta)</text>'
-      )
+  header <- shiny::HTML(
+    'epiworldR <text style="color: gray; font-size:50%">(beta)</text>'
   )
 
   # Sets CSS cursor style for headers
@@ -108,10 +106,31 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     )
   )
 
-  ui <- bslib::page_sidebar( # shinydashboard::dashboardPage(
-    title = header,
-    sidebar = sidebar,
-    body
+  link_epiworldr <- shiny::a(
+    shiny::icon("github"), "epiworldR",
+    href = "https://github.com/UofUEpiBio/epiworldR",
+    target = "_blank"
+  )
+
+  link_epiworldrshiny <- shiny::a(
+    shiny::icon("github"), "epiworldRShiny",
+    href = "https://github.com/UofUEpiBio/epiworldRShiny",
+    target = "_blank"
+  )
+
+  ui <- bslib::page_navbar( # shinydashboard::dashboardPage(
+    bslib::nav_panel(title = NULL, body),
+    bslib::nav_spacer(),
+    bslib::nav_menu(
+      title = "Links",
+      align = "right",
+      bslib::nav_item(link_epiworldr),
+      bslib::nav_item(link_epiworldrshiny)
+    ),
+    title        = header,
+    sidebar      = sidebar,
+    window_title = "epiworldRShiny: An R Shiny App for epiworldR",
+    lang         = "en"
   )
 
   server <- function(input, output, session) {
@@ -192,9 +211,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
           )
         )
       }
-    })
-
-    
+    })  
 
     output$downloadData <- shiny::downloadHandler(
       filename = function() {
@@ -209,6 +226,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       shiny::downloadButton("downloadData", "Download Data")
     })
   }
+
   shiny::shinyApp(ui=ui, server=server)
 
 }

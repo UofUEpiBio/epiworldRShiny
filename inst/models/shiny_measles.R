@@ -1,10 +1,7 @@
 # alt-name: Measles
-shiny_measles <- function(input) {
 
-  # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
-
-  model_measles <- epiworldR::ModelMeaslesQuarantine(
+model_builder <- function(input, quarantine = TRUE) {
+  epiworldR::ModelMeaslesQuarantine(
     n                        = as.integer(input$measles_population_size),
     contact_rate             = input$measles_contact_rate, 
     prevalence               = as.integer(input$measles_prevalence),
@@ -14,7 +11,7 @@ shiny_measles <- function(input) {
     incubation_period        = input$measles_incubation_days,
     prodromal_period         = input$measles_prodromal_period,
     rash_period              = input$measles_rash_period,
-    days_undetected          = if (input$measles_quarantine)
+    days_undetected          = if (quarantine)
       input$measles_days_undetected
     else
       -1,
@@ -23,13 +20,111 @@ shiny_measles <- function(input) {
     prop_vaccinated          = input$measles_prop_vaccinated,
     quarantine_days          = input$measles_quarantine_days,
     quarantine_willigness    = input$measles_quarantine_willigness
+  )
+}
+
+tabulator <- function(histories) {
+  exposed <- c(
+    active_cases_statuses,
+    "Recovered"
     )
+
+  counts <- subset(
+    histories, (state %in% exposed) & (date == max(date))
+  )
+
+  # data.table::fwrite(counts, file = "counts.csv")
+
+  counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
+  colnames(counts) <- c("Simulation", "Total")
+
+  sizes <- c(2, 5, 10, 20)
+  sizes <- data.frame(
+    Size = sizes,
+    Probability = sapply(sizes, \(x) {
+      sum(counts$Total >= x)/nrow(counts)
+    }),
+    "Likely size (if > Size)" = sapply(sizes, \(s){
+      sprintf(
+        "[%.2f, %.2f]",
+        quantile(counts$Total[counts$Total >= s], .025),
+        quantile(counts$Total[counts$Total >= s], .975)
+      )}),
+      check.names = FALSE
+    )
+
+
+  sizes$Probability <- ifelse(
+    sizes$Probability <= 0.01,
+    "< 0.01",
+    sprintf("%.2f", sizes$Probability)
+  )
+
+  # Replaces NAs
+  sizes$`Likely size (if > Size)` <- ifelse(
+    grepl("NA", sizes$`Likely size (if > Size)`),
+    "-",
+    sizes$`Likely size (if > Size)`
+  )
+
+
+  median_cases <- quantile(counts$Total, probs=.5)
+  mean_cases <- mean(counts$Total, probs=.5)
+
+  sizes <- rbind(
+    sizes,
+    data.frame(
+      Size = median_cases,
+      Probability = "Median (50%>)",
+      "Likely size (if > Size)" = sprintf(
+        "[%.2f, %.2f]",
+        quantile(counts$Total[counts$Total > median_cases], probs=.025),
+        quantile(counts$Total[counts$Total > median_cases], probs=.975)
+      ),
+      check.names = FALSE
+    ),
+    data.frame(
+      Size = mean_cases,
+      Probability = "Mean (average)",
+      "Likely size (if > Size)" = sprintf(
+        "[%.2f, %.2f]",
+        quantile(counts$Total[counts$Total > mean_cases], probs=.025),
+        quantile(counts$Total[counts$Total > mean_cases], probs=.975)
+      ),
+      check.names = FALSE
+    )
+  )
+
+  sizes
+}
+
+# List of cases that are considered active in the
+# model. Mostly removes susceptible and recovered.
+active_cases_statuses <- c(
+  "Exposed",
+  "Prodromal",
+  "Rash",
+  "Isolated",
+  "Quarantined Exposed",
+  "Quarantined Prodromal",
+  "Quarantined Recovered",
+  "Hospitalized"
+  )
+
+shiny_measles <- function(input) {
+
+  # For debugging
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
+
+  model_measles <- model_builder(input, quarantine = TRUE)
+  model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
 
   # NPIs -----------------------------------------------------------------------
   # interventions_add_all(model_measles, "measles", input)
 
   # Running and printing
   epiworldR::verbose_off(model_measles)
+  epiworldR::verbose_off(model_measles_no_quarantine)
 
   epiworldR::run_multiple(
     m = model_measles,
@@ -44,93 +139,30 @@ shiny_measles <- function(input) {
       }
   )
 
+  # Running the model without quarantine
+  epiworldR::run_multiple(
+    m = model_measles_no_quarantine,
+    ndays = input$measles_n_days,
+    nsims = input$measles_n_sims,
+    seed = input$measles_seed,
+    saver =
+      if (!input$measles_show_debug)
+        make_saver("total_hist")
+      else {
+        make_saver("total_hist", "transition")
+      }
+  )
+
   histories <- run_multiple_get_results(model_measles)$total_hist 
-  active_cases_statuses <- c(
-      "Exposed",
-      "Prodromal",
-      "Rash",
-      "Isolated",
-      "Quarantined Exposed",
-      "Quarantined Prodromal",
-      "Quarantined Recovered",
-      "Hospitalized"
-      )
+  histories_no_quarantine <- run_multiple_get_results(model_measles_no_quarantine)$total_hist
 
   # Table with total outbreak size
   table_summary_measles <- function() {
 
-    exposed <- c(
-      active_cases_statuses,
-      "Recovered"
-      )
-
-    counts <- subset(
-      histories, (state %in% exposed) & (date == max(date))
+    list(
+      quarantine = tabulator(histories),
+      no_quarantine = tabulator(histories_no_quarantine)
     )
-
-    data.table::fwrite(counts, file = "counts.csv")
-
-    counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
-    colnames(counts) <- c("Simulation", "Total")
-
-    sizes <- c(2, 5, 10, 20)
-    sizes <- data.frame(
-      Size = sizes,
-      Probability = sapply(sizes, \(x) {
-        sum(counts$Total >= x)/nrow(counts)
-      }),
-      "Likely size (if > Size)" = sapply(sizes, \(s){
-        sprintf(
-          "[%.2f, %.2f]",
-          quantile(counts$Total[counts$Total >= s], .025),
-          quantile(counts$Total[counts$Total >= s], .975)
-        )}),
-        check.names = FALSE
-      )
-
-
-    sizes$Probability <- ifelse(
-      sizes$Probability <= 0.01,
-      "< 0.01",
-      sprintf("%.2f", sizes$Probability)
-    )
-
-    # Replaces NAs
-    sizes$`Likely size (if > Size)` <- ifelse(
-      grepl("NA", sizes$`Likely size (if > Size)`),
-      "-",
-      sizes$`Likely size (if > Size)`
-    )
-
-
-    median_cases <- quantile(counts$Total, probs=.5)
-    mean_cases <- mean(counts$Total, probs=.5)
-
-    sizes <- rbind(
-      sizes,
-      data.frame(
-        Size = median_cases,
-        Probability = "Median (50%>)",
-        "Likely size (if > Size)" = sprintf(
-          "[%.2f, %.2f]",
-          quantile(counts$Total[counts$Total > median_cases], probs=.025),
-          quantile(counts$Total[counts$Total > median_cases], probs=.975)
-        ),
-        check.names = FALSE
-      ),
-      data.frame(
-        Size = mean_cases,
-        Probability = "Mean (average)",
-        "Likely size (if > Size)" = sprintf(
-          "[%.2f, %.2f]",
-          quantile(counts$Total[counts$Total > mean_cases], probs=.025),
-          quantile(counts$Total[counts$Total > mean_cases], probs=.975)
-        ),
-        check.names = FALSE
-      )
-    )
-
-    sizes
 
   }
 
@@ -140,11 +172,7 @@ shiny_measles <- function(input) {
 
     # Getting the infected cases
     dat <- subset(histories, state %in% active_cases_statuses)
-
-    # Aggregating the data
     dat <- stats::aggregate(counts ~ sim_num + date, data=dat, FUN=sum)
-
-    # Aggregating by computing quantiles .025 and .975
     dat <- stats::aggregate(
       counts ~ date,
       data = dat,
@@ -161,6 +189,23 @@ shiny_measles <- function(input) {
 
     colnames(dat) <- c("date", "p50", "lower", "upper")
 
+    # Now, without quarantine
+    dat_no_quarantine <- subset(histories_no_quarantine, state %in% active_cases_statuses)
+    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data=dat_no_quarantine, FUN=sum)
+    dat_no_quarantine <- stats::aggregate(
+      counts ~ date,
+      data = dat_no_quarantine,
+      FUN = function(x) {
+        c(
+          p50 = stats::quantile(x, .5),
+          lower = stats::quantile(x, .025),
+          upper = stats::quantile(x, .975)
+        )
+      }
+    )
+    dat_no_quarantine <- cbind(data.frame(dat_no_quarantine[[1]]), data.frame(dat_no_quarantine[[2]]))
+    colnames(dat_no_quarantine) <- c("date", "p50", "lower", "upper")
+
     # Greating figure with plotly
     plotly::plot_ly(
       data = dat,
@@ -168,19 +213,34 @@ shiny_measles <- function(input) {
       y = ~p50,
       type = 'scatter',
       mode = 'lines+markers',
-      name = "Median"
+      name = "Median (quarantine)"
     ) |>
       plotly::add_ribbons(
         ymin = ~lower,
         ymax = ~upper,
         name = "95% CI",
-        fillcolor = "rgba(0, 100, 80, 0.2)",
+        fillcolor = "rgba(0, 100, 80, 0.5)",
         line = list(width = 0)
       ) |>
       plotly::layout(
         title  = NULL,
         xaxis  = list(title = 'Day'),
         yaxis  = list(title = 'Active cases')
+      ) |> 
+      plotly::add_lines(
+        data = dat_no_quarantine,
+        x = ~date,
+        y = ~p50,
+        name = "Median (no quarantine)",
+        line = list(color = "red")
+      ) |>
+      plotly::add_ribbons(
+        data = dat_no_quarantine,
+        ymin = ~lower,
+        ymax = ~upper,
+        name = "95% CI (no quarantine)",
+        fillcolor = "rgba(100, 0, 80, 0.5)",
+        line = list(width = 0)
       )
   }
   # Summary
@@ -190,7 +250,12 @@ shiny_measles <- function(input) {
     summary(model_measles)
   }
   # Data
-  model_data <- function() {histories}
+  model_data <- function() {
+    rbind(
+      cbind(histories, quarantine=TRUE),
+      cbind(histories_no_quarantine, quarantine=FALSE)
+    )
+  }
 
   # Output list
   return(
@@ -233,11 +298,6 @@ measles_panel <- function(model_alt) {
       open = FALSE,
       bslib::accordion_panel(
         title = "Quarantine",
-        shiny::checkboxInput(
-          inputId = "measles_quarantine",
-          label   = "Quarantine",
-          value   = FALSE
-        ),
         shiny::numericInput(
           inputId = "measles_days_undetected",
           label   = "Days Undetected",
@@ -336,8 +396,12 @@ measles_panel <- function(model_alt) {
 
 body_measles <- function(input, model_output, output) {
 
-  output$summary_table <- shiny::renderTable({
-      model_output()$summary_table()
+  output$summary_table_quarantine <- shiny::renderTable({
+      model_output()$summary_table()$quarantine
+  })
+
+  output$summary_table_no_quarantine <- shiny::renderTable({
+      model_output()$summary_table()$no_quarantine
   })
 
   output$model_summary <- shiny::renderPrint({
@@ -354,6 +418,13 @@ body_measles <- function(input, model_output, output) {
     ),
     bslib::card(
       bslib::card_header("Epidemic Curve"),
+      shiny::p(
+        sprintf(
+          "The figure shows the potential outbreak sizes after running
+        %i simulations. The solid line represents the 50%% quantile",
+        input$measles_n_sims
+        )
+      ),
       plotly::plotlyOutput("epicurves_plot") |> spinner()
     ),
     bslib::card(
@@ -361,7 +432,10 @@ body_measles <- function(input, model_output, output) {
       shiny::p(
           "The table below shows the number of cases at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
         ),
-      shiny::tableOutput("summary_table") |> spinner()
+      shiny::p("With quarantine"),
+      shiny::tableOutput("summary_table_quarantine") |> spinner(),
+      shiny::p("Without quarantine"),
+      shiny::tableOutput("summary_table_no_quarantine") |> spinner()
     ),
     if (length(input$measles_show_debug) && input$measles_show_debug) {
       bslib::card(

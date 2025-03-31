@@ -1,5 +1,21 @@
-# Models included in the app
+# Models in `epiworldRShiny`
 
-This folder contains the models used in the app. Models have the following two functions: `shiny_model` and `model_panel`. The `shiny_model` function is used to run the model and return the results. The `model_panel` function is used to create the model's panel in the app.
+This folder contains the pre-built models available in the app. 
 
-If you are adding a new model, you will need to add a new file to this folder. The UI and server will capture it automatically. The accompanying `shiny_model.md` file will be used to generate the model's documentation in the app.
+## Model Format
+
+Each model consists of two files:
+
+- `shiny_<model_name>.R`: Contains the model's R code split into two functions:
+    - `shiny_<model_name>()`: Runs the model and returns the results
+    - `<model_name>_panel()`: Defines the model's UI control panel in the app
+- `shiny_<model_name>.md`: Contains the model's documentation which is displayed in the app
+
+**IMPORTANT NOTE:** All models must follow the above format or `epiworldRShiny` won't import them correctly. 
+
+## Custom Models
+
+`epiworldRShiny` allows users to add custom models to the app, either by adding to the `inst/models` folder or by passing a separate folder path to the `run_app()` function using the `custom_models_path` argument.
+
+In either case, your models must follow the format described above.
+Pay special attention to ensuring the `<model_name>` is used properly (e.g., the file name matches the function name).

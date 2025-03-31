@@ -6,7 +6,7 @@ epiworldRShiny: A ‘shiny’ Wrapper of the R Package ‘epiworldR’
 [![R-CMD-check](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml/badge.svg)](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/epiworldRShiny)](https://CRAN.R-project.org/package=epiworldRShiny)
-[![ForeSITE Group](https://github.com/EpiForeSITE/software/blob/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg)](https://github.com/EpiForeSITE)
+[![ForeSITE Group](https://github.com/EpiForeSITE/software/raw/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg)](https://github.com/EpiForeSITE)
 <!-- badges: end -->
 
 This R package provides a user-friendly application for
@@ -43,11 +43,20 @@ Or from CRAN
 install.packages("epiworldRShiny")
 ```
 
-To run this ShinyApp, you need to type the following:
+## Running the ShinyApp
+To run the app with only built-in models, use:
 
 ``` r
 epiworldRShiny::run_app()
 ```
+
+To add additional custom models, use:
+
+``` r
+epiworldRShiny::run_app(custom_models_path = "path/to/custom/models")
+```
+
+Note that custom models must follow the guidelines given in [`inst/models/README.md`](inst/models/README.md).
 
 ## Examples
 

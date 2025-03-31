@@ -103,9 +103,17 @@
 <p>Or from CRAN</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"epiworldRShiny"</span><span class="op">)</span></span></code></pre></div>
-<p>To run this ShinyApp, you need to type the following:</p>
+</div>
+<div class="section level2">
+<h2 id="running-the-shinyapp">Running the ShinyApp<a class="anchor" aria-label="anchor" href="#running-the-shinyapp"></a>
+</h2>
+<p>To run the app with only built-in models, use:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">epiworldRShiny</span><span class="fu">::</span><span class="fu"><a href="reference/epiworldRShiny.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>To add additional custom models, use:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">epiworldRShiny</span><span class="fu">::</span><span class="fu"><a href="reference/epiworldRShiny.html">run_app</a></span><span class="op">(</span>custom_models_path <span class="op">=</span> <span class="st">"path/to/custom/models"</span><span class="op">)</span></span></code></pre></div>
+<p>Note that custom models must follow the guidelines given in <a href="inst/models/README.html"><code>inst/models/README.md</code></a>.</p>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -198,7 +206,7 @@ example 3 GIF
 <ul class="list-unstyled">
 <li><a href="https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml" class="external-link"><img src="https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://CRAN.R-project.org/package=epiworldRShiny" class="external-link"><img src="https://www.r-pkg.org/badges/version/epiworldRShiny" alt="CRAN status"></a></li>
-<li><a href="https://github.com/EpiForeSITE" class="external-link"><img src="https://github.com/EpiForeSITE/software/blob/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg" alt="ForeSITE Group"></a></li>
+<li><a href="https://github.com/EpiForeSITE" class="external-link"><img src="https://github.com/EpiForeSITE/software/raw/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg" alt="ForeSITE Group"></a></li>
 </ul>
 </div>
 

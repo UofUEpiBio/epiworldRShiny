@@ -6,6 +6,7 @@ output: github_document
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml/badge.svg)](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml)
 [![CRAN status](https://www.r-pkg.org/badges/version/epiworldRShiny)](https://CRAN.R-project.org/package=epiworldRShiny)
+[![ForeSITE Group](https://github.com/EpiForeSITE/software/raw/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg)](https://github.com/EpiForeSITE)
 <!-- badges: end -->
 
 This R package provides a user-friendly application for [epiworldR](https://github.com/UofUEpiBio/epiworldR){target="_blank"}, a wrapper of the C++ library [epiworld](https://github.com/UofUEpiBio/epiworld){target="_blank"}. It provides a general framework for modeling disease transmission using [agent-based models](https://en.wikipedia.org/w/index.php?title=Agent-based_model&oldid=1153634802){target="_blank"}. Some of the main features include:
@@ -32,11 +33,21 @@ Or from CRAN
 ``` r
 install.packages("epiworldRShiny")
 ```
-To run this ShinyApp, you need to type the following:
 
-```r
+## Running the ShinyApp
+To run the app with only built-in models, use:
+
+``` r
 epiworldRShiny::run_app()
 ```
+
+To add additional custom models, use:
+
+``` r
+epiworldRShiny::run_app(custom_models_path = "path/to/custom/models")
+```
+
+Note that custom models must follow the guidelines given in [`inst/models/README.md`](inst/models/README.md).
 
 ## Examples
 ### Example #1

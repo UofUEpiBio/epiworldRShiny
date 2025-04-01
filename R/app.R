@@ -72,7 +72,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         shiny::selectInput(
           inputId = "model",
           label = shiny::h3("Model"),
-          choices = unname(epiworldRenv()$models_names)
+          choices = unname(epiworldRenv()$model_display_names)
         )
       ),
       # Need to pass it unnamed

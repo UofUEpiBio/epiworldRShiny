@@ -269,6 +269,100 @@ seed_input <- function(model_name) {
     )
 }
 
+# Helper function to validate a given model file
+validate_model <- function(model_filename) {
+
+  validate_env <- new.env()
+  file_basename <- basename(model_filename)
+  
+  # Check if file exists
+  if (!file.exists(model_filename)) {
+    message(paste("File not found:", file_basename))
+    return(FALSE)
+  }
+  
+  # Check if file has valid name
+  if (!grepl("^shiny_[a-z]+\\.R$", file_basename)) {
+    message(paste("Invalid model file name:", file_basename))
+    return(FALSE)
+  }
+
+  # Source the file to temp environment and extract function names
+  source(model_filename, local = validate_env)
+
+  model_name <- gsub("shiny_([^.]+).R", "\\1", file_basename)
+  model_fun_name <- paste0("shiny_", model_name)
+  model_panel_name <- paste0(model_name, "_panel")
+
+  # Check if valid model function exists
+  if (!exists(model_fun_name, envir = validate_env)) {
+    message(paste0(
+      file_basename,
+      " must have model function '",
+      model_fun_name,
+      "'.")
+    )
+    return(FALSE)
+  }
+
+  # Check if valid panel function exists
+  if (!exists(model_panel_name, envir = validate_env)) {
+    message(paste0(
+      file_basename,
+      " must have panel function '",
+      model_panel_name,
+      "'.")
+    )
+    return(FALSE)
+  }
+
+  # Clean up
+  validate_env <- NULL
+
+  # Model validated
+  return(TRUE)
+}
+
+# Helper function to get valid model files from given directory
+get_valid_models <- function(path_to_models) {
+  if (is.null(path_to_models)) {
+    return(NULL)
+  }
+
+  # Get list of all model files at path
+  model_files <- list.files(
+    path_to_models,
+    pattern = "shiny_[a-z]+\\.R$",
+    full.names = TRUE
+  )
+
+  # Source each model file
+  validated_models <- c()
+  for (f in model_files) {
+    if (validate_model(f)) {
+      validated_models <- c(validated_models, f)
+    }
+  }
+
+  return(validated_models)
+}
+
+# Helper function to remove duplicate file names from custom models
+remove_duplicates <- function(custom_models, system_models) {
+  # Remove duplicates from custom models
+  custom_models <- custom_models[
+    !basename(custom_models) %in% basename(system_models)
+  ]
+
+  # Print warning if any duplicates were found
+  if (length(custom_models) < length(system_models)) {
+    message("Custom model path contains duplicated system models.
+    Only unique models will be used, with preference given to system models.")
+  }
+
+  return(custom_models)
+}
+
 #' @export
 #' @param custom_models_path Optional path to custom model files (see details).
 #' @details
@@ -290,34 +384,36 @@ models_setup <- function(custom_models_path = NULL) {
 
   eval({
 
-    # Get a list of all model files in the "models" directory
-    models <- list.files(
-      system.file("models", package = "epiworldRShiny"),
-      pattern = "shiny_[a-z]+\\.R$",
-      full.names = TRUE
-      )
+    # Get a list of all valid model files in the "models" directory
+    # - Print warnings and don't include invalid files
+    system_model_filenames <- get_valid_models(
+      path_to_models = system.file("models", package = "epiworldRShiny")
+    )
 
+    # Get a list of all valid model files in the "custom file path" directory
+    # - Print warnings and don't include invalid files
+    custom_model_filenames <- get_valid_models(
+      path_to_models = custom_models_path
+    )
 
-    # Read in custom models
+    all_model_filenames <- system_model_filenames
+
     num_custom_models <- 0
-    if (!is.null(custom_models_path)) {
-      custom_models <- list.files(
-        custom_models_path,
-        pattern = "shiny_[a-z]+\\.R$",
-        full.names = TRUE
-        )
 
-      num_custom_models <- length(custom_models)
-      models <- c(custom_models, models)
+    # If custom models are provided, remove duplicates and add to total list
+    if (!is.null(custom_model_filenames)) {
+      custom_model_filenames <- remove_duplicates(custom_model_filenames, system_model_filenames)
+      num_custom_models <- length(custom_model_filenames)
+      all_model_filenames <- c(custom_model_filenames, system_model_filenames)
     }
 
-    # Source each model file
-    for (f in models) {
+    # Source valided models
+    for (f in all_model_filenames) {
       source(f, local = epiworldRenv())
     }
 
-    # Capturing alt names
-    models_names <- sapply(models, \(f) {
+    # Capture model display names (for UI)
+    model_display_names <- sapply(all_model_filenames, \(f) {
 
       # Only on the first line
       altname <- readLines(f, n = 1)
@@ -330,32 +426,32 @@ models_setup <- function(custom_models_path = NULL) {
         altname <- toupper(gsub("shiny_([^.]+).R", "\\1", basename(f)))
       }
       altname
-
     })
 
-    # If model is custom (user-defined), prepend "(custom)"
+    # If model is custom (user-defined), prepend "(custom)" to model name
     if (num_custom_models > 0) {
-      for (i in 1:num_custom_models) 
-        models_names[i] <- paste("(custom)", models_names[i], sep = " ")
+      for (i in 1:num_custom_models) {
+        model_display_names[i] <- paste("(custom)", model_display_names[i], sep = " ")
+      }
     }    
 
     # Get the model names from the file names
-    models <- gsub("^.+shiny_([^.]+).R$", "\\1", models)
+    models <- gsub("^.+shiny_([^.]+).R$", "\\1", all_model_filenames)
 
     # Set the names of the models to their alt names (if available)
-    names(models_names) <- models
-    names(models) <- models_names
+    names(model_display_names) <- models
+    names(models) <- model_display_names
 
     # Add the model names and models to the epiworldR environment
-    assign("models_names", models_names, envir = epiworldRenv())
+    assign("model_display_names", model_display_names, envir = epiworldRenv())
     assign("models", models, envir = epiworldRenv())
 
-    # Doing some hacking
-    models_panels <- mget(paste0(models, "_panel"), envir = epiworldRenv())
+    # Generate model panels and add to the epiworldR environment
+    model_panels <- mget(paste0(models, "_panel"), envir = epiworldRenv())
     invisible({
       Map(\(pfun, nam, id) {
         assign(paste0(id, "_panel"), pfun(nam), envir = epiworldRenv())
-      }, pfun = models_panels, nam = models_names, id = models
+      }, pfun = model_panels, nam = model_display_names, id = models
       )
     })
 

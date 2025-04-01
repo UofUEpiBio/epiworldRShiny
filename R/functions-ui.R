@@ -270,6 +270,9 @@ seed_input <- function(model_name) {
 }
 
 # Helper function to validate a given model file
+#' @param model_filename The name of the model file to be validated.
+#' @return
+#' - `validate_model` returns TRUE if the model file is valid, FALSE otherwise.
 validate_model <- function(model_filename) {
 
   validate_env <- new.env()
@@ -298,7 +301,7 @@ validate_model <- function(model_filename) {
   if (!exists(model_fun_name, envir = validate_env)) {
     message(paste0(
       file_basename,
-      " must have model function '",
+      " must have a model function named '",
       model_fun_name,
       "'.")
     )
@@ -309,7 +312,7 @@ validate_model <- function(model_filename) {
   if (!exists(model_panel_name, envir = validate_env)) {
     message(paste0(
       file_basename,
-      " must have panel function '",
+      " must have a panel function named '",
       model_panel_name,
       "'.")
     )
@@ -324,6 +327,9 @@ validate_model <- function(model_filename) {
 }
 
 # Helper function to get valid model files from given directory
+#' @param path_to_models The path to the directory containing model files.
+#' @return
+#' - `get_valid_models` returns a character vector of valid model file paths.
 get_valid_models <- function(path_to_models) {
   if (is.null(path_to_models)) {
     return(NULL)
@@ -348,6 +354,11 @@ get_valid_models <- function(path_to_models) {
 }
 
 # Helper function to remove duplicate file names from custom models
+#' @param custom_models A character vector of custom model file paths.
+#' @param system_models A character vector of system model file paths.
+#' @return
+#' - `remove_duplicates` returns a character vector of custom model file paths
+#'   with duplicates removed.
 remove_duplicates <- function(custom_models, system_models) {
   # Remove duplicates from custom models
   custom_models <- custom_models[

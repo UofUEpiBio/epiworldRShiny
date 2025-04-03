@@ -86,24 +86,25 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   epiworldRShiny_version <- utils::packageVersion("epiworldRShiny")
   epiworldR_version <- utils::packageVersion("epiworldR")
 
+  # Footer
+  foot <- shiny::div(
+    shiny::markdown(
+      paste(
+        "epiworldRShiny version",
+        epiworldRShiny_version,
+        "| epiworldR version",
+        epiworldR_version
+      )
+    ),
+    shiny::markdown("**The University of Utah**"),
+    style="font-size:80%;text-align: center;"
+  )
+  
   body <- shiny::mainPanel(# shinydashboard::dashboardBody(
     shiny::uiOutput("model_body"),
     shiny::htmlOutput("download_button"),
     shiny::tags$style(type = 'text/css', "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
-    shiny::fluidRow(
-      shiny::column(
-        6,
-        shiny::markdown(
-          paste(
-            "epiworldRShiny version",
-            epiworldRShiny_version,
-            "| epiworldR version",
-            epiworldR_version
-            )
-          )
-      ),
-      shiny::column(6, shiny::markdown("**The University of Utah**"))
-    )
+    foot
   )
 
   link_epiworldr <- shiny::a(

@@ -5,9 +5,7 @@
     code is available <a href="https://github.com/UofUEpiBio/epiworldRShiny/tree/measlesquarantine">here</a>.
 </div>
 
-
-
 # Measles Model
 
-This model implements a time-discrete Agent-Based Model [ABM] with perfect mixing. The model starts with the introduction of one or more infected individuals. Depending on the vaccination rate, the model simulates the spread of the disease through a population of agents. The model includes a quarantine process that is triggered when an agent is detected in the rash period. You can learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
+Using this app, you can simulate measles outbreaks and compare **how many fewer cases a quarantine procedure yields**. You can specify the number of people (population size), the number of initial cases, the proportion of vaccinated agents, and the duration in days. You can learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
 

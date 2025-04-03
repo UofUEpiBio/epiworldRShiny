@@ -3,7 +3,7 @@
 model_builder <- function(input, quarantine = TRUE) {
   epiworldR::ModelMeaslesQuarantine(
     n                        = as.integer(input$measles_population_size),
-    contact_rate             = input$measles_contact_rate, 
+    contact_rate             = input$measles_contact_rate,
     prevalence               = as.integer(input$measles_prevalence),
     transmission_rate        = input$measles_transmission_rate,
     vax_efficacy             = input$measles_vax_efficacy,
@@ -21,6 +21,13 @@ model_builder <- function(input, quarantine = TRUE) {
     quarantine_days          = input$measles_quarantine_days,
     quarantine_willigness    = input$measles_quarantine_willigness
   )
+}
+
+#' Generates a string with the corresponding CI
+#' @param x A vector of numbers
+#' @param lb,ub Lower and upper bounds of the CI.
+get_ci_pretty <- function(x, lb = .025, ub = .975) {
+  sprintf("[%.2f, %.2f]", quantile(x, lb), quantile(x, ub))
 }
 
 tabulator <- function(histories) {
@@ -45,14 +52,10 @@ tabulator <- function(histories) {
       sum(counts$Total >= x)/nrow(counts)
     }),
     "Likely size (if > Size)" = sapply(sizes, \(s){
-      sprintf(
-        "[%.2f, %.2f]",
-        quantile(counts$Total[counts$Total >= s], .025),
-        quantile(counts$Total[counts$Total >= s], .975)
-      )}),
+      get_ci_pretty(counts$Total[counts$Total >= s])
+      }),
       check.names = FALSE
     )
-
 
   sizes$Probability <- ifelse(
     sizes$Probability <= 0.01,
@@ -76,26 +79,51 @@ tabulator <- function(histories) {
     data.frame(
       Size = median_cases,
       Probability = "Median (50%>)",
-      "Likely size (if > Size)" = sprintf(
-        "[%.2f, %.2f]",
-        quantile(counts$Total[counts$Total > median_cases], probs=.025),
-        quantile(counts$Total[counts$Total > median_cases], probs=.975)
-      ),
+      "Likely size (if > Size)" = get_ci_pretty(
+        counts$Total[counts$Total > median_cases]
+        ),
       check.names = FALSE
     ),
     data.frame(
       Size = mean_cases,
       Probability = "Mean (average)",
-      "Likely size (if > Size)" = sprintf(
-        "[%.2f, %.2f]",
-        quantile(counts$Total[counts$Total > mean_cases], probs=.025),
-        quantile(counts$Total[counts$Total > mean_cases], probs=.975)
-      ),
+      "Likely size (if > Size)" = get_ci_pretty(
+        counts$Total[counts$Total > mean_cases]
+        ),
       check.names = FALSE
     )
   )
 
   sizes
+}
+
+#' Analyzes the hospitalizations
+#' @param transitions A data frame with the transitions
+#' @return A list with the mean, lower and upper bounds of the
+#' hospitalizations
+analyze_hospitalizations <- function(transitions) {
+
+  # Counting hospitalizations
+  transitions <- subset(
+    transitions,
+    counts > 0 &
+    from != "Hospitalized" & to == "Hospitalized"
+    )
+
+  # Aggregating
+  transitions <- stats::aggregate(
+    counts ~ sim_num,
+    data = transitions,
+    FUN = sum
+  )
+
+  # Computing the number of hospitalizations
+  list(
+    mean = mean(transitions$counts),
+    lb   = quantile(transitions$counts, .025),
+    ub   = quantile(transitions$counts, .975)
+  )
+
 }
 
 # List of cases that are considered active in the
@@ -131,12 +159,7 @@ shiny_measles <- function(input) {
     ndays = input$measles_n_days,
     nsims = input$measles_n_sims,
     seed = input$measles_seed,
-    saver =
-      if (!input$measles_show_debug)
-        make_saver("total_hist")
-      else {
-        make_saver("total_hist", "transition")
-      }
+    saver = make_saver("total_hist", "transition")
   )
 
   # Running the model without quarantine
@@ -145,16 +168,28 @@ shiny_measles <- function(input) {
     ndays = input$measles_n_days,
     nsims = input$measles_n_sims,
     seed = input$measles_seed,
-    saver =
-      if (!input$measles_show_debug)
-        make_saver("total_hist")
-      else {
-        make_saver("total_hist", "transition")
-      }
+    saver = make_saver("total_hist", "transition")
   )
 
-  histories <- run_multiple_get_results(model_measles)$total_hist 
-  histories_no_quarantine <- run_multiple_get_results(model_measles_no_quarantine)$total_hist
+  res_quarantine <- run_multiple_get_results(model_measles)
+  res_no_quarantine <- run_multiple_get_results(
+    model_measles_no_quarantine
+    )
+
+  histories <- res_quarantine$total_hist
+  histories_no_quarantine <- res_no_quarantine$total_hist
+
+  # Total number of hospitalizations
+  table_hospitalizations <- function() {
+    list(
+      quarantine = analyze_hospitalizations(
+        res_quarantine$transition
+        ),
+      no_quarantine = analyze_hospitalizations(
+        res_no_quarantine$transition
+        )
+    )
+  }
 
   # Table with total outbreak size
   table_summary_measles <- function() {
@@ -183,8 +218,8 @@ shiny_measles <- function(input) {
           upper = stats::quantile(x, .975)
         )
       }
-    ) 
-  
+    )
+
     dat <- cbind(data.frame(dat[[1]]), data.frame(dat[[2]]))
 
     colnames(dat) <- c("date", "p50", "lower", "upper")
@@ -203,7 +238,12 @@ shiny_measles <- function(input) {
         )
       }
     )
-    dat_no_quarantine <- cbind(data.frame(dat_no_quarantine[[1]]), data.frame(dat_no_quarantine[[2]]))
+
+    dat_no_quarantine <- cbind(
+      data.frame(dat_no_quarantine[[1]]),
+      data.frame(dat_no_quarantine[[2]])
+      )
+
     colnames(dat_no_quarantine) <- c("date", "p50", "lower", "upper")
 
     # Greating figure with plotly
@@ -226,7 +266,7 @@ shiny_measles <- function(input) {
         title  = NULL,
         xaxis  = list(title = 'Day'),
         yaxis  = list(title = 'Active cases')
-      ) |> 
+      ) |>
       plotly::add_lines(
         data = dat_no_quarantine,
         x = ~date,
@@ -260,10 +300,11 @@ shiny_measles <- function(input) {
   # Output list
   return(
     list(
-      epicurves_plot = plot_measles,
-      model_summary  = summary_measles,
-      summary_table  = table_summary_measles,
-      model_table    = model_data
+      epicurves_plot   = plot_measles,
+      model_summary    = summary_measles,
+      summary_table    = table_summary_measles,
+      model_table      = model_data,
+      hospitalizations = table_hospitalizations
     )
   )
 
@@ -290,7 +331,7 @@ measles_panel <- function(model_alt) {
       step    = 1
     ),
     slider_input_rate(
-      "measles", "Proportion Vaccinated", 0.85, 
+      "measles", "Proportion Vaccinated", 0.85,
       maxval = 1, input_label = "prop_vaccinated"
       ),
     numeric_input_ndays("measles"),
@@ -315,7 +356,7 @@ measles_panel <- function(model_alt) {
           step    = 1
         ),
         slider_input_rate(
-          "measles", "Quarantine Willingness", 1.0, 
+          "measles", "Quarantine Willingness", 1.0,
           maxval = 1, input_label = "quarantine_willigness"
         )
       )
@@ -337,9 +378,9 @@ measles_panel <- function(model_alt) {
         shiny::numericInput(
           inputId = "measles_n_sims",
           label   = "Number of simulations",
-          value   = "200",
+          value   = "100",
           min     = 1,
-          max     = 2000,
+          max     = 1000,
           step    = 1
         ),
         slider_input_rate(
@@ -412,8 +453,22 @@ body_measles <- function(input, model_output, output) {
     model_output()$epicurves_plot()
   })
 
+  output$hospitalizations <- shiny::renderText({
+    hosps <- model_output()$hospitalizations()
+
+    sprintf(
+      "With quarantine: %.2f (%.2f, %.2f) hospitalizations. Without quarantine: %.2f (%.2f, %.2f) hospitalizations.",
+      hosps$quarantine$mean,
+      hosps$quarantine$lb,
+      hosps$quarantine$ub,
+      hosps$no_quarantine$mean,
+      hosps$no_quarantine$lb,
+      hosps$no_quarantine$ub
+    )
+  })
+
   list(
-    bslib::card(      
+    bslib::card(
       shiny::htmlOutput("model_description")
     ),
     bslib::card(
@@ -435,7 +490,8 @@ body_measles <- function(input, model_output, output) {
       shiny::p("With quarantine"),
       shiny::tableOutput("summary_table_quarantine") |> spinner(),
       shiny::p("Without quarantine"),
-      shiny::tableOutput("summary_table_no_quarantine") |> spinner()
+      shiny::tableOutput("summary_table_no_quarantine") |> spinner(),
+      shiny::htmlOutput("hospitalizations")
     ),
     if (length(input$measles_show_debug) && input$measles_show_debug) {
       bslib::card(

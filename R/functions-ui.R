@@ -89,67 +89,52 @@ slider_input_rate <- function(
 #' network_input("SEIRD")
 network_input <- function(model_name) {
 
-  shiny::tagList(
-    shiny::div(
-      id = paste0("network_header_", model_name),
-      shiny::headerPanel(
-        shiny::h4(
-          shiny::tagList(
-            shiny::icon("circle-info"),
-            "Population structure"
-          )
-        )
-      )
-    ),
-    shinyjs::hidden(
-      shiny::div(
-        id = paste0("network_inputs_", model_name),
-        shiny::tagList(
-          shiny::tags$style("p { padding: 0 20px; }"),
-          shiny::p("The below parameters affect the network structure and
+  bslib::accordion(
+    open = FALSE,
+    bslib::accordion_panel(
+      title = "Network",
+      shiny::p("The below parameters affect the network structure and
                    behavior of agents within the simulation."),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_population_size"),
-            label   = "Population Size",
-            min     = 0,
-            max     = 100000,
-            value   = 50000,
-            step    = 1000,
-            ticks   = FALSE
-          ),
-          shiny::numericInput(
-            inputId = paste0(model_name, "_k"),
-            label   = "Number of Ties",
-            min     = 0,
-            max     = 500,
-            step    = 1,
-            value   = 20
-          ),
-          shiny::p("The number of
-                   agents each individual agent is expected to meet, on
-                   average."),
-          shiny::selectInput(
-            inputId  = paste0(model_name, "_directed"),
-            label    = "Directed",
-            choices  = c("TRUE", "FALSE"),
-            selected = "FALSE"
-          ),
-          shiny::p("Whether or not an interaction between two agents
-                   is one-way or two-way."),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_prob_rewiring"),
-            label   = "Probability of Rewiring",
-            value   = "0.20",
-            min     = 0,
-            max     = 1,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-           shiny::p("The probability that an agent becomes disconnected from
-                    their location within the network, and relocates to another
-                    location within the same network")
-        )
-      )
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_population_size"),
+        label   = "Population Size",
+        min     = 0,
+        max     = 100000,
+        value   = 50000,
+        step    = 1000,
+        ticks   = FALSE
+      ),
+      shiny::numericInput(
+        inputId = paste0(model_name, "_k"),
+        label   = "Number of Ties",
+        min     = 0,
+        max     = 500,
+        step    = 1,
+        value   = 20
+      ),
+      shiny::p("The number of
+                agents each individual agent is expected to meet, on
+                average."),
+      shiny::selectInput(
+        inputId  = paste0(model_name, "_directed"),
+        label    = "Directed",
+        choices  = c("TRUE", "FALSE"),
+        selected = "FALSE"
+      ),
+      shiny::p("Whether or not an interaction between two agents
+                is one-way or two-way."),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_prob_rewiring"),
+        label   = "Probability of Rewiring",
+        value   = "0.20",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+        shiny::p("The probability that an agent becomes disconnected from
+                their location within the network, and relocates to another
+                location within the same network")
     )
   )
 }
@@ -161,122 +146,108 @@ network_input <- function(model_name) {
 #' @examples
 #' npis_input("SEIRD")
 npis_input <- function(model_name) {
-  shiny::tagList(
-    shiny::div(
-      id = paste0("npis_header_", model_name),
-      shiny::headerPanel(
-        shiny::h4(
-          shiny::tagList(
-            shiny::icon("circle-info"),
-            "Interventions"
-          )
-        )
-      )
-    ),
-    shinyjs::hidden(
-      shiny::div(
-        id = paste0("npis_inputs_", model_name),
-        shiny::tagList(
-          shiny::tags$style("p { padding: 0 20px; }"),
-          tags$p("More details about the implementation of the below
-                interventions can be found in the epiworldRShiny",
-                 tags$a("reference manual",
-                 href = "https://uofuepibio.github.io/epiworldRShiny/reference/index.html"),
-                 "."
-                 ),
-          shiny::headerPanel(shiny::h4("Vaccination")),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_vaccine_prevalence"),
-            label   = "% of agents vaccinated",
-            min     = 0,
-            max     = 1,
-            value   = 0,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_vaccine_susceptibility_reduction"),
-            label   = "probability reduction of susceptibility",
-            min     = 0,
-            max     = 1,
-            value   = 0,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_vaccine_transmission_reduction"),
-            label   = "probability reduction of transmission",
-            min     = 0,
-            max     = 1,
-            value   = 0,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_vaccine_recovery_enhancer"),
-            label   = "probability increase of recovery",
-            min     = 0,
-            max     = 1,
-            value   = 0,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_vaccine_death_reduction"),
-            label   = "probability reduction of death",
-            min     = 0,
-            max     = 1,
-            value   = 0,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::headerPanel(shiny::h4("Masking")),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_masking_prevalence"),
-            label   = "% of agents using masks",
-            value   = "0",
-            min     = 0,
-            max     = 1,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_masking_transmission_reduction"),
-            label   = "probability reduction of transmission",
-            value   = "0",
-            min     = 0,
-            max     = 1,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::headerPanel(shiny::h4("School Closure")),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_school_closure_prevalence"),
-            label   = "prevalence",
-            value   = "0",
-            min     = 0,
-            max     = 1,
-            step    = 0.01,
-            ticks   = FALSE
-          ),
-          shiny::numericInput(
-            inputId = paste0(model_name, "_school_closure_day"),
-            label   = "implementation day",
-            value = "0",
-            min = 0,
-            max = 100,
-            step = 1
-          ),
-          shiny::sliderInput(
-            inputId = paste0(model_name, "_school_closure_transmission_reduction"),
-            label   = "probability reduction of transmission",
-            value   = "0",
-            min     = 0,
-            max     = 1,
-            step    = 0.01,
-            ticks   = FALSE
-          )
-        )
+
+  bslib::accordion(
+    open = FALSE,
+    bslib::accordion_panel(
+      title = "Non-Pharmaceutical Interventions",
+      tags$p("More details about the implementation of the below
+            interventions can be found in the epiworldRShiny",
+              tags$a("reference manual",
+              href = "https://uofuepibio.github.io/epiworldRShiny/reference/index.html"),
+              "."
+              ),
+      shiny::headerPanel(shiny::h4("Vaccination")),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_vaccine_prevalence"),
+        label   = "% of agents vaccinated",
+        min     = 0,
+        max     = 1,
+        value   = 0,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_vaccine_susceptibility_reduction"),
+        label   = "probability reduction of susceptibility",
+        min     = 0,
+        max     = 1,
+        value   = 0,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_vaccine_transmission_reduction"),
+        label   = "probability reduction of transmission",
+        min     = 0,
+        max     = 1,
+        value   = 0,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_vaccine_recovery_enhancer"),
+        label   = "probability increase of recovery",
+        min     = 0,
+        max     = 1,
+        value   = 0,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_vaccine_death_reduction"),
+        label   = "probability reduction of death",
+        min     = 0,
+        max     = 1,
+        value   = 0,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::headerPanel(shiny::h4("Masking")),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_masking_prevalence"),
+        label   = "% of agents using masks",
+        value   = "0",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_masking_transmission_reduction"),
+        label   = "probability reduction of transmission",
+        value   = "0",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::headerPanel(shiny::h4("School Closure")),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_school_closure_prevalence"),
+        label   = "prevalence",
+        value   = "0",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+      ),
+      shiny::numericInput(
+        inputId = paste0(model_name, "_school_closure_day"),
+        label   = "implementation day",
+        value = "0",
+        min = 0,
+        max = 100,
+        step = 1
+      ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_school_closure_transmission_reduction"),
+        label   = "probability reduction of transmission",
+        value   = "0",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
       )
     )
   )
@@ -399,46 +370,36 @@ models_setup <- function(custom_models_path = NULL) {
 #' @examples
 #' population_input("SEIRD")
 population_input <- function(model_name) {
-  shiny::tagList(
-    shiny::div(
-      id = paste0("population_header_", model_name),
-      shiny::headerPanel(
-        shiny::h4(
-          shiny::tagList(
-            shiny::icon("circle-info"),
-            "Population (equity)"
-            )
-      ))
-    ),
-    shinyjs::hidden(
-      shiny::div(
-        id = paste0("population_inputs_", model_name),
-        shiny::sliderInput(
-          inputId = paste0(model_name, "_prop_hispanic"),
-          label   = "% Hispanic",
-          value   = "0.5",
-          min     = 0,
-          max     = 1,
-          step    = 0.01,
-          ticks   = FALSE
-          ),
-        shiny::sliderInput(
-          inputId = paste0(model_name, "_prop_female"),
-          label   = "% Female",
-          value   = "0.5",
-          min     = 0,
-          max     = 1,
-          step    = 0.01,
-          ticks   = FALSE
-          ),
-        shiny::sliderInput(
-          inputId = paste0(model_name, "_prop_ages"),
-          min     = 0,
-          max     = 1,
-          value   = c(.3, .6),
-          label   = "Age distribution (< 20, < 60, 60+)",
-          dragRange = TRUE
-        )
+
+  bslib::accordion(
+    open = FALSE,
+    bslib::accordion_panel(
+      title = "Population",
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_prop_hispanic"),
+        label   = "% Hispanic",
+        value   = "0.5",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+        ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_prop_female"),
+        label   = "% Female",
+        value   = "0.5",
+        min     = 0,
+        max     = 1,
+        step    = 0.01,
+        ticks   = FALSE
+        ),
+      shiny::sliderInput(
+        inputId = paste0(model_name, "_prop_ages"),
+        min     = 0,
+        max     = 1,
+        value   = c(.3, .6),
+        label   = "Age distribution (< 20, < 60, 60+)",
+        dragRange = TRUE
       )
     )
   )
@@ -450,8 +411,21 @@ population_input <- function(model_name) {
 #' @examples
 #' simulate_button("SEIRD")
 simulate_button <- function(model_name) {
-  shiny::actionButton(
-    inputId = paste0("simulate_", model_name),
-    label   = "Run Simulation"
+  bslib::input_task_button(
+    id = paste0("simulate_", model_name),
+    label = "Run Simulation"
     )
+}
+
+#' @export
+#' @rdname epiworldrshiny-ui
+#' @param what The UI element to be wrapped in a spinner.
+#' @examples
+#' spinner()
+#' @details 
+#' The `spinner` function is used to create a loading spinner for the app.
+#' It uses the `shinycssloaders` package to display a spinner while the app is
+#' processing a request. The spinner is styled with a blue color (#009bff).
+spinner <- function(what) {
+  shinycssloaders::withSpinner(what, color = "#009bff")
 }

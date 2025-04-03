@@ -5,11 +5,21 @@
 	"build": {
 			// Path is relative to the devcontainer.json file.
 			"dockerfile": "Dockerfile"
-	}
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
+	},
+	"customizations": {
+			"vscode": {
+					"extensions": [
+							"reditorsupport.r",
+							"rdebugger.r-debugger",
+							"quarto.quarto",
+							"tianyishi.rmarkdown"
+					]
+			}
+	},
+	"mounts": [
+        // Mount the .vscode configuration into the container
+        "source=${localWorkspaceFolder}/.devcontainer/.vscode,target=/workspaces/${localWorkspaceFolderBasename}/.vscode,type=bind,consistency=cached"
+	]
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 

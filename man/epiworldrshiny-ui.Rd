@@ -12,6 +12,7 @@
 \alias{models_setup}
 \alias{population_input}
 \alias{simulate_button}
+\alias{spinner}
 \title{epiworldRShiny UI builder functions}
 \usage{
 text_input_disease_name(model_name)
@@ -33,6 +34,8 @@ models_setup(custom_models_path = NULL)
 population_input(model_name)
 
 simulate_button(model_name)
+
+spinner(what)
 }
 \arguments{
 \item{model_name}{Name of the epiworldR model.}
@@ -46,6 +49,8 @@ simulate_button(model_name)
 \item{input_label}{Aids in creating the appropriate slider name.}
 
 \item{custom_models_path}{Optional path to custom model files (see details).}
+
+\item{what}{The UI element to be wrapped in a spinner.}
 }
 \value{
 \itemize{
@@ -76,6 +81,10 @@ build the UI for the epiworldRShiny app.
 When \code{custom_models_path} is specified, the function will look for valid model files
 at the specified path. These will be added to the list of available models.
 The function expects R files named \verb{shiny_<model_name>.R} which contain the model.
+
+The \code{spinner} function is used to create a loading spinner for the app.
+It uses the \code{shinycssloaders} package to display a spinner while the app is
+processing a request. The spinner is styled with a blue color (#009bff).
 }
 \examples{
 text_input_disease_name("SEIRD")
@@ -92,4 +101,5 @@ models_setup()
 \dontrun{models_setup(custom_models_path = "path/to/custom/models")}
 population_input("SEIRD")
 simulate_button("SEIRD")
+spinner()
 }

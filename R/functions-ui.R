@@ -270,6 +270,7 @@ seed_input <- function(model_name) {
 }
 
 # Helper function to validate a given model file
+#' @rdname epiworldrshiny-ui
 #' @param model_filename The name of the model file to be validated.
 #' @return
 #' - `validate_model` returns TRUE if the model file is valid, FALSE otherwise.
@@ -327,6 +328,7 @@ validate_model <- function(model_filename) {
 }
 
 # Helper function to get valid model files from given directory
+#' @rdname epiworldrshiny-ui
 #' @param path_to_models The path to the directory containing model files.
 #' @return
 #' - `get_valid_models` returns a character vector of valid model file paths.
@@ -354,6 +356,7 @@ get_valid_models <- function(path_to_models) {
 }
 
 # Helper function to remove duplicate file names from custom models
+#' @rdname epiworldrshiny-ui
 #' @param custom_models A character vector of custom model file paths.
 #' @param system_models A character vector of system model file paths.
 #' @return

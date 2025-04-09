@@ -11,8 +11,6 @@
 #' @importFrom plotly plot_ly add_markers add_segments layout
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion
-#' @import shinydashboard
-#' @importFrom shinyjs hidden useShinyjs toggle
 
 #' @return Loads and opens the R shiny app for the epiworldR package
 #' @param ... Currently ignored.

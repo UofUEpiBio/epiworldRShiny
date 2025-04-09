@@ -35,6 +35,7 @@ Imports:
     ggplot2,
     epiworldR,
     shinycssloaders,
-    plotly
+    plotly,
+    bslib
 Depends:
     shiny

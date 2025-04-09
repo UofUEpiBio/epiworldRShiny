@@ -531,7 +531,7 @@ simulate_button <- function(model_name) {
 #' @rdname epiworldrshiny-ui
 #' @param what The UI element to be wrapped in a spinner.
 #' @examples
-#' spinner()
+#' \dontrun{spinner()}
 #' @details 
 #' The `spinner` function is used to create a loading spinner for the app.
 #' It uses the `shinycssloaders` package to display a spinner while the app is

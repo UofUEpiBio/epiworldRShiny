@@ -363,6 +363,11 @@ get_valid_models <- function(path_to_models) {
 #' - `remove_duplicates` returns a character vector of custom model file paths
 #'   with duplicates removed.
 remove_duplicates <- function(custom_models, system_models) {
+  # Get duplicates (if any)
+  duplicate_models <- custom_models[
+    basename(custom_models) %in% basename(system_models)
+  ]
+
   # Remove duplicates from custom models
   custom_models <- custom_models[
     !basename(custom_models) %in% basename(system_models)
@@ -370,8 +375,9 @@ remove_duplicates <- function(custom_models, system_models) {
 
   # Print warning if any duplicates were found
   if (length(custom_models) < length(system_models)) {
-    message("Custom model path contains duplicated system models.
-    Only unique models will be used, with preference given to system models.")
+    message("Custom model path contains the following duplicated system models which have not been imported:\n")
+    message(paste(duplicate_models, collapse = "\n"))
+    message("\nOnly unique models will be used, with preference given to system models.")
   }
 
   return(custom_models)

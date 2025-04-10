@@ -11,14 +11,12 @@
 #' @importFrom plotly plot_ly add_markers add_segments layout
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion
-#'
+
 #' @return Loads and opens the R shiny app for the epiworldR package
 #' @param ... Currently ignored.
 #' @export
 #' @name epiworldRShiny
 NULL
-# @import shinydashboard
-# @importFrom shinyjs hidden useShinyjs toggle
 
 epiworldR_env <- new.env()
 
@@ -72,7 +70,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         shiny::selectInput(
           inputId = "model",
           label = shiny::h3("Model"),
-          choices = unname(epiworldRenv()$models_names)
+          choices = unname(epiworldRenv()$model_display_names)
         )
       ),
       # Need to pass it unnamed

@@ -14,6 +14,6 @@ RUN install2.r -s \
   shiny
 
 
-RUN install2.r -s rsconnect
+RUN install2.r -s rsconnect languageserver httpgd
 
 CMD ["bash"]

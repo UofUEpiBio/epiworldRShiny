@@ -532,16 +532,3 @@ simulate_button <- function(model_name) {
     label = "Run Simulation"
     )
 }
-
-#' @export
-#' @rdname epiworldrshiny-ui
-#' @param what The UI element to be wrapped in a spinner.
-#' @examples
-#' \dontrun{spinner()}
-#' @details 
-#' The `spinner` function is used to create a loading spinner for the app.
-#' It uses the `shinycssloaders` package to display a spinner while the app is
-#' processing a request. The spinner is styled with a blue color (#009bff).
-spinner <- function(what) {
-  shinycssloaders::withSpinner(what, color = "#009bff")
-}

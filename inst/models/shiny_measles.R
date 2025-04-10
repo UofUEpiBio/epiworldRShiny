@@ -480,7 +480,7 @@ body_measles <- function(input, model_output, output) {
         input$measles_n_sims
         )
       ),
-      plotly::plotlyOutput("epicurves_plot") |> spinner()
+      plotly::plotlyOutput("epicurves_plot")
     ),
     bslib::card(
       bslib::card_header("Outbreak Size"),
@@ -488,15 +488,15 @@ body_measles <- function(input, model_output, output) {
           "The table below shows the number of cases at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
         ),
       shiny::p("With quarantine"),
-      shiny::tableOutput("summary_table_quarantine") |> spinner(),
+      shiny::tableOutput("summary_table_quarantine"),
       shiny::p("Without quarantine"),
-      shiny::tableOutput("summary_table_no_quarantine") |> spinner(),
+      shiny::tableOutput("summary_table_no_quarantine"),
       shiny::htmlOutput("hospitalizations")
     ),
     if (length(input$measles_show_debug) && input$measles_show_debug) {
       bslib::card(
         width = 6,
-        shiny::verbatimTextOutput("model_summary") |> spinner()
+        shiny::verbatimTextOutput("model_summary")
       )
     } else NULL
   )

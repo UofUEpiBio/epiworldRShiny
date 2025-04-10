@@ -7,7 +7,6 @@
 #' @import epiworldR
 #' @importFrom DT dataTableOutput renderDataTable
 #' @import ggplot2
-#' @import shinycssloaders
 #' @importFrom plotly plot_ly add_markers add_segments layout
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion
@@ -207,13 +206,13 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
             shiny::column(12, shiny::htmlOutput("model_description"))
           ),
           shiny::fluidRow(
-            shiny::column(6, plotly::plotlyOutput("model_plot") |> spinner()),
-            shiny::column(6, plotly::plotlyOutput("model_reproductive_plot") |> spinner())
+            shiny::column(6, plotly::plotlyOutput("model_plot")),
+            shiny::column(6, plotly::plotlyOutput("model_reproductive_plot"))
           ),
           shiny::HTML("<br>"),
           shiny::fluidRow(
-            shiny::column(6, shiny::verbatimTextOutput("model_summary") |> spinner()),
-            shiny::column(6, DT::dataTableOutput("model_table") |> spinner())
+            shiny::column(6, shiny::verbatimTextOutput("model_summary")),
+            shiny::column(6, DT::dataTableOutput("model_table"))
           )
         )
       }

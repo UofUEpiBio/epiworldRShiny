@@ -9,9 +9,6 @@
 \alias{network_input}
 \alias{npis_input}
 \alias{seed_input}
-\alias{validate_model}
-\alias{get_valid_models}
-\alias{remove_duplicates}
 \alias{models_setup}
 \alias{population_input}
 \alias{simulate_button}
@@ -32,12 +29,6 @@ npis_input(model_name)
 
 seed_input(model_name)
 
-validate_model(model_filename)
-
-get_valid_models(path_to_models)
-
-remove_duplicates(custom_models, system_models)
-
 models_setup(custom_models_path = NULL)
 
 population_input(model_name)
@@ -57,14 +48,6 @@ spinner(what)
 
 \item{input_label}{Aids in creating the appropriate slider name.}
 
-\item{model_filename}{The name of the model file to be validated.}
-
-\item{path_to_models}{The path to the directory containing model files.}
-
-\item{custom_models}{A character vector of custom model file paths.}
-
-\item{system_models}{A character vector of system model file paths.}
-
 \item{custom_models_path}{Optional path to custom model files (see details).}
 
 \item{what}{The UI element to be wrapped in a spinner.}
@@ -80,19 +63,6 @@ spinner(what)
 
 \itemize{
 \item \code{npis_input} returns an object of class \link[shiny:reexports]{shiny::tagList} (\code{shiny.tag.list}).
-}
-
-\itemize{
-\item \code{validate_model} returns TRUE if the model file is valid, FALSE otherwise.
-}
-
-\itemize{
-\item \code{get_valid_models} returns a character vector of valid model file paths.
-}
-
-\itemize{
-\item \code{remove_duplicates} returns a character vector of custom model file paths
-with duplicates removed.
 }
 
 \itemize{

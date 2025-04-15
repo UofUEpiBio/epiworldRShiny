@@ -34,7 +34,6 @@ Imports:
     DT,
     ggplot2,
     epiworldR,
-    shinycssloaders,
     plotly,
     bslib
 Depends:

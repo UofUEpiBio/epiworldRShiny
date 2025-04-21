@@ -1,8 +1,9 @@
-# epiworldRShiny 0.2-1 (dev)
+# epiworldRShiny 0.2.2
 
-* Added a `NEWS.md` file to track changes to the package.
+* Adds a `NEWS.md` file to track changes to the package.
 
-* Added new Measles model included in the most recent version of epiworldR (0.8.0.0).
+* Adds new Measles model included in the most recent version of epiworldR (0.8.1.0).
 
-* Refactor UI to only use bslib and move away from the shinydashboard R package and the shinyjs package.
+* Refactors UI to only use bslib and move away from the shinydashboard R package and the shinyjs package.
 
+* Adds ability to load in custom (user-defined) models

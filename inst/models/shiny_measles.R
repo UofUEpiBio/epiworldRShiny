@@ -19,7 +19,7 @@ model_builder <- function(input, quarantine = TRUE) {
     hospitalization_duration = input$measles_hospitalization_duration,
     prop_vaccinated          = input$measles_prop_vaccinated,
     quarantine_days          = input$measles_quarantine_days,
-    quarantine_willigness    = input$measles_quarantine_willigness
+    quarantine_willingness    = input$measles_quarantine_willingness
   )
 }
 
@@ -357,7 +357,7 @@ measles_panel <- function(model_alt) {
         ),
         slider_input_rate(
           "measles", "Quarantine Willingness", 1.0,
-          maxval = 1, input_label = "quarantine_willigness"
+          maxval = 1, input_label = "quarantine_willingness"
         )
       )
     ),

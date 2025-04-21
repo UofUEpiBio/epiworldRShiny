@@ -6,9 +6,9 @@ Date: 2025-04-03
 Authors@R: c(
   person("George", "Vega Yon", role=c("aut"),
   email="g.vegayon@gmail.com", comment = c(ORCID = "0000-0002-3171-0844")),
-  person("Derek", "Meyer", role=c("aut","cre"), 
+  person("Derek", "Meyer", role=c("aut"), 
   email="derekmeyer37@gmail.com", comment = c(ORCID = "0009-0005-1350-6988")),
-  person("Andrew", "Pulsipher", role=c("aut"),
+  person("Andrew", "Pulsipher", role=c("aut", "cre"),
   email="pulsipher.a@gmail.com", comment = c(ORCID = "0000-0002-0773-3210")),
   person("Centers for Disease Control and Prevention", role="fnd", comment = "Award number 1U01CK000585; 75D30121F00003"
   ),

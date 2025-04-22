@@ -5,7 +5,9 @@
     code is available <a href="https://github.com/UofUEpiBio/epiworldRShiny/tree/measlesquarantine">here</a>.
 </div>
 
-# Measles Model
+# Modeling Measles in Schools
 
-Using this app, you can simulate measles outbreaks and compare **how many fewer cases a quarantine procedure yields**. You can specify the number of people (population size), the number of initial cases, the proportion of vaccinated agents, and the duration in days. You can learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
+Using this app, you can simulate measles outbreaks in schools and compare **how many fewer cases a quarantine procedure yields**. You can specify the number of people in the school (population size), the number of initial cases, the proportion of vaccinated agents, and the simulation duration in days. 
+
+Learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
 

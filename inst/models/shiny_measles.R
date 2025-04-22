@@ -1,4 +1,4 @@
-# alt-name: Measles
+# alt-name: Measles in Schools
 
 model_builder <- function(input, quarantine = TRUE) {
   epiworldR::ModelMeaslesQuarantine(
@@ -485,7 +485,7 @@ body_measles <- function(input, model_output, output) {
     bslib::card(
       bslib::card_header("Outbreak Size"),
       shiny::p(
-          "The table below shows the number of cases at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
+          "The table below shows the number of cases in the school at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
         ),
       shiny::p("With quarantine"),
       shiny::tableOutput("summary_table_quarantine"),

@@ -259,7 +259,7 @@ shiny_measles <- function(input) {
         ymin = ~lower,
         ymax = ~upper,
         name = "95% CI",
-        fillcolor = "rgba(0, 100, 80, 0.5)",
+        fillcolor = "rgba(48, 123, 194, 0.25)",
         line = list(width = 0)
       ) |>
       plotly::layout(
@@ -279,9 +279,10 @@ shiny_measles <- function(input) {
         ymin = ~lower,
         ymax = ~upper,
         name = "95% CI (no quarantine)",
-        fillcolor = "rgba(100, 0, 80, 0.5)",
+        fillcolor = "rgba(193, 26, 1, 0.25)",
         line = list(width = 0)
-      )
+      ) |>
+      plotly::layout(legend = list(x = 0, y = -0.3, orientation = "h"))
   }
   # Summary
   summary_measles <- function() {

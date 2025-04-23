@@ -506,13 +506,13 @@ body_measles <- function(input, model_output, output) {
           title = "Avg. outbreak size",
           shiny::textOutput("thm_outbreak_value"),
           shiny::htmlOutput("thm_outbreak_comp"),
-          theme = "red"
+          theme = "blue"
         ),
         bslib::value_box(
           title = "Avg. hospitalizations",
           shiny::textOutput("thm_hospitalizations_value"),
           shiny::htmlOutput("thm_hospitalizations_comp"),
-          theme = "blue"
+          theme = "red"
         )
       )
     ),

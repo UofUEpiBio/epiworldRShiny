@@ -457,7 +457,7 @@ body_measles <- function(input, model_output, output) {
     hosps <- model_output()$hospitalizations()
 
     sprintf(
-      "With quarantine: %.2f (%.2f, %.2f) hospitalizations. Without quarantine: %.2f (%.2f, %.2f) hospitalizations.",
+      "Hospitalizations: %.2f with quarantine (CI = [%.2f, %.2f]), %.2f without quarantine (CI = [%.2f, %.2f])",
       hosps$quarantine$mean,
       hosps$quarantine$lb,
       hosps$quarantine$ub,
@@ -467,9 +467,53 @@ body_measles <- function(input, model_output, output) {
     )
   })
 
+  # Take-home Messages
+
+  # Outbreak Size
+  output$thm_outbreak_value <- shiny::renderText({
+    round(model_output()$summary_table()$no_quarantine$Size[6], digits = 0)
+  })
+
+  output$thm_outbreak_comp <- shiny::renderText({    
+    sprintf(
+      "(%1.0f with quarantine)",
+      round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
+    )
+  })
+
+  # Hospitalizations
+  output$thm_hospitalizations_value <- shiny::renderText({
+    round(model_output()$hospitalizations()$no_quarantine$mean, digits = 0)
+  })
+
+  output$thm_hospitalizations_comp <- shiny::renderText({
+    sprintf(
+      "(%1.0f with quarantine)",
+      round(model_output()$hospitalizations()$quarantine$mean, digits = 0)
+    )
+  })
+
   list(
     bslib::card(
       shiny::htmlOutput("model_description")
+    ),
+    bslib::card(
+      bslib::card_header("Take-Home Message"),
+      shiny::p("Without quarantine:"),
+      bslib::layout_columns(
+        bslib::value_box(
+          title = "Avg. outbreak size",
+          shiny::textOutput("thm_outbreak_value"),
+          shiny::htmlOutput("thm_outbreak_comp"),
+          theme = "red"
+        ),
+        bslib::value_box(
+          title = "Avg. hospitalizations",
+          shiny::textOutput("thm_hospitalizations_value"),
+          shiny::htmlOutput("thm_hospitalizations_comp"),
+          theme = "blue"
+        )
+      )
     ),
     bslib::card(
       bslib::card_header("Epidemic Curve"),
@@ -487,9 +531,9 @@ body_measles <- function(input, model_output, output) {
       shiny::p(
           "The table below shows the number of cases in the school at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
         ),
-      shiny::p("With quarantine"),
+      shiny::p("Outbreak size with quarantine"),
       shiny::tableOutput("summary_table_quarantine"),
-      shiny::p("Without quarantine"),
+      shiny::p("Outbreak size without quarantine"),
       shiny::tableOutput("summary_table_no_quarantine"),
       shiny::htmlOutput("hospitalizations")
     ),

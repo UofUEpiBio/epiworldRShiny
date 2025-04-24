@@ -252,7 +252,7 @@ shiny_measles <- function(input) {
       x = ~date,
       y = ~p50,
       type = 'scatter',
-      mode = 'lines+markers',
+      mode = 'lines',
       name = "Median (quarantine)"
     ) |>
       plotly::add_ribbons(
@@ -494,12 +494,37 @@ body_measles <- function(input, model_output, output) {
     )
   })
 
+  # Logos
+  output$dhhs_logo <- shiny::renderImage(
+    {
+      logo <- system.file("models/shiny_measles_assets/udhhs-logo.png", package = "epiworldRShiny")
+
+      list(
+        src = logo,
+        width = "150px"
+      )
+    },
+    deleteFile = FALSE
+  )
+
+  output$foresite_logo <- shiny::renderImage(
+    {
+      logo <- system.file("models/shiny_measles_assets/foresite-logo.png", package = "epiworldRShiny")
+
+      list(
+        src = logo,
+        width = "150px"
+      )
+    },
+    deleteFile = FALSE
+  )
+
   list(
     bslib::card(
       shiny::htmlOutput("model_description")
     ),
     bslib::card(
-      bslib::card_header("Take-Home Message"),
+      bslib::card_header("Summary"),
       shiny::p("Without quarantine:"),
       bslib::layout_columns(
         bslib::value_box(
@@ -537,6 +562,20 @@ body_measles <- function(input, model_output, output) {
       shiny::p("Outbreak size without quarantine"),
       shiny::tableOutput("summary_table_no_quarantine"),
       shiny::htmlOutput("hospitalizations")
+    ),
+    bslib::card(
+      bslib::card_header("Acknowledgements"),
+      shiny::p("Made in collaboration with Utah DHHS and ForeSITE"),
+      bslib::layout_columns(
+        shiny::imageOutput("dhhs_logo", height = "150px"),
+        shiny::div(
+          shiny::imageOutput("foresite_logo", height = "130px"),
+          style = "display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;"
+        )
+      )
     ),
     if (length(input$measles_show_debug) && input$measles_show_debug) {
       bslib::card(

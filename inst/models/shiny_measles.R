@@ -27,7 +27,7 @@ model_builder <- function(input, quarantine = TRUE) {
 #' @param x A vector of numbers
 #' @param lb,ub Lower and upper bounds of the CI.
 get_ci_pretty <- function(x, lb = .025, ub = .975) {
-  sprintf("[%.2f, %.2f]", quantile(x, lb), quantile(x, ub))
+  sprintf("[%1.0f, %1.0f]", quantile(x, lb), quantile(x, ub))
 }
 
 tabulator <- function(histories) {
@@ -325,7 +325,7 @@ measles_panel <- function(model_alt) {
         value   = 500
       ),
       placement = "right",
-      "Number of students in the school"
+      "# of students in the school"
     ),
     bslib::tooltip(
       shiny::numericInput(
@@ -337,7 +337,7 @@ measles_panel <- function(model_alt) {
         step    = 1
       ),
       placement = "right",
-      "Number of cases at the start of the simulation"
+      "# of cases at the start of the simulation"
     ),
     bslib::tooltip(
       slider_input_rate(
@@ -353,12 +353,23 @@ measles_panel <- function(model_alt) {
     bslib::tooltip(
       numeric_input_ndays("measles"),
       placement = "right",
-      "How many days to run the simulation"
+      "# of days to run the simulation"
     ),
     bslib::accordion(
       open = FALSE,
       bslib::accordion_panel(
         title = "Quarantine",
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", 
+            "Quarantine Willingness", 
+            1.0,
+            maxval = 1, 
+            input_label = "quarantine_willingness"
+          ),
+          placement = "right",
+          "How willing infected people are to quarantine (1 = 100% willing, 0 = 0% willing)"
+        ),
         bslib::tooltip(
           shiny::numericInput(
             inputId = "measles_days_undetected",
@@ -369,7 +380,7 @@ measles_panel <- function(model_alt) {
             step    = .5
           ),
           placement = "right",
-          "How many days before a person is detected as infected"
+          "# of days after the rash manifests before a person is detected as infected with measles"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -381,18 +392,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many days an infected person is quarantined"
-        ),
-        bslib::tooltip(
-          slider_input_rate(
-            "measles", 
-            "Quarantine Willingness", 
-            1.0,
-            maxval = 1, 
-            input_label = "quarantine_willingness"
-          ),
-          placement = "right",
-          "How willing infected people are to quarantine (1 = 100% willing, 0 = 0% willing)"
+          "# of days an infected person is quarantined. 21 days is the CDC recommendation for measles quarantine."
         )
       )
     ),
@@ -412,7 +412,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many days an infected person is hospitalized"
+          "# of days an infected person is hospitalized"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -424,7 +424,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many simulations to run - displayed results are averaged across all simulations"
+          "# of simulations to run - displayed results are averaged across all simulations"
         ),
         bslib::tooltip(
           slider_input_rate(
@@ -434,14 +434,14 @@ measles_panel <- function(model_alt) {
             maxval = 20
           ),
           placement = "right",
-          "How many people a given agent in the simulation interacts with per day of the simulation"
+          "# of people a given person interacts with per day of the simulation"
         ),
         bslib::tooltip(
           slider_input_rate(
             "measles", "Hospitalization Rate", 0.2, maxval = 1
           ),
           placement = "right",
-          "How many infected individuals are hospitalized per day of the simulation"
+          "Rate of hospitalization for infected individuals per day of the simulation"
         ),
         bslib::tooltip(
           slider_input_rate(
@@ -477,7 +477,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many days the disease incubates before the individual becomes symptomatic"
+          "# of days the disease incubates before the individual becomes symptomatic"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -489,7 +489,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many days the prodromal period lasts before the individual develops a rash"
+          "# of days the prodromal period lasts before the individual develops a rash"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -501,7 +501,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "How many days the rash lasts before the individual recovers"
+          "# of days the rash lasts before the individual recovers"
         ),
         bslib::tooltip(    
           seed_input("measles"),
@@ -544,7 +544,7 @@ body_measles <- function(input, model_output, output) {
     hosps <- model_output()$hospitalizations()
 
     sprintf(
-      "Hospitalizations: %.2f with quarantine (CI = [%.2f, %.2f]), %.2f without quarantine (CI = [%.2f, %.2f])",
+      "Hospitalizations: %1.0f with quarantine (CI = [%1.0f, %1.0f]), %1.0f without quarantine (CI = [%1.0f, %1.0f])",
       hosps$quarantine$mean,
       hosps$quarantine$lb,
       hosps$quarantine$ub,
@@ -556,28 +556,37 @@ body_measles <- function(input, model_output, output) {
 
   # Take-home Messages
 
+  output$takehome_message <- shiny::renderText({
+    if (input$measles_prevalence == 1) {
+      sprintf(
+        "When 1 case of measles is introduced into a school with %1.0f students, we expect the following outbreak sizes and number of hospitalizations based on whether quarantine procedures were implemented:",
+        input$measles_population_size
+      )
+    } else {
+      sprintf(
+        "When %1.0f cases of measles are introduced into a school with %1.0f students, we expect the following outbreak sizes and number of hospitalizations based on whether quarantine procedures were implemented:",
+        input$measles_prevalence,
+        input$measles_population_size
+      )
+    }
+  })
+
   # Outbreak Size
-  output$thm_outbreak_value <- shiny::renderText({
+  output$thm_noquarantine_outbreak_value <- shiny::renderText({
     round(model_output()$summary_table()$no_quarantine$Size[6], digits = 0)
   })
 
-  output$thm_outbreak_comp <- shiny::renderText({    
-    sprintf(
-      "(%1.0f with quarantine)",
-      round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
-    )
+  output$thm_quarantine_outbreak_value <- shiny::renderText({    
+    round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
   })
 
   # Hospitalizations
-  output$thm_hospitalizations_value <- shiny::renderText({
+  output$thm_noquarantine_hospitalizations_value <- shiny::renderText({
     round(model_output()$hospitalizations()$no_quarantine$mean, digits = 0)
   })
 
-  output$thm_hospitalizations_comp <- shiny::renderText({
-    sprintf(
-      "(%1.0f with quarantine)",
-      round(model_output()$hospitalizations()$quarantine$mean, digits = 0)
-    )
+  output$thm_quarantine_hospitalizations_value <- shiny::renderText({
+    round(model_output()$hospitalizations()$quarantine$mean, digits = 0)
   })
 
   # Logos
@@ -611,18 +620,42 @@ body_measles <- function(input, model_output, output) {
     ),
     bslib::card(
       bslib::card_header("Summary"),
-      shiny::p("Without quarantine:"),
+      shiny::textOutput("takehome_message"),
+      bslib::layout_columns(
+        shiny::div(
+          shiny::p(shiny::strong("Average Outbreak Size")),
+          style = "display: flex;
+            justify-content: center;
+            align-items: center;"
+        ),
+        shiny::div(
+          shiny::p(shiny::strong("Average Hospitalizations")),
+          style = "display: flex;
+            justify-content: center;
+            align-items: center;"
+        ),
+      ),
       bslib::layout_columns(
         bslib::value_box(
-          title = "Avg. outbreak size",
-          shiny::textOutput("thm_outbreak_value"),
-          shiny::htmlOutput("thm_outbreak_comp"),
+          title = "with quarantine",
+          shiny::textOutput("thm_quarantine_outbreak_value"),
+          theme = bslib::value_box_theme(bg = "rgba(48, 123, 194, 0.25)", fg = "black")
+        ),
+        bslib::value_box(
+          title = "with quarantine",
+          shiny::textOutput("thm_quarantine_hospitalizations_value"),
+          theme = bslib::value_box_theme(bg = "rgba(193, 26, 1, 0.25)", fg = "black")
+        )
+      ),
+      bslib::layout_columns(
+        bslib::value_box(
+          title = "without quarantine",
+          shiny::textOutput("thm_noquarantine_outbreak_value"),
           theme = "blue"
         ),
         bslib::value_box(
-          title = "Avg. hospitalizations",
-          shiny::textOutput("thm_hospitalizations_value"),
-          shiny::htmlOutput("thm_hospitalizations_comp"),
+          title = "without quarantine",
+          shiny::textOutput("thm_noquarantine_hospitalizations_value"),
           theme = "red"
         )
       )

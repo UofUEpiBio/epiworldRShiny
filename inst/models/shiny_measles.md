@@ -7,7 +7,7 @@
 
 # Modeling Measles in Schools
 
-Using this app, you can simulate measles outbreaks in schools and compare **how many fewer cases a quarantine procedure yields**. You can specify the number of people in the school (population size), the number of initial cases, the proportion of vaccinated agents, and the simulation duration in days. 
+This model simulates measles outbreaks in schools and compares **how many fewer cases a quarantine procedure yields**. You can specify the number of people in the school (population size), the number of initial cases, the proportion of vaccinated agents, and the simulation duration in days. 
 
-Learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
+Note that the model only simulates outbreaks within a single school and does not include transmissions that come into the school from external sources (e.g., other schools, the community, etc.). Learn more about the model at <https://github.com/EpiForeSITE/epiworld-measles>.
 

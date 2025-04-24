@@ -316,49 +316,83 @@ measles_panel <- function(model_alt) {
   shiny::conditionalPanel(
     simulate_button("measles"),
     condition = sprintf("input.model == '%s'", model_alt),
-    shiny::numericInput(
-      inputId = "measles_population_size",
-      label   = "Population Size",
-      min     = 0,
-      max     = 50000,
-      value   = 500
-    ),
-    shiny::numericInput(
-      inputId = "measles_prevalence",
-      label   = "Initial cases",
-      value   = 1,
-      min     = 1,
-      max     = NA,
-      step    = 1
-    ),
-    slider_input_rate(
-      "measles", "Proportion Vaccinated", 0.85,
-      maxval = 1, input_label = "prop_vaccinated"
+    bslib::tooltip(
+      shiny::numericInput(
+        inputId = "measles_population_size",
+        label   = "Population Size",
+        min     = 0,
+        max     = 50000,
+        value   = 500
       ),
-    numeric_input_ndays("measles"),
+      placement = "right",
+      "Number of students in the school"
+    ),
+    bslib::tooltip(
+      shiny::numericInput(
+        inputId = "measles_prevalence",
+        label   = "Initial cases",
+        value   = 1,
+        min     = 1,
+        max     = NA,
+        step    = 1
+      ),
+      placement = "right",
+      "Number of cases at the start of the simulation"
+    ),
+    bslib::tooltip(
+      slider_input_rate(
+        "measles", 
+        "Proportion Vaccinated", 
+        0.85,
+        maxval = 1,
+        input_label = "prop_vaccinated"
+      ),
+      placement = "right",
+      "Proportion of students in the school who are vaccinated against measles"
+    ),
+    bslib::tooltip(
+      numeric_input_ndays("measles"),
+      placement = "right",
+      "How many days to run the simulation"
+    ),
     bslib::accordion(
       open = FALSE,
       bslib::accordion_panel(
         title = "Quarantine",
-        shiny::numericInput(
-          inputId = "measles_days_undetected",
-          label   = "Days Undetected",
-          value   = "2",
-          min     = 0,
-          max     = NA,
-          step    = .5
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_days_undetected",
+            label   = "Days Undetected",
+            value   = "2",
+            min     = 0,
+            max     = NA,
+            step    = .5
+          ),
+          placement = "right",
+          "How many days before a person is detected as infected"
         ),
-        shiny::numericInput(
-          inputId = "measles_quarantine_days",
-          label   = "Quarantine Days",
-          value   = "21",
-          min     = 0,
-          max     = NA,
-          step    = 1
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_quarantine_days",
+            label   = "Quarantine Days",
+            value   = "21",
+            min     = 0,
+            max     = NA,
+            step    = 1
+          ),
+          placement = "right",
+          "How many days an infected person is quarantined"
         ),
-        slider_input_rate(
-          "measles", "Quarantine Willingness", 1.0,
-          maxval = 1, input_label = "quarantine_willingness"
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", 
+            "Quarantine Willingness", 
+            1.0,
+            maxval = 1, 
+            input_label = "quarantine_willingness"
+          ),
+          placement = "right",
+          "How willing infected people are to quarantine (1 = 100% willing, 0 = 0% willing)"
         )
       )
     ),
@@ -368,69 +402,121 @@ measles_panel <- function(model_alt) {
       bslib::accordion_panel(
         "Advanced parameters",
         shiny::p("The below parameters are advanced and control disease dynamics."),
-        shiny::numericInput(
-          inputId = "measles_hospitalization_duration",
-          label   = "Hospitalization Duration (days)",
-          value   = "7",
-          min     = 0,
-          max     = NA,
-          step    = 1
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_hospitalization_duration",
+            label   = "Hospitalization Duration (days)",
+            value   = "7",
+            min     = 0,
+            max     = NA,
+            step    = 1
           ),
-        shiny::numericInput(
-          inputId = "measles_n_sims",
-          label   = "Number of simulations",
-          value   = "100",
-          min     = 1,
-          max     = 1000,
-          step    = 1
+          placement = "right",
+          "How many days an infected person is hospitalized"
         ),
-        slider_input_rate(
-          "measles",
-          "Contact Rate",
-          15/.99/(4 + 3),
-          maxval = 20
-        ),
-        slider_input_rate(
-          "measles", "Hospitalization Rate", 0.2, maxval = 1
-        ),
-        slider_input_rate(
-          "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
-        slider_input_rate(
-          "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
-        slider_input_rate(
-          "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
-        slider_input_rate(
-          "measles", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
-        shiny::numericInput(
-          inputId = "measles_incubation_days",
-          label   = "Incubation Days",
-          value   = "12",
-          min     = 0,
-          max     = NA,
-          step    = 1
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_n_sims",
+            label   = "Number of simulations",
+            value   = "100",
+            min     = 1,
+            max     = 1000,
+            step    = 1
           ),
-        shiny::numericInput(
-          inputId = "measles_prodromal_period",
-          label   = "Prodromal Period (days)",
-          value   = "4",
-          min     = 0,
-          max     = NA,
-          step    = 1
+          placement = "right",
+          "How many simulations to run - displayed results are averaged across all simulations"
         ),
-        shiny::numericInput(
-          inputId = "measles_rash_period",
-          label   = "Rash Period (days)",
-          value   = "3",
-          min     = 0,
-          max     = NA,
-          step    = 1
+        bslib::tooltip(
+          slider_input_rate(
+            "measles",
+            "Contact Rate",
+            15/.99/(4 + 3),
+            maxval = 20
+          ),
+          placement = "right",
+          "How many people a given agent in the simulation interacts with per day of the simulation"
         ),
-        seed_input("measles"),
-        shiny::checkboxInput(
-          inputId = "measles_show_debug",
-          label   = "Show Debugging Information",
-          value   = FALSE
-        )
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", "Hospitalization Rate", 0.2, maxval = 1
+          ),
+          placement = "right",
+          "How many infected individuals are hospitalized per day of the simulation"
+        ),
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
+          placement = "right",
+          "The change an infected individual transmits the disease to a susceptible individual per day of the simulation"
+        ),
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
+          placement = "right",
+          "How effective the vaccine is at preventing infection"
+        ),
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
+          placement = "right",
+          "How much a vaccinated individual recovers faster than an unvaccinated individual"
+        ),
+        bslib::tooltip(
+          slider_input_rate(
+            "measles", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
+          placement = "right",
+          "The probability of an infected individual recovering per day of the simulation"
+        ),
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_incubation_days",
+            label   = "Incubation Days",
+            value   = "12",
+            min     = 0,
+            max     = NA,
+            step    = 1
+          ),
+          placement = "right",
+          "How many days the disease incubates before the individual becomes symptomatic"
+        ),
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_prodromal_period",
+            label   = "Prodromal Period (days)",
+            value   = "4",
+            min     = 0,
+            max     = NA,
+            step    = 1
+          ),
+          placement = "right",
+          "How many days the prodromal period lasts before the individual develops a rash"
+        ),
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_rash_period",
+            label   = "Rash Period (days)",
+            value   = "3",
+            min     = 0,
+            max     = NA,
+            step    = 1
+          ),
+          placement = "right",
+          "How many days the rash lasts before the individual recovers"
+        ),
+        bslib::tooltip(    
+          seed_input("measles"),
+          placement = "right",
+          "Random seed for the simulation, use a specific seed to reproduce results"
+        ),
+        bslib::tooltip(
+          shiny::checkboxInput(
+            inputId = "measles_show_debug",
+            label   = "Show Debugging Information",
+            value   = FALSE
+          ),
+          placement = "right",
+          "Shows detailed information of the simulation run for debugging purposes"
+        ),
       )
     )
   )  # npis_input("measles")
@@ -497,7 +583,7 @@ body_measles <- function(input, model_output, output) {
   # Logos
   output$dhhs_logo <- shiny::renderImage(
     {
-      logo <- system.file("models/shiny_measles_assets/udhhs-logo.png", package = "epiworldRShiny")
+      logo <- system.file("assets/udhhs-logo.png", package = "epiworldRShiny")
 
       list(
         src = logo,
@@ -509,7 +595,7 @@ body_measles <- function(input, model_output, output) {
 
   output$foresite_logo <- shiny::renderImage(
     {
-      logo <- system.file("models/shiny_measles_assets/foresite-logo.png", package = "epiworldRShiny")
+      logo <- system.file("assets/foresite-logo.png", package = "epiworldRShiny")
 
       list(
         src = logo,

@@ -7,3 +7,5 @@
 * Refactors UI to only use bslib and move away from the shinydashboard R package and the shinyjs package.
 
 * Adds ability to load in custom (user-defined) models
+
+* Adds tooltips to the measles model parameter controls

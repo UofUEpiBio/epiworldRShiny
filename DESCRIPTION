@@ -1,8 +1,8 @@
 Package: epiworldRShiny
 Type: Package
 Title: A 'shiny' Wrapper of the R Package 'epiworldR'
-Version: 0.2.2
-Date: 2025-04-03
+Version: 0.2.3
+Date: 2025-04-30
 Authors@R: c(
   person("George", "Vega Yon", role=c("aut"),
   email="g.vegayon@gmail.com", comment = c(ORCID = "0000-0002-3171-0844")),
@@ -33,7 +33,7 @@ Imports:
     utils,
     DT,
     ggplot2,
-    epiworldR,
+    epiworldR (>= 0.8.2.0),
     plotly,
     bslib
 Depends:

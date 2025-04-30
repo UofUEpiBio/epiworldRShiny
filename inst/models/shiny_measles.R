@@ -2,24 +2,24 @@
 
 model_builder <- function(input, quarantine = TRUE) {
   epiworldR::ModelMeaslesQuarantine(
-    n                        = as.integer(input$measles_population_size),
-    contact_rate             = input$measles_contact_rate,
-    prevalence               = as.integer(input$measles_prevalence),
-    transmission_rate        = input$measles_transmission_rate,
-    vax_efficacy             = input$measles_vax_efficacy,
-    vax_improved_recovery    = input$measles_vax_improved_recovery,
-    incubation_period        = input$measles_incubation_days,
-    prodromal_period         = input$measles_prodromal_period,
-    rash_period              = input$measles_rash_period,
-    days_undetected          = if (quarantine)
-      input$measles_days_undetected
-    else
-      -1,
-    hospitalization_rate     = input$measles_hospitalization_rate,
-    hospitalization_duration = input$measles_hospitalization_duration,
-    prop_vaccinated          = input$measles_prop_vaccinated,
-    quarantine_days          = input$measles_quarantine_days,
-    quarantine_willingness    = input$measles_quarantine_willingness
+    n                      = as.integer(input$measles_population_size),
+    contact_rate           = input$measles_contact_rate,
+    prevalence             = as.integer(input$measles_prevalence),
+    transmission_rate      = input$measles_transmission_rate,
+    vax_efficacy           = input$measles_vax_efficacy,
+    vax_improved_recovery  = input$measles_vax_improved_recovery,
+    incubation_period      = input$measles_incubation_days,
+    prodromal_period       = input$measles_prodromal_period,
+    rash_period            = input$measles_rash_period,
+    days_undetected        = input$measles_days_undetected,
+    hospitalization_rate   = input$measles_hospitalization_rate,
+    hospitalization_period = input$measles_hospitalization_duration,
+    prop_vaccinated        = input$measles_prop_vaccinated,
+    quarantine_period      = if (quarantine)
+      input$measles_quarantine_days
+    else -1L,
+    quarantine_willingness = input$measles_quarantine_willingness,
+    isolation_period       = input$measles_isolation_days
   )
 }
 
@@ -39,8 +39,6 @@ tabulator <- function(histories) {
   counts <- subset(
     histories, (state %in% exposed) & (date == max(date))
   )
-
-  # data.table::fwrite(counts, file = "counts.csv")
 
   counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
   colnames(counts) <- c("Simulation", "Total")
@@ -142,7 +140,7 @@ active_cases_statuses <- c(
 shiny_measles <- function(input) {
 
   # For debugging
-  # saveRDS(as.list(input), "~/Downloads/input.rds")
+  saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
@@ -393,6 +391,18 @@ measles_panel <- function(model_alt) {
           ),
           placement = "right",
           "# of days an infected person is quarantined. 21 days is the CDC recommendation for measles quarantine."
+        ),
+        bslib::tooltip(
+          shiny::numericInput(
+            inputId = "measles_isolation_days",
+            label   = "Isolation Days",
+            value   = "4",
+            min     = 0,
+            max     = NA,
+            step    = 1
+          ),
+          placement = "right",
+          "# of days an infected person is isolated after detected."
         )
       )
     ),
@@ -430,11 +440,11 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles",
             "Contact Rate",
-            15/.99/(4 + 3),
+            15/.99/4,
             maxval = 20
           ),
           placement = "right",
-          "# of people a given person interacts with per day of the simulation"
+          "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
         ),
         bslib::tooltip(
           slider_input_rate(
@@ -460,12 +470,6 @@ measles_panel <- function(model_alt) {
             "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
           placement = "right",
           "How much a vaccinated individual recovers faster than an unvaccinated individual"
-        ),
-        bslib::tooltip(
-          slider_input_rate(
-            "measles", "Recovery probability (daily)", "0.14", input_label = "recovery_rate"),
-          placement = "right",
-          "The probability of an infected individual recovering per day of the simulation"
         ),
         bslib::tooltip(
           shiny::numericInput(

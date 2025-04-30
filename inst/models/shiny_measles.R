@@ -337,7 +337,7 @@ measles_panel <- function(model_alt) {
         step    = 1
       ),
       placement = "right",
-      "# of cases at the start of the simulation"
+      "# of students infected with measles at the start of the simulation"
     ),
     bslib::tooltip(
       slider_input_rate(
@@ -368,7 +368,7 @@ measles_panel <- function(model_alt) {
             input_label = "quarantine_willingness"
           ),
           placement = "right",
-          "How willing infected people are to quarantine (1 = 100% willing, 0 = 0% willing)"
+          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -392,7 +392,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is quarantined. 21 days is the CDC recommendation for measles quarantine."
+          "# of days after potential exposure a quarantined person will stay home from school, if willing. 21 days is the CDC recommendation for measles quarantine."
         )
       )
     ),
@@ -447,7 +447,7 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
           placement = "right",
-          "The change an infected individual transmits the disease to a susceptible individual per day of the simulation"
+          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
         ),
         bslib::tooltip(
           slider_input_rate(
@@ -459,7 +459,7 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
           placement = "right",
-          "How much a vaccinated individual recovers faster than an unvaccinated individual"
+          "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
         ),
         bslib::tooltip(
           slider_input_rate(

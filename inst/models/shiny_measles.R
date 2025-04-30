@@ -48,7 +48,7 @@ tabulator <- function(histories) {
   sizes <- c(2, 5, 10, 20)
   sizes <- data.frame(
     Size = sizes,
-    Probability = sapply(sizes, \(x) {
+    "Probability > Size" = sapply(sizes, \(x) {
       sum(counts$Total >= x)/nrow(counts)
     }),
     "Likely size (if > Size)" = sapply(sizes, \(s){
@@ -57,10 +57,10 @@ tabulator <- function(histories) {
       check.names = FALSE
     )
 
-  sizes$Probability <- ifelse(
-    sizes$Probability <= 0.01,
+  sizes$`Probability > Size` <- ifelse(
+    sizes$`Probability > Size` <= 0.01,
     "< 0.01",
-    sprintf("%.2f", sizes$Probability)
+    sprintf("%.2f", sizes$`Probability > Size`)
   )
 
   # Replaces NAs
@@ -78,7 +78,7 @@ tabulator <- function(histories) {
     sizes,
     data.frame(
       Size = median_cases,
-      Probability = "Median (50%>)",
+      "Probability > Size" = "Median (50%>)",
       "Likely size (if > Size)" = get_ci_pretty(
         counts$Total[counts$Total > median_cases]
         ),
@@ -86,7 +86,7 @@ tabulator <- function(histories) {
     ),
     data.frame(
       Size = mean_cases,
-      Probability = "Mean (average)",
+      "Probability > Size" = "Mean (average)",
       "Likely size (if > Size)" = get_ci_pretty(
         counts$Total[counts$Total > mean_cases]
         ),

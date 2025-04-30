@@ -46,7 +46,7 @@ tabulator <- function(histories) {
   sizes <- c(2, 5, 10, 20)
   sizes <- data.frame(
     Size = sizes,
-    Probability = sapply(sizes, \(x) {
+    "Probability > Size" = sapply(sizes, \(x) {
       sum(counts$Total >= x)/nrow(counts)
     }),
     "Likely size (if > Size)" = sapply(sizes, \(s){
@@ -55,10 +55,10 @@ tabulator <- function(histories) {
       check.names = FALSE
     )
 
-  sizes$Probability <- ifelse(
-    sizes$Probability <= 0.01,
+  sizes$`Probability > Size` <- ifelse(
+    sizes$`Probability > Size` <= 0.01,
     "< 0.01",
-    sprintf("%.2f", sizes$Probability)
+    sprintf("%.2f", sizes$`Probability > Size`)
   )
 
   # Replaces NAs
@@ -76,7 +76,7 @@ tabulator <- function(histories) {
     sizes,
     data.frame(
       Size = median_cases,
-      Probability = "Median (50%>)",
+      "Probability > Size" = "Median (50%>)",
       "Likely size (if > Size)" = get_ci_pretty(
         counts$Total[counts$Total > median_cases]
         ),
@@ -84,7 +84,7 @@ tabulator <- function(histories) {
     ),
     data.frame(
       Size = mean_cases,
-      Probability = "Mean (average)",
+      "Probability > Size" = "Mean (average)",
       "Likely size (if > Size)" = get_ci_pretty(
         counts$Total[counts$Total > mean_cases]
         ),
@@ -335,7 +335,7 @@ measles_panel <- function(model_alt) {
         step    = 1
       ),
       placement = "right",
-      "# of cases at the start of the simulation"
+      "# of students infected with measles at the start of the simulation"
     ),
     bslib::tooltip(
       slider_input_rate(
@@ -366,7 +366,7 @@ measles_panel <- function(model_alt) {
             input_label = "quarantine_willingness"
           ),
           placement = "right",
-          "How willing infected people are to quarantine (1 = 100% willing, 0 = 0% willing)"
+          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -390,7 +390,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is quarantined. 21 days is the CDC recommendation for measles quarantine."
+          "# of days after potential exposure a quarantined person will stay home from school, if willing. 21 days is the CDC recommendation for measles quarantine."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -402,7 +402,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is isolated after detected."
+          "# of days an infected person is isolated after rash is detected."
         )
       )
     ),
@@ -457,7 +457,7 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
           placement = "right",
-          "The change an infected individual transmits the disease to a susceptible individual per day of the simulation"
+          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
         ),
         bslib::tooltip(
           slider_input_rate(
@@ -469,7 +469,7 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
           placement = "right",
-          "How much a vaccinated individual recovers faster than an unvaccinated individual"
+          "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
         ),
         bslib::tooltip(
           shiny::numericInput(

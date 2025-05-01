@@ -33,9 +33,11 @@ Imports:
     utils,
     DT,
     ggplot2,
-    epiworldR (>= 0.8.2.0),
+    epiworldR,
     plotly,
     bslib
+Remotes:
+    UofUEpiBio/epiworldR
 Depends:
     R (>= 4.1.0),
     shiny

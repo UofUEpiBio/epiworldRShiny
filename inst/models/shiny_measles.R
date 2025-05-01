@@ -577,20 +577,32 @@ body_measles <- function(input, model_output, output) {
 
   # Outbreak Size
   output$thm_noquarantine_outbreak_value <- shiny::renderText({
-    round(model_output()$summary_table()$no_quarantine$Size[6], digits = 0)
+    sprintf(
+      "%1.0f cases",
+      round(model_output()$summary_table()$no_quarantine$Size[6], digits = 0)
+    )
   })
 
   output$thm_quarantine_outbreak_value <- shiny::renderText({    
-    round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
+    sprintf(
+      "%1.0f cases",
+      round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
+    )
   })
 
   # Hospitalizations
   output$thm_noquarantine_hospitalizations_value <- shiny::renderText({
-    round(model_output()$hospitalizations()$no_quarantine$mean, digits = 0)
+    sprintf(
+      "%1.0f hospitalizations",
+      round(model_output()$hospitalizations()$no_quarantine$mean, digits = 0)
+    )
   })
 
   output$thm_quarantine_hospitalizations_value <- shiny::renderText({
-    round(model_output()$hospitalizations()$quarantine$mean, digits = 0)
+    sprintf(
+      "%1.0f hospitalizations",
+      round(model_output()$hospitalizations()$quarantine$mean, digits = 0)
+    )
   })
 
   # Logos
@@ -626,41 +638,17 @@ body_measles <- function(input, model_output, output) {
       bslib::card_header("Summary"),
       shiny::textOutput("takehome_message"),
       bslib::layout_columns(
-        shiny::div(
-          shiny::p(shiny::strong("Average Outbreak Size")),
-          style = "display: flex;
-            justify-content: center;
-            align-items: center;"
-        ),
-        shiny::div(
-          shiny::p(shiny::strong("Average Hospitalizations")),
-          style = "display: flex;
-            justify-content: center;
-            align-items: center;"
-        ),
-      ),
-      bslib::layout_columns(
         bslib::value_box(
-          title = "with quarantine",
-          shiny::textOutput("thm_quarantine_outbreak_value"),
-          theme = bslib::value_box_theme(bg = "rgba(48, 123, 194, 0.25)", fg = "black")
-        ),
-        bslib::value_box(
-          title = "with quarantine",
-          shiny::textOutput("thm_quarantine_hospitalizations_value"),
-          theme = bslib::value_box_theme(bg = "rgba(193, 26, 1, 0.25)", fg = "black")
-        )
-      ),
-      bslib::layout_columns(
-        bslib::value_box(
-          title = "without quarantine",
-          shiny::textOutput("thm_noquarantine_outbreak_value"),
-          theme = "blue"
-        ),
-        bslib::value_box(
-          title = "without quarantine",
+          title = "WITHOUT quarantine",
+          value = shiny::textOutput("thm_noquarantine_outbreak_value"),
           shiny::textOutput("thm_noquarantine_hospitalizations_value"),
           theme = "red"
+        ),
+        bslib::value_box(
+          title = "WITH quarantine",
+          value = shiny::textOutput("thm_quarantine_outbreak_value"),
+          shiny::textOutput("thm_quarantine_hospitalizations_value"),
+          theme = "blue"
         )
       )
     ),

@@ -378,7 +378,7 @@ measles_panel <- function(model_alt) {
             step    = .5
           ),
           placement = "right",
-          "# of days after the rash manifests before a person is detected as infected with measles"
+          "Average # of days after the rash manifests before a person is detected as infected with measles"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -390,7 +390,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days after potential exposure a quarantined person will stay home from school, if willing. 21 days is the CDC recommendation for measles quarantine."
+          "Average # of days after potential exposure a quarantined person will stay home from school, if willing. 21 days is the CDC recommendation for measles quarantine."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -402,7 +402,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is isolated after rash is detected."
+          "Average # of days an infected person is isolated after rash is detected."
         )
       )
     ),
@@ -422,7 +422,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is hospitalized"
+          "Average # of days an infected person is hospitalized"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -481,7 +481,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days the disease incubates before the individual becomes symptomatic"
+          "Average # of days the disease incubates before the individual becomes symptomatic"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -493,7 +493,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days the prodromal period lasts before the individual develops a rash"
+          "Average # of days the prodromal period lasts before the individual develops a rash"
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -505,7 +505,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days the rash lasts before the individual recovers"
+          "Average # of days the rash lasts before the individual recovers"
         ),
         bslib::tooltip(    
           seed_input("measles"),

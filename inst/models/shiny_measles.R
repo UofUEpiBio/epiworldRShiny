@@ -390,7 +390,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days after potential exposure a quarantined person will stay home from school, if willing. 21 days is the CDC recommendation for measles quarantine."
+          "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -402,7 +402,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days an infected person is isolated after rash is detected."
+          "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
         )
       )
     ),

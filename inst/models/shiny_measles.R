@@ -256,7 +256,7 @@ shiny_measles <- function(input) {
       plotly::add_ribbons(
         ymin = ~lower,
         ymax = ~upper,
-        name = "95% CI",
+        name = "95% CI (quarantine)",
         fillcolor = "rgba(48, 123, 194, 0.25)",
         line = list(width = 0)
       ) |>

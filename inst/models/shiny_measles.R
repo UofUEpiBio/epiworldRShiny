@@ -30,11 +30,11 @@ get_ci_pretty <- function(x, lb = .025, ub = .975) {
   sprintf("[%1.0f, %1.0f]", quantile(x, lb), quantile(x, ub))
 }
 
-tabulator <- function(histories) {
+format_counts <- function(histories) {
   exposed <- c(
     active_cases_statuses,
     "Recovered"
-    )
+  )
 
   counts <- subset(
     histories, (state %in% exposed) & (date == max(date))
@@ -42,57 +42,54 @@ tabulator <- function(histories) {
 
   counts <- stats::aggregate(counts ~ sim_num, data = counts, FUN = sum)
   colnames(counts) <- c("Simulation", "Total")
+  return(counts)
+}
 
-  sizes <- c(2, 5, 10, 20)
-  sizes <- data.frame(
-    Size = sizes,
-    "Probability > Size" = sapply(sizes, \(x) {
-      sum(counts$Total >= x)/nrow(counts)
+tabulator <- function(no_quarantine_histories, quarantine_histories) {
+
+  no_quarantine_counts <- format_counts(no_quarantine_histories)
+  quarantine_counts <- format_counts(quarantine_histories)
+
+  sizes <- c(2, 10, 25, 50, 80)
+
+  outbreak_table <- data.frame(
+    "Outbreak Size" = sprintf("%1.0f", sizes),
+    "Probability WITHOUT Quarantine" = sapply(sizes, \(x) {
+      prob <- sum(no_quarantine_counts$Total >= x)/nrow(no_quarantine_counts)
+
+      ifelse(
+        prob <= 0.01,
+        "< 1%",
+        sprintf("%1.0f%%", prob * 100)
+      )
     }),
-    "Likely size (if > Size)" = sapply(sizes, \(s){
-      get_ci_pretty(counts$Total[counts$Total >= s])
-      }),
-      check.names = FALSE
-    )
+    "Probability WITH Quarantine" = sapply(sizes, \(x){
+      prob <- sum(quarantine_counts$Total >= x)/nrow(quarantine_counts)
 
-  sizes$`Probability > Size` <- ifelse(
-    sizes$`Probability > Size` <= 0.01,
-    "< 0.01",
-    sprintf("%.2f", sizes$`Probability > Size`)
+      ifelse(
+        prob <= 0.01,
+        "< 1%",
+        sprintf("%1.0f%%", prob * 100)
+      )
+    }),
+    check.names = FALSE
   )
 
-  # Replaces NAs
-  sizes$`Likely size (if > Size)` <- ifelse(
-    grepl("NA", sizes$`Likely size (if > Size)`),
-    "-",
-    sizes$`Likely size (if > Size)`
+  outbreak_table
+}
+
+get_takehome_stats <- function(histories_no_quarantine, histories) {
+
+  no_quarantine_counts <- format_counts(histories_no_quarantine)
+  quarantine_counts <- format_counts(histories)
+
+  no_quarantine_mean_cases <- mean(no_quarantine_counts$Total, probs = .5)
+  quarantine_mean_cases <- mean(quarantine_counts$Total, probs = .5)
+
+  list(
+    no_quarantine_mean_cases = no_quarantine_mean_cases,
+    quarantine_mean_cases = quarantine_mean_cases
   )
-
-
-  median_cases <- quantile(counts$Total, probs=.5)
-  mean_cases <- mean(counts$Total, probs=.5)
-
-  sizes <- rbind(
-    sizes,
-    data.frame(
-      Size = median_cases,
-      "Probability > Size" = "Median (50%>)",
-      "Likely size (if > Size)" = get_ci_pretty(
-        counts$Total[counts$Total > median_cases]
-        ),
-      check.names = FALSE
-    ),
-    data.frame(
-      Size = mean_cases,
-      "Probability > Size" = "Mean (average)",
-      "Likely size (if > Size)" = get_ci_pretty(
-        counts$Total[counts$Total > mean_cases]
-        ),
-      check.names = FALSE
-    )
-  )
-
-  sizes
 }
 
 #' Analyzes the hospitalizations
@@ -191,12 +188,12 @@ shiny_measles <- function(input) {
 
   # Table with total outbreak size
   table_summary_measles <- function() {
+    tabulator(histories_no_quarantine, histories)
+  }
 
-    list(
-      quarantine = tabulator(histories),
-      no_quarantine = tabulator(histories_no_quarantine)
-    )
-
+  # Take home statistics
+  takehome_stats <- function() {
+    get_takehome_stats(histories_no_quarantine, histories)
   }
 
   # epiworldR::run(model_measles, ndays = input$measles_n_days, seed = input$measles_seed)
@@ -303,7 +300,8 @@ shiny_measles <- function(input) {
       model_summary    = summary_measles,
       summary_table    = table_summary_measles,
       model_table      = model_data,
-      hospitalizations = table_hospitalizations
+      hospitalizations = table_hospitalizations,
+      takehome_stats   = takehome_stats
     )
   )
 
@@ -339,8 +337,8 @@ measles_panel <- function(model_alt) {
     ),
     bslib::tooltip(
       slider_input_rate(
-        "measles", 
-        "Proportion Vaccinated", 
+        "measles",
+        "Proportion Vaccinated",
         0.85,
         maxval = 1,
         input_label = "prop_vaccinated"
@@ -359,10 +357,10 @@ measles_panel <- function(model_alt) {
         title = "Quarantine",
         bslib::tooltip(
           slider_input_rate(
-            "measles", 
-            "Quarantine Willingness", 
+            "measles",
+            "Quarantine Willingness",
             1.0,
-            maxval = 1, 
+            maxval = 1,
             input_label = "quarantine_willingness"
           ),
           placement = "right",
@@ -507,7 +505,7 @@ measles_panel <- function(model_alt) {
           placement = "right",
           "Average # of days the rash lasts before the individual recovers"
         ),
-        bslib::tooltip(    
+        bslib::tooltip(
           seed_input("measles"),
           placement = "right",
           "Random seed for the simulation, use a specific seed to reproduce results"
@@ -528,12 +526,8 @@ measles_panel <- function(model_alt) {
 
 body_measles <- function(input, model_output, output) {
 
-  output$summary_table_quarantine <- shiny::renderTable({
-      model_output()$summary_table()$quarantine
-  })
-
-  output$summary_table_no_quarantine <- shiny::renderTable({
-      model_output()$summary_table()$no_quarantine
+  output$summary_table <- shiny::renderTable({
+      model_output()$summary_table()
   })
 
   output$model_summary <- shiny::renderPrint({
@@ -542,20 +536,6 @@ body_measles <- function(input, model_output, output) {
 
   output$epicurves_plot <- plotly::renderPlotly({
     model_output()$epicurves_plot()
-  })
-
-  output$hospitalizations <- shiny::renderText({
-    hosps <- model_output()$hospitalizations()
-
-    sprintf(
-      "Hospitalizations: %1.0f with quarantine (CI = [%1.0f, %1.0f]), %1.0f without quarantine (CI = [%1.0f, %1.0f])",
-      hosps$quarantine$mean,
-      hosps$quarantine$lb,
-      hosps$quarantine$ub,
-      hosps$no_quarantine$mean,
-      hosps$no_quarantine$lb,
-      hosps$no_quarantine$ub
-    )
   })
 
   # Take-home Messages
@@ -579,14 +559,14 @@ body_measles <- function(input, model_output, output) {
   output$thm_noquarantine_outbreak_value <- shiny::renderText({
     sprintf(
       "%1.0f cases",
-      round(model_output()$summary_table()$no_quarantine$Size[6], digits = 0)
+      round(model_output()$takehome_stats()$no_quarantine_mean_cases, digits = 0)
     )
   })
 
-  output$thm_quarantine_outbreak_value <- shiny::renderText({    
+  output$thm_quarantine_outbreak_value <- shiny::renderText({
     sprintf(
       "%1.0f cases",
-      round(model_output()$summary_table()$quarantine$Size[6], digits = 0)
+      round(model_output()$takehome_stats()$quarantine_mean_cases, digits = 0)
     )
   })
 
@@ -666,13 +646,9 @@ body_measles <- function(input, model_output, output) {
     bslib::card(
       bslib::card_header("Outbreak Size"),
       shiny::p(
-          "The table below shows the number of cases in the school at the end of the simulation. The first column is the size of the outbreak, and the second column is the probability of that size occurring. The third column is the likely size of the outbreak if it exceeds a certain threshold."
+          "The table below shows the probability of different outbreak sizes with and without quarantine."
         ),
-      shiny::p("Outbreak size with quarantine"),
-      shiny::tableOutput("summary_table_quarantine"),
-      shiny::p("Outbreak size without quarantine"),
-      shiny::tableOutput("summary_table_no_quarantine"),
-      shiny::htmlOutput("hospitalizations")
+      shiny::tableOutput("summary_table")
     ),
     bslib::card(
       bslib::card_header("Acknowledgements"),

@@ -10,8 +10,7 @@ Authors@R: c(
   email="derekmeyer37@gmail.com", comment = c(ORCID = "0009-0005-1350-6988")),
   person("Andrew", "Pulsipher", role=c("aut", "cre"),
   email="pulsipher.a@gmail.com", comment = c(ORCID = "0000-0002-0773-3210")),
-  person("Centers for Disease Control and Prevention", role="fnd", comment = "Award number 1U01CK000585; 75D30121F00003"
-  ),
+  person("Centers for Disease Control and Prevention", role="fnd", comment = "Award number 1U01CK000585; 75D30121F00003"),
   person("Lindsay", "Keegan", role=c("ctb"), email="lindsay.keegan@utah.edu", comment = c(ORCID = "0000-0002-8526-3007")),
   person("Karim", "Khader", role=c("ctb"), email="karim.khader@hsc.utah.edu", comment = c(ORCID = "0000-0002-7206-8077")),
   person("Damon", "Toth", role=c("ctb"), email="damon.toth@hsc.utah.edu", comment = c(ORCID = "0000-0001-7393-4814")),

@@ -136,8 +136,8 @@ active_cases_statuses <- c(
 
 shiny_measles <- function(input) {
 
-  # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
+  # # For debugging
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)

@@ -1,3 +1,8 @@
+# epiworldRShiny 0.2.4 (dev)
+
+* Fixed minor bug.
+
+
 # epiworldRShiny 0.2.3
 
 * Updated to epiworldR version 0.8.2.0: New version of the measles model with new parameter.

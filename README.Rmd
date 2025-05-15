@@ -19,6 +19,8 @@ This R package provides a user-friendly application for [epiworldR](https://gith
 
 You can find more examples on the package's website: <https://uofuepibio.github.io/epiworldRShiny/>
 
+Try it out! Play around with a live version of the app hosted on `shinyapps.io` here: <https://gvegayon.shinyapps.io/epiworldRShiny/>.
+
 ## Installation
 
 You can install the development version of epiworldRShiny from

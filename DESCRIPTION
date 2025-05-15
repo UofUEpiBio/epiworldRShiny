@@ -22,6 +22,7 @@ Authors@R: c(
 Description: R 'shiny' web apps for epidemiological Agent-Based Models. It provides a user-friendly interface to the Agent-Based Modeling (ABM) R package 'epiworldR' (Meyer et al., 2023) <DOI:10.21105/joss.05781>. Some of the main features of the package include the Susceptible-Infected-Susceptible (SIS), Susceptible-Infected-Recovered (SIR), and Susceptible-Exposed-Infected-Recovered (SEIR) models. 'epiworldRShiny' provides a web-based user interface for running various epidemiological ABMs, simulating interventions, and visualizing results interactively.
 URL: https://github.com/UofUEpiBio/epiworldRShiny/,
     https://uofuepibio.github.io/epiworldRShiny/,
+    https://gvegayon.shinyapps.io/epiworldRShiny/
 BugReports: https://github.com/UofUEpiBio/epiworldRShiny/issues/
 License: MIT + file LICENSE
 RoxygenNote: 7.3.2

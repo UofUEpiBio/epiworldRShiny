@@ -6,7 +6,8 @@ epiworldRShiny: A ‘shiny’ Wrapper of the R Package ‘epiworldR’
 [![R-CMD-check](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml/badge.svg)](https://github.com/UofUEpiBio/epiworldRShiny/actions/workflows/r.yml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/epiworldRShiny)](https://CRAN.R-project.org/package=epiworldRShiny)
-[![ForeSITE Group](https://github.com/EpiForeSITE/software/raw/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg)](https://github.com/EpiForeSITE)
+[![ForeSITE
+Group](https://github.com/EpiForeSITE/software/raw/e82ed88f75e0fe5c0a1a3b38c2b94509f122019c/docs/assets/foresite-software-badge.svg)](https://github.com/EpiForeSITE)
 <!-- badges: end -->
 
 This R package provides a user-friendly application for
@@ -28,6 +29,9 @@ include:
 You can find more examples on the package’s website:
 <https://uofuepibio.github.io/epiworldRShiny/>
 
+Try it out! Play around with a live version of the app hosted on
+`shinyapps.io` here: <https://gvegayon.shinyapps.io/epiworldRShiny/>.
+
 ## Installation
 
 You can install the development version of epiworldRShiny from
@@ -44,6 +48,7 @@ install.packages("epiworldRShiny")
 ```
 
 ## Running the ShinyApp
+
 To run the app with only built-in models, use:
 
 ``` r
@@ -56,7 +61,8 @@ To add additional custom models, use:
 epiworldRShiny::run_app(custom_models_path = "path/to/custom/models")
 ```
 
-Note that custom models must follow the guidelines given in [`inst/models/README.md`](inst/models/README.md).
+Note that custom models must follow the guidelines given in
+[`inst/models/README.md`](inst/models/README.md).
 
 ## Examples
 

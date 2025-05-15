@@ -1,6 +1,6 @@
 # epiworldRShiny 0.2.4 (dev)
 
-* Fixed minor bug.
+* Fixed minor bug in the measles app that was causing errors in shinyapps.io.
 
 
 # epiworldRShiny 0.2.3

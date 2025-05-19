@@ -47,25 +47,11 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   models_setup(custom_models_path)
 
-  header <- shiny::HTML(
-    'epiworldR <text style="color: gray; font-size:50%">(beta)</text>'
-  )
-
-  # Sets CSS cursor style for headers
-  cursor_header_pointer <-
-    sprintf(
-      "#npis_header_%1$s, #network_header_%1$s, #population_header_%1$s, #advanced_header_%1$s",
-      epiworldRenv()$models
-    ) |>
-    paste0(collapse = ", ") |>
-    paste("{\n  cursor: pointer;\n}\n")
-
   sidebar <- do.call(
     bslib::sidebar,
     c(
       list(
         width = 300,
-        # shinyjs::useShinyjs(),
         shiny::selectInput(
           inputId = "model",
           label = shiny::h3("Model"),
@@ -79,63 +65,37 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     )
   )
 
-  # Getting the version of epiworldR
-  epiworldRShiny_version <- utils::packageVersion("epiworldRShiny")
-  epiworldR_version <- utils::packageVersion("epiworldR")
-
   # Footer
   foot <- shiny::div(
     shiny::markdown(
       paste(
         "epiworldRShiny version",
-        epiworldRShiny_version,
+        utils::packageVersion("epiworldRShiny"),
         "| epiworldR version",
-        epiworldR_version
+        utils::packageVersion("epiworldR")
       )
     ),
     shiny::markdown("**The University of Utah**"),
-    style="font-size:80%;text-align: center;"
+    style = "font-size:80%; text-align: center;"
   )
   
-  body <- shiny::mainPanel(# shinydashboard::dashboardBody(
+  body <- shiny::mainPanel(
     shiny::uiOutput("model_body"),
     shiny::htmlOutput("download_button"),
     shiny::tags$style(type = 'text/css', "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
     foot
   )
 
-  link_epiworldr <- shiny::a(
-    shiny::icon("github"), "epiworldR",
-    href = "https://github.com/UofUEpiBio/epiworldR",
-    target = "_blank"
-  )
-
-  link_epiworldrshiny <- shiny::a(
-    shiny::icon("github"), "epiworldRShiny",
-    href = "https://github.com/UofUEpiBio/epiworldRShiny",
-    target = "_blank"
-  )
-
-  # Rendering the NEWS file
-  news_file <- system.file(
-    "NEWS.md",
-    package = "epiworldRShiny"
-  ) |> readLines() |> shiny::markdown()
-
-  ui <- bslib::page_navbar( # shinydashboard::dashboardPage(
-    bslib::nav_panel(title = "Home", body),
-    bslib::nav_spacer(),
+  ui <- bslib::page_navbar(
+    title = shiny::HTML("Disease Modeling with epiworldR"),
+    bslib::nav_panel(title = "Model", body),
     bslib::nav_menu(
       title = "Links",
-      align = "right",
-      bslib::nav_item(link_epiworldr),
-      bslib::nav_item(link_epiworldrshiny)
+      bslib::nav_item(epiworldr_github),
+      bslib::nav_item(epiworldrshiny_github)
     ),
-    bslib::nav_panel(title = "News", news_file),
-    title        = header,
-    sidebar      = sidebar,
-    window_title = "epiworldRShiny: An R Shiny App for epiworldR",
-    lang         = "en"
+    sidebar = sidebar,
+    lang = "en"
   )
 
   server <- function(input, output, session) {
@@ -196,7 +156,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         output$model_table <- DT::renderDataTable({
           model_output()$model_table()
         }, options = list(
-          scrollY = '600px',
+          scrollY = "600px",
           lengthMenu = c(16, 25, 50),
           pageLength = 16
         ), escape = FALSE)
@@ -232,7 +192,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
     })
   }
 
-  shiny::shinyApp(ui=ui, server=server)
+  shiny::shinyApp(ui = ui, server = server)
 
 }
 

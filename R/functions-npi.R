@@ -1,5 +1,5 @@
-#' Vaccination (pharmaceutical intervention) 
-#' 
+#' Vaccination (pharmaceutical intervention)
+#'
 #' @param model epiworldR model.
 #' @param preval Initial prevalence of the vaccine.
 #' @param susceptibility_reduction Reduction in susceptibility probability due
@@ -13,21 +13,21 @@
 #' @examples
 #' library(epiworldR) # for ModelSEIRCONN function
 #' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#'   contact_rate = 4, transmission_rate = 0.1,
+#'   incubation_days = 7, recovery_rate = 0.14)
 #' run(model, ndays = 100, seed = 123)
 #' pi_add_vaccine(model, preval = .8, susceptibility_reduction = .9,
-#'                 transmission_reduction = .5, recovery_enhancer = .5,
-#'                 death_reduction = .9)
+#'   transmission_reduction = .5, recovery_enhancer = .5,
+#'   death_reduction = .9)
 #' @export
 #' @family interventions
 pi_add_vaccine <- function(
-  model, preval,
-  susceptibility_reduction,
-  transmission_reduction,
-  recovery_enhancer,
-  death_reduction
-  ) {
+    model, preval,
+    susceptibility_reduction,
+    transmission_reduction,
+    recovery_enhancer,
+    death_reduction
+    ) {
 
   if (preval > 0) {
 
@@ -43,7 +43,7 @@ pi_add_vaccine <- function(
       model      = model,
       tool       = tool_,
       proportion = preval
-      )
+    )
 
   }
 
@@ -58,8 +58,8 @@ pi_add_vaccine <- function(
 #' @examples
 #' library(epiworldR) # for ModelSEIRCONN function
 #' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#'   contact_rate = 4, transmission_rate = 0.1,
+#'   incubation_days = 7, recovery_rate = 0.14)
 #' run(model, ndays = 100, seed = 123)
 #' npi_add_masking(model, preval = .8, transmission_reduction = .7)
 #' @family interventions
@@ -81,7 +81,7 @@ npi_add_masking <- function(model, preval, transmission_reduction) {
       model      = model,
       tool       = tool_,
       proportion = preval
-      )
+    )
 
   }
 
@@ -97,17 +97,16 @@ npi_add_masking <- function(model, preval, transmission_reduction) {
 #' @examples
 #' library(epiworldR) # for ModelSEIRCONN function
 #' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#'   contact_rate = 4, transmission_rate = 0.1,
+#'   incubation_days = 7, recovery_rate = 0.14)
 #' run(model, ndays = 100, seed = 123)
 #' npi_add_school_closure(model, preval = .8, transmission_reduction = .3, day = 10)
 #' @export
 #' @family interventions
 npi_add_school_closure <- function(
-  model, preval, day, transmission_reduction) {
+    model, preval, day, transmission_reduction) {
 
   if (preval > 0) {
-
     # Creating a tool
     tool_ <- epiworldR::tool(
       name                     = "School Closure",
@@ -122,12 +121,12 @@ npi_add_school_closure <- function(
       tool = tool_,
       prob = preval,
       day  = day
-      )
+    )
 
     epiworldR::add_globalevent(
       model,
       action_
-      )
+    )
 
   }
 
@@ -150,19 +149,19 @@ interventions_add_all <- function(model, modelname, input) {
     transmission_reduction = input[[paste0(modelname, "_vaccine_transmission_reduction")]],
     recovery_enhancer = input[[paste0(modelname, "_vaccine_recovery_enhancer")]],
     death_reduction = input[[paste0(modelname, "_vaccine_death_reduction")]]
-    )
+  )
 
   npi_add_masking(
     model = model,
     preval = input[[paste0(modelname, "_masking_prevalence")]],
     transmission_reduction = input[[paste0(modelname, "_masking_transmission_reduction")]]
-    )
+  )
 
   npi_add_school_closure(
     model     = model,
     preval    = input[[paste0(modelname, "_school_closure_prevalence")]],
     day       = input[[paste0(modelname, "_school_closure_day")]],
     transmission_reduction = input[[paste0(modelname, "_school_closure_transmission_reduction")]]
-    )
+  )
 
 }

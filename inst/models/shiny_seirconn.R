@@ -9,7 +9,7 @@ shiny_seirconn <- function(input) {
     contact_rate      = input$seirconn_contact_rate,
     n                 = input$seirconn_population_size,
     incubation_days   = input$seirconn_incubation_days
-    )
+  )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_seirconn, "seirconn", input)
@@ -31,9 +31,9 @@ shiny_seirconn <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
   # Output list
@@ -63,7 +63,7 @@ seirconn_panel <- function(model_alt) {
       min     = 0,
       max     = NA,
       step    = 1
-      ),
+    ),
     shiny::sliderInput(
       inputId = "seirconn_population_size",
       label   = "Population Size",
@@ -78,4 +78,3 @@ seirconn_panel <- function(model_alt) {
     npis_input("seirconn")
   )
 }
-

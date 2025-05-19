@@ -1,7 +1,6 @@
 # alt-name: Network SIRD
 
 shiny_sird <- function(input) {
-
   # Creating model
   model_sird <- epiworldR::ModelSIRD(
     name              = input$sird_disease_name,
@@ -9,15 +8,15 @@ shiny_sird <- function(input) {
     transmission_rate = input$sird_transmission_rate,
     recovery_rate     = input$sird_recovery_rate,
     death_rate        = input$sird_death_rate
-    )
+  )
 
   # Generating random graph
   epiworldR::agents_smallworld(
-      model_sird,
-      n = input$sird_population_size,
-      k = input$sird_k,
-      d = as.logical(input$sird_directed),
-      p = input$sird_prob_rewiring
+    model_sird,
+    n = input$sird_population_size,
+    k = input$sird_k,
+    d = as.logical(input$sird_directed),
+    p = input$sird_prob_rewiring
   )
 
   # NPIs -----------------------------------------------------------------------
@@ -40,9 +39,9 @@ shiny_sird <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
   # Output list
@@ -73,4 +72,3 @@ sird_panel <- function(model_alt) {
   )
 
 }
-

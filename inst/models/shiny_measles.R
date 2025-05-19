@@ -55,7 +55,7 @@ tabulator <- function(no_quarantine_histories, quarantine_histories) {
   outbreak_table <- data.frame(
     "Outbreak Size" = sprintf("≥ %1.0f cases", sizes),
     "Probability WITHOUT Quarantine" = sapply(sizes, \(x) {
-      prob <- sum(no_quarantine_counts$Total >= x)/nrow(no_quarantine_counts)
+      prob <- sum(no_quarantine_counts$Total >= x) / nrow(no_quarantine_counts)
 
       ifelse(
         prob <= 0.01,
@@ -64,7 +64,7 @@ tabulator <- function(no_quarantine_histories, quarantine_histories) {
       )
     }),
     "Probability WITH Quarantine" = sapply(sizes, \(x){
-      prob <- sum(quarantine_counts$Total >= x)/nrow(quarantine_counts)
+      prob <- sum(quarantine_counts$Total >= x) / nrow(quarantine_counts)
 
       ifelse(
         prob <= 0.01,
@@ -97,13 +97,12 @@ get_takehome_stats <- function(histories_no_quarantine, histories) {
 #' @return A list with the mean, lower and upper bounds of the
 #' hospitalizations
 analyze_hospitalizations <- function(transitions) {
-
   # Counting hospitalizations
   transitions <- subset(
     transitions,
     counts > 0 &
-    from != "Hospitalized" & to == "Hospitalized"
-    )
+      from != "Hospitalized" & to == "Hospitalized"
+  )
 
   # Aggregating
   transitions <- stats::aggregate(
@@ -132,12 +131,11 @@ active_cases_statuses <- c(
   "Quarantined Prodromal",
   "Quarantined Recovered",
   "Hospitalized"
-  )
+)
 
 shiny_measles <- function(input) {
-
   # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
@@ -169,7 +167,7 @@ shiny_measles <- function(input) {
   res_quarantine <- run_multiple_get_results(model_measles)
   res_no_quarantine <- run_multiple_get_results(
     model_measles_no_quarantine
-    )
+  )
 
   histories <- res_quarantine$total_hist
   histories_no_quarantine <- res_no_quarantine$total_hist
@@ -179,10 +177,10 @@ shiny_measles <- function(input) {
     list(
       quarantine = analyze_hospitalizations(
         res_quarantine$transition
-        ),
+      ),
       no_quarantine = analyze_hospitalizations(
         res_no_quarantine$transition
-        )
+      )
     )
   }
 
@@ -199,10 +197,9 @@ shiny_measles <- function(input) {
   # epiworldR::run(model_measles, ndays = input$measles_n_days, seed = input$measles_seed)
   # Plot
   plot_measles <- function() {
-
     # Getting the infected cases
     dat <- subset(histories, state %in% active_cases_statuses)
-    dat <- stats::aggregate(counts ~ sim_num + date, data=dat, FUN=sum)
+    dat <- stats::aggregate(counts ~ sim_num + date, data = dat, FUN = sum)
     dat <- stats::aggregate(
       counts ~ date,
       data = dat,
@@ -221,7 +218,7 @@ shiny_measles <- function(input) {
 
     # Now, without quarantine
     dat_no_quarantine <- subset(histories_no_quarantine, state %in% active_cases_statuses)
-    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data=dat_no_quarantine, FUN=sum)
+    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data = dat_no_quarantine, FUN = sum)
     dat_no_quarantine <- stats::aggregate(
       counts ~ date,
       data = dat_no_quarantine,
@@ -237,7 +234,7 @@ shiny_measles <- function(input) {
     dat_no_quarantine <- cbind(
       data.frame(dat_no_quarantine[[1]]),
       data.frame(dat_no_quarantine[[2]])
-      )
+    )
 
     colnames(dat_no_quarantine) <- c("date", "p50", "lower", "upper")
 
@@ -246,8 +243,8 @@ shiny_measles <- function(input) {
       data = dat,
       x = ~date,
       y = ~p50,
-      type = 'scatter',
-      mode = 'lines',
+      type = "scatter",
+      mode = "lines",
       name = "Median (quarantine)"
     ) |>
       plotly::add_ribbons(
@@ -259,8 +256,8 @@ shiny_measles <- function(input) {
       ) |>
       plotly::layout(
         title  = NULL,
-        xaxis  = list(title = 'Day'),
-        yaxis  = list(title = 'Active cases')
+        xaxis  = list(title = "Day"),
+        yaxis  = list(title = "Active cases")
       ) |>
       plotly::add_lines(
         data = dat_no_quarantine,
@@ -288,8 +285,8 @@ shiny_measles <- function(input) {
   # Data
   model_data <- function() {
     rbind(
-      cbind(histories, quarantine=TRUE),
-      cbind(histories_no_quarantine, quarantine=FALSE)
+      cbind(histories, quarantine = TRUE),
+      cbind(histories_no_quarantine, quarantine = FALSE)
     )
   }
 
@@ -438,7 +435,7 @@ measles_panel <- function(model_alt) {
           slider_input_rate(
             "measles",
             "Contact Rate",
-            15/.99/4,
+            15 / .99 / 4,
             maxval = 20
           ),
           placement = "right",
@@ -527,7 +524,7 @@ measles_panel <- function(model_alt) {
 body_measles <- function(input, model_output, output) {
 
   output$summary_table <- shiny::renderTable({
-      model_output()$summary_table()
+    model_output()$summary_table()
   })
 
   output$model_summary <- shiny::renderPrint({
@@ -638,7 +635,7 @@ body_measles <- function(input, model_output, output) {
         sprintf(
           "The figure shows the potential outbreak sizes after running
         %i simulations. The solid line represents the 50%% quantile",
-        input$measles_n_sims
+          input$measles_n_sims
         )
       ),
       plotly::plotlyOutput("epicurves_plot")
@@ -646,8 +643,8 @@ body_measles <- function(input, model_output, output) {
     bslib::card(
       bslib::card_header("Outbreak Size"),
       shiny::p(
-          "The table below shows the probability of seeing outbreak sizes above a given threshold WITH and WITHOUT quarantine."
-        ),
+        "The table below shows the probability of seeing outbreak sizes above a given threshold WITH and WITHOUT quarantine."
+      ),
       shiny::tableOutput("summary_table")
     ),
     bslib::card(

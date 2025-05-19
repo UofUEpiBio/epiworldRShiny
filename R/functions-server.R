@@ -15,15 +15,15 @@
 #' groups (0-19, 20-59, 60+), NotHispanic, and Female.
 #' @examples
 #' pop_generator(n = 1000, prop_hispanic = .5, prop_female = .5,
-#'               prop_19_59_60plus = c(.3, .6))
+#'   prop_19_59_60plus = c(.3, .6))
 #' @export
 #' @family Server side functions
 pop_generator <- function(
-  n,
-  prop_hispanic = .5,
-  prop_female   = .5,
-  prop_19_59_60plus = c(.3, .6)
-  ) {
+    n,
+    prop_hispanic = .5,
+    prop_female   = .5,
+    prop_19_59_60plus = c(.3, .6)
+    ) {
 
   prop_19_59_60plus <- c(
     prop_19_59_60plus[1],
@@ -34,7 +34,7 @@ pop_generator <- function(
   agegroups <- sample.int(
     3, size = n, replace = TRUE,
     prob = prop_19_59_60plus
-    )
+  )
 
   X <- matrix(0, nrow = n, ncol = 3)
   X[cbind(1:n, agegroups)] <- 1
@@ -45,11 +45,11 @@ pop_generator <- function(
     NotHispanic = sample.int(
       2, size = n, replace = TRUE,
       prob = c(1 - prop_hispanic, prop_hispanic)
-      ) - 1,
+    ) - 1,
     Female   = sample.int(
       2, size = n, replace = TRUE,
       prob = c(1 - prop_female, prop_female)
-      ) - 1
+    ) - 1
   )
 
 }
@@ -85,8 +85,8 @@ find_scale <- function(x) {
 #' @examples
 #' library(epiworldR) # for ModelSEIRCONN function
 #' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#'   contact_rate = 4, transmission_rate = 0.1,
+#'   incubation_days = 7, recovery_rate = 0.14)
 #' run(model, ndays = 100, seed = 123)
 #' plot_epi(model, mark_max = "Infected")
 #'
@@ -100,7 +100,7 @@ plot_epi <- function(model, mark_max) {
   # Obtain time of peak infections
   df_model <- epiworldR::get_hist_total(model)[
     epiworldR::get_hist_total(model)$state %in% mark_max,
-    ]
+  ]
 
   peak_time <- which.max(df_model$counts) - 1
 
@@ -110,19 +110,19 @@ plot_epi <- function(model, mark_max) {
 
   counts_scale <- find_scale(max(curves$counts))
 
-  curves$counts <- curves$counts/counts_scale
+  curves$counts <- curves$counts / counts_scale
 
   # Initialize date vector of size length for state names
   date_candidates <- integer(length = length(states))
   # Identify max date when the counts stop significantly changing by state
 
-  benchmark_value <- diff(range(curves$counts))/200 # 0.5% of range
+  benchmark_value <- diff(range(curves$counts)) / 200 # 0.5% of range
 
   for (i in 1L:length(states)) {
     date_candidates[i] <- with(
-      curves[curves$state == states[i],],
-      sum(abs(diff(counts)) > benchmark_value )
-      )
+      curves[curves$state == states[i], ],
+      sum(abs(diff(counts)) > benchmark_value)
+    )
   }
   # Round the maximum date up to the nearest 10th
   max_date <- min(
@@ -173,7 +173,6 @@ plot_epi <- function(model, mark_max) {
   line_colors <- c("blue", "orange", "purple")
   color_index <- 1  # Index for selecting colors from the vector
   for (state in states) {
-
     # Picking the line color
     col <- switch(
       state,
@@ -191,17 +190,16 @@ plot_epi <- function(model, mark_max) {
       plotly::add_lines(
         y = as.formula(paste0("~`", state, "`")), name = state,
         line = list(color = col)
-        )
+      )
   }
 
-  if (peak_time < max(curves$date)){
-
+  if (peak_time < max(curves$date)) {
     # Add a point at the moment of peak infections
     plot <- plot |>
       plotly::add_markers(
         x = peak_time,
         y = max(df_model$counts),
-        marker = list(color = 'red', symbol = 0),
+        marker = list(color = "red", symbol = 0),
         name = "Max Infections",
         showlegend = FALSE
       )
@@ -212,8 +210,8 @@ plot_epi <- function(model, mark_max) {
         x = ~peak_time,
         xend = ~peak_time,
         y = 0,
-        yend = ~max(df_model$counts),
-        line = list(color = 'red', dash = "dash"),
+        yend = ~ max(df_model$counts),
+        line = list(color = "red", dash = "dash"),
         name = "Max Infections",
         showlegend = TRUE
       )
@@ -222,14 +220,14 @@ plot_epi <- function(model, mark_max) {
   plot <- plot |>
     plotly::layout(
       title  = title,
-      xaxis  = list(title = 'Day (step)'),
-      yaxis  = list(title = 'Population', range = counts_range),
+      xaxis  = list(title = "Day (step)"),
+      yaxis  = list(title = "Population", range = counts_range),
       legend = list(
         x = 1,    # Places the legend on the right side
         y = 0.5,  # Puts it in the middle vertically
         # Sets the x-coordinate
-        xanchor = 'right',
-        yanchor = 'middle'
+        xanchor = "right",
+        yanchor = "middle"
       )
     )
 
@@ -246,32 +244,31 @@ plot_epi <- function(model, mark_max) {
 #' @examples
 #' library(epiworldR) # for ModelSEIRCONN function
 #' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#'   contact_rate = 4, transmission_rate = 0.1,
+#'   incubation_days = 7, recovery_rate = 0.14)
 #' run(model, ndays = 100, seed = 123)
 #' plot_reproductive_epi(model)
 #' @export
 #' @family Server side functions
-plot_reproductive_epi <- function (model) {
-
+plot_reproductive_epi <- function(model) {
   # Calculating average rep. number for each unique source_exposure_date
   rep_num <- epiworldR::get_reproductive_number(model)
   average_rt <- stats::aggregate(
     rt ~ source_exposure_date, data = rep_num, FUN = mean
-    )
+  )
 
   # Plotting
   reproductive_plot <- plotly::plot_ly(
     data = average_rt, x = ~source_exposure_date,
-    y = ~rt, type = 'scatter',
-    mode = 'lines+markers'
-    )
+    y = ~rt, type = "scatter",
+    mode = "lines+markers"
+  )
 
   reproductive_plot <- reproductive_plot |>
     plotly::layout(
       title = "Reproductive Number",
-      xaxis = list(title = 'Day (step)'),
-      yaxis = list(title = 'Average Rep. Number')
+      xaxis = list(title = "Day (step)"),
+      yaxis = list(title = "Average Rep. Number")
     )
 
   return(reproductive_plot)

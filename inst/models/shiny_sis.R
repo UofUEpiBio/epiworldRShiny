@@ -1,27 +1,26 @@
 # alt-name: Network SIS
 
 shiny_sis <- function(input) {
-
   # Creating model
   model_sis <- epiworldR::ModelSIS(
     name              = input$sis_disease_name,
     prevalence        = input$sis_prevalence,
     transmission_rate = input$sis_transmission_rate,
     recovery_rate     = input$sis_recovery_rate
-    )
+  )
 
   # Creating network
   epiworldR::agents_smallworld(
-      model_sis,
-      n = input$sis_population_size,
-      k = input$sis_k,
-      d = as.logical(input$sis_directed),
-      p = input$sis_prob_rewiring
+    model_sis,
+    n = input$sis_population_size,
+    k = input$sis_k,
+    d = as.logical(input$sis_directed),
+    p = input$sis_prob_rewiring
   )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_sis, "sis", input)
-  
+
   # Running and printing
   epiworldR::verbose_off(model_sis)
   epiworldR::run(model_sis, ndays = input$sis_n_days, seed = input$sis_seed)
@@ -46,12 +45,12 @@ shiny_sis <- function(input) {
     # Row number of the maximum count in the original data frame
     max_row_number <- which(
       df$date == max_infection_row$date & df$state == "Infected"
-      )
+    )
 
-    df[max_row_number,] <- sprintf(
+    df[max_row_number, ] <- sprintf(
       "<strong>%s</strong>",
-      df[max_row_number,]
-      )
+      df[max_row_number, ]
+    )
 
     df
   }

@@ -136,8 +136,8 @@ active_cases_statuses <- c(
 
 shiny_measles <- function(input) {
 
-  # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
+  # # For debugging
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
@@ -166,9 +166,10 @@ shiny_measles <- function(input) {
     saver = make_saver("total_hist", "transition")
   )
 
-  res_quarantine <- run_multiple_get_results(model_measles)
+  res_quarantine <- run_multiple_get_results(model_measles, nthreads = 1L)
   res_no_quarantine <- run_multiple_get_results(
-    model_measles_no_quarantine
+    model_measles_no_quarantine,
+    nthreads = 1L
     )
 
   histories <- res_quarantine$total_hist

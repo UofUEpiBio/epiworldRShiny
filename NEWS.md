@@ -1,3 +1,8 @@
+# epiworldRShiny 0.2.4 (dev)
+
+* Fixed minor bug in the measles app that was causing errors in shinyapps.io.
+
+
 # epiworldRShiny 0.2.3
 
 * Updated to epiworldR version 0.8.2.0: New version of the measles model with new parameters.

@@ -21,7 +21,7 @@ substituted with the model name.
 NPI adding function
 }
 \seealso{
-Other interventions: 
+Other interventions:
 \code{\link{npi_add_masking}()},
 \code{\link{npi_add_school_closure}()},
 \code{\link{pi_add_vaccine}()}

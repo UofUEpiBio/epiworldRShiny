@@ -55,7 +55,7 @@ tabulator <- function(no_quarantine_histories, quarantine_histories) {
   outbreak_table <- data.frame(
     "Outbreak Size" = sprintf("≥ %1.0f cases", sizes),
     "Probability WITHOUT Quarantine" = sapply(sizes, \(x) {
-      prob <- sum(no_quarantine_counts$Total >= x)/nrow(no_quarantine_counts)
+      prob <- sum(no_quarantine_counts$Total >= x) / nrow(no_quarantine_counts)
 
       ifelse(
         prob <= 0.01,
@@ -64,7 +64,7 @@ tabulator <- function(no_quarantine_histories, quarantine_histories) {
       )
     }),
     "Probability WITH Quarantine" = sapply(sizes, \(x){
-      prob <- sum(quarantine_counts$Total >= x)/nrow(quarantine_counts)
+      prob <- sum(quarantine_counts$Total >= x) / nrow(quarantine_counts)
 
       ifelse(
         prob <= 0.01,
@@ -97,13 +97,12 @@ get_takehome_stats <- function(histories_no_quarantine, histories) {
 #' @return A list with the mean, lower and upper bounds of the
 #' hospitalizations
 analyze_hospitalizations <- function(transitions) {
-
   # Counting hospitalizations
   transitions <- subset(
     transitions,
     counts > 0 &
-    from != "Hospitalized" & to == "Hospitalized"
-    )
+      from != "Hospitalized" & to == "Hospitalized"
+  )
 
   # Aggregating
   transitions <- stats::aggregate(
@@ -132,12 +131,11 @@ active_cases_statuses <- c(
   "Quarantined Prodromal",
   "Quarantined Recovered",
   "Hospitalized"
-  )
+)
 
 shiny_measles <- function(input) {
-
   # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
@@ -169,7 +167,7 @@ shiny_measles <- function(input) {
   res_quarantine <- run_multiple_get_results(model_measles)
   res_no_quarantine <- run_multiple_get_results(
     model_measles_no_quarantine
-    )
+  )
 
   histories <- res_quarantine$total_hist
   histories_no_quarantine <- res_no_quarantine$total_hist
@@ -179,10 +177,10 @@ shiny_measles <- function(input) {
     list(
       quarantine = analyze_hospitalizations(
         res_quarantine$transition
-        ),
+      ),
       no_quarantine = analyze_hospitalizations(
         res_no_quarantine$transition
-        )
+      )
     )
   }
 
@@ -199,10 +197,9 @@ shiny_measles <- function(input) {
   # epiworldR::run(model_measles, ndays = input$measles_n_days, seed = input$measles_seed)
   # Plot
   plot_measles <- function() {
-
     # Getting the infected cases
     dat <- subset(histories, state %in% active_cases_statuses)
-    dat <- stats::aggregate(counts ~ sim_num + date, data=dat, FUN=sum)
+    dat <- stats::aggregate(counts ~ sim_num + date, data = dat, FUN = sum)
     dat <- stats::aggregate(
       counts ~ date,
       data = dat,
@@ -221,7 +218,7 @@ shiny_measles <- function(input) {
 
     # Now, without quarantine
     dat_no_quarantine <- subset(histories_no_quarantine, state %in% active_cases_statuses)
-    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data=dat_no_quarantine, FUN=sum)
+    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data = dat_no_quarantine, FUN = sum)
     dat_no_quarantine <- stats::aggregate(
       counts ~ date,
       data = dat_no_quarantine,
@@ -237,7 +234,7 @@ shiny_measles <- function(input) {
     dat_no_quarantine <- cbind(
       data.frame(dat_no_quarantine[[1]]),
       data.frame(dat_no_quarantine[[2]])
-      )
+    )
 
     colnames(dat_no_quarantine) <- c("date", "p50", "lower", "upper")
 
@@ -246,8 +243,8 @@ shiny_measles <- function(input) {
       data = dat,
       x = ~date,
       y = ~p50,
-      type = 'scatter',
-      mode = 'lines',
+      type = "scatter",
+      mode = "lines",
       name = "Median (quarantine)"
     ) |>
       plotly::add_ribbons(
@@ -259,8 +256,8 @@ shiny_measles <- function(input) {
       ) |>
       plotly::layout(
         title  = NULL,
-        xaxis  = list(title = 'Day'),
-        yaxis  = list(title = 'Active cases')
+        xaxis  = list(title = "Day"),
+        yaxis  = list(title = "Active cases")
       ) |>
       plotly::add_lines(
         data = dat_no_quarantine,
@@ -288,8 +285,8 @@ shiny_measles <- function(input) {
   # Data
   model_data <- function() {
     rbind(
-      cbind(histories, quarantine=TRUE),
-      cbind(histories_no_quarantine, quarantine=FALSE)
+      cbind(histories, quarantine = TRUE),
+      cbind(histories_no_quarantine, quarantine = FALSE)
     )
   }
 
@@ -312,7 +309,7 @@ measles_panel <- function(model_alt) {
   shiny::conditionalPanel(
     simulate_button("measles"),
     condition = sprintf("input.model == '%s'", model_alt),
-    bslib::tooltip(
+    sidebar_tooltip(
       shiny::numericInput(
         inputId = "measles_population_size",
         label   = "Population Size",
@@ -320,10 +317,9 @@ measles_panel <- function(model_alt) {
         max     = 50000,
         value   = 500
       ),
-      placement = "right",
-      "# of students in the school"
+      label = "# of students in the school"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       shiny::numericInput(
         inputId = "measles_prevalence",
         label   = "Initial cases",
@@ -332,10 +328,9 @@ measles_panel <- function(model_alt) {
         max     = NA,
         step    = 1
       ),
-      placement = "right",
-      "# of students infected with measles at the start of the simulation"
+      label = "# of students infected with measles at the start of the simulation"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       slider_input_rate(
         "measles",
         "Proportion Vaccinated",
@@ -343,19 +338,17 @@ measles_panel <- function(model_alt) {
         maxval = 1,
         input_label = "prop_vaccinated"
       ),
-      placement = "right",
-      "Proportion of students in the school who are vaccinated against measles"
+      label = "Proportion of students in the school who are vaccinated against measles"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       numeric_input_ndays("measles"),
-      placement = "right",
-      "# of days to run the simulation"
+      label = "# of days to run the simulation"
     ),
     bslib::accordion(
       open = FALSE,
       bslib::accordion_panel(
         title = "Quarantine",
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles",
             "Quarantine Willingness",
@@ -363,10 +356,9 @@ measles_panel <- function(model_alt) {
             maxval = 1,
             input_label = "quarantine_willingness"
           ),
-          placement = "right",
-          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
+          label = "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_days_undetected",
             label   = "Days Undetected",
@@ -375,10 +367,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = .5
           ),
-          placement = "right",
-          "Average # of days after the rash manifests before a person is detected as infected with measles"
+          label = "Average # of days after the rash manifests before a person is detected as infected with measles"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_quarantine_days",
             label   = "Quarantine Days",
@@ -387,10 +378,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
+          label = "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_isolation_days",
             label   = "Isolation Days",
@@ -399,8 +389,7 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
+          label = "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
         )
       )
     ),
@@ -410,7 +399,7 @@ measles_panel <- function(model_alt) {
       bslib::accordion_panel(
         "Advanced parameters",
         shiny::p("The below parameters are advanced and control disease dynamics."),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_hospitalization_duration",
             label   = "Hospitalization Duration (days)",
@@ -419,10 +408,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days an infected person is hospitalized"
+          label = "Average # of days an infected person is hospitalized"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_n_sims",
             label   = "Number of simulations",
@@ -431,45 +419,39 @@ measles_panel <- function(model_alt) {
             max     = 1000,
             step    = 1
           ),
-          placement = "right",
-          "# of simulations to run - displayed results are averaged across all simulations"
+          label = "# of simulations to run - displayed results are averaged across all simulations"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles",
             "Contact Rate",
-            15/.99/4,
+            15 / .99 / 4,
             maxval = 20
           ),
-          placement = "right",
-          "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
+          label = "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Hospitalization Rate", 0.2, maxval = 1
           ),
-          placement = "right",
-          "Rate of hospitalization for infected individuals per day of the simulation"
+          label = "Rate of hospitalization for infected individuals per day of the simulation"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
-          placement = "right",
-          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
+          label = "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
-          placement = "right",
-          "How effective the vaccine is at preventing infection"
+          label = "How effective the vaccine is at preventing infection"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
-          placement = "right",
-          "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
+          label = "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_incubation_days",
             label   = "Incubation Days",
@@ -478,10 +460,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the disease incubates before the individual becomes symptomatic"
+          label = "Average # of days the disease incubates before the individual becomes symptomatic"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_prodromal_period",
             label   = "Prodromal Period (days)",
@@ -490,10 +471,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the prodromal period lasts before the individual develops a rash"
+          label = "Average # of days the prodromal period lasts before the individual develops a rash"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_rash_period",
             label   = "Rash Period (days)",
@@ -502,32 +482,29 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the rash lasts before the individual recovers"
+          label = "Average # of days the rash lasts before the individual recovers"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           seed_input("measles"),
-          placement = "right",
-          "Random seed for the simulation, use a specific seed to reproduce results"
+          label = "Random seed for the simulation, use a specific seed to reproduce results"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::checkboxInput(
             inputId = "measles_show_debug",
             label   = "Show Debugging Information",
             value   = FALSE
           ),
-          placement = "right",
-          "Shows detailed information of the simulation run for debugging purposes"
+          label = "Shows detailed information of the simulation run for debugging purposes"
         ),
       )
     )
-  )  # npis_input("measles")
+  )
 }
 
 body_measles <- function(input, model_output, output) {
 
   output$summary_table <- shiny::renderTable({
-      model_output()$summary_table()
+    model_output()$summary_table()
   })
 
   output$model_summary <- shiny::renderPrint({
@@ -638,7 +615,7 @@ body_measles <- function(input, model_output, output) {
         sprintf(
           "The figure shows the potential outbreak sizes after running
         %i simulations. The solid line represents the 50%% quantile",
-        input$measles_n_sims
+          input$measles_n_sims
         )
       ),
       plotly::plotlyOutput("epicurves_plot")
@@ -646,8 +623,8 @@ body_measles <- function(input, model_output, output) {
     bslib::card(
       bslib::card_header("Outbreak Size"),
       shiny::p(
-          "The table below shows the probability of seeing outbreak sizes above a given threshold WITH and WITHOUT quarantine."
-        ),
+        "The table below shows the probability of seeing outbreak sizes above a given threshold WITH and WITHOUT quarantine."
+      ),
       shiny::tableOutput("summary_table")
     ),
     bslib::card(

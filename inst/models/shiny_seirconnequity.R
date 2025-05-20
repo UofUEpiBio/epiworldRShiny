@@ -1,6 +1,5 @@
 # alt-name: SEIR Equity
 shiny_seirconnequity <- function(input) {
-
   # input <- list(
   #   seirconnequity_disease_name      = "COVID",
   #   seirconnequity_population_size   = 1e4,
@@ -23,7 +22,7 @@ shiny_seirconnequity <- function(input) {
     contact_rate      = input$seirconnequity_contact_rate,
     n                 = n,
     incubation_days   = input$seirconnequity_incubation_days
-    )
+  )
 
   set_name(model_seirconnequity, "SEIR Equity Model")
 
@@ -35,17 +34,17 @@ shiny_seirconnequity <- function(input) {
     prop_hispanic = input$seirconnequity_prop_hispanic,
     prop_female = input$seirconnequity_prop_female,
     prop_19_59_60plus = input$seirconnequity_prop_ages
-    )
+  )
 
   # Saving the data to the global environment (this way we make sure it is
   # available to the model)
-  assign("X", X, envir=epiworldRenv())
+  assign("X", X, envir = epiworldRenv())
 
   # Adding population data
   set_agents_data(
     model = model_seirconnequity,
     data  = epiworldRenv()$X
-    )
+  )
 
   # Creating immune system to add the difference in susceptibility -------------
   immune <- tool(
@@ -54,7 +53,7 @@ shiny_seirconnequity <- function(input) {
     transmission_reduction = 0,
     recovery_enhancer = 0,
     death_reduction = 0
-    )
+  )
 
   # Setting logit function for the virus to be more infectious for some groups
   # This is done with susceptibility reduction. The smallest the value, the
@@ -76,20 +75,20 @@ shiny_seirconnequity <- function(input) {
     tool  = immune,
     model = model_seirconnequity,
     tfun  = tfun
-    )
+  )
 
   # Adding the tool to the model
   add_tool(
     model      = model_seirconnequity,
     tool       = immune,
     proportion = 1
-    )
+  )
 
   # effective trate (user defined) = t rate virus x (1 - suscept redux)
   # we use the middle as a reference
   set_prob_infecting(
     virus = get_virus(model_seirconnequity, 0),
-    prob  = min(1, input$seirconnequity_transmission_rate/
+    prob  = min(1, input$seirconnequity_transmission_rate /
       (1 - plogis(log(4.0))))
   )
 
@@ -114,25 +113,24 @@ shiny_seirconnequity <- function(input) {
 
   # Common plots ---------------------------------------------------------------
 
-# Plot, summary, and reproductive number
+  # Plot, summary, and reproductive number
   plot_seirconnequity <- function() {
-
     # We treat recovered and exposed as infected
     agents$State <- ifelse(
       agents$State %in% c("Recovered", "Exposed"),
       "Infected", agents$State
-      )
+    )
 
     subset(agents, State != "Susceptible") |>
       ggplot(aes(y = Age)) +
-        geom_bar(aes(fill = Sex), position = "dodge") +
+      geom_bar(aes(fill = Sex), position = "dodge") +
 
-        facet_wrap(~Race) +
-        labs(
-          title = "Total number of infected",
-          x     = "Number of infected",
-          y     = "Age group"
-        )
+      facet_wrap(~Race) +
+      labs(
+        title = "Total number of infected",
+        x     = "Number of infected",
+        y     = "Age group"
+      )
 
   }
   summary_seirconnequity <- function() summary(model_seirconnequity)
@@ -148,9 +146,9 @@ shiny_seirconnequity <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
 
@@ -182,7 +180,7 @@ seirconnequity_panel <- function(model_alt) {
       min     = 0,
       max     = NA,
       step    = 1
-      ),
+    ),
     shiny::sliderInput(
       inputId = "seirconnequity_population_size",
       label   = "Population Size",

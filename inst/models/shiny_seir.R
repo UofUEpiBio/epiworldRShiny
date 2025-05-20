@@ -7,7 +7,7 @@ shiny_seir <- function(input) {
     transmission_rate = input$seir_transmission_rate,
     recovery_rate     = input$seir_recovery_rate,
     incubation_days   = input$seir_incubation_days
-    )
+  )
 
   # Generating random graph
   epiworldR::agents_smallworld(
@@ -44,18 +44,18 @@ shiny_seir <- function(input) {
     # Row number of the maximum count in the original data frame
     max_row_number <- which(
       df$date == max_infection_row$date & df$state == "Infected"
-      )
+    )
 
-    df[max_row_number,"counts"] <- sprintf(
+    df[max_row_number, "counts"] <- sprintf(
       "<strong>%s</strong>",
       df[max_row_number, "counts"]
-      )
+    )
 
     # Making sure factor variables are ordered
     df$state <- factor(
       x      = df$state,
       levels = c("Susceptible", "Exposed", "Infected", "Removed")
-      )
+    )
 
     # Reshaping the data to wide format
     df <- reshape(df, idvar = "date", timevar = "state", direction = "wide")
@@ -92,7 +92,7 @@ seir_panel <- function(model_alt) {
       min     = 0,
       max     = NA,
       step    = 1
-      ),
+    ),
     numeric_input_ndays("seir"),
     seed_input("seir"),
     network_input("seir"),

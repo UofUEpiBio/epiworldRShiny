@@ -1,21 +1,20 @@
 # alt-name: SIR Network
 shiny_sir <- function(input) {
-
   # Creating model
   model_sir <- epiworldR::ModelSIR(
     name              = input$sir_disease_name,
     prevalence        = input$sir_prevalence,
     transmission_rate = input$sir_transmission_rate,
     recovery_rate     = input$sir_recovery_rate
-    )
+  )
 
   # Generating random graph
   epiworldR::agents_smallworld(
-      model_sir,
-      n = input$sir_population_size,
-      k = input$sir_k,
-      d = as.logical(input$sir_directed),
-      p = input$sir_prob_rewiring
+    model_sir,
+    n = input$sir_population_size,
+    k = input$sir_k,
+    d = as.logical(input$sir_directed),
+    p = input$sir_prob_rewiring
   )
 
   # NPIs -----------------------------------------------------------------------
@@ -38,9 +37,9 @@ shiny_sir <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
   # Output list

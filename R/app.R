@@ -1,9 +1,9 @@
 #' epiworldRShiny App Launcher
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
-#' @description 
+#' @description
 #' Fires up the R Shiny App. You can find more examples and documentation at
 #' the package's website: <https://UofUEpiBio.github.io/epiworldRShiny/>.
-#' 
+#'
 #' @import epiworldR
 #' @importFrom DT dataTableOutput renderDataTable
 #' @import ggplot2
@@ -20,9 +20,9 @@ NULL
 epiworldR_env <- new.env()
 
 #' Access to the epiworldR environment.
-#' 
+#'
 #' This function is for internal use only.
-#' 
+#'
 #' @return Returns the `epiworldR_env` environment.
 #' @export
 epiworldRenv <- function() {
@@ -39,7 +39,6 @@ epiworldRenv <- function() {
 #' which contain the model description.
 #' @rdname epiworldRShiny
 epiworldRShiny <- function(custom_models_path = NULL, ...) {
-
   # If the package is not loaded, load it
   if (!"epiworldRShiny" %in% search()) {
     library(epiworldRShiny)
@@ -47,25 +46,12 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   models_setup(custom_models_path)
 
-  header <- shiny::HTML(
-    'epiworldR <text style="color: gray; font-size:50%">(beta)</text>'
-  )
-
-  # Sets CSS cursor style for headers
-  cursor_header_pointer <-
-    sprintf(
-      "#npis_header_%1$s, #network_header_%1$s, #population_header_%1$s, #advanced_header_%1$s",
-      epiworldRenv()$models
-    ) |>
-    paste0(collapse = ", ") |>
-    paste("{\n  cursor: pointer;\n}\n")
-
+  # The UI sidebar
   sidebar <- do.call(
     bslib::sidebar,
     c(
       list(
         width = 300,
-        # shinyjs::useShinyjs(),
         shiny::selectInput(
           inputId = "model",
           label = shiny::h3("Model"),
@@ -75,71 +61,35 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       # Need to pass it unnamed
       unname(
         mget(paste0(epiworldRenv()$models, "_panel"), envir = epiworldRenv())
-        )
+      )
     )
   )
 
-  # Getting the version of epiworldR
-  epiworldRShiny_version <- utils::packageVersion("epiworldRShiny")
-  epiworldR_version <- utils::packageVersion("epiworldR")
-
-  # Footer
-  foot <- shiny::div(
-    shiny::markdown(
-      paste(
-        "epiworldRShiny version",
-        epiworldRShiny_version,
-        "| epiworldR version",
-        epiworldR_version
-      )
-    ),
-    shiny::markdown("**The University of Utah**"),
-    style="font-size:80%;text-align: center;"
-  )
-  
-  body <- shiny::mainPanel(# shinydashboard::dashboardBody(
+  # Main page panel
+  body <- shiny::mainPanel(
     shiny::uiOutput("model_body"),
-    shiny::htmlOutput("download_button"),
-    shiny::tags$style(type = 'text/css', "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
-    foot
+    shiny::downloadButton("downloadData", "Download Data"),
+    shiny::tags$style(type = "text/css", "#downloadData { position: fixed; bottom: 20px; right: 20px; }"),
+    model_panel_footer
   )
 
-  link_epiworldr <- shiny::a(
-    shiny::icon("github"), "epiworldR",
-    href = "https://github.com/UofUEpiBio/epiworldR",
-    target = "_blank"
-  )
+  # Adding BRAND
+  # theme <- bslib::bs_theme(brand = system.file("_brand.yml", package = "epiworldRShiny"))
 
-  link_epiworldrshiny <- shiny::a(
-    shiny::icon("github"), "epiworldRShiny",
-    href = "https://github.com/UofUEpiBio/epiworldRShiny",
-    target = "_blank"
-  )
-
-  # Rendering the NEWS file
-  news_file <- system.file(
-    "NEWS.md",
-    package = "epiworldRShiny"
-  ) |> readLines() |> shiny::markdown()
-
-  ui <- bslib::page_navbar( # shinydashboard::dashboardPage(
-    bslib::nav_panel(title = "Home", body),
-    bslib::nav_spacer(),
+  # Create UI object
+  ui <- bslib::page_navbar(
+    title = shiny::HTML("Disease Modeling with epiworldR"),
+    bslib::nav_panel(title = "Model", body),
     bslib::nav_menu(
       title = "Links",
-      align = "right",
-      bslib::nav_item(link_epiworldr),
-      bslib::nav_item(link_epiworldrshiny)
+      bslib::nav_item(epiworldr_github),
+      bslib::nav_item(epiworldrshiny_github)
     ),
-    bslib::nav_panel(title = "News", news_file),
-    title        = header,
-    sidebar      = sidebar,
-    window_title = "epiworldRShiny: An R Shiny App for epiworldR",
-    lang         = "en"
+    sidebar = sidebar,
+    lang = "en"
   )
 
   server <- function(input, output, session) {
-
     # Getting the model ID
     model_id <- shiny::reactive(epiworldRenv()$models[input$model])
 
@@ -149,12 +99,11 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         eval({
           modelfun <- get(paste0("shiny_", model_id()), envir = epiworldRenv())
           modelfun(input)
-          })
-        }
-      )
+        })
+      }
+    )
 
     output$model_description <- shiny::renderText({
-
       # Reading the model description from the package
       # - First check the prebuilt models
       fn <- system.file(
@@ -193,13 +142,16 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         output$model_summary <- shiny::renderPrint({
           model_output()$model_summary()
         })
-        output$model_table <- DT::renderDataTable({
-          model_output()$model_table()
-        }, options = list(
-          scrollY = '600px',
-          lengthMenu = c(16, 25, 50),
-          pageLength = 16
-        ), escape = FALSE)
+        output$model_table <- DT::renderDataTable(
+          {
+            model_output()$model_table()
+          },
+          options = list(
+            scrollY = "600px",
+            lengthMenu = c(16, 25, 50),
+            pageLength = 16
+          ),
+          escape = FALSE)
 
         shiny::tagList(
           shiny::fluidRow(
@@ -216,7 +168,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
           )
         )
       }
-    })  
+    })
 
     output$downloadData <- shiny::downloadHandler(
       filename = function() {
@@ -226,13 +178,9 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         write.csv(model_output()$model_table(), file)
       }
     )
-
-    output$download_button <- shiny::renderUI({
-      shiny::downloadButton("downloadData", "Download Data")
-    })
   }
 
-  shiny::shinyApp(ui=ui, server=server)
+  shiny::shinyApp(ui = ui, server = server)
 
 }
 

@@ -8,11 +8,11 @@ shiny_sirconn <- function(input) {
     recovery_rate     = input$sirconn_recovery_rate,
     contact_rate      = input$sirconn_contact_rate,
     n                 = input$sirconn_population_size
-    )
+  )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_sirconn, "sirconn", input)
-  
+
   # Running and printing
   epiworldR::verbose_off(model_sirconn)
   epiworldR::run(model_sirconn, ndays = input$sirconn_n_days, seed = input$sirconn_seed)
@@ -30,9 +30,9 @@ shiny_sirconn <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
   # Output list
@@ -69,4 +69,3 @@ sirconn_panel <- function(model_alt) {
     npis_input("sirconn")
   )
 }
-

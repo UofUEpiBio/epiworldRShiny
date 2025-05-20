@@ -32,7 +32,7 @@ slider_prevalence <- function(model_name) {
     max = 1,
     step = 0.01,
     ticks = FALSE
-    )
+  )
 }
 
 #' @export
@@ -47,7 +47,7 @@ numeric_input_ndays <- function(model_name) {
     min     = 0,
     max     = NA,
     step    = 1
-    )
+  )
 }
 
 #' @param rate_name Name of the rate.
@@ -58,10 +58,10 @@ numeric_input_ndays <- function(model_name) {
 #' @rdname epiworldrshiny-ui
 #' @examples
 #' slider_input_rate("SEIRD", "transmission", value = 0.3, maxval = 1,
-#' input_label = NULL)
+#'   input_label = NULL)
 slider_input_rate <- function(
-  model_name, rate_name, value, maxval = 1, input_label = NULL
-  ) {
+    model_name, rate_name, value, maxval = 1, input_label = NULL
+    ) {
 
   if (is.null(input_label)) {
     input_label <- gsub("[^a-z0-9]", "_", tolower(rate_name))
@@ -132,7 +132,7 @@ network_input <- function(model_name) {
         step    = 0.01,
         ticks   = FALSE
       ),
-        shiny::p("The probability that an agent becomes disconnected from
+      shiny::p("The probability that an agent becomes disconnected from
                 their location within the network, and relocates to another
                 location within the same network")
     )
@@ -153,10 +153,10 @@ npis_input <- function(model_name) {
       title = "Non-Pharmaceutical Interventions",
       tags$p("More details about the implementation of the below
             interventions can be found in the epiworldRShiny",
-              tags$a("reference manual",
-              href = "https://uofuepibio.github.io/epiworldRShiny/reference/index.html"),
-              "."
-              ),
+        tags$a("reference manual",
+          href = "https://uofuepibio.github.io/epiworldRShiny/reference/index.html"),
+        "."
+      ),
       shiny::headerPanel(shiny::h4("Vaccination")),
       shiny::sliderInput(
         inputId = paste0(model_name, "_vaccine_prevalence"),
@@ -266,7 +266,7 @@ seed_input <- function(model_name) {
     max     = NA,
     step    = 1,
     value   = 2023
-    )
+  )
 }
 
 # Helper function to validate a given model file
@@ -278,13 +278,13 @@ validate_model <- function(model_filename) {
 
   validate_env <- new.env()
   file_basename <- basename(model_filename)
-  
+
   # Check if file exists
   if (!file.exists(model_filename)) {
     message(paste("File not found:", file_basename))
     return(FALSE)
   }
-  
+
   # Check if file has valid name
   if (!grepl("^shiny_[a-z]+\\.R$", file_basename)) {
     message(paste("Invalid model file name:", file_basename))
@@ -396,86 +396,87 @@ remove_duplicates <- function(custom_models, system_models) {
 #' # Setup with default models only:
 #' models_setup()
 #' # Setup with default and custom models:
-#' \dontrun{models_setup(custom_models_path = "path/to/custom/models")}
+#' \dontrun{
+#' models_setup(custom_models_path = "path/to/custom/models")
+#' }
 models_setup <- function(custom_models_path = NULL) {
-
   # Getting the environment
   env <- parent.frame()
 
-  eval({
-
-    # Get a list of all valid model files in the "models" directory
-    # - Print warnings and don't include invalid files
-    system_model_filenames <- get_valid_models(
-      path_to_models = system.file("models", package = "epiworldRShiny")
-    )
-
-    # Get a list of all valid model files in the "custom file path" directory
-    # - Print warnings and don't include invalid files
-    custom_model_filenames <- get_valid_models(
-      path_to_models = custom_models_path
-    )
-
-    all_model_filenames <- system_model_filenames
-
-    num_custom_models <- 0
-
-    # If custom models are provided, remove duplicates and add to total list
-    if (!is.null(custom_model_filenames)) {
-      custom_model_filenames <- remove_duplicates(custom_model_filenames, system_model_filenames)
-      num_custom_models <- length(custom_model_filenames)
-      all_model_filenames <- c(custom_model_filenames, system_model_filenames)
-    }
-
-    # Source valided models
-    for (f in all_model_filenames) {
-      source(f, local = epiworldRenv())
-    }
-
-    # Capture model display names (for UI)
-    model_display_names <- sapply(all_model_filenames, \(f) {
-
-      # Only on the first line
-      altname <- readLines(f, n = 1)
-
-      # Is there any alt name?
-      altname <- gsub("^#\\s*alt-name[:]\\s*(.+)\\s*$", "\\1", altname, perl = TRUE)
-
-      # If there is no alt name, use the file name
-      if (altname == "") {
-        altname <- toupper(gsub("shiny_([^.]+).R", "\\1", basename(f)))
-      }
-      altname
-    })
-
-    # If model is custom (user-defined), prepend "(custom)" to model name
-    if (num_custom_models > 0) {
-      for (i in 1:num_custom_models) {
-        model_display_names[i] <- paste("(custom)", model_display_names[i], sep = " ")
-      }
-    }    
-
-    # Get the model names from the file names
-    models <- gsub("^.+shiny_([^.]+).R$", "\\1", all_model_filenames)
-
-    # Set the names of the models to their alt names (if available)
-    names(model_display_names) <- models
-    names(models) <- model_display_names
-
-    # Add the model names and models to the epiworldR environment
-    assign("model_display_names", model_display_names, envir = epiworldRenv())
-    assign("models", models, envir = epiworldRenv())
-
-    # Generate model panels and add to the epiworldR environment
-    model_panels <- mget(paste0(models, "_panel"), envir = epiworldRenv())
-    invisible({
-      Map(\(pfun, nam, id) {
-        assign(paste0(id, "_panel"), pfun(nam), envir = epiworldRenv())
-      }, pfun = model_panels, nam = model_display_names, id = models
+  eval(
+    {
+      # Get a list of all valid model files in the "models" directory
+      # - Print warnings and don't include invalid files
+      system_model_filenames <- get_valid_models(
+        path_to_models = system.file("models", package = "epiworldRShiny")
       )
-    })
 
-  }, envir = env)
+      # Get a list of all valid model files in the "custom file path" directory
+      # - Print warnings and don't include invalid files
+      custom_model_filenames <- get_valid_models(
+        path_to_models = custom_models_path
+      )
+
+      all_model_filenames <- system_model_filenames
+
+      num_custom_models <- 0
+
+      # If custom models are provided, remove duplicates and add to total list
+      if (!is.null(custom_model_filenames)) {
+        custom_model_filenames <- remove_duplicates(custom_model_filenames, system_model_filenames)
+        num_custom_models <- length(custom_model_filenames)
+        all_model_filenames <- c(custom_model_filenames, system_model_filenames)
+      }
+
+      # Source valided models
+      for (f in all_model_filenames) {
+        source(f, local = epiworldRenv())
+      }
+
+      # Capture model display names (for UI)
+      model_display_names <- sapply(all_model_filenames, \(f) {
+        # Only on the first line
+        altname <- readLines(f, n = 1)
+
+        # Is there any alt name?
+        altname <- gsub("^#\\s*alt-name[:]\\s*(.+)\\s*$", "\\1", altname, perl = TRUE)
+
+        # If there is no alt name, use the file name
+        if (altname == "") {
+          altname <- toupper(gsub("shiny_([^.]+).R", "\\1", basename(f)))
+        }
+        altname
+      })
+
+      # If model is custom (user-defined), prepend "(custom)" to model name
+      if (num_custom_models > 0) {
+        for (i in 1:num_custom_models) {
+          model_display_names[i] <- paste("(custom)", model_display_names[i], sep = " ")
+        }
+      }
+
+      # Get the model names from the file names
+      models <- gsub("^.+shiny_([^.]+).R$", "\\1", all_model_filenames)
+
+      # Set the names of the models to their alt names (if available)
+      names(model_display_names) <- models
+      names(models) <- model_display_names
+
+      # Add the model names and models to the epiworldR environment
+      assign("model_display_names", model_display_names, envir = epiworldRenv())
+      assign("models", models, envir = epiworldRenv())
+
+      # Generate model panels and add to the epiworldR environment
+      model_panels <- mget(paste0(models, "_panel"), envir = epiworldRenv())
+      invisible({
+        Map(\(pfun, nam, id) {
+          assign(paste0(id, "_panel"), pfun(nam), envir = epiworldRenv())
+        }, pfun = model_panels, nam = model_display_names, id = models
+        )
+      })
+
+    },
+    envir = env)
 
 }
 
@@ -499,7 +500,7 @@ population_input <- function(model_name) {
         max     = 1,
         step    = 0.01,
         ticks   = FALSE
-        ),
+      ),
       shiny::sliderInput(
         inputId = paste0(model_name, "_prop_female"),
         label   = "% Female",
@@ -508,7 +509,7 @@ population_input <- function(model_name) {
         max     = 1,
         step    = 0.01,
         ticks   = FALSE
-        ),
+      ),
       shiny::sliderInput(
         inputId = paste0(model_name, "_prop_ages"),
         min     = 0,
@@ -530,5 +531,27 @@ simulate_button <- function(model_name) {
   bslib::input_task_button(
     id = paste0("simulate_", model_name),
     label = "Run Simulation"
-    )
+  )
+}
+
+
+#' @rdname epiworldrshiny-ui
+#' @export
+#' @examples
+#' sidebar_tooltip(
+#'   shiny::numericInput(
+#'     inputId = "measles_population_size",
+#'     label   = "Population Size",
+#'     min     = 0,
+#'     max     = 50000,
+#'     value   = 500
+#'   ),
+#'   label = "# of students in the school"
+#' )
+sidebar_tooltip <- function(ui_element, label = "", placement = "right") {
+  bslib::tooltip(
+    ui_element,
+    placement = placement,
+    label
+  )
 }

@@ -25,7 +25,7 @@ run(model, ndays = 100, seed = 123)
 plot_reproductive_epi(model)
 }
 \seealso{
-Other Server side functions: 
+Other Server side functions:
 \code{\link{find_scale}()},
 \code{\link{plot_epi}()},
 \code{\link{pop_generator}()}

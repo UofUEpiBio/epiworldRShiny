@@ -1,0 +1,42 @@
+exclude: ^(
+  man/|
+  _brand.yml|
+  .gitignore|
+  .Rbuildignore|
+  *.md|
+  DESCRIPTION|
+  Makefile|
+  *.rmd|
+  .github/|
+  .devcontainer/|
+  epishiny/|
+  vignettes/
+  )
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: detect-private-key
+
+-   repo: https://github.com/lorenzwalthert/precommit
+    # This version of precommit uses R 4.4.1 (renv.lock)
+    # See the pre-commit.yaml workflow file for more details.
+    rev: v0.4.3.9009
+    hooks:
+      - id: style-files
+        args:
+          [
+            '--ignore-start="^# styler: off$"',
+            '--ignore-stop="^# styler: on$"',
+            '--strict=FALSE',
+            '--cache-root=styler-perm'
+          ]
+      - id: readme-rmd-rendered
+      # - id: lintr
+      #   args: [--warn_only]
+      #   verbose: true
+      #   exclude: ^(inst/|man/|src/cpp11.cpp|playgroud/|R/cpp11.R)

@@ -14,7 +14,7 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5, 
+  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5,
   fig.align = "center"
 )
 ```
@@ -24,8 +24,8 @@ knitr::opts_chunk$set(
 ## Running the application
 
 In order to run the epiworldRShiny application, first ensure that the package is
-installed and loaded using the following code. To launch the application, 
-use call the function, epiworldRShiny(). 
+installed and loaded using the following code. To launch the application,
+use call the function, epiworldRShiny().
 ```{r running-the-app}
 # install.packages("epiworldRShiny")
 library(epiworldRShiny)
@@ -33,50 +33,49 @@ library(epiworldRShiny)
 ```
 
 ## Model set-up
-  
-This example features the SEIR equity model. This model is unique because it 
-accounts for demographic diversity in a population, such as race, gender, and 
-age. This allows for the comparison of disease spread among different 
-demographics. For example, the user can specify the proportions of different 
+
+This example features the SEIR equity model. This model is unique because it
+accounts for demographic diversity in a population, such as race, gender, and
+age. This allows for the comparison of disease spread among different
+demographics. For example, the user can specify the proportions of different
 age groups to simulate an older, younger, or balanced population.
-  
+
 - **Model**: SEIR equity model
-- **Disease**: COVID-19    
-- **% of population infected** = 0.1  
-- **Probability of exposure** = 0.05  
-- **Recovery probability** = 0.14  
-- **Incubation days** = 7  
-- **Simulation time** = 100  
-- **% Hispanic** = 0.3  
-- **% Female** = 0.52  
-- **Age distribution <20** = 0.3  
+- **Disease**: COVID-19
+- **% of population infected** = 0.1
+- **Probability of exposure** = 0.05
+- **Recovery probability** = 0.14
+- **Incubation days** = 7
+- **Simulation time** = 100
+- **% Hispanic** = 0.3
+- **% Female** = 0.52
+- **Age distribution <20** = 0.3
 - **Age distribution <60, >20** = 0.3
-  
+
 ## Running the model
 ```{r, echo=FALSE}
 knitr::include_graphics("https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/20aeb62d-cb42-4882-8577-a3406f167bca")
 ```
-  
-The above graphic demonstrates launching the application and running the model 
-with COVID-19 as the disease. After running the simulation, plots of the 
-distributions of states based on the specified demographics and the disease's 
-reproductive number over time, a model summary, and table of each state's counts 
+
+The above graphic demonstrates launching the application and running the model
+with COVID-19 as the disease. After running the simulation, plots of the
+distributions of states based on the specified demographics and the disease's
+reproductive number over time, a model summary, and table of each state's counts
 over time are all displayed.
-  
-## Results  
-  
-In this example, the model of choice is a SEIR equity model. Notice the first 
-section of output, displaying the total number of infected individuals in the 
-Hispanic and non-Hispanic demographics. According to the simulation, more 
+
+## Results
+
+In this example, the model of choice is a SEIR equity model. Notice the first
+section of output, displaying the total number of infected individuals in the
+Hispanic and non-Hispanic demographics. According to the simulation, more
 Hispanic agents were infected with COVID-19 than the non-Hispanic group. This
-figure further stratifies by sex and age group. Notice that there aren't any 
-significant differences in total number of infected among females and males, 
-indicating that the risk of infection for females is about the same for males. 
+figure further stratifies by sex and age group. Notice that there aren't any
+significant differences in total number of infected among females and males,
+indicating that the risk of infection for females is about the same for males.
 When analyzing age group, it is clear that those 60 years or older had the most
-infections out of any other age group.  
-  
-This model leads to the conclusion that agents who are Hispanic and 60 years or 
+infections out of any other age group.
+
+This model leads to the conclusion that agents who are Hispanic and 60 years or
 older have the highest occurrence of COVID-19 infections with very little distinction
 between sex. This information can be helpful to public health officials in informing
 public policy targeted towards benefiting select demographics.
-  

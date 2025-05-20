@@ -14,7 +14,7 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5, 
+  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5,
   fig.align = "center"
 )
 ```
@@ -26,8 +26,8 @@ Welcome to epiworldRShiny, a powerful Shiny app designed to enhance the function
 ## Running the application
 
 In order to run the epiworldRShiny application, first ensure that the package is
-installed and loaded using the following code. To launch the application, 
-use call the function, epiworldRShiny(). 
+installed and loaded using the following code. To launch the application,
+use call the function, epiworldRShiny().
 ```{r running-the-app}
 # install.packages("epiworldRShiny")
 library(epiworldRShiny)
@@ -41,27 +41,26 @@ The application comes with many pre-built models (SIR, SEIR, etc.), but you can 
 Custom models will be added to the top of the list of available models (above the pre-built options) and tagged as "(custom)".
 
 ## Model set-up
-  
-After launching the application, notice the sidebar contains many disease and model parameters which can be modified. Altering these parameters will affect the spread of the infectious disease in the simulated population. Name the disease 
-of interest, specify the parameters of choice (listed below), and select "run simulation". 
-  
-- **Model**: Network SEIR   
-- **Disease**: COVID-19    
-- **% of population infected** = 0.1  
-- **Probability of exposure** = 0.05  
-- **Recovery probability** = 0.14  
-- **Incubation days** = 7  
-- **Simulation time** = 100  
-- **Seed** = 2023  
-  
+
+After launching the application, notice the sidebar contains many disease and model parameters which can be modified. Altering these parameters will affect the spread of the infectious disease in the simulated population. Name the disease
+of interest, specify the parameters of choice (listed below), and select "run simulation".
+
+- **Model**: Network SEIR
+- **Disease**: COVID-19
+- **% of population infected** = 0.1
+- **Probability of exposure** = 0.05
+- **Recovery probability** = 0.14
+- **Incubation days** = 7
+- **Simulation time** = 100
+- **Seed** = 2023
+
 ## Running the model
 ```{r, echo=FALSE}
 knitr::include_graphics("https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/f4e7d313-e3b6-4ebb-9c0a-ca4d53ef9cea")
 ```
-  
+
 The above graphic demonstrates launching the application and running the model with COVID-19 as the disease. After running the simulation, plots of the distributions of states and the disease's reproductive number over time, a model summary, and table of each state's counts over time are all displayed.
-  
-## Results  
-  
+
+## Results
+
 In this example, the model of choice is a SEIR Network model. Notice the day of peak infections occurs on day 12, maxing at about 18,000 infections. After roughly 40 days, the state's curves taper off, meaning that the majority of the population has recovered from the disease. The reproductive number plot demonstrates that the disease spread rapidly at the beginning of the simulation, and drastically decreased over the first 10 days. The model summary returns important information about the simulation such as the model choice, population size, simulation speed, disease(s) present, any tool(s) present, and model parameters. The distribution table displays the counts for each state at baseline and conclusion. The transition probabilities table displays the probability of moving between states. For example, the probability that a susceptible agent remains in the susceptible state is 0.62, with a probability of moving to the exposed state 0.38. Lastly, the counts table shows the state's counts over time, marking the peak infection count in bold font.
-  

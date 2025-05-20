@@ -31,7 +31,7 @@ run(model, ndays = 100, seed = 123)
 npi_add_school_closure(model, preval = .8, transmission_reduction = .3, day = 10)
 }
 \seealso{
-Other interventions: 
+Other interventions:
 \code{\link{interventions_add_all}()},
 \code{\link{npi_add_masking}()},
 \code{\link{pi_add_vaccine}()}

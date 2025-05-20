@@ -9,7 +9,7 @@ shiny_seird <- function(input) {
     recovery_rate     = input$seird_recovery_rate,
     incubation_days   = input$seird_incubation_days,
     death_rate        = input$seird_death_rate
-    )
+  )
 
   # Generating random graph
   epiworldR::agents_smallworld(
@@ -42,16 +42,16 @@ shiny_seird <- function(input) {
     # Row number of the maximum count in the original data frame
     max_row_number <- which(
       df$date == max_infection_row$date & df$state == "Infected"
-      )
-    df[max_row_number,"counts"] <- sprintf(
+    )
+    df[max_row_number, "counts"] <- sprintf(
       "<strong>%s</strong>",
       df[max_row_number, "counts"]
-      )
+    )
     # Making sure factor variables are ordered
     df$state <- factor(
       x      = df$state,
       levels = c("Susceptible", "Exposed", "Infected", "Removed")
-      )
+    )
     # Reshaping the data to wide format
     df <- reshape(df, idvar = "date", timevar = "state", direction = "wide")
     colnames(df) <- gsub(colnames(df), pattern = "counts.", replacement = "")
@@ -86,7 +86,7 @@ seird_panel <- function(model_alt) {
       min     = 0,
       max     = NA,
       step    = 1
-      ),
+    ),
     numeric_input_ndays("seird"),
     seed_input("seird"),
     network_input("seird"),

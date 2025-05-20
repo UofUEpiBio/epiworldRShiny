@@ -1,6 +1,6 @@
 # Models in `epiworldRShiny`
 
-This folder contains the pre-built models available in the app. 
+This folder contains the pre-built models available in the app.
 
 ## Model Format
 
@@ -11,7 +11,7 @@ Each model consists of two files:
     - `<model_name>_panel()`: Defines the model's UI control panel in the app
 - `shiny_<model_name>.md`: Contains the model's documentation which is displayed in the app
 
-**IMPORTANT NOTE:** All models must follow the above format or `epiworldRShiny` won't import them correctly. 
+**IMPORTANT NOTE:** All models must follow the above format or `epiworldRShiny` won't import them correctly.
 
 ## Custom Models
 

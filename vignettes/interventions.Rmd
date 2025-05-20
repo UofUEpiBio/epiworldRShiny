@@ -14,7 +14,7 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5, 
+  comment = "#>", out.width = "80%", fig.width = 7, fig.height = 5,
   fig.align = "center"
 )
 ```
@@ -23,8 +23,8 @@ knitr::opts_chunk$set(
 
 ## Running the application
 To run the epiworldRShiny application, first ensure that the package is
-installed and loaded using the following code. To launch the application, 
-use call the function, epiworldRShiny(). 
+installed and loaded using the following code. To launch the application,
+use call the function, epiworldRShiny().
 ```{r running-the-app}
 # install.packages("epiworldRShiny")
 library(epiworldRShiny)
@@ -32,65 +32,64 @@ library(epiworldRShiny)
 ```
 
 ## Model set-up
-  
-This example features the implementation of the vaccine and school closure 
-interventions to curb disease spread. All model output can be interpreted using 
+
+This example features the implementation of the vaccine and school closure
+interventions to curb disease spread. All model output can be interpreted using
 the same logic from example #1.
-  
+
 - **Model**: network SEIRD
-- **Disease**: COVID-19    
-- **% of population infected** = 0.1  
-- **Probability of exposure** = 0.05  
-- **Recovery probability** = 0.14  
-- **Incubation days** = 7  
-- **Simulation time** = 100  
+- **Disease**: COVID-19
+- **% of population infected** = 0.1
+- **Probability of exposure** = 0.05
+- **Recovery probability** = 0.14
+- **Incubation days** = 7
+- **Simulation time** = 100
 - **Vaccine prevalence** = 70%
 - **School closure prevalance** = 50%
 - **Day of school closure implementation** = 7
-- **Seed** = 2023  
-  
+- **Seed** = 2023
+
 ## Running the model
 ```{r, echo=FALSE}
 knitr::include_graphics("https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/d5405162-f7fe-4a42-8a4c-e9a2ac31be73")
 ```
-  
-The above graphic demonstrates launching the application and running the model 
-with COVID-19 as the disease. To modify the intervention parameters, scroll to 
-the bottom of the application sidebar, select "interventions", and modify as 
-desired. After running the simulation, plots of the distributions of states and 
-the disease's reproductive number over time, a model summary, and table of each 
+
+The above graphic demonstrates launching the application and running the model
+with COVID-19 as the disease. To modify the intervention parameters, scroll to
+the bottom of the application sidebar, select "interventions", and modify as
+desired. After running the simulation, plots of the distributions of states and
+the disease's reproductive number over time, a model summary, and table of each
 state's counts over time are all displayed.
-  
-## Results  
-  
-In this example, the model of choice is a SEIRD Network model. Notice the day of 
-peak infections occurs on day 12, maxing out at 3,882 infections. Notice in 
-the SEIRD model plot, there are very few exposed, infected, and deceased agents 
-while the number of susceptible and recovered agents over the course of the 
-simulation changes rapidly. Due to the vaccine, which decreases the probability 
-of infection, and school closures which decrease the probability of exposure to 
-COVID-19, there are a significantly decreased number of exposed, infected, and 
+
+## Results
+
+In this example, the model of choice is a SEIRD Network model. Notice the day of
+peak infections occurs on day 12, maxing out at 3,882 infections. Notice in
+the SEIRD model plot, there are very few exposed, infected, and deceased agents
+while the number of susceptible and recovered agents over the course of the
+simulation changes rapidly. Due to the vaccine, which decreases the probability
+of infection, and school closures which decrease the probability of exposure to
+COVID-19, there are a significantly decreased number of exposed, infected, and
 deceased agents.
 
-## Comparison to absence of interventions 
+## Comparison to absence of interventions
 
 ```{r, echo=FALSE, fig.show='hold',fig.align='center'}
 # library(cowplot)
 # library(magick)
-# ggdraw() + 
-#   draw_image("~/Desktop/intervention.png", width = 0.5) + 
+# ggdraw() +
+#   draw_image("~/Desktop/intervention.png", width = 0.5) +
 #   draw_image("~/Desktop/comparison_plot.png", width = 0.5, x = .5)
 
 knitr::include_graphics("https://github.com/UofUEpiBio/epiworldRShiny/assets/105825983/092caa29-dee2-4230-b2c7-59a46a2493ee")
-
 ```
 
-The above SEIRD model figures demonstrate the distribution of states over time 
-both with and without interventions present (left and right figures 
-respectively). With no measure to combat the spread of COVID-19, the number of 
-exposed, infected, and deceased individuals greatly increase compared to the 
-model with interventions. The peak number of infections occurs earlier, on day 
-11, with a total of 17,616 infections at the peak, compared to 3,882 infections 
-on day 12 with interventions present. This indicates that the vaccination and 
-school closing measures were effective in reducing the number of infections and 
-deaths in this simulated population. 
+The above SEIRD model figures demonstrate the distribution of states over time
+both with and without interventions present (left and right figures
+respectively). With no measure to combat the spread of COVID-19, the number of
+exposed, infected, and deceased individuals greatly increase compared to the
+model with interventions. The peak number of infections occurs earlier, on day
+11, with a total of 17,616 infections at the peak, compared to 3,882 infections
+on day 12 with interventions present. This indicates that the vaccination and
+school closing measures were effective in reducing the number of infections and
+deaths in this simulated population.

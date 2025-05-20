@@ -46,7 +46,7 @@ pi_add_vaccine(model, preval = .8, susceptibility_reduction = .9,
                 death_reduction = .9)
 }
 \seealso{
-Other interventions: 
+Other interventions:
 \code{\link{interventions_add_all}()},
 \code{\link{npi_add_masking}()},
 \code{\link{npi_add_school_closure}()}

@@ -35,7 +35,7 @@ pop_generator(n = 1000, prop_hispanic = .5, prop_female = .5,
               prop_19_59_60plus = c(.3, .6))
 }
 \seealso{
-Other Server side functions: 
+Other Server side functions:
 \code{\link{find_scale}()},
 \code{\link{plot_epi}()},
 \code{\link{plot_reproductive_epi}()}

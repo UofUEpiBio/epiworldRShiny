@@ -1,7 +1,6 @@
 # alt-name: Network SISD
 
 shiny_sisd <- function(input) {
-
   # Creating model
   model_sisd <- epiworldR::ModelSISD(
     name              = input$sisd_disease_name,
@@ -9,15 +8,15 @@ shiny_sisd <- function(input) {
     transmission_rate = input$sisd_transmission_rate,
     recovery_rate     = input$sisd_recovery_rate,
     death_rate        = input$sisd_death_rate
-    )
+  )
 
   # Generating random graph
   epiworldR::agents_smallworld(
-      model_sisd,
-      n = input$sisd_population_size,
-      k = input$sisd_k,
-      d = as.logical(input$sisd_directed),
-      p = input$sisd_prob_rewiring
+    model_sisd,
+    n = input$sisd_population_size,
+    k = input$sisd_k,
+    d = as.logical(input$sisd_directed),
+    p = input$sisd_prob_rewiring
   )
 
   # NPIs -----------------------------------------------------------------------
@@ -40,9 +39,9 @@ shiny_sisd <- function(input) {
     max_infection_row <- infection_data[which.max(infection_data$count), ]
     # Row number of the maximum count in the original data frame
     max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
+      df$state == "Infected")
+    df[max_row_number, ] <- sprintf("<strong>%s</strong>",
+      df[max_row_number, ])
     df
   }
   # Output list

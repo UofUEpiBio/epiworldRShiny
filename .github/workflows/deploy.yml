@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: [ubuntu-latest]
-    container: 
+    container:
       image: gvegayon/epiworldrshiny:latest
     steps:
       - uses: actions/checkout@v4
@@ -18,4 +18,3 @@ jobs:
           SHINY_USER: ${{ secrets.SHINY_USER }}
         run: |
           make build install deploy
-

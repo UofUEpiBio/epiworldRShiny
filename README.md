@@ -76,12 +76,12 @@ simulated population. After running the simulation, a plot of the
 distribution of states over time, a plot of the disease’s reproductive
 number, a model summary, and a table of counts over time are displayed.
 
-This example features: - SEIR network model for COVID-19  
+This example features: - SEIR network model for COVID-19
 The day of peak infections occurs on day 12, maxing at about 18,000
-infections.  
+infections.
 - The disease spreads rapidly at the simulation’s beginning, drastically
-decreasing over the first ten days.  
-- Model summary  
+decreasing over the first ten days.
+- Model summary
 - State counts table
 
 <figure>
@@ -97,11 +97,11 @@ This example features the implementation of the vaccine and school
 closure interventions to curb disease spread. All model output can be
 interpreted using the same logic from example \#1.
 
-Key features: - SEIRD network model for COVID-19  
-- Vaccine prevalence = 70%  
-- School closure prevalence = 50%  
-- Day of school closure implementation = 7  
-- Significantly decreased number of infections and deaths.  
+Key features: - SEIRD network model for COVID-19
+- Vaccine prevalence = 70%
+- School closure prevalence = 50%
+- Day of school closure implementation = 7
+- Significantly decreased number of infections and deaths.
 - The majority of the population recovered or was susceptible by day 30.
 
 <figure>

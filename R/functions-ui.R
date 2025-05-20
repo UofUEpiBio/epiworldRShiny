@@ -533,3 +533,25 @@ simulate_button <- function(model_name) {
     label = "Run Simulation"
   )
 }
+
+
+#' @rdname epiworldrshiny-ui
+#' @export
+#' @examples
+#' sidebar_tooltip(
+#'   shiny::numericInput(
+#'     inputId = "measles_population_size",
+#'     label   = "Population Size",
+#'     min     = 0,
+#'     max     = 50000,
+#'     value   = 500
+#'   ),
+#'   label = "# of students in the school"
+#' )
+sidebar_tooltip <- function(ui_element, label = "", placement = "right") {
+  bslib::tooltip(
+    ui_element,
+    placement = placement,
+    label
+  )
+}

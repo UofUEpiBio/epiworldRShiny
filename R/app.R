@@ -46,7 +46,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
 
   models_setup(custom_models_path)
 
-  # Create the UI sidebar
+  # The UI sidebar
   sidebar <- do.call(
     bslib::sidebar,
     c(
@@ -69,11 +69,14 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   body <- shiny::mainPanel(
     shiny::uiOutput("model_body"),
     shiny::downloadButton("downloadData", "Download Data"),
-    shiny::tags$style(type = "text/css", "#downloadData {position: fixed; bottom: 20px; right: 20px; }"),
+    shiny::tags$style(type = "text/css", "#downloadData { position: fixed; bottom: 20px; right: 20px; }"),
     model_panel_footer
   )
 
-  # Create the UI
+  # Adding BRAND
+  # theme <- bslib::bs_theme(brand = system.file("_brand.yml", package = "epiworldRShiny"))
+
+  # Create UI object
   ui <- bslib::page_navbar(
     title = shiny::HTML("Disease Modeling with epiworldR"),
     bslib::nav_panel(title = "Model", body),

@@ -309,7 +309,7 @@ measles_panel <- function(model_alt) {
   shiny::conditionalPanel(
     simulate_button("measles"),
     condition = sprintf("input.model == '%s'", model_alt),
-    bslib::tooltip(
+    sidebar_tooltip(
       shiny::numericInput(
         inputId = "measles_population_size",
         label   = "Population Size",
@@ -317,10 +317,9 @@ measles_panel <- function(model_alt) {
         max     = 50000,
         value   = 500
       ),
-      placement = "right",
-      "# of students in the school"
+      label = "# of students in the school"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       shiny::numericInput(
         inputId = "measles_prevalence",
         label   = "Initial cases",
@@ -329,10 +328,9 @@ measles_panel <- function(model_alt) {
         max     = NA,
         step    = 1
       ),
-      placement = "right",
-      "# of students infected with measles at the start of the simulation"
+      label = "# of students infected with measles at the start of the simulation"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       slider_input_rate(
         "measles",
         "Proportion Vaccinated",
@@ -340,19 +338,17 @@ measles_panel <- function(model_alt) {
         maxval = 1,
         input_label = "prop_vaccinated"
       ),
-      placement = "right",
-      "Proportion of students in the school who are vaccinated against measles"
+      label = "Proportion of students in the school who are vaccinated against measles"
     ),
-    bslib::tooltip(
+    sidebar_tooltip(
       numeric_input_ndays("measles"),
-      placement = "right",
-      "# of days to run the simulation"
+      label = "# of days to run the simulation"
     ),
     bslib::accordion(
       open = FALSE,
       bslib::accordion_panel(
         title = "Quarantine",
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles",
             "Quarantine Willingness",
@@ -360,10 +356,9 @@ measles_panel <- function(model_alt) {
             maxval = 1,
             input_label = "quarantine_willingness"
           ),
-          placement = "right",
-          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
+          label = "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_days_undetected",
             label   = "Days Undetected",
@@ -372,10 +367,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = .5
           ),
-          placement = "right",
-          "Average # of days after the rash manifests before a person is detected as infected with measles"
+          label = "Average # of days after the rash manifests before a person is detected as infected with measles"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_quarantine_days",
             label   = "Quarantine Days",
@@ -384,10 +378,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
+          label = "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_isolation_days",
             label   = "Isolation Days",
@@ -396,8 +389,7 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
+          label = "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
         )
       )
     ),
@@ -407,7 +399,7 @@ measles_panel <- function(model_alt) {
       bslib::accordion_panel(
         "Advanced parameters",
         shiny::p("The below parameters are advanced and control disease dynamics."),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_hospitalization_duration",
             label   = "Hospitalization Duration (days)",
@@ -416,10 +408,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days an infected person is hospitalized"
+          label = "Average # of days an infected person is hospitalized"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_n_sims",
             label   = "Number of simulations",
@@ -428,45 +419,39 @@ measles_panel <- function(model_alt) {
             max     = 1000,
             step    = 1
           ),
-          placement = "right",
-          "# of simulations to run - displayed results are averaged across all simulations"
+          label = "# of simulations to run - displayed results are averaged across all simulations"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles",
             "Contact Rate",
             15 / .99 / 4,
             maxval = 20
           ),
-          placement = "right",
-          "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
+          label = "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Hospitalization Rate", 0.2, maxval = 1
           ),
-          placement = "right",
-          "Rate of hospitalization for infected individuals per day of the simulation"
+          label = "Rate of hospitalization for infected individuals per day of the simulation"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
-          placement = "right",
-          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
+          label = "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
-          placement = "right",
-          "How effective the vaccine is at preventing infection"
+          label = "How effective the vaccine is at preventing infection"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           slider_input_rate(
             "measles", "Vaccination Improved Recovery", "0.5", input_label = "vax_improved_recovery"),
-          placement = "right",
-          "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
+          label = "How much faster a vaccinated infected individual recovers compared to an unvaccinated infected individual"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_incubation_days",
             label   = "Incubation Days",
@@ -475,10 +460,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the disease incubates before the individual becomes symptomatic"
+          label = "Average # of days the disease incubates before the individual becomes symptomatic"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_prodromal_period",
             label   = "Prodromal Period (days)",
@@ -487,10 +471,9 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the prodromal period lasts before the individual develops a rash"
+          label = "Average # of days the prodromal period lasts before the individual develops a rash"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::numericInput(
             inputId = "measles_rash_period",
             label   = "Rash Period (days)",
@@ -499,26 +482,23 @@ measles_panel <- function(model_alt) {
             max     = NA,
             step    = 1
           ),
-          placement = "right",
-          "Average # of days the rash lasts before the individual recovers"
+          label = "Average # of days the rash lasts before the individual recovers"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           seed_input("measles"),
-          placement = "right",
-          "Random seed for the simulation, use a specific seed to reproduce results"
+          label = "Random seed for the simulation, use a specific seed to reproduce results"
         ),
-        bslib::tooltip(
+        sidebar_tooltip(
           shiny::checkboxInput(
             inputId = "measles_show_debug",
             label   = "Show Debugging Information",
             value   = FALSE
           ),
-          placement = "right",
-          "Shows detailed information of the simulation run for debugging purposes"
+          label = "Shows detailed information of the simulation run for debugging purposes"
         ),
       )
     )
-  )  # npis_input("measles")
+  )
 }
 
 body_measles <- function(input, model_output, output) {

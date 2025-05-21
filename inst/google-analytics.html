@@ -6,4 +6,8 @@
   gtag('js', new Date());
 
   gtag('config', 'G-06YNN17V3W');
+
+  $(document).on('click', 'bslib-task-button', function() {
+    gtag('event', 'simulation', { id: $(this).attr('id') });
+  });
 </script>

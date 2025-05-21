@@ -123,6 +123,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   ) |> readLines() |> shiny::markdown()
 
   ui <- bslib::page_navbar( # shinydashboard::dashboardPage(
+    shiny::tags$head(includeHTML(system.file("google-analytics.html", package = "epiworldRShiny"))),
     bslib::nav_panel(title = "Home", body),
     bslib::nav_spacer(),
     bslib::nav_menu(

@@ -1,7 +1,7 @@
 Package: epiworldRShiny
 Type: Package
 Title: A 'shiny' Wrapper of the R Package 'epiworldR'
-Version: 0.2.4
+Version: 0.2.5
 Date: 2025-05-15
 Authors@R: c(
   person("George", "Vega Yon", role=c("aut"),

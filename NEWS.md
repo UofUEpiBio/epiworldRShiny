@@ -1,6 +1,13 @@
-# epiworldRShiny 0.2.5
+# epiworldRShiny 0.2.5 (dev)
+
+## User visible changes
+
+* The measles model was not counting hospitalized cases correctly. It was excluding some cases from the reporting. The same happens with the number of active cases: it was missing two uncommon statuses in the model.
+
+## Other changes
 
 * Added Google Analytics tracking to the app, tracking page views and simulation runs.
+
 
 # epiworldRShiny 0.2.4
 

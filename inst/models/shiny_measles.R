@@ -33,6 +33,7 @@ get_ci_pretty <- function(x, lb = .025, ub = .975) {
 format_counts <- function(histories) {
   exposed <- c(
     active_cases_statuses,
+    "Isolated Recovered",
     "Recovered"
   )
 
@@ -102,7 +103,8 @@ analyze_hospitalizations <- function(transitions) {
   transitions <- subset(
     transitions,
     counts > 0 &
-    from != "Hospitalized" & to == "Hospitalized"
+    (!grepl("Hospitalized", from) & grepl("Hospitalized", to)) &
+    from != to
     )
 
   # Aggregating
@@ -128,6 +130,7 @@ active_cases_statuses <- c(
   "Prodromal",
   "Rash",
   "Isolated",
+  "Detected Hospitalized",
   "Quarantined Exposed",
   "Quarantined Prodromal",
   "Quarantined Recovered",
@@ -136,8 +139,9 @@ active_cases_statuses <- c(
 
 shiny_measles <- function(input) {
 
-  # # For debugging
+  # # # For debugging
   # saveRDS(as.list(input), "~/Downloads/input.rds")
+  # input <- readRDS("~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)

@@ -323,22 +323,6 @@ measles_panel <- function(model_alt) {
         title = "School Selector",
         shiny::p("Select a school from the database to populate vaccination rate and school size."),
         bslib::tooltip(
-          shiny::fileInput(
-            inputId = "measles_school_csv",
-            label = "Upload School Data CSV (Optional)",
-            accept = c(".csv")
-          ),
-          placement = "right",
-          "Upload a CSV file with columns: state, county, school_name, school_id, vaccination_rate, num_students"
-        ),
-        shiny::actionButton(
-          inputId = "measles_reset_school_data",
-          label = "Reset to Default Data",
-          width = "100%"
-        ),
-        shiny::br(),
-        shiny::br(),
-        bslib::tooltip(
           shiny::selectInput(
             inputId = "measles_state_selector",
             label = "Select State",
@@ -364,6 +348,21 @@ measles_panel <- function(model_alt) {
           ),
           placement = "right",
           "Finally, select a school to populate vaccination rate and school size"
+        ),
+        shiny::hr(),
+        bslib::tooltip(
+          shiny::fileInput(
+            inputId = "measles_school_csv",
+            label = "Upload Custom School Data (Optional)",
+            accept = c(".csv")
+          ),
+          placement = "right",
+          "Upload a CSV file with columns: state, county, school_name, school_id, vaccination_rate, num_students"
+        ),
+        shiny::actionButton(
+          inputId = "measles_reset_school_data",
+          label = "Reset to Default Data",
+          width = "100%"
         )
       )
     ),

@@ -1,9 +1,31 @@
 state,county,school_name,school_id,vaccination_rate,num_students
-California,Los Angeles,Lincoln Elementary,CA-LA-001,0.95,450
-California,Los Angeles,Washington High School,CA-LA-002,0.88,1200
-California,San Diego,Jefferson Middle School,CA-SD-001,0.92,650
-California,San Diego,Roosevelt Elementary,CA-SD-002,0.90,380
-Texas,Harris,Madison Elementary,TX-HR-001,0.85,520
-Texas,Harris,Kennedy High School,TX-HR-002,0.82,1500
-Texas,Dallas,Adams Middle School,TX-DL-001,0.87,720
-Texas,Dallas,Monroe Elementary,TX-DL-002,0.89,410
+California,Los Angeles,Abraham Lincoln Elementary,CA-00001,0.95,450
+California,Los Angeles,Washington High School,CA-00002,0.88,1200
+California,San Diego,Jefferson Middle School,CA-00003,0.92,650
+California,San Diego,Roosevelt Elementary,CA-00004,0.90,380
+California,Orange,Wilson Elementary,CA-00005,0.93,520
+California,San Francisco,Kennedy High School,CA-00006,0.91,890
+Texas,Harris,Madison Elementary,TX-00001,0.85,520
+Texas,Harris,Monroe High School,TX-00002,0.82,1500
+Texas,Dallas,Adams Middle School,TX-00003,0.87,720
+Texas,Dallas,Jackson Elementary,TX-00004,0.89,410
+Texas,Travis,Taylor Elementary,TX-00005,0.84,350
+Texas,Bexar,Van Buren High School,TX-00006,0.86,1100
+New York,New York,Harrison Elementary,NY-00001,0.94,580
+New York,Kings,Tyler Middle School,NY-00002,0.92,670
+New York,Queens,Polk Elementary,NY-00003,0.91,420
+New York,Bronx,Pierce High School,NY-00004,0.89,1300
+Florida,Miami Dade,Buchanan Elementary,FL-00001,0.87,490
+Florida,Broward,Fillmore Middle School,FL-00002,0.85,540
+Florida,Palm Beach,Grant High School,FL-00003,0.88,980
+Florida,Orange,Hayes Elementary,FL-00004,0.86,410
+Arizona,Maricopa,Garfield Elementary,AZ-00001,0.83,520
+Arizona,Pima,Arthur High School,AZ-00002,0.81,1200
+Washington,King,Cleveland Elementary,WA-00001,0.94,460
+Washington,Pierce,McKinley Middle School,WA-00002,0.92,580
+Oregon,Multnomah,Roosevelt High School,OR-00001,0.93,1100
+Oregon,Lane,Taft Elementary,OR-00002,0.91,390
+Colorado,Denver,Wilson Middle School,CO-00001,0.90,620
+Colorado,El Paso,Harding Elementary,CO-00002,0.88,450
+Utah,Salt Lake,Coolidge High School,UT-00001,0.89,980
+Utah,Utah,Hoover Elementary,UT-00002,0.87,360

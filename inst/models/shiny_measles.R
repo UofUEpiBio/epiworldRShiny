@@ -584,6 +584,15 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
     req(input$measles_school_csv)
     
     tryCatch({
+      # Check file size (limit to 5MB)
+      if (input$measles_school_csv$size > 5 * 1024 * 1024) {
+        shiny::showNotification(
+          "CSV file size must be less than 5MB",
+          type = "error"
+        )
+        return()
+      }
+      
       data <- utils::read.csv(input$measles_school_csv$datapath, stringsAsFactors = FALSE)
       
       # Validate columns
@@ -592,6 +601,32 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       if (!all(required_cols %in% colnames(data))) {
         shiny::showNotification(
           "CSV must contain columns: state, county, school_name, school_id, vaccination_rate, num_students",
+          type = "error"
+        )
+        return()
+      }
+      
+      # Validate data types and ranges
+      if (!is.numeric(data$vaccination_rate) || any(data$vaccination_rate < 0 | data$vaccination_rate > 1, na.rm = TRUE)) {
+        shiny::showNotification(
+          "vaccination_rate must be numeric values between 0 and 1",
+          type = "error"
+        )
+        return()
+      }
+      
+      if (!is.numeric(data$num_students) || any(data$num_students < 0 | data$num_students > 50000, na.rm = TRUE)) {
+        shiny::showNotification(
+          "num_students must be numeric values between 0 and 50000",
+          type = "error"
+        )
+        return()
+      }
+      
+      # Limit number of schools to prevent UI issues
+      if (nrow(data) > 1000) {
+        shiny::showNotification(
+          "CSV contains too many schools. Maximum 1000 schools allowed.",
           type = "error"
         )
         return()
@@ -619,7 +654,7 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       
     }, error = function(e) {
       shiny::showNotification(
-        paste("Error reading CSV:", e$message),
+        "Error reading CSV file. Please check the file format.",
         type = "error"
       )
     })
@@ -631,28 +666,36 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
         input$measles_school_selector != "none" &&
         !is.null(school_data())) {
       
-      idx <- as.integer(input$measles_school_selector)
+      idx <- suppressWarnings(as.integer(input$measles_school_selector))
       data <- school_data()
       
-      if (idx > 0 && idx <= nrow(data)) {
-        # Update population size
-        shiny::updateNumericInput(
-          session = session,
-          inputId = "measles_population_size",
-          value = data$num_students[idx]
-        )
-        
-        # Update vaccination rate
-        shiny::updateSliderInput(
-          session = session,
-          inputId = "measles_prop_vaccinated",
-          value = data$vaccination_rate[idx]
-        )
-        
-        shiny::showNotification(
-          paste("Populated data for:", data$school_name[idx]),
-          type = "message"
-        )
+      if (!is.na(idx) && idx > 0 && idx <= nrow(data)) {
+        # Validate that the selected school has valid data
+        if (!is.na(data$num_students[idx]) && !is.na(data$vaccination_rate[idx])) {
+          # Update population size
+          shiny::updateNumericInput(
+            session = session,
+            inputId = "measles_population_size",
+            value = data$num_students[idx]
+          )
+          
+          # Update vaccination rate
+          shiny::updateSliderInput(
+            session = session,
+            inputId = "measles_prop_vaccinated",
+            value = data$vaccination_rate[idx]
+          )
+          
+          shiny::showNotification(
+            paste("Populated data for:", data$school_name[idx]),
+            type = "message"
+          )
+        } else {
+          shiny::showNotification(
+            "Selected school has invalid data",
+            type = "error"
+          )
+        }
       }
     }
   })

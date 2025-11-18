@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.2
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   equity_model: equity_model.html
   getting_started: getting_started.html
   interventions: interventions.html
-last_built: 2025-05-15T16:05Z
+last_built: 2025-11-18T17:47Z

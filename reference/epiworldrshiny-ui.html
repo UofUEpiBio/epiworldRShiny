@@ -141,7 +141,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">text_input_disease_name</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_disease_name-label" for="SEIRD_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">slider_prevalence</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
@@ -151,7 +151,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-in"><span><span class="fu">numeric_input_ndays</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_n_days-label" for="SEIRD_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">slider_input_rate</span><span class="op">(</span><span class="st">"SEIRD"</span>, <span class="st">"transmission"</span>, value <span class="op">=</span> <span class="fl">0.3</span>, maxval <span class="op">=</span> <span class="fl">1</span>,</span></span>
 <span class="r-in"><span>input_label <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
@@ -161,15 +161,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">network_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="container-fluid"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2271" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-6555" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-4274" aria-expanded="false" aria-controls="bslib-accordion-panel-4274"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5306" aria-expanded="false" aria-controls="bslib-accordion-panel-5306"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-4274" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5306" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -179,7 +179,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="SEIRD_k-label" for="SEIRD_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="SEIRD_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="SEIRD_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -208,15 +208,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="fu">npis_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="container-fluid"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2964" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2948" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-4672" aria-expanded="false" aria-controls="bslib-accordion-panel-4672"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8293" aria-expanded="false" aria-controls="bslib-accordion-panel-8293"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-4672" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8293" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -273,7 +273,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="SEIRD_school_closure_day-label" for="SEIRD_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="SEIRD_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="SEIRD_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="SEIRD_school_closure_transmission_reduction-label" for="SEIRD_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -287,7 +287,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-in"><span><span class="fu">seed_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;label class="control-label" id="SEIRD_seed-label" for="SEIRD_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;input id="SEIRD_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-in"><span><span class="co"># Setup with default models only:</span></span></span>
 <span class="r-in"><span><span class="fu">models_setup</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -306,14 +306,14 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;template&gt;# of students in the school&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="measles_population_size-label" for="measles_population_size"&gt;Population Size&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_population_size" type="number" class="shiny-input-number form-control" value="500" min="0" max="50000"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_population_size" type="number" class="shiny-input-number form-control" value="500" data-update-on="change" min="0" max="50000"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;template&gt;# of students infected with measles at the start of the simulation&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="measles_prevalence-label" for="measles_prevalence"&gt;Initial cases&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_prevalence" type="number" class="shiny-input-number form-control" value="1" min="1" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_prevalence" type="number" class="shiny-input-number form-control" value="1" data-update-on="change" min="1" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
@@ -327,18 +327,18 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;template&gt;# of days to run the simulation&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;label class="control-label" id="measles_n_days-label" for="measles_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;input id="measles_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/bslib-tooltip&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4330" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-6173" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Quarantine"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-6000" aria-expanded="false" aria-controls="bslib-accordion-panel-6000"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-3211" aria-expanded="false" aria-controls="bslib-accordion-panel-3211"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Quarantine&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-6000" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-3211" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)&lt;/template&gt;</span>
@@ -351,50 +351,50 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Average # of days after the rash manifests before a person is detected as infected with measles&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_days_undetected-label" for="measles_days_undetected"&gt;Days Undetected&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_days_undetected" type="number" class="shiny-input-number form-control" value="2" min="0" step="0.5"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_days_undetected" type="number" class="shiny-input-number form-control" value="2" data-update-on="change" min="0" step="0.5"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine.&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_quarantine_days-label" for="measles_quarantine_days"&gt;Quarantine Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_quarantine_days" type="number" class="shiny-input-number form-control" value="21" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_quarantine_days" type="number" class="shiny-input-number form-control" value="21" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals.&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_isolation_days-label" for="measles_isolation_days"&gt;Isolation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_isolation_days" type="number" class="shiny-input-number form-control" value="4" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_isolation_days" type="number" class="shiny-input-number form-control" value="4" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9267" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8140" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Advanced parameters"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-4215" aria-expanded="false" aria-controls="bslib-accordion-panel-4215"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5040" aria-expanded="false" aria-controls="bslib-accordion-panel-5040"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Advanced parameters&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-4215" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5040" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters are advanced and control disease dynamics.&lt;/p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Average # of days an infected person is hospitalized&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_hospitalization_duration-label" for="measles_hospitalization_duration"&gt;Hospitalization Duration (days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_hospitalization_duration" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_hospitalization_duration" type="number" class="shiny-input-number form-control" value="7" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;# of simulations to run - displayed results are averaged across all simulations&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_n_sims-label" for="measles_n_sims"&gt;Number of simulations&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_n_sims" type="number" class="shiny-input-number form-control" value="100" min="1" max="1000" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_n_sims" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="1" max="1000" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
@@ -436,28 +436,28 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Average # of days the disease incubates before the individual becomes symptomatic&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_incubation_days-label" for="measles_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_incubation_days" type="number" class="shiny-input-number form-control" value="12" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_incubation_days" type="number" class="shiny-input-number form-control" value="12" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Average # of days the prodromal period lasts before the individual develops a rash&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_prodromal_period-label" for="measles_prodromal_period"&gt;Prodromal Period (days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_prodromal_period" type="number" class="shiny-input-number form-control" value="4" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_prodromal_period" type="number" class="shiny-input-number form-control" value="4" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Average # of days the rash lasts before the individual recovers&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_rash_period-label" for="measles_rash_period"&gt;Rash Period (days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_rash_period" type="number" class="shiny-input-number form-control" value="3" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_rash_period" type="number" class="shiny-input-number form-control" value="3" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;template&gt;Random seed for the simulation, use a specific seed to reproduce results&lt;/template&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;label class="control-label" id="measles_seed-label" for="measles_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;input id="measles_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/bslib-tooltip&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;bslib-tooltip placement="right" bsOptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()"&gt;</span>
@@ -490,7 +490,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_disease_name-label" for="seir_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_prevalence-label" for="seir_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -506,25 +506,25 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_incubation_days-label" for="seir_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_incubation_days" type="number" class="shiny-input-number form-control" value="7" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_n_days-label" for="seir_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seir_seed-label" for="seir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seir_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-3350" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-7377" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-6352" aria-expanded="false" aria-controls="bslib-accordion-panel-6352"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-1412" aria-expanded="false" aria-controls="bslib-accordion-panel-1412"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-6352" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-1412" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -534,7 +534,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seir_k-label" for="seir_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seir_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -560,15 +560,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4806" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-1856" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8270" aria-expanded="false" aria-controls="bslib-accordion-panel-8270"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8283" aria-expanded="false" aria-controls="bslib-accordion-panel-8283"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8270" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8283" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -625,7 +625,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seir_school_closure_day-label" for="seir_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seir_school_closure_transmission_reduction-label" for="seir_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -650,7 +650,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_disease_name-label" for="seirconn_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_prevalence-label" for="seirconn_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -670,7 +670,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_incubation_days-label" for="seirconn_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_incubation_days" type="number" class="shiny-input-number form-control" value="7" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_population_size-label" for="seirconn_population_size"&gt;Population Size&lt;/label&gt;</span>
@@ -678,21 +678,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_n_days-label" for="seirconn_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconn_seed-label" for="seirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconn_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4959" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9902" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-4159" aria-expanded="false" aria-controls="bslib-accordion-panel-4159"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-2904" aria-expanded="false" aria-controls="bslib-accordion-panel-2904"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-4159" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-2904" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -749,7 +749,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seirconn_school_closure_day-label" for="seirconn_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seirconn_school_closure_transmission_reduction-label" for="seirconn_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -774,7 +774,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_disease_name-label" for="seirconnequity_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_prevalence-label" for="seirconnequity_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -794,7 +794,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_incubation_days-label" for="seirconnequity_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_incubation_days" type="number" class="shiny-input-number form-control" value="7" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_population_size-label" for="seirconnequity_population_size"&gt;Population Size&lt;/label&gt;</span>
@@ -802,21 +802,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_n_days-label" for="seirconnequity_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seirconnequity_seed-label" for="seirconnequity_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seirconnequity_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2231" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8812" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Population"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8316" aria-expanded="false" aria-controls="bslib-accordion-panel-8316"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8850" aria-expanded="false" aria-controls="bslib-accordion-panel-8850"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Population&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8316" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8850" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seirconnequity_prop_hispanic-label" for="seirconnequity_prop_hispanic"&gt;% Hispanic&lt;/label&gt;</span>
@@ -834,15 +834,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-6447" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-1663" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8022" aria-expanded="false" aria-controls="bslib-accordion-panel-8022"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-7375" aria-expanded="false" aria-controls="bslib-accordion-panel-7375"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8022" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-7375" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -899,7 +899,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seirconnequity_school_closure_day-label" for="seirconnequity_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seirconnequity_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seirconnequity_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seirconnequity_school_closure_transmission_reduction-label" for="seirconnequity_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -924,7 +924,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_disease_name-label" for="seird_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_prevalence-label" for="seird_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -944,25 +944,25 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_incubation_days-label" for="seird_incubation_days"&gt;Incubation Days&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_incubation_days" type="number" class="shiny-input-number form-control" value="7" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_incubation_days" type="number" class="shiny-input-number form-control" value="7" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_n_days-label" for="seird_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="seird_seed-label" for="seird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="seird_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2228" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4558" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-3931" aria-expanded="false" aria-controls="bslib-accordion-panel-3931"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-2975" aria-expanded="false" aria-controls="bslib-accordion-panel-2975"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-3931" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-2975" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -972,7 +972,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seird_k-label" for="seird_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seird_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -998,15 +998,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9566" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-6050" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-9519" aria-expanded="false" aria-controls="bslib-accordion-panel-9519"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-1667" aria-expanded="false" aria-controls="bslib-accordion-panel-1667"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-9519" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-1667" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1063,7 +1063,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seird_school_closure_day-label" for="seird_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="seird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="seird_school_closure_transmission_reduction-label" for="seird_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1088,7 +1088,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_disease_name-label" for="sir_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_prevalence-label" for="sir_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -1104,21 +1104,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_n_days-label" for="sir_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sir_seed-label" for="sir_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sir_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2609" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-5018" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5518" aria-expanded="false" aria-controls="bslib-accordion-panel-5518"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-1151" aria-expanded="false" aria-controls="bslib-accordion-panel-1151"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5518" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-1151" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -1128,7 +1128,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sir_k-label" for="sir_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sir_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sir_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -1154,15 +1154,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8044" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8732" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-7450" aria-expanded="false" aria-controls="bslib-accordion-panel-7450"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5268" aria-expanded="false" aria-controls="bslib-accordion-panel-5268"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-7450" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5268" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1219,7 +1219,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sir_school_closure_day-label" for="sir_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sir_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sir_school_closure_transmission_reduction-label" for="sir_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1244,7 +1244,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_disease_name-label" for="sirconn_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_prevalence-label" for="sirconn_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -1268,21 +1268,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_n_days-label" for="sirconn_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sirconn_seed-label" for="sirconn_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sirconn_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-7338" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-5139" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-9964" aria-expanded="false" aria-controls="bslib-accordion-panel-9964"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5747" aria-expanded="false" aria-controls="bslib-accordion-panel-5747"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-9964" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5747" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1339,7 +1339,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sirconn_school_closure_day-label" for="sirconn_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sirconn_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sirconn_school_closure_transmission_reduction-label" for="sirconn_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1364,7 +1364,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_disease_name-label" for="sird_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_prevalence-label" for="sird_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -1384,21 +1384,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_n_days-label" for="sird_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sird_seed-label" for="sird_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sird_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4374" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4411" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-6257" aria-expanded="false" aria-controls="bslib-accordion-panel-6257"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-2000" aria-expanded="false" aria-controls="bslib-accordion-panel-2000"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-6257" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-2000" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -1408,7 +1408,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sird_k-label" for="sird_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sird_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sird_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -1434,15 +1434,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-4496" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8083" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-3737" aria-expanded="false" aria-controls="bslib-accordion-panel-3737"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8532" aria-expanded="false" aria-controls="bslib-accordion-panel-8532"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-3737" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8532" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1499,7 +1499,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sird_school_closure_day-label" for="sird_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sird_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sird_school_closure_transmission_reduction-label" for="sird_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1524,7 +1524,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_disease_name-label" for="sis_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_prevalence-label" for="sis_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -1540,21 +1540,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_n_days-label" for="sis_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sis_seed-label" for="sis_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sis_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9330" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-3995" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-1451" aria-expanded="false" aria-controls="bslib-accordion-panel-1451"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-2036" aria-expanded="false" aria-controls="bslib-accordion-panel-2036"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-1451" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-2036" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -1564,7 +1564,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sis_k-label" for="sis_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sis_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sis_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -1590,15 +1590,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-2903" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9154" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-6540" aria-expanded="false" aria-controls="bslib-accordion-panel-6540"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-3504" aria-expanded="false" aria-controls="bslib-accordion-panel-3504"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-6540" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-3504" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1655,7 +1655,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sis_school_closure_day-label" for="sis_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sis_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sis_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sis_school_closure_transmission_reduction-label" for="sis_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1680,7 +1680,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_disease_name-label" for="sisd_disease_name"&gt;Disease&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_disease_name" type="text" class="shiny-input-text form-control" value="" placeholder="Please enter a disease name" data-update-on="change"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_prevalence-label" for="sisd_prevalence"&gt;% of population infected&lt;/label&gt;</span>
@@ -1700,21 +1700,21 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_n_days-label" for="sisd_n_days"&gt;Simulation Time (Days)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_n_days" type="number" class="shiny-input-number form-control" value="100" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_n_days" type="number" class="shiny-input-number form-control" value="100" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;label class="control-label" id="sisd_seed-label" for="sisd_seed"&gt;Seed (Optional)&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_seed" type="number" class="shiny-input-number form-control" value="2023" min="0" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;input id="sisd_seed" type="number" class="shiny-input-number form-control" value="2023" data-update-on="change" min="0" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-3780" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-8437" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Network"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-7936" aria-expanded="false" aria-controls="bslib-accordion-panel-7936"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-6200" aria-expanded="false" aria-controls="bslib-accordion-panel-6200"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Network&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-7936" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-6200" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The below parameters affect the network structure and</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    behavior of agents within the simulation.&lt;/p&gt;</span>
@@ -1724,7 +1724,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sisd_k-label" for="sisd_k"&gt;Number of Ties&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sisd_k" type="number" class="shiny-input-number form-control" value="20" min="0" max="500" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sisd_k" type="number" class="shiny-input-number form-control" value="20" data-update-on="change" min="0" max="500" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;The number of</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 agents each individual agent is expected to meet, on</span>
@@ -1750,15 +1750,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9468" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-1305" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Non-Pharmaceutical Interventions"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-7370" aria-expanded="false" aria-controls="bslib-accordion-panel-7370"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-5899" aria-expanded="false" aria-controls="bslib-accordion-panel-5899"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Non-Pharmaceutical Interventions&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-7370" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-5899" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;p&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             More details about the implementation of the below</span>
@@ -1815,7 +1815,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sisd_school_closure_day-label" for="sisd_school_closure_day"&gt;implementation day&lt;/label&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sisd_school_closure_day" type="number" class="shiny-input-number form-control" value="0" min="0" max="100" step="1"/&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;input id="sisd_school_closure_day" type="number" class="shiny-input-number form-control" value="0" data-update-on="change" min="0" max="100" step="1"/&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="sisd_school_closure_transmission_reduction-label" for="sisd_school_closure_transmission_reduction"&gt;probability reduction of transmission&lt;/label&gt;</span>
@@ -1831,15 +1831,15 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="fu">models_setup</span><span class="op">(</span>custom_models_path <span class="op">=</span> <span class="st">"path/to/custom/models"</span><span class="op">)</span> <span class="co"># \dontrun{}</span></span></span>
 <span class="r-in"><span><span class="fu">population_input</span><span class="op">(</span><span class="st">"SEIRD"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div class="container-fluid"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-9916" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;div id="bslib-accordion-1737" class="accordion" data-require-bs-version="5" data-require-bs-caller="accordion()"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;div class="accordion-item" data-value="Population"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div class="accordion-header"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-7969" aria-expanded="false" aria-controls="bslib-accordion-panel-7969"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bslib-accordion-panel-8348" aria-expanded="false" aria-controls="bslib-accordion-panel-8348"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-icon"&gt;&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="accordion-title"&gt;Population&lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;/button&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;/div&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-7969" class="accordion-collapse collapse"&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;div id="bslib-accordion-panel-8348" class="accordion-collapse collapse"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;div class="accordion-body"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;div class="form-group shiny-input-container"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;label class="control-label" id="SEIRD_prop_hispanic-label" for="SEIRD_prop_hispanic"&gt;% Hispanic&lt;/label&gt;</span>
@@ -1882,7 +1882,7 @@ The function expects R files named <code>shiny_&lt;model_name&gt;.R</code> which
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

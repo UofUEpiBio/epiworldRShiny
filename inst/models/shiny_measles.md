@@ -2,7 +2,7 @@
     <strong>Warning:</strong> This is work in progress. The model does
     not include post-exposure prophylaxis or community transmission.
     We would love to hear your feedback on the model. All the source
-    code is available <a href="https://github.com/UofUEpiBio/epiworldRShiny/tree/measlesquarantine">here</a>.
+    code is available <a href="https://github.com/UofUEpiBio/epiworldRShiny">here</a>.
 </div>
 
 # Modeling Measles in Schools

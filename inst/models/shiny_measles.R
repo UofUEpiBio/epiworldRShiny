@@ -331,14 +331,39 @@ measles_panel <- function(model_alt) {
           placement = "right",
           "Upload a CSV file with columns: state, county, school_name, school_id, vaccination_rate, num_students"
         ),
+        shiny::actionButton(
+          inputId = "measles_reset_school_data",
+          label = "Reset to Default Data",
+          width = "100%"
+        ),
+        shiny::br(),
+        shiny::br(),
+        bslib::tooltip(
+          shiny::selectInput(
+            inputId = "measles_state_selector",
+            label = "Select State",
+            choices = c("Select..." = "")
+          ),
+          placement = "right",
+          "First, select a state to filter counties"
+        ),
+        bslib::tooltip(
+          shiny::selectInput(
+            inputId = "measles_county_selector",
+            label = "Select County",
+            choices = c("Select..." = "")
+          ),
+          placement = "right",
+          "Second, select a county to filter schools"
+        ),
         bslib::tooltip(
           shiny::selectInput(
             inputId = "measles_school_selector",
             label = "Select School",
-            choices = c("None (Manual Input)" = "none")
+            choices = c("Select..." = "")
           ),
           placement = "right",
-          "Choose a school to automatically populate vaccination rate and school size"
+          "Finally, select a school to populate vaccination rate and school size"
         )
       )
     ),
@@ -566,21 +591,45 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
       school_data(data)
       
-      # Create choices for dropdown
-      choices <- c("None (Manual Input)" = "none")
-      if (nrow(data) > 0) {
-        school_choices <- sapply(1:nrow(data), function(i) {
-          paste(data$school_name[i], "-", data$county[i], ",", data$state[i])
-        })
-        names(school_choices) <- 1:nrow(data)
-        choices <- c(choices, school_choices)
-      }
+      # Update state dropdown with unique states
+      states <- sort(unique(data$state))
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_state_selector",
+        choices = c("Select..." = "", states)
+      )
+    }
+  })
+  
+  # Handle Reset button
+  shiny::observeEvent(input$measles_reset_school_data, {
+    default_csv <- system.file("data/schools_measles.csv", package = "epiworldRShiny")
+    if (file.exists(default_csv)) {
+      data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
+      school_data(data)
       
+      # Reset all dropdowns
+      states <- sort(unique(data$state))
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_state_selector",
+        choices = c("Select..." = "", states),
+        selected = ""
+      )
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_county_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
       shiny::updateSelectInput(
         session = session,
         inputId = "measles_school_selector",
-        choices = choices
+        choices = c("Select..." = ""),
+        selected = ""
       )
+      
+      shiny::showNotification("Reset to default school data", type = "message")
     }
   })
   
@@ -639,20 +688,27 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       
       school_data(data)
       
-      # Update dropdown choices
-      choices <- c("None (Manual Input)" = "none")
-      if (nrow(data) > 0) {
-        school_choices <- sapply(1:nrow(data), function(i) {
-          paste(data$school_name[i], "-", data$county[i], ",", data$state[i])
-        })
-        names(school_choices) <- 1:nrow(data)
-        choices <- c(choices, school_choices)
-      }
+      # Update state dropdown with new data
+      states <- sort(unique(data$state))
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_state_selector",
+        choices = c("Select..." = "", states),
+        selected = ""
+      )
       
+      # Reset county and school dropdowns
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_county_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
       shiny::updateSelectInput(
         session = session,
         inputId = "measles_school_selector",
-        choices = choices
+        choices = c("Select..." = ""),
+        selected = ""
       )
       
       shiny::showNotification("School data loaded successfully!", type = "message")
@@ -665,34 +721,126 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
     })
   })
   
-  # Handle school selection
-  shiny::observeEvent(input$measles_school_selector, {
-    if (!is.null(input$measles_school_selector) && 
-        input$measles_school_selector != "none" &&
+  # Handle state selection - update counties
+  shiny::observeEvent(input$measles_state_selector, {
+    if (!is.null(input$measles_state_selector) && 
+        input$measles_state_selector != "" &&
         !is.null(school_data())) {
       
-      idx <- suppressWarnings(as.integer(input$measles_school_selector))
       data <- school_data()
+      filtered_data <- data[data$state == input$measles_state_selector, ]
       
-      if (!is.na(idx) && idx > 0 && idx <= nrow(data)) {
+      if (nrow(filtered_data) > 0) {
+        counties <- sort(unique(filtered_data$county))
+        shiny::updateSelectInput(
+          session = session,
+          inputId = "measles_county_selector",
+          choices = c("Select..." = "", counties),
+          selected = ""
+        )
+      } else {
+        shiny::updateSelectInput(
+          session = session,
+          inputId = "measles_county_selector",
+          choices = c("Select..." = ""),
+          selected = ""
+        )
+      }
+      
+      # Reset school dropdown
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_school_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
+    } else {
+      # Reset county and school dropdowns if no state selected
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_county_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_school_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
+    }
+  })
+  
+  # Handle county selection - update schools
+  shiny::observeEvent(input$measles_county_selector, {
+    if (!is.null(input$measles_county_selector) && 
+        input$measles_county_selector != "" &&
+        !is.null(input$measles_state_selector) &&
+        input$measles_state_selector != "" &&
+        !is.null(school_data())) {
+      
+      data <- school_data()
+      filtered_data <- data[data$state == input$measles_state_selector & 
+                            data$county == input$measles_county_selector, ]
+      
+      if (nrow(filtered_data) > 0) {
+        # Create named vector with school names as both names and values
+        school_choices <- setNames(filtered_data$school_name, filtered_data$school_name)
+        shiny::updateSelectInput(
+          session = session,
+          inputId = "measles_school_selector",
+          choices = c("Select..." = "", school_choices),
+          selected = ""
+        )
+      } else {
+        shiny::updateSelectInput(
+          session = session,
+          inputId = "measles_school_selector",
+          choices = c("Select..." = ""),
+          selected = ""
+        )
+      }
+    } else {
+      # Reset school dropdown if no county selected
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_school_selector",
+        choices = c("Select..." = ""),
+        selected = ""
+      )
+    }
+  })
+  
+  # Handle school selection - populate form fields
+  shiny::observeEvent(input$measles_school_selector, {
+    if (!is.null(input$measles_school_selector) && 
+        input$measles_school_selector != "" &&
+        !is.null(school_data())) {
+      
+      data <- school_data()
+      school_row <- data[data$school_name == input$measles_school_selector & 
+                         data$state == input$measles_state_selector &
+                         data$county == input$measles_county_selector, ]
+      
+      if (nrow(school_row) == 1) {
         # Validate that the selected school has valid data
-        if (!is.na(data$num_students[idx]) && !is.na(data$vaccination_rate[idx])) {
+        if (!is.na(school_row$num_students) && !is.na(school_row$vaccination_rate)) {
           # Update population size
           shiny::updateNumericInput(
             session = session,
             inputId = "measles_population_size",
-            value = data$num_students[idx]
+            value = school_row$num_students
           )
           
           # Update vaccination rate
           shiny::updateSliderInput(
             session = session,
             inputId = "measles_prop_vaccinated",
-            value = data$vaccination_rate[idx]
+            value = school_row$vaccination_rate
           )
           
           shiny::showNotification(
-            paste("Populated data for:", data$school_name[idx]),
+            paste("Populated data for:", school_row$school_name),
             type = "message"
           )
         } else {

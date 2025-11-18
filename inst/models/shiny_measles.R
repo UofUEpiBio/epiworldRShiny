@@ -33,6 +33,7 @@ get_ci_pretty <- function(x, lb = .025, ub = .975) {
 format_counts <- function(histories) {
   exposed <- c(
     active_cases_statuses,
+    "Isolated Recovered",
     "Recovered"
   )
 
@@ -102,7 +103,8 @@ analyze_hospitalizations <- function(transitions) {
   transitions <- subset(
     transitions,
     counts > 0 &
-    from != "Hospitalized" & to == "Hospitalized"
+    (!grepl("Hospitalized", from) & grepl("Hospitalized", to)) &
+    from != to
     )
 
   # Aggregating
@@ -128,6 +130,7 @@ active_cases_statuses <- c(
   "Prodromal",
   "Rash",
   "Isolated",
+  "Detected Hospitalized",
   "Quarantined Exposed",
   "Quarantined Prodromal",
   "Quarantined Recovered",
@@ -136,8 +139,9 @@ active_cases_statuses <- c(
 
 shiny_measles <- function(input) {
 
-  # For debugging
-  saveRDS(as.list(input), "~/Downloads/input.rds")
+  # # # For debugging
+  # saveRDS(as.list(input), "~/Downloads/input.rds")
+  # input <- readRDS("~/Downloads/input.rds")
 
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
@@ -166,9 +170,10 @@ shiny_measles <- function(input) {
     saver = make_saver("total_hist", "transition")
   )
 
-  res_quarantine <- run_multiple_get_results(model_measles)
+  res_quarantine <- run_multiple_get_results(model_measles, nthreads = 1L)
   res_no_quarantine <- run_multiple_get_results(
-    model_measles_no_quarantine
+    model_measles_no_quarantine,
+    nthreads = 1L
     )
 
   histories <- res_quarantine$total_hist

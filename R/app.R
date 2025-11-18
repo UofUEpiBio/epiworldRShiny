@@ -180,7 +180,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
       if (exists(paste0("body_", model_id()), envir = epiworldRenv())) {
 
         body_fun <- get(paste0("body_", model_id()), envir = epiworldRenv())
-        body_fun(input, model_output, output)
+        body_fun(input, model_output, output, session)
 
       } else {
 

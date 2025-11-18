@@ -312,6 +312,31 @@ measles_panel <- function(model_alt) {
   shiny::conditionalPanel(
     simulate_button("measles"),
     condition = sprintf("input.model == '%s'", model_alt),
+    bslib::accordion(
+      open = FALSE,
+      bslib::accordion_panel(
+        title = "School Selector",
+        shiny::p("Select a school from the database to populate vaccination rate and school size."),
+        bslib::tooltip(
+          shiny::fileInput(
+            inputId = "measles_school_csv",
+            label = "Upload School Data CSV (Optional)",
+            accept = c(".csv")
+          ),
+          placement = "right",
+          "Upload a CSV file with columns: state, county, school_name, school_id, vaccination_rate, num_students"
+        ),
+        bslib::tooltip(
+          shiny::selectInput(
+            inputId = "measles_school_selector",
+            label = "Select School",
+            choices = c("None (Manual Input)" = "none")
+          ),
+          placement = "right",
+          "Choose a school to automatically populate vaccination rate and school size"
+        )
+      )
+    ),
     bslib::tooltip(
       shiny::numericInput(
         inputId = "measles_population_size",
@@ -524,7 +549,113 @@ measles_panel <- function(model_alt) {
   )  # npis_input("measles")
 }
 
-body_measles <- function(input, model_output, output) {
+body_measles <- function(input, model_output, output, session = shiny::getDefaultReactiveDomain()) {
+
+  # Reactive value to hold school data
+  school_data <- shiny::reactiveVal(NULL)
+  
+  # Load default school data on initialization
+  shiny::observe({
+    default_csv <- system.file("data/schools_measles.csv", package = "epiworldRShiny")
+    if (file.exists(default_csv)) {
+      data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
+      school_data(data)
+      
+      # Create choices for dropdown
+      choices <- c("None (Manual Input)" = "none")
+      if (nrow(data) > 0) {
+        school_choices <- sapply(1:nrow(data), function(i) {
+          paste(data$school_name[i], "-", data$county[i], ",", data$state[i])
+        })
+        names(school_choices) <- 1:nrow(data)
+        choices <- c(choices, school_choices)
+      }
+      
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_school_selector",
+        choices = choices
+      )
+    }
+  })
+  
+  # Handle CSV upload
+  shiny::observeEvent(input$measles_school_csv, {
+    req(input$measles_school_csv)
+    
+    tryCatch({
+      data <- utils::read.csv(input$measles_school_csv$datapath, stringsAsFactors = FALSE)
+      
+      # Validate columns
+      required_cols <- c("state", "county", "school_name", "school_id", 
+                         "vaccination_rate", "num_students")
+      if (!all(required_cols %in% colnames(data))) {
+        shiny::showNotification(
+          "CSV must contain columns: state, county, school_name, school_id, vaccination_rate, num_students",
+          type = "error"
+        )
+        return()
+      }
+      
+      school_data(data)
+      
+      # Update dropdown choices
+      choices <- c("None (Manual Input)" = "none")
+      if (nrow(data) > 0) {
+        school_choices <- sapply(1:nrow(data), function(i) {
+          paste(data$school_name[i], "-", data$county[i], ",", data$state[i])
+        })
+        names(school_choices) <- 1:nrow(data)
+        choices <- c(choices, school_choices)
+      }
+      
+      shiny::updateSelectInput(
+        session = session,
+        inputId = "measles_school_selector",
+        choices = choices
+      )
+      
+      shiny::showNotification("School data loaded successfully!", type = "message")
+      
+    }, error = function(e) {
+      shiny::showNotification(
+        paste("Error reading CSV:", e$message),
+        type = "error"
+      )
+    })
+  })
+  
+  # Handle school selection
+  shiny::observeEvent(input$measles_school_selector, {
+    if (!is.null(input$measles_school_selector) && 
+        input$measles_school_selector != "none" &&
+        !is.null(school_data())) {
+      
+      idx <- as.integer(input$measles_school_selector)
+      data <- school_data()
+      
+      if (idx > 0 && idx <= nrow(data)) {
+        # Update population size
+        shiny::updateNumericInput(
+          session = session,
+          inputId = "measles_population_size",
+          value = data$num_students[idx]
+        )
+        
+        # Update vaccination rate
+        shiny::updateSliderInput(
+          session = session,
+          inputId = "measles_prop_vaccinated",
+          value = data$vaccination_rate[idx]
+        )
+        
+        shiny::showNotification(
+          paste("Populated data for:", data$school_name[idx]),
+          type = "message"
+        )
+      }
+    }
+  })
 
   output$summary_table <- shiny::renderTable({
       model_output()$summary_table()

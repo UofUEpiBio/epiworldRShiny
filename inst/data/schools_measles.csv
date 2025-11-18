@@ -1,0 +1,9 @@
+state,county,school_name,school_id,vaccination_rate,num_students
+California,Los Angeles,Lincoln Elementary,CA-LA-001,0.95,450
+California,Los Angeles,Washington High School,CA-LA-002,0.88,1200
+California,San Diego,Jefferson Middle School,CA-SD-001,0.92,650
+California,San Diego,Roosevelt Elementary,CA-SD-002,0.90,380
+Texas,Harris,Madison Elementary,TX-HR-001,0.85,520
+Texas,Harris,Kennedy High School,TX-HR-002,0.82,1500
+Texas,Dallas,Adams Middle School,TX-DL-001,0.87,720
+Texas,Dallas,Monroe Elementary,TX-DL-002,0.89,410

@@ -585,7 +585,7 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
   
   # Load default school data on initialization
   shiny::observe({
-    default_csv <- system.file("data/schools_measles.csv", package = "epiworldRShiny")
+    default_csv <- system.file("extdata/schools_measles.csv", package = "epiworldRShiny")
     if (file.exists(default_csv)) {
       data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
       school_data(data)
@@ -602,7 +602,7 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
   
   # Handle Reset button
   shiny::observeEvent(input$measles_reset_school_data, {
-    default_csv <- system.file("data/schools_measles.csv", package = "epiworldRShiny")
+    default_csv <- system.file("extdata/schools_measles.csv", package = "epiworldRShiny")
     if (file.exists(default_csv)) {
       data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
       school_data(data)

@@ -54,7 +54,7 @@ message("Number of rows with missing values:", length(missing_vals), "\n")
 message("Total schools:", nrow(data_), "\n")
 
 # Save to CSV
-output_file <- "inst/data/schools_measles.csv"
+output_file <- "inst/extdata/schools_measles.csv"
 message("Saving to:", output_file, "\n")
 fwrite(data_, output_file, row.names = FALSE)
 

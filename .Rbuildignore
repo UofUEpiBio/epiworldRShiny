@@ -12,6 +12,7 @@ Dockerimage
 epishiny
 Dockerfile
 .devcontainer
+^data-raw$
 
 # Adding the vignettes as these are heavy
 vignettes/

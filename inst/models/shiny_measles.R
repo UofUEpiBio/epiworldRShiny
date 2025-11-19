@@ -139,10 +139,6 @@ active_cases_statuses <- c(
 
 shiny_measles <- function(input) {
 
-  # # # For debugging
-  # saveRDS(as.list(input), "~/Downloads/input.rds")
-  # input <- readRDS("~/Downloads/input.rds")
-
   model_measles <- model_builder(input, quarantine = TRUE)
   model_measles_no_quarantine <- model_builder(input, quarantine = FALSE)
 
@@ -321,7 +317,7 @@ measles_panel <- function(model_alt) {
       open = FALSE,
       bslib::accordion_panel(
         title = "School Selector",
-        shiny::p("Select a school from the database to populate vaccination rate (school size is default to 500 in the current dataset). You can also upload a custom CSV file with school data."),
+        shiny::p("Select a school from the database to populate vaccination rate (school size defaults to 500 in the current dataset). You can also upload a custom CSV file with school data."),
         bslib::tooltip(
           shiny::selectInput(
             inputId = "measles_state_selector",
@@ -583,8 +579,8 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
   # Reactive value to hold school data
   school_data <- shiny::reactiveVal(NULL)
   
-  # Load default school data on initialization
-  shiny::observe({
+  # Helper function to load default school data
+  load_default_school_data <- function() {
     default_csv <- system.file("extdata/schools_measles.csv", package = "epiworldRShiny")
     if (file.exists(default_csv)) {
       data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
@@ -598,38 +594,32 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
         choices = c("Select..." = "", states)
       )
     }
-  })
+  }
+  
+  # Load default school data on initialization (only once)
+  shiny::observe({
+    load_default_school_data()
+  }, once = TRUE)
   
   # Handle Reset button
   shiny::observeEvent(input$measles_reset_school_data, {
-    default_csv <- system.file("extdata/schools_measles.csv", package = "epiworldRShiny")
-    if (file.exists(default_csv)) {
-      data <- utils::read.csv(default_csv, stringsAsFactors = FALSE)
-      school_data(data)
-      
-      # Reset all dropdowns
-      states <- sort(unique(data$state))
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_state_selector",
-        choices = c("Select..." = "", states),
-        selected = ""
-      )
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_county_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_school_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
-      
-      shiny::showNotification("Reset to default school data", type = "message")
-    }
+    load_default_school_data()
+    
+    # Reset county and school dropdowns
+    shiny::updateSelectInput(
+      session = session,
+      inputId = "measles_county_selector",
+      choices = c("Select..." = ""),
+      selected = ""
+    )
+    shiny::updateSelectInput(
+      session = session,
+      inputId = "measles_school_selector",
+      choices = c("Select..." = ""),
+      selected = ""
+    )
+    
+    shiny::showNotification("Reset to default school data", type = "message")
   })
   
   # Handle CSV upload
@@ -637,6 +627,15 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
     req(input$measles_school_csv)
     
     tryCatch({
+      # Server-side file extension validation
+      if (!grepl("\\.csv$", input$measles_school_csv$name, ignore.case = TRUE)) {
+        shiny::showNotification(
+          "Invalid file type. Please upload a file with a .csv extension.",
+          type = "error"
+        )
+        return()
+      }
+      
       # Check file size (limit to 5MB)
       if (input$measles_school_csv$size > 5 * 1024 * 1024) {
         shiny::showNotification(
@@ -714,7 +713,7 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       
     }, error = function(e) {
       shiny::showNotification(
-        "Error reading CSV file. Please check the file format.",
+        paste("Error reading CSV file:", e$message),
         type = "error"
       )
     })
@@ -783,8 +782,11 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
                             data$county == input$measles_county_selector, ]
       
       if (nrow(filtered_data) > 0) {
-        # Create named vector with school names as both names and values
-        school_choices <- setNames(filtered_data$school_name, filtered_data$school_name)
+        # Create named vector with school_id as values and "School Name (school_id)" as display names
+        school_choices <- setNames(
+          filtered_data$school_id, 
+          paste0(filtered_data$school_name, " (", filtered_data$school_id, ")")
+        )
         shiny::updateSelectInput(
           session = session,
           inputId = "measles_school_selector",
@@ -814,12 +816,15 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
   shiny::observeEvent(input$measles_school_selector, {
     if (!is.null(input$measles_school_selector) && 
         input$measles_school_selector != "" &&
+        !is.null(input$measles_state_selector) &&
+        input$measles_state_selector != "" &&
+        !is.null(input$measles_county_selector) &&
+        input$measles_county_selector != "" &&
         !is.null(school_data())) {
       
       data <- school_data()
-      school_row <- data[data$school_name == input$measles_school_selector & 
-                         data$state == input$measles_state_selector &
-                         data$county == input$measles_county_selector, ]
+      # Use school_id for selection now
+      school_row <- data[data$school_id == input$measles_school_selector, ]
       
       if (nrow(school_row) == 1) {
         # Validate that the selected school has valid data
@@ -848,6 +853,16 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
             type = "error"
           )
         }
+      } else if (nrow(school_row) > 1) {
+        shiny::showNotification(
+          "Multiple schools found with this ID. Please contact support.",
+          type = "error"
+        )
+      } else if (nrow(school_row) == 0) {
+        shiny::showNotification(
+          "School not found in database",
+          type = "error"
+        )
       }
     }
   })

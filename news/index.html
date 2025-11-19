@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">epiworldRShiny</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.6</span>
       </span>
     </div>
 
@@ -63,6 +63,32 @@
       <small>Source: <a href="https://github.com/UofUEpiBio/epiworldRShiny/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.2.6" id="epiworldrshiny-026-dev">epiworldRShiny 0.2.6 (dev)<a class="anchor" aria-label="anchor" href="#epiworldrshiny-026-dev"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-2-6">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-6"></a></h3>
+<ul><li>Added school selector feature to the measles model. Users can now select schools from a database to automatically populate vaccination rates and school sizes. The selector uses a cascading dropdown system (State → County → School) and supports uploading custom school data via CSV. School data sourced from the <a href="https://github.com/TACC/measles-dashboard" class="external-link">epiENGAGE measles dashboard</a> prepared by the TACC team.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-0-2-6">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-2-6"></a></h3>
+<ul><li>Upgraded to epiworldR 0.10.0.0, which includes significant performance improvements. See the <a href="https://github.com/UofUEpiBio/epiworldR/blob/main/NEWS.md#epiworldr-01000" class="external-link">epiworldR 0.10.0.0 release notes</a> for details.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.2.5" id="epiworldrshiny-025-2025-05-28">epiworldRShiny 0.2.5 (2025-05-28)<a class="anchor" aria-label="anchor" href="#epiworldrshiny-025-2025-05-28"></a></h2>
+<div class="section level3">
+<h3 id="user-visible-changes-0-2-5">User visible changes<a class="anchor" aria-label="anchor" href="#user-visible-changes-0-2-5"></a></h3>
+<ul><li>The measles model was not counting hospitalized cases correctly. It was excluding some cases from the reporting. The same happens with the number of active cases: it was missing two uncommon statuses in the model.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-0-2-5">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-2-5"></a></h3>
+<ul><li>Added Google Analytics tracking to the app, tracking page views and simulation runs.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.2.4" id="epiworldrshiny-024">epiworldRShiny 0.2.4<a class="anchor" aria-label="anchor" href="#epiworldrshiny-024"></a></h2>
+<ul><li>Fixed minor bug in the measles app that was causing errors in shinyapps.io.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.3" id="epiworldrshiny-023">epiworldRShiny 0.2.3<small>2025-05-14</small><a class="anchor" aria-label="anchor" href="#epiworldrshiny-023"></a></h2>
 <ul><li><p>Updated to epiworldR version 0.8.2.0: New version of the measles model with new parameters.</p></li>

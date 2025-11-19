@@ -6,105 +6,51 @@
 # This script downloads individual state CSV files, combines them, and extracts
 # the required columns for the epiworldRShiny school selector feature.
 
-library(utils)
-
 # Base URL for the raw data files
-base_url <- "https://raw.githubusercontent.com/TACC/measles-dashboard/main/state_data/"
+base_url <- "https://github.com/TACC/measles-dashboard/archive/refs/heads/main.zip"
 
-# List of state files to download (all US states)
-states <- c(
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-  "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
-  "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
-  "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
-  "New_Hampshire", "New_Jersey", "New_Mexico", "New_York",
-  "North_Carolina", "North_Dakota", "Ohio", "Oklahoma", "Oregon",
-  "Pennsylvania", "Rhode_Island", "South_Carolina", "South_Dakota",
-  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-  "West_Virginia", "Wisconsin", "Wyoming"
-)
+# Download and unzip the data to a temporary directory
+temp_zip <- tempfile(fileext = ".zip")
 
-# Initialize list to store data frames
-all_data <- list()
+message("Downloading measles school data from TACC repository...\n")
+download.file(base_url, temp_zip, mode = "wb")
+temp_dir <- tempdir()
+unzip(temp_zip, exdir = temp_dir)
 
-cat("Downloading measles school data from TACC repository...\n")
+# Listing files from the state data
+data_dir <- file.path(temp_dir, "measles-dashboard-main", "state_data")
+data_files <- list.files(data_dir, pattern = "\\.csv$", full.names = TRUE)
 
-# Download and read each state file
-for (state in states) {
-  state_file <- paste0(state, ".csv")
-  url <- paste0(base_url, state_file)
-  
-  cat("  Processing:", state, "... ")
-  
-  tryCatch({
-    # Download the file
-    data <- read.csv(url, stringsAsFactors = FALSE)
-    
-    # Check if required columns exist
-    if (all(c("name", "county", "enroll", "mmr") %in% colnames(data))) {
-      # Extract and rename columns
-      # name -> school_name
-      # county -> county
-      # enroll -> num_students
-      # mmr -> vaccination_rate (need to convert from percentage to decimal)
-      
-      state_data <- data.frame(
-        state = gsub("_", " ", state),  # Replace underscores with spaces
-        county = data$county,
-        school_name = data$name,
-        school_id = paste0(
-          toupper(substr(gsub("_", "", state), 1, 2)),
-          "-",
-          sprintf("%05d", seq_len(nrow(data)))
-        ),
-        vaccination_rate = ifelse(
-          !is.na(data$mmr) & data$mmr >= 0 & data$mmr <= 100,
-          data$mmr / 100,  # Convert percentage to decimal
-          NA
-        ),
-        num_students = data$enroll,
-        stringsAsFactors = FALSE
-      )
-      
-      # Remove rows with missing critical data
-      state_data <- state_data[
-        !is.na(state_data$vaccination_rate) & 
-        !is.na(state_data$num_students) &
-        state_data$num_students > 0,
-      ]
-      
-      all_data[[state]] <- state_data
-      cat("OK (", nrow(state_data), "schools)\n", sep = "")
-    } else {
-      cat("SKIP (missing columns)\n")
-    }
-  }, error = function(e) {
-    cat("ERROR:", conditionMessage(e), "\n")
-  })
-}
+# US State codes
+library(data.table)
+data_ <- lapply(data_files, \(f) {
+  state_f <- gsub(".+state_data/([^_]+).+\\.csv$", "\\1", f)
 
-# Combine all state data
-cat("\nCombining data from all states...\n")
-combined_data <- do.call(rbind, all_data)
-rownames(combined_data) <- NULL
+  # state,county,school_name,school_id,vaccination_rate,num_students
+  fread(f)[, .(
+    state = state_f,
+    county = County,
+    school_name = `School District or Name`,
+    school_id = sprintf("%s-%05d", state_f, seq_len(.N)),
+    vaccination_rate = `MMR Vaccination Rate` / 100,
+    num_students = 500 # Fixing since not provided in source data
+    )]
+}) |> rbindlist()
 
-cat("Total schools:", nrow(combined_data), "\n")
+
+message("Total schools:", nrow(data_), "\n")
 
 # Save to CSV
-output_file <- "../inst/data/schools_measles.csv"
-cat("Saving to:", output_file, "\n")
-write.csv(combined_data, output_file, row.names = FALSE)
+output_file <- "inst/data/schools_measles.csv"
+message("Saving to:", output_file, "\n")
+fwrite(data_, output_file, row.names = FALSE)
 
-cat("Done!\n")
-cat("\nData summary:\n")
-cat("  States:", length(unique(combined_data$state)), "\n")
-cat("  Counties:", length(unique(combined_data$county)), "\n")
-cat("  Schools:", nrow(combined_data), "\n")
-cat("  Vaccination rate range:", 
+message("Done!\n")
+message("\nData summary:\n")
+message("  States:", length(unique(data_$state)), "\n")
+message("  Counties:", length(unique(data_$county)), "\n")
+message("  Schools:", nrow(data_), "\n")
+message("  Vaccination rate range:", 
     sprintf("%.1f%% - %.1f%%", 
-            min(combined_data$vaccination_rate, na.rm = TRUE) * 100,
-            max(combined_data$vaccination_rate, na.rm = TRUE) * 100), "\n")
-cat("  School size range:", 
-    min(combined_data$num_students, na.rm = TRUE), "-",
-    max(combined_data$num_students, na.rm = TRUE), "students\n")
+            min(data_$vaccination_rate, na.rm = TRUE) * 100,
+            max(data_$vaccination_rate, na.rm = TRUE) * 100), "\n")

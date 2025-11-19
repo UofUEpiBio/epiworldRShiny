@@ -15,6 +15,7 @@ help:
 	@echo "  docker-run    - Run the Shiny app in a Docker container"
 	@echo "  deploy        - Deploy the Shiny app to shinyapps.io"
 	@echo "  README.md     - Generate README.md from README.Rmd"
+	@echo "  update-data   - Update data from raw sources"
 
 
 docs:
@@ -51,3 +52,6 @@ README.md: README.Rmd
 	Rscript -e 'rmarkdown::render("README.Rmd")'
 
 .PHONY: docs build install run check docker-build
+
+update-data: data-raw/download_measles_schools.R 
+	R CMD BATCH data-raw/download_measles_schools.R data-raw/download_measles_schools.Rout

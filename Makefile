@@ -1,22 +1,31 @@
-# Get the version of the R package and save it
-PKG_VERSION:=$(shell Rscript -e 'x<-readLines("DESCRIPTION");cat(gsub(".+[:]\\s*", "", x[grepl("^Vers", x)]))')
-
 # Capture the current directory
 DIR_NAME:=$(shell basename `pwd`)
 PKG_NAME:= epiworldRShiny
 
-which:
-	@echo "PKG_VERSION: $(PKG_VERSION)"
-	@echo "PKG_NAME: $(PKG_NAME)"
+help:
+	@echo "Makefile commands:"
+	@echo "  docs          - Generate documentation using roxygen2"
+	@echo "  build         - Build the R package"
+	@echo "  install       - Install the R package"
+	@echo "  run           - Run the Shiny application"
+	@echo "  dev           - Build, install, and run the Shiny app"
+	@echo "  check         - Check the R package for CRAN compliance"
+	@echo "  docker-build  - Build the Docker image for the Shiny app"
+	@echo "  docker-push   - Push the Docker image to Docker Hub"
+	@echo "  docker-run    - Run the Shiny app in a Docker container"
+	@echo "  deploy        - Deploy the Shiny app to shinyapps.io"
+	@echo "  README.md     - Generate README.md from README.Rmd"
+	@echo "  update-data   - Update data from raw sources"
+
 
 docs:
 	Rscript --vanilla -e 'devtools::document()'
 
 build:
-	cd .. && R CMD build $(DIR_NAME)
+	R CMD build .
 
 install:
-	cd .. && R CMD INSTALL $(PKG_NAME)_$(PKG_VERSION).tar.gz
+	Rscript --vanilla -e 'devtools::install()'
 
 run:
 	Rscript --vanilla -e 'epiworldRShiny::epiworldRShiny(".")'
@@ -24,7 +33,7 @@ run:
 dev: build install run
 
 check:
-	cd .. && R CMD check $(PKG_NAME)_$(PKG_VERSION).tar.gz
+	Rscript --vanilla -e 'devtools::check()'
 
 docker-build:
 	docker build -t gvegayon/epiworldrshiny .
@@ -43,3 +52,6 @@ README.md: README.Rmd
 	Rscript -e 'rmarkdown::render("README.Rmd")'
 
 .PHONY: docs build install run check docker-build
+
+update-data: data-raw/download_measles_schools.R 
+	R CMD BATCH data-raw/download_measles_schools.R data-raw/download_measles_schools.Rout

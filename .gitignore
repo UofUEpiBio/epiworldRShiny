@@ -3,3 +3,4 @@
 .secrets.R
 
 *.DS_Store
+*.Rout

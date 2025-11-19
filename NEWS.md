@@ -1,4 +1,4 @@
-# epiworldRShiny 0.2.6
+# epiworldRShiny 0.2.6 (dev)
 
 ## New features
 
@@ -8,7 +8,8 @@
 
 * Upgraded to epiworldR 0.10.0.0, which includes significant performance improvements. See the [epiworldR 0.10.0.0 release notes](https://github.com/UofUEpiBio/epiworldR/blob/main/NEWS.md#epiworldr-01000) for details.
 
-# epiworldRShiny 0.2.5 (dev)
+
+# epiworldRShiny 0.2.5 (2025-05-28)
 
 ## User visible changes
 

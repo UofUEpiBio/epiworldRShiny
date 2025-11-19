@@ -27,16 +27,29 @@ data_ <- lapply(data_files, \(f) {
   state_f <- gsub(".+state_data/([^_]+).+\\.csv$", "\\1", f)
 
   # state,county,school_name,school_id,vaccination_rate,num_students
-  fread(f)[, .(
+  ans <- fread(f)[, .(
     state = state_f,
     county = County,
     school_name = `School District or Name`,
-    school_id = sprintf("%s-%05d", state_f, seq_len(.N)),
     vaccination_rate = `MMR Vaccination Rate` / 100,
     num_students = 500 # Fixing since not provided in source data
     )]
+
+  ans <- ans[, .(
+    vaccination_rate = mean(vaccination_rate, na.rm = TRUE),
+    num_students = 500
+    ), by = .(state, county, school_name)]
+
+  ans[, school_id := sprintf("%s-%05d", state, .I)]
+
 }) |> rbindlist()
 
+# Checking potential missing values
+missing_vals <- which(!complete.cases(data_))
+message("Number of rows with missing values:", length(missing_vals), "\n")
+
+# Computing the mean vaccination rate per school_name
+# since many schools appear multiple times with different entries
 
 message("Total schools:", nrow(data_), "\n")
 

@@ -321,7 +321,7 @@ measles_panel <- function(model_alt) {
       open = FALSE,
       bslib::accordion_panel(
         title = "School Selector",
-        shiny::p("Select a school from the database to populate vaccination rate and school size."),
+        shiny::p("Select a school from the database to populate vaccination rate (school size is default to 500 in the current dataset). You can also upload a custom CSV file with school data."),
         bslib::tooltip(
           shiny::selectInput(
             inputId = "measles_state_selector",
@@ -677,9 +677,9 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       }
       
       # Limit number of schools to prevent UI issues
-      if (nrow(data) > 1000) {
+      if (nrow(data) > 10000) {
         shiny::showNotification(
-          "CSV contains too many schools. Maximum 1000 schools allowed.",
+          "CSV contains too many schools. Maximum 10000 schools allowed.",
           type = "error"
         )
         return()

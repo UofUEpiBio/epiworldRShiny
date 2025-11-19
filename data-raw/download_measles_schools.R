@@ -32,12 +32,12 @@ data_ <- lapply(data_files, \(f) {
     county = County,
     school_name = `School District or Name`,
     vaccination_rate = `MMR Vaccination Rate` / 100,
-    num_students = 500 # Fixing since not provided in source data
+    num_students = 500 # Default value: enrollment data not provided in source
     )]
 
   ans <- ans[, .(
     vaccination_rate = mean(vaccination_rate, na.rm = TRUE),
-    num_students = 500
+    num_students = 500 # Default value: enrollment data not provided in source
     ), by = .(state, county, school_name)]
 
   ans[, school_id := sprintf("%s-%05d", state, .I)]

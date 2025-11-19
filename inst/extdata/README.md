@@ -6,11 +6,11 @@ This directory contains school data files for the measles model in the epiworldR
 
 The school data is sourced from the [TACC Measles Dashboard](https://github.com/TACC/measles-dashboard) repository, prepared by the epiENGAGE team at the Texas Advanced Computing Center (TACC). We are grateful to the epiENGAGE team for making this data publicly available.
 
-The data includes measles-mumps-rubella (MMR) vaccination rates and enrollment numbers for schools across the United States.
+The data includes measles-mumps-rubella (MMR) vaccination rates for schools across the United States. **Note:** Enrollment data is not provided in the source dataset, so all schools default to 500 students. Users can upload custom CSV files with actual enrollment numbers if available.
 
 ## schools_measles.csv
 
-This file contains aggregated school information from multiple US states with MMR vaccination rates and student enrollment data.
+This file contains aggregated school information from multiple US states with MMR vaccination rates.
 
 ### Generating the Data
 
@@ -25,7 +25,8 @@ This script will:
 2. Extract and combine the relevant columns
 3. Convert vaccination rates from percentages to decimals (0-1 range)
 4. Filter out schools with missing or invalid data
-5. Generate a single combined CSV file
+5. Set enrollment to a default value of 500 (not provided in source data)
+6. Generate a single combined CSV file
 
 ### CSV Format
 
@@ -38,15 +39,17 @@ The CSV file contains the following columns:
 | school_name | string | Name of the school | Any string |
 | school_id | string | Unique school identifier | Format: ST-##### (e.g., CA-00001) |
 | vaccination_rate | numeric | MMR vaccination rate | 0.0 to 1.0 (e.g., 0.95 = 95%) |
-| num_students | integer | Total number of students | 0 to 50,000 |
+| num_students | integer | Total number of students (defaults to 500 in source data) | 0 to 50,000 |
 
 ### Example
 
 ```csv
 state,county,school_name,school_id,vaccination_rate,num_students
-California,Los Angeles,Lincoln Elementary,CA-00001,0.95,450
-Texas,Harris,Madison Elementary,TX-00001,0.85,520
+California,Los Angeles,Lincoln Elementary,CA-00001,0.95,500
+Texas,Harris,Madison Elementary,TX-00001,0.85,500
 ```
+
+**Note:** In the default dataset from TACC, all schools have `num_students` set to 500 since enrollment data is not available in the source. Users can upload custom CSV files with actual enrollment numbers for their specific use cases.
 
 ### Usage
 
@@ -70,5 +73,5 @@ The download script applies the following validations:
 - All required columns must be present
 - `vaccination_rate` must be between 0 and 1
 - `num_students` must be between 0 and 50,000
-- Removes rows with missing critical data (vaccination rate or enrollment)
+- Removes rows with missing critical vaccination rate data
 

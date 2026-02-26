@@ -1,8 +1,11 @@
 # epiworldRShiny 0.2.6 (dev)
 
-## New features
+## Measles model
 
-* Added school selector feature to the measles model. Users can now select schools from a database to automatically populate vaccination rates and school sizes. The selector uses a cascading dropdown system (State → County → School) and supports uploading custom school data via CSV. School data sourced from the [epiENGAGE measles dashboard](https://github.com/TACC/measles-dashboard) prepared by the TACC team.
+* Now using the [measles](https://cran.r-project.org/package=measles) R package.
+
+* Added school selector feature to the measles model. Users can now select schools from a database to automatically populate vaccination rates and school sizes. The selector uses a cascading dropdown system (State → County → School) and supports uploading custom school data via CSV. School data sourced from the [epiENGAGE measles dashboard](https://github.com/TACC/measles-dashboard) prepared by the TACC team. The model also includes data from the state of Utah.
+
 
 ## Other changes
 

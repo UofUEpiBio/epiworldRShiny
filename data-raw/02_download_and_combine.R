@@ -24,7 +24,7 @@ data_files <- list.files(data_dir, pattern = "\\.csv$", full.names = TRUE)
 # US State codes
 library(data.table)
 data_ <- lapply(data_files, \(f) {
-  state_f <- sub("\\.csv$", "", basename(f))
+  state_f <- sub("_.+$", "", basename(f))
 
   # state,county,school_name,school_id,vaccination_rate,num_students
   ans <- fread(f)[, .(
@@ -50,6 +50,13 @@ data_ <- data_[complete.cases(data_)]
 # Checking potential missing values after filtering
 missing_vals <- which(!complete.cases(data_))
 message("Number of rows with missing values after filtering:", length(missing_vals), "\n")
+
+
+# Retrieving the Utah data
+data_ <- rbind(
+  data_,
+  fread("data-raw/01_utah_school_data.csv")
+)
 
 # Computing the mean vaccination rate per school_name
 # since many schools appear multiple times with different entries

@@ -1,4 +1,7 @@
 {
     "r.plot.useHttpgd": true,
-    "r.alwaysUseActiveTerminal": true
+    "r.alwaysUseActiveTerminal": true,
+    "[r]": {
+        "editor.tabSize": 2,
+    }
 }

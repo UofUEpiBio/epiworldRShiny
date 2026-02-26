@@ -53,5 +53,12 @@ README.md: README.Rmd
 
 .PHONY: docs build install run check docker-build
 
-update-data: data-raw/download_measles_schools.R 
-	R CMD BATCH data-raw/download_measles_schools.R data-raw/download_measles_schools.Rout
+update-data: update-utah-data update-other-data
+	
+update-utah-data: data-raw/01_utah_school_data.R data-raw/measles_school_data_final.csv
+	R CMD BATCH data-raw/01_utah_school_data.R \
+		data-raw/01_utah_school_data.Rout
+
+update-other-data: data-raw/02_download_and_combine.R
+	R CMD BATCH data-raw/02_download_and_combine.R \
+		data-raw/02_download_and_combine.Rout

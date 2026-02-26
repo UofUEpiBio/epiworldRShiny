@@ -93,6 +93,28 @@ get_takehome_stats <- function(histories_no_quarantine, histories) {
   )
 }
 
+#' Aggregates model history into date-level quantiles for active cases
+#' @param histories A data frame of model history (total_hist output)
+#' @return A data frame with columns: date, p50, lower, upper
+aggregate_active_cases <- function(histories) {
+  dat <- subset(histories, state %in% active_cases_statuses)
+  dat <- stats::aggregate(counts ~ sim_num + date, data = dat, FUN = sum)
+  dat <- stats::aggregate(
+    counts ~ date,
+    data = dat,
+    FUN = function(x) {
+      c(
+        p50   = stats::quantile(x, .5),
+        lower = stats::quantile(x, .025),
+        upper = stats::quantile(x, .975)
+      )
+    }
+  )
+  dat <- cbind(data.frame(dat[[1]]), data.frame(dat[[2]]))
+  colnames(dat) <- c("date", "p50", "lower", "upper")
+  dat
+}
+
 #' Analyzes the hospitalizations
 #' @param transitions A data frame with the transitions
 #' @return A list with the mean, lower and upper bounds of the
@@ -201,48 +223,10 @@ shiny_measles <- function(input) {
   # Plot
   plot_measles <- function() {
 
-    # Getting the infected cases
-    dat <- subset(histories, state %in% active_cases_statuses)
-    dat <- stats::aggregate(counts ~ sim_num + date, data=dat, FUN=sum)
-    dat <- stats::aggregate(
-      counts ~ date,
-      data = dat,
-      FUN = function(x) {
-        c(
-          p50 = stats::quantile(x, .5),
-          lower = stats::quantile(x, .025),
-          upper = stats::quantile(x, .975)
-        )
-      }
-    )
+    dat               <- aggregate_active_cases(histories)
+    dat_no_quarantine <- aggregate_active_cases(histories_no_quarantine)
 
-    dat <- cbind(data.frame(dat[[1]]), data.frame(dat[[2]]))
-
-    colnames(dat) <- c("date", "p50", "lower", "upper")
-
-    # Now, without quarantine
-    dat_no_quarantine <- subset(histories_no_quarantine, state %in% active_cases_statuses)
-    dat_no_quarantine <- stats::aggregate(counts ~ sim_num + date, data=dat_no_quarantine, FUN=sum)
-    dat_no_quarantine <- stats::aggregate(
-      counts ~ date,
-      data = dat_no_quarantine,
-      FUN = function(x) {
-        c(
-          p50 = stats::quantile(x, .5),
-          lower = stats::quantile(x, .025),
-          upper = stats::quantile(x, .975)
-        )
-      }
-    )
-
-    dat_no_quarantine <- cbind(
-      data.frame(dat_no_quarantine[[1]]),
-      data.frame(dat_no_quarantine[[2]])
-      )
-
-    colnames(dat_no_quarantine) <- c("date", "p50", "lower", "upper")
-
-    # Greating figure with plotly
+    # Creating figure with plotly
     plotly::plot_ly(
       data = dat,
       x = ~date,
@@ -576,6 +560,16 @@ measles_panel <- function(model_alt) {
 
 body_measles <- function(input, model_output, output, session = shiny::getDefaultReactiveDomain()) {
 
+  # Helper: reset a selectInput to empty "Select..." state
+  reset_dropdown <- function(inputId) {
+    shiny::updateSelectInput(
+      session  = session,
+      inputId  = inputId,
+      choices  = c("Select..." = ""),
+      selected = ""
+    )
+  }
+
   # Reactive value to hold school data
   school_data <- shiny::reactiveVal(NULL)
 
@@ -611,18 +605,8 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
     load_default_school_data()
 
     # Reset county and school dropdowns
-    shiny::updateSelectInput(
-      session = session,
-      inputId = "measles_county_selector",
-      choices = c("Select..." = ""),
-      selected = ""
-    )
-    shiny::updateSelectInput(
-      session = session,
-      inputId = "measles_school_selector",
-      choices = c("Select..." = ""),
-      selected = ""
-    )
+    reset_dropdown("measles_county_selector")
+    reset_dropdown("measles_school_selector")
 
     shiny::showNotification("Reset to default school data", type = "message")
   })
@@ -701,18 +685,8 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
       )
 
       # Reset county and school dropdowns
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_county_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_school_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
+      reset_dropdown("measles_county_selector")
+      reset_dropdown("measles_school_selector")
 
       shiny::showNotification("School data loaded successfully!", type = "message")
 
@@ -742,35 +716,15 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
           selected = ""
         )
       } else {
-        shiny::updateSelectInput(
-          session = session,
-          inputId = "measles_county_selector",
-          choices = c("Select..." = ""),
-          selected = ""
-        )
+        reset_dropdown("measles_county_selector")
       }
 
       # Reset school dropdown
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_school_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
+      reset_dropdown("measles_school_selector")
     } else {
       # Reset county and school dropdowns if no state selected
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_county_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_school_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
+      reset_dropdown("measles_county_selector")
+      reset_dropdown("measles_school_selector")
     }
   })
 
@@ -802,21 +756,11 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
           selected = ""
         )
       } else {
-        shiny::updateSelectInput(
-          session = session,
-          inputId = "measles_school_selector",
-          choices = c("Select..." = ""),
-          selected = ""
-        )
+        reset_dropdown("measles_school_selector")
       }
     } else {
       # Reset school dropdown if no county selected
-      shiny::updateSelectInput(
-        session = session,
-        inputId = "measles_school_selector",
-        choices = c("Select..." = ""),
-        selected = ""
-      )
+      reset_dropdown("measles_school_selector")
     }
   })
 
@@ -852,11 +796,10 @@ body_measles <- function(input, model_output, output, session = shiny::getDefaul
           )
 
           shiny::showNotification(
-            paste(
-              "Populated vaccination data for:",
-              school_row$school_name,
-              "(school size not available)"
-              ),
+            paste0(
+              "Vaccination rate loaded for: ", school_row$school_name,
+              " (school size defaulted to 500 \u2013 actual enrollment data not available)"
+            ),
             type = "message"
           )
         } else {

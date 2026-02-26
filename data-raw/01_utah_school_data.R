@@ -11,4 +11,6 @@ utah_dat <- utah_dat[, .(
   school_id = sprintf("UT-%05d", .I)
 )]
 
+utah_dat <- utah_dat[!is.na(vaccination_rate)]
+
 fwrite(utah_dat, "data-raw/01_utah_school_data.csv", row.names = FALSE)

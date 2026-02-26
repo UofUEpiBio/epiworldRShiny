@@ -53,8 +53,14 @@ README.md: README.Rmd
 
 .PHONY: docs build install run check docker-build
 
-update-data: update-utah-data update-other-data
-	
+update-data: update-other-data
+	@echo "Note: Utah measles school data is not updated automatically."
+	@echo "To update Utah data, first obtain 'data-raw/measles_school_data_final.csv'"
+	@echo "from the Utah DHHS (see data-raw/README.md), then run: make update-utah-data"
+
+# NOTE: update-utah-data depends on 'data-raw/measles_school_data_final.csv',
+#   which is not tracked in git. Obtain this file from the Utah Department of
+#   Health and Human Services (DHHS) and place it at that path before running.
 update-utah-data: data-raw/01_utah_school_data.R data-raw/measles_school_data_final.csv
 	R CMD BATCH data-raw/01_utah_school_data.R \
 		data-raw/01_utah_school_data.Rout

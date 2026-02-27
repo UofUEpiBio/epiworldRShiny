@@ -1,6 +1,6 @@
 # epiworldRShiny 0.2.6 (dev)
 
-* New version of `epiworldR` provides functions to extract number of hospitalizations as well as outbreak size, speeding up simulations.
+* New version of `epiworldR` provides functions to extract number of hospitalizations, outbreak size, and active cases, speeding up simulations.
 
 ## Measles model
 

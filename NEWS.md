@@ -1,5 +1,7 @@
 # epiworldRShiny 0.2.6 (dev)
 
+* New version of `epiworldR` provides functions to extract number of hospitalizations as well as outbreak size, speeding up simulations.
+
 ## Measles model
 
 * Now using the [measles](https://cran.r-project.org/package=measles) R package.

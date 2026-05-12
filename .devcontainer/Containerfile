@@ -1,19 +1,31 @@
-FROM ghcr.io/rocker-org/devcontainer/tidyverse:4.5
+FROM ghcr.io/rocker-org/devcontainer/r-ver:4.5
 
-RUN install2.r --error languageserver && \
-  installGithub.r nx10/httpgd
+# Architecture-specific variable (built in Docker BuildKit)
+ARG TARGETARCH
+
+# Install quarto-cli and the orange-book extension
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.35/quarto-1.9.35-linux-${TARGETARCH}.deb && \
+    dpkg -i quarto-1.9.35-linux-${TARGETARCH}.deb && \
+    rm quarto-1.9.35-linux-${TARGETARCH}.deb
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pre-commit \
+    libuv1
+
+# Adding R packages
+RUN install2.r --error tinytest data.table quarto cpp11
+
 
 # Installing only packages that are not already installed in the base image
 RUN install2.r --error \
-  utils \
   DT \
-  epiworldR \
-  measles \
   plotly \
   pkgload \
   shiny \
   bslib
 
 RUN install2.r --error rsconnect
+
+RUN installGithub.r UofUEpiBio/measles
 
 CMD ["bash"]

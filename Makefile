@@ -19,13 +19,13 @@ help:
 
 
 docs:
-	Rscript --vanilla -e 'devtools::document()'
+	Rscript -e 'devtools::document()'
 
 build:
 	R CMD build .
 
 install:
-	Rscript --vanilla -e 'devtools::install()'
+	Rscript -e 'devtools::install()'
 
 run:
 	Rscript --vanilla -e 'epiworldRShiny::epiworldRShiny(".")'

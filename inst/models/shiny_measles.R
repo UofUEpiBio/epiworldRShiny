@@ -1,7 +1,7 @@
 # alt-name: Measles in Schools
 
 model_builder <- function(input, quarantine = TRUE) {
-  measles::ModelMeaslesQuarantine(
+  measles::ModelMeaslesSchool(
     n                      = as.integer(input$measles_population_size),
     contact_rate           = input$measles_contact_rate,
     prevalence             = as.integer(input$measles_prevalence),
@@ -476,7 +476,7 @@ measles_panel <- function(model_alt) {
         ),
         bslib::tooltip(
           slider_input_rate(
-            "measles", "Vaccination Efficacy", "0.99", input_label = "vax_efficacy"),
+            "measles", "Vaccination Efficacy", "0.97", input_label = "vax_efficacy"),
           placement = "right",
           "How effective the vaccine is at preventing infection"
         ),

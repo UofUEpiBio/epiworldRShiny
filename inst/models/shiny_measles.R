@@ -543,16 +543,7 @@ body_measles <- function(
 
   # School selector: cascading state -> county -> school dropdowns,
   # CSV upload with validation, and a reset button.
-  selected_school_size_missing <- shiny::reactiveVal(FALSE)
-
-  shiny::observeEvent(input$measles_school_selector, {
-    if (is.null(input$measles_school_selector) ||
-        input$measles_school_selector == "") {
-      selected_school_size_missing(FALSE)
-    }
-  })
-
-  school_selector_server(
+  school_data <- school_selector_server(
     input       = input,
     session     = session,
     prefix      = "measles",
@@ -573,7 +564,6 @@ body_measles <- function(
         inputId = paste0(prefix, "_prop_vaccinated"),
         value   = school_row$vaccination_rate
       )
-      selected_school_size_missing(school_size_missing)
       shiny::showNotification(
         if (school_size_missing) {
           paste0(
@@ -593,7 +583,20 @@ body_measles <- function(
   )
 
   output$measles_population_size_note <- shiny::renderUI({
-    if (!isTRUE(selected_school_size_missing())) {
+    school_val <- input$measles_school_selector
+    data <- school_data()
+
+    if (is.null(school_val) || school_val == "" || is.null(data)) {
+      return(NULL)
+    }
+
+    school_row <- data[data$school_id == school_val, ]
+    if (nrow(school_row) != 1L) {
+      return(NULL)
+    }
+
+    school_size <- suppressWarnings(as.integer(school_row$num_students))
+    if (!is.na(school_size)) {
       return(NULL)
     }
 

@@ -2,6 +2,8 @@
 
 * New version of `epiworldR` provides functions to extract number of hospitalizations, outbreak size, and active cases, speeding up simulations.
 
+* Starting version 0.3.1-0, the `measles` R package now sets the default vaccination efficacy to 0.97. The previous value (0.99) was established more as a rate. The new version sets 0.97 as a all-or-nothing model, which is more appropriate for the measles vaccine. This may result in some minor differences between the previous version of the measles model and the new version.
+
 ## Measles model
 
 * Now using the [measles](https://cran.r-project.org/package=measles) R package.

@@ -1,8 +1,5 @@
 FROM ghcr.io/rocker-org/devcontainer/tidyverse:4.5
 
-RUN install2.r --error languageserver && \
-  installGithub.r nx10/httpgd
-
 # Installing only packages that are not already installed in the base image
 RUN install2.r --error \
   utils \

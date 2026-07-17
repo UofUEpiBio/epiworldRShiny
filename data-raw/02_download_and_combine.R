@@ -32,12 +32,12 @@ data_ <- lapply(data_files, \(f) {
     county = County,
     school_name = `School District or Name`,
     vaccination_rate = `MMR Vaccination Rate` / 100,
-    num_students = 500 # Default value: enrollment data not provided in source
+    num_students = NA_integer_
     )]
 
   ans <- ans[, .(
     vaccination_rate = mean(vaccination_rate, na.rm = TRUE),
-    num_students = 500 # Default value: enrollment data not provided in source
+    num_students = NA_integer_
     ), by = .(state, county, school_name)]
 
   ans[, school_id := sprintf("%s-%05d", state, .I)]
@@ -47,14 +47,19 @@ data_ <- lapply(data_files, \(f) {
 # Retrieving the Utah data
 data_ <- rbind(
   data_,
-  fread("data-raw/01_utah_school_data.csv")
+  fread("data-raw/01_utah_school_data.csv")[
+    , num_students := NA_integer_
+  ]
 )
 
 # Remove rows with missing critical data
-data_ <- data_[complete.cases(data_)]
+critical_cols <- c(
+  "state", "county", "school_name", "vaccination_rate", "school_id"
+)
+data_ <- data_[complete.cases(data_[, ..critical_cols])]
 
 # Checking potential missing values after filtering
-missing_vals <- which(!complete.cases(data_))
+missing_vals <- which(!complete.cases(data_[, ..critical_cols]))
 message("Number of rows with missing values after filtering:", length(missing_vals), "\n")
 
 # Computing the mean vaccination rate per school_name

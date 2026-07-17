@@ -284,7 +284,7 @@ measles_panel <- function(model_alt) {
       open = FALSE,
       bslib::accordion_panel(
         title = "School Selector",
-        shiny::p("Select a school from the database to populate vaccination rate (school size defaults to 500 in the current dataset). You can also upload a custom CSV file with school data."),
+        shiny::p("Select a school from the database to populate vaccination rate. You can also upload a custom CSV file with school data."),
         bslib::tooltip(
           shiny::selectInput(
             inputId = "measles_state_selector",
@@ -340,6 +340,7 @@ measles_panel <- function(model_alt) {
       placement = "right",
       "# of students in the school"
     ),
+    shiny::uiOutput("measles_population_size_note"),
     bslib::tooltip(
       shiny::numericInput(
         inputId = "measles_prevalence",
@@ -542,7 +543,7 @@ body_measles <- function(
 
   # School selector: cascading state -> county -> school dropdowns,
   # CSV upload with validation, and a reset button.
-  school_selector_server(
+  school_data <- school_selector_server(
     input       = input,
     session     = session,
     prefix      = "measles",
@@ -550,10 +551,13 @@ body_measles <- function(
       "extdata/schools_measles.csv", package = "epiworldRShiny"
     ),
     on_school_select = function(school_row, session, prefix) {
+      school_size <- suppressWarnings(as.integer(school_row$num_students))
+      school_size_missing <- is.na(school_size)
+
       shiny::updateNumericInput(
         session = session,
         inputId = paste0(prefix, "_population_size"),
-        value   = school_row$num_students
+        value   = if (school_size_missing) 500L else school_size
       )
       shiny::updateSliderInput(
         session = session,
@@ -561,15 +565,56 @@ body_measles <- function(
         value   = school_row$vaccination_rate
       )
       shiny::showNotification(
-        paste0(
-          "Vaccination rate loaded for: ", school_row$school_name,
-          " (school size defaulted to 500 \u2013 ",
-          "actual enrollment data not available)"
-        ),
+        if (school_size_missing) {
+          paste0(
+            "Vaccination rate loaded for: ", school_row$school_name,
+            " (using default school size of 500; ",
+            "actual enrollment data not available)"
+          )
+        } else {
+          paste0(
+            "Vaccination rate and school size loaded for: ",
+            school_row$school_name
+          )
+        },
         type = "message"
       )
     }
   )
+
+  output$measles_population_size_note <- shiny::renderUI({
+    school_val <- input$measles_school_selector
+    data <- school_data()
+
+    if (is.null(school_val) || school_val == "" || is.null(data)) {
+      return(NULL)
+    }
+
+    school_row <- data[data$school_id == school_val, ]
+    if (nrow(school_row) != 1L) {
+      return(NULL)
+    }
+
+    school_size <- suppressWarnings(as.integer(school_row$num_students))
+    if (!is.na(school_size)) {
+      return(NULL)
+    }
+
+    population_size <- input$measles_population_size
+    if (!is.null(population_size) &&
+        !is.na(population_size) &&
+        population_size != 500) {
+      return(shiny::tags$small(
+        class = "text-muted d-block mb-3",
+        "Enrollment data is unavailable for the selected school; using the school size entered above."
+      ))
+    }
+
+    shiny::tags$small(
+      class = "text-muted d-block mb-3",
+      "Enrollment data is unavailable for the selected school; using the default school size of 500 students."
+    )
+  })
 
   output$summary_table <- shiny::renderTable({
       model_output()$summary_table()

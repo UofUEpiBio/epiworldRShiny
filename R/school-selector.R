@@ -30,12 +30,15 @@ validate_school_csv <- function(data, required_cols, max_rows) {
   }
 
   if ("num_students" %in% required_cols) {
-    if (!is.numeric(data$num_students) ||
+    if ((!is.numeric(data$num_students) && !all(is.na(data$num_students))) ||
         any(data$num_students < 0 | data$num_students > 50000,
             na.rm = TRUE)) {
       return(list(
         valid   = FALSE,
-        message = "num_students must be numeric values between 0 and 50000"
+        message = paste(
+          "num_students must be numeric values between 0 and 50000,",
+          "or NA when enrollment data is unavailable"
+        )
       ))
     }
   }
@@ -270,12 +273,11 @@ school_selector_server <- function(
         school_row <- data[data$school_id == school_val, ]
 
         if (nrow(school_row) == 1) {
-          if (!is.na(school_row$num_students) &&
-              !is.na(school_row$vaccination_rate)) {
+          if (!is.na(school_row$vaccination_rate)) {
             on_school_select(school_row, session, prefix)
           } else {
             shiny::showNotification(
-              "Selected school has invalid data", type = "error"
+              "Selected school has invalid vaccination data", type = "error"
             )
           }
         } else if (nrow(school_row) > 1) {

@@ -7,6 +7,9 @@
 #' @import epiworldR
 #' @importFrom DT dataTableOutput renderDataTable
 #' @import ggplot2
+# ModelMeaslesSchool is called from inst/models/shiny_measles.R, which is
+# sourced at runtime; the import declares the dependency for R CMD check.
+#' @importFrom measles ModelMeaslesSchool
 #' @importFrom plotly plot_ly add_markers add_segments layout
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion

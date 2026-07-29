@@ -5,6 +5,7 @@ README.Rmd
 README.html
 .github
 ^CODE_OF_CONDUCT\.md$
+^AGENTS\.md$
 ^app\.R$
 ^rsconnect$
 ^app$

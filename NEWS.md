@@ -8,7 +8,9 @@
 
 * Now using the [measles](https://cran.r-project.org/package=measles) R package.
 
-* Added school selector feature to the measles model. Users can now select schools from a database to automatically populate vaccination rates and school sizes. The selector uses a cascading dropdown system (State → County → School) and supports uploading custom school data via CSV. School data sourced from the [epiENGAGE measles dashboard](https://github.com/TACC/measles-dashboard) prepared by the TACC team. The model also includes data from the state of Utah.
+* Added school selector feature to the measles model. Users can now select schools from a database to automatically populate the vaccination rate. The selector uses a cascading dropdown system (State → County → School) and supports uploading custom school data via CSV. School data sourced from the [epiENGAGE measles dashboard](https://github.com/TACC/measles-dashboard) prepared by the TACC team. The model also includes data from the state of Utah.
+
+* The school data bundled with the package does not include enrollment counts, so selecting a school leaves the school size at the default of 500 students; the app reports this below the "Population Size" input. Custom CSVs that provide a `num_students` column are used to populate the school size automatically.
 
 
 ## Other changes

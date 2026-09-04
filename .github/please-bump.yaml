@@ -1,0 +1,14 @@
+version: 1
+groups:
+  epiworldRShiny:
+    paths:
+      - R/
+      - inst/
+      - man/
+      - data-raw/
+      - DESCRIPTION
+      - NAMESPACE
+      - NEWS.md
+    rules:
+      - preset: r-package
+      - preset: r-news-titled

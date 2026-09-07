@@ -4,7 +4,7 @@
 	// Build image from Dockerfile
 	"build": {
 			// Path is relative to the devcontainer.json file.
-			"dockerfile": "Dockerfile"
+			"dockerfile": "Containerfile"
 	},
 	"customizations": {
 			"vscode": {

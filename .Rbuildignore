@@ -5,6 +5,7 @@ README.Rmd
 README.html
 .github
 ^CODE_OF_CONDUCT\.md$
+^AGENTS\.md$
 ^app\.R$
 ^rsconnect$
 ^app$
@@ -19,3 +20,4 @@ vignettes/
 LICENSE\.md
 \.vscode
 docs/
+

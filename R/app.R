@@ -1,12 +1,15 @@
 #' epiworldRShiny App Launcher
 #' @rawNamespace import(shiny, except=c(dataTableOutput, renderDataTable))
-#' @description 
+#' @description
 #' Fires up the R Shiny App. You can find more examples and documentation at
 #' the package's website: <https://UofUEpiBio.github.io/epiworldRShiny/>.
-#' 
+#'
 #' @import epiworldR
 #' @importFrom DT dataTableOutput renderDataTable
 #' @import ggplot2
+# ModelMeaslesSchool is called from inst/models/shiny_measles.R, which is
+# sourced at runtime; the import declares the dependency for R CMD check.
+#' @importFrom measles ModelMeaslesSchool
 #' @importFrom plotly plot_ly add_markers add_segments layout
 #' @importFrom stats aggregate as.formula reshape
 #' @importFrom utils write.csv packageVersion
@@ -20,9 +23,9 @@ NULL
 epiworldR_env <- new.env()
 
 #' Access to the epiworldR environment.
-#' 
+#'
 #' This function is for internal use only.
-#' 
+#'
 #' @return Returns the `epiworldR_env` environment.
 #' @export
 epiworldRenv <- function() {
@@ -82,6 +85,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
   # Getting the version of epiworldR
   epiworldRShiny_version <- utils::packageVersion("epiworldRShiny")
   epiworldR_version <- utils::packageVersion("epiworldR")
+  measles_version <- utils::packageVersion("measles")
 
   # Footer
   foot <- shiny::div(
@@ -90,13 +94,15 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
         "epiworldRShiny version",
         epiworldRShiny_version,
         "| epiworldR version",
-        epiworldR_version
+        epiworldR_version,
+        "| measles version",
+        measles_version
       )
     ),
     shiny::markdown("**The University of Utah**"),
     style="font-size:80%;text-align: center;"
   )
-  
+
   body <- shiny::mainPanel(# shinydashboard::dashboardBody(
     shiny::uiOutput("model_body"),
     shiny::htmlOutput("download_button"),
@@ -217,7 +223,7 @@ epiworldRShiny <- function(custom_models_path = NULL, ...) {
           )
         )
       }
-    })  
+    })
 
     output$downloadData <- shiny::downloadHandler(
       filename = function() {

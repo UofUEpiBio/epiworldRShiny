@@ -19,3 +19,4 @@ vignettes/
 LICENSE\.md
 \.vscode
 docs/
+^CITATION\.cff$

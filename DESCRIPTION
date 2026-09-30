@@ -33,10 +33,10 @@ Imports:
     utils,
     DT,
     ggplot2,
-    epiworldR,
+    epiworldR (>= 0.10.0.0),
     plotly,
     bslib,
-    measles
+    measles (>= 0.3.1)
 Depends:
     R (>= 4.1.0),
     shiny

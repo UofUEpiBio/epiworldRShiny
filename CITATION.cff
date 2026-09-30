@@ -1,0 +1,73 @@
+cff-version: 1.2.0
+message: 'To cite package "epiworldRShiny" in publications use:'
+type: software
+license: MIT
+title: 'epiworldRShiny: A ''shiny'' Wrapper of the R Package ''epiworldR'''
+version: 0.2.6
+doi: 10.32614/CRAN.package.epiworldRShiny
+abstract: R 'shiny' web apps for epidemiological Agent-Based Models. It provides a
+  user-friendly interface to the Agent-Based Modeling (ABM) R package 'epiworldR'
+  (Meyer et al., 2023) <DOI:10.21105/joss.05781>. Some of the main features of the
+  package include the Susceptible-Infected-Susceptible (SIS), Susceptible-Infected-Recovered
+  (SIR), and Susceptible-Exposed-Infected-Recovered (SEIR) models. 'epiworldRShiny'
+  provides a web-based user interface for running various epidemiological ABMs, simulating
+  interventions, and visualizing results interactively.
+authors:
+- family-names: Vega Yon
+  given-names: George
+  email: g.vegayon@gmail.com
+  orcid: https://orcid.org/0000-0002-3171-0844
+- family-names: Meyer
+  given-names: Derek
+  email: derekmeyer37@gmail.com
+  orcid: https://orcid.org/0009-0005-1350-6988
+- family-names: Pulsipher
+  given-names: Andrew
+  email: pulsipher.a@gmail.com
+  orcid: https://orcid.org/0000-0002-0773-3210
+preferred-citation:
+  type: manual
+  title: 'epiworldRShiny: A ''shiny'' Wrapper of the R Package ''epiworldR'''
+  authors:
+  - family-names: Vega Yon
+    given-names: George
+    orcid: https://orcid.org/0000-0002-3171-0844
+    email: g.vegayon@gmail.com
+  - family-names: Meyer
+    given-names: Derek
+    orcid: https://orcid.org/0009-0005-1350-6988
+    email: derekmeyer37@gmail.com
+  - family-names: Pulsipher
+    given-names: Andrew
+    orcid: https://orcid.org/0000-0002-0773-3210
+    email: pulsipher.a@gmail.com
+  year: '2026'
+  notes: R package version 0.2.6
+  url: https://github.com/UofUEpiBio/epiworldRShiny
+  doi: 10.32614/CRAN.package.epiworldRShiny
+repository: https://CRAN.R-project.org/package=epiworldRShiny
+repository-code: https://github.com/UofUEpiBio/epiworldRShiny/issues/
+url: https://github.com/UofUEpiBio/epiworldRShiny/
+contact:
+- family-names: Pulsipher
+  given-names: Andrew
+  email: pulsipher.a@gmail.com
+  orcid: https://orcid.org/0000-0002-0773-3210
+references:
+- type: article
+  title: 'epiworldR: Fast Agent-Based Epi Models'
+  authors:
+  - family-names: Meyer
+    given-names: Derek
+    orcid: https://orcid.org/0009-0005-1350-6988
+  - family-names: Vega Yon
+    given-names: George
+    orcid: https://orcid.org/0000-0002-3171-0844
+  journal: Journal of Open Source Software
+  year: '2023'
+  month: '10'
+  volume: '8'
+  issue: '90'
+  doi: 10.21105/joss.05781
+  url: https://doi.org/10.21105/joss.05781
+  start: '5781'

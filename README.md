@@ -1,3 +1,13 @@
+
+<!-- how-to-cite -->
+> [!NOTE]
+> **How to cite epiworldRShiny.** If you use **epiworldRShiny** in published work, please cite it:
+>
+> Vega Yon G, Meyer D, Pulsipher A. *epiworldRShiny: A 'shiny' Wrapper of the R Package 'epiworldR'*. doi:[10.32614/CRAN.package.epiworldRShiny](https://doi.org/10.32614/CRAN.package.epiworldRShiny)
+>
+> Run `citation("epiworldRShiny")` in R for the BibTeX entry.
+<!-- how-to-cite -->
+
 epiworldRShiny: A ‘shiny’ Wrapper of the R Package ‘epiworldR’
 ================
 

@@ -1,0 +1,1390 @@
+state,county,school_name,vaccination_rate,num_students,school_id
+UT,Salt Lake,"Academy For Math, Engineering,& Science (Ames)",0.9677,500,UT-00001
+UT,Salt Lake,Academy Park School,0.9509,500,UT-00002
+UT,Davis,Adams Elementary (Davis),0.9673,500,UT-00003
+UT,Cache,Adams Elementary (Cache),0.9414,500,UT-00004
+UT,Davis,Adelaide Elementary,0.968,500,UT-00005
+UT,Box Elder,Adele C. Young Intermediate,0.9313,500,UT-00006
+UT,Salt Lake,Advantage Arts Academy,0.8646,500,UT-00007
+UT,San Juan,Albert R. Lyman Middle School,1,500,UT-00008
+UT,Salt Lake,Albion Middle School,0.9768,500,UT-00009
+UT,Box Elder,Alice C. Harris Intermediate,0.9593,500,UT-00010
+UT,Tooele,Alpine Academy (High School),1,500,UT-00011
+UT,Tooele,Alpine Academy (Middle School),1,500,UT-00012
+UT,Utah,Alpine Online Elementary School,0.8304,500,UT-00013
+UT,Utah,Alpine Online Middle School,0.9043,500,UT-00014
+UT,Utah,Alpine Elementary,0.929,500,UT-00015
+UT,Salt Lake,Alta High School,0.951,500,UT-00016
+UT,Salt Lake,Alta View Elementary,0.9516,500,UT-00017
+UT,Duchesne,Altamont High School,0.9076,500,UT-00018
+UT,Duchesne,Altamont Middle School,0.5543,500,UT-00019
+UT,Duchesne,Altamont Elementary School,0.8527,500,UT-00020
+UT,Salt Lake,Altara Elementary,0.9679,500,UT-00021
+UT,Utah,Amelia Earhart Elementary,0.9526,500,UT-00022
+UT,Salt Lake,American Academy Of Innovation,0.9921,500,UT-00023
+UT,Utah,American Fork High School,0.9536,500,UT-00024
+UT,Utah,American Fork Jr High School,0.9037,500,UT-00025
+UT,Utah,American Heritage Elementary School (Utah),0.7441,500,UT-00026
+UT,Utah,American Heritage High School (Utah),0.9144,500,UT-00027
+UT,Utah,American Heritage Middle School (Utah),0.8444,500,UT-00028
+UT,Salt Lake,Anthem Prepartory (Elementary School),0.8269,500,UT-00029
+UT,Salt Lake,Anthem Prepartory (High School),0.8056,500,UT-00030
+UT,Salt Lake,Anthem Prepartory (Middle School),0.8444,500,UT-00031
+UT,Utah,American Leadership Academy (Elementary School),0.9185,500,UT-00032
+UT,Utah,American Leadership Academy (High School),0.9314,500,UT-00033
+UT,Utah,American Leadership Academy (Middle School),0.9213,500,UT-00034
+UT,Salt Lake,American Preparatory Academy Draper #1 (Elementary School),0.9379,500,UT-00035
+UT,Salt Lake,American Preparatory Academy Accelerated Elementary School,0.9895,500,UT-00036
+UT,Salt Lake,American Preparatory Academy Accelerated High School,0.9819,500,UT-00037
+UT,Salt Lake,American Preparatory Academy Accelerated Middle School,0.9906,500,UT-00038
+UT,Salt Lake,American Preparatory Academy Draper #2 (Elementary School),0.9499,500,UT-00039
+UT,Salt Lake,American Preparatory Academy Draper #3 (High School),0.9507,500,UT-00040
+UT,Salt Lake,American Preparatory Academy Draper #3 (Middle School),0.9331,500,UT-00041
+UT,Utah,American Preparatory Academy Salem Charter (Elementary School),0.8473,500,UT-00042
+UT,Utah,American Preparatory Academy Salem Charter (Middle School),0.878,500,UT-00043
+UT,Salt Lake,American Preparatory Academy The School For New Americans,0.9874,500,UT-00044
+UT,Tooele,Anna Smith Elementary,1,500,UT-00045
+UT,Salt Lake,Antelope Canyon Elementary,0.9406,500,UT-00046
+UT,Davis,Antelope Elementary,0.9498,500,UT-00047
+UT,Utah,Apple Valley Elementary School,0.9295,500,UT-00048
+UT,Salt Lake,Arcadia Elementary,0.9801,500,UT-00049
+UT,Washington,Arrowhead Elementary,0.8724,500,UT-00050
+UT,Utah,Art City Elementary,0.9289,500,UT-00051
+UT,Davis,Ascent Academies Of Utah Elementary School (Davis),0.9248,500,UT-00052
+UT,Davis,Ascent Academies Of Utah Middle School (Davis),0.8488,500,UT-00053
+UT,Utah,Ascent Academies Of Utah Elementary School (Utah),0.9124,500,UT-00054
+UT,Utah,Ascent Academies Of Utah Middle School (Utah),0.9244,500,UT-00055
+UT,Salt Lake,Ascent Academies Of Utah Elementary School (West Jordan),0.9452,500,UT-00056
+UT,Salt Lake,Ascent Academies Of Utah Middle School (West Jordan),0.9624,500,UT-00057
+UT,Salt Lake,Ascent Academies Of Utah Elementary School (West Valley),0.9623,500,UT-00058
+UT,Uintah,Ashley Elementary,0.9078,500,UT-00059
+UT,Uintah,Ashley Valley Education Center,0.9484,500,UT-00060
+UT,Sevier,Ashman Elementary,0.9052,500,UT-00061
+UT,Salt Lake,Aspen Elementary (Salt Lake),0.9378,500,UT-00062
+UT,Utah,Aspen Elementary (Utah),0.9382,500,UT-00063
+UT,Utah,Athenian Eacademy (Elementary School),0.7315,500,UT-00064
+UT,Utah,Athenian Eacademy (Middle School),0.7143,500,UT-00065
+UT,Salt Lake,Athlos Academy Of Utah (Elementary School),0.8946,500,UT-00066
+UT,Salt Lake,Athlos Academy Of Utah (Middle School),0.9286,500,UT-00067
+UT,Salt Lake,Autism Solutions Draper Center (Elementary School),0.6923,500,UT-00068
+UT,Salt Lake,Autism Solutions Draper Center (Middle School),0.5,500,UT-00069
+UT,Davis,Autism Solutions Academy Sunset (Elementary School),0.8462,500,UT-00070
+UT,Davis,Autism Solutions Academy Sunset (High School),1,500,UT-00071
+UT,Davis,Autism Solutions Academy Sunset (Middle School),0.8,500,UT-00072
+UT,Salt Lake,Autism Solutions West Jordan Center (High School),0.8,500,UT-00073
+UT,Salt Lake,Autism Solutions West Jordan Center (Middle School),1,500,UT-00074
+UT,Salt Lake,Backman Elementary,0.9891,500,UT-00075
+UT,Utah,Barnett Elementary,0.9292,500,UT-00076
+UT,Utah,Barratt Elementary,0.9343,500,UT-00077
+UT,Duchesne,Basin Online High School,0.9412,500,UT-00078
+UT,Duchesne,Basin Online Middle School,0.9286,500,UT-00079
+UT,Salt Lake,Bastian Elementary School,0.9595,500,UT-00080
+UT,Weber,Bates Elementary,0.9289,500,UT-00081
+UT,Salt Lake,Beacon Heights Elementary,0.9914,500,UT-00082
+UT,Cache,Bear River Charter ElementarySchool,0.8889,500,UT-00083
+UT,Box Elder,Bear River High School,0.9591,500,UT-00084
+UT,Box Elder,Bear River Middle School,0.9032,500,UT-00085
+UT,Beaver,Beaver High School,0.9674,500,UT-00086
+UT,Beaver,Beaver Middle School,0.9846,500,UT-00087
+UT,Salt Lake,Beehive Elementary,0.9668,500,UT-00088
+UT,Salt Lake,Beehive Science & Technology Academy K-6,0.9297,500,UT-00089
+UT,Beaver,Belknap Elementary,0.9678,500,UT-00090
+UT,Salt Lake,Bella Vista Elementary,0.9292,500,UT-00091
+UT,Utah,Belmont Elementary School,0.9292,500,UT-00092
+UT,Weber,Ben Lomond High School,0.9878,500,UT-00093
+UT,Davis,Benchmark High School,1,500,UT-00094
+UT,Davis,Benchmark Middle School,0.9444,500,UT-00095
+UT,Salt Lake,Bennion Jr. High,0.9735,500,UT-00096
+UT,Salt Lake,Bennion Elementary,0.9627,500,UT-00097
+UT,Kane,Big Water Middle School,1,500,UT-00098
+UT,Kane,Big Water Elementary School,0.9,500,UT-00099
+UT,Salt Lake,Bingham High School,0.9696,500,UT-00100
+UT,Cache,Birch Creek Elementary,0.9727,500,UT-00101
+UT,Utah,Black Ridge Elementary School (Utah),0.9114,500,UT-00102
+UT,Salt Lake,Blackridge Elementary (Salt Lake),0.9278,500,UT-00103
+UT,San Juan,Blanding Elementary,0.9294,500,UT-00104
+UT,Salt Lake,Blessed Sacrament Catholic Elementary School,0.9773,500,UT-00105
+UT,Salt Lake,Blessed Sacrament Catholic Middle School,1,500,UT-00106
+UT,Utah,Blind South Elementary School,0.6667,500,UT-00107
+UT,Washington,Bloomington Hills Elementary,0.8884,500,UT-00108
+UT,Washington,Bloomington Elementary,0.8559,500,UT-00109
+UT,Tooele,Blue Peak High School,0.9478,500,UT-00110
+UT,Davis,Bluff Ridge Elementary,0.9499,500,UT-00111
+UT,San Juan,Bluff Elementary,1,500,UT-00112
+UT,Salt Lake,Bluffdale Elementary,0.913,500,UT-00113
+UT,Tooele,Bonneville Academy (Elementary School),0.9519,500,UT-00114
+UT,Tooele,Bonneville Academy (Middle School),0.9697,500,UT-00115
+UT,Weber,Bonneville High School,0.9707,500,UT-00116
+UT,Salt Lake,Bonneville Junior High,0.9638,500,UT-00117
+UT,Weber,Bonneville Elementary (Weber),0.9616,500,UT-00118
+UT,Utah,Bonneville Elementary (Utah),0.9646,500,UT-00119
+UT,Salt Lake,Bonneville Elementary (Salt Lake),0.988,500,UT-00120
+UT,Emery,Book Cliff Elementary,0.9804,500,UT-00121
+UT,Garfield,Boulder Elementary,0,500,UT-00122
+UT,Davis,Boulton Elementary,0.9575,500,UT-00123
+UT,Davis,Bountiful High School,0.9694,500,UT-00124
+UT,Davis,Bountiful Junior High,0.9368,500,UT-00125
+UT,Davis,Bountiful Elementary,0.9425,500,UT-00126
+UT,Box Elder,Box Elder High School,0.9439,500,UT-00127
+UT,Box Elder,Box Elder Middle,0.905,500,UT-00128
+UT,Salt Lake,Koolminds (Elementary School),0.5789,500,UT-00129
+UT,Weber,Bridge Elementary School,0.9312,500,UT-00130
+UT,Cache,Bridger Elementary,0.9749,500,UT-00131
+UT,Salt Lake,Brighton High School,0.9503,500,UT-00132
+UT,Utah,Brockbank Elementary,0.931,500,UT-00133
+UT,Utah,Brookhaven Elementary School,0.9455,500,UT-00134
+UT,Utah,Brookside Elementary,0.9132,500,UT-00135
+UT,Salt Lake,Brookwood Elementary,0.9586,500,UT-00136
+UT,Carbon,Bruin Point Elementary School,0.8091,500,UT-00137
+UT,Garfield,Bryce Valley Middle School,0.96,500,UT-00138
+UT,Garfield,Bryce Valley Elementary,0.9219,500,UT-00139
+UT,Davis,Buffalo Point Elementary,0.962,500,UT-00140
+UT,Weber,Burch Creek Elementary School,0.9689,500,UT-00141
+UT,Salt Lake,Butler Middle School,0.9286,500,UT-00142
+UT,Salt Lake,Butler Elementary,0.9263,500,UT-00143
+UT,Salt Lake,Butterfield Canyon Elementary,0.9433,500,UT-00144
+UT,Utah,Byu Child & Family Studies Labratory,0.8919,500,UT-00145
+UT,Utah,Byu Online High School,0.92,500,UT-00146
+UT,Cache,Cache Alternative High,0.9645,500,UT-00147
+UT,Salt Lake,Calvin S. Smith Elementary,0.9734,500,UT-00148
+UT,Davis,Canyon Creek Elementary School,0.9589,500,UT-00149
+UT,Utah,Canyon Crest Elementary,0.9102,500,UT-00150
+UT,Utah,Canyon Grove Academy (Elementary School),0.2739,500,UT-00151
+UT,Utah,Canyon Grove Academy (High School),0.2264,500,UT-00152
+UT,Utah,Canyon Grove Academy (Middle School),0.193,500,UT-00153
+UT,Salt Lake,Canyon Rim Academy,0.9446,500,UT-00154
+UT,Cache,Canyon Elementary (Cache),0.9561,500,UT-00155
+UT,Utah,Canyon Elementary (Utah),0.9573,500,UT-00156
+UT,Iron,Canyon View High,0.925,500,UT-00157
+UT,Utah,Canyon View Jr High (Utah),0.9546,500,UT-00158
+UT,Iron,Canyon View Middle School (Iron),0.9587,500,UT-00159
+UT,Emery,Canyon View Jr High (Emery),0.9541,500,UT-00160
+UT,Weber,Canyon View School (Weber),1,500,UT-00161
+UT,Salt Lake,Canyon View Elementary (Salt Lake),0.9595,500,UT-00162
+UT,Salt Lake,Canyons Virtual High High School,1,500,UT-00163
+UT,Salt Lake,Canyons Virtual High Middle School,1,500,UT-00164
+UT,Carbon,Carbon High School,0.9704,500,UT-00165
+UT,Salt Lake,Carden Memorial Elementary School,0,500,UT-00166
+UT,Salt Lake,Carden Memorial Middle School,0.9643,500,UT-00167
+UT,Salt Lake,Carmen B Pingree Autism Center of Learning (Elementary School),1,500,UT-00168
+UT,Salt Lake,Carmen B Pingree Autism Center of Learning (High School),1,500,UT-00169
+UT,Salt Lake,Carmen B Pingree Autism Center of Learning (Middle School),1,500,UT-00170
+UT,Utah,Cascade Mountain High School,1,500,UT-00171
+UT,Utah,Cascade Mountain Middle School,1,500,UT-00172
+UT,Utah,Cascade Elementary,0.9451,500,UT-00173
+UT,Emery,Castle Dale Elementary,0.8898,500,UT-00174
+UT,Carbon,Castle Heights Elementary,0.9452,500,UT-00175
+UT,Carbon,Castle Valley Center (Elementary School),0.8493,500,UT-00176
+UT,Carbon,Castle Valley Center (High School),0.9524,500,UT-00177
+UT,Carbon,Castle Valley Center (Middle School),1,500,UT-00178
+UT,Box Elder,Catalyst Prepatory Academy,1,500,UT-00179
+UT,Iron,Cedar City High School,0.9438,500,UT-00180
+UT,Iron,Cedar East Elementary School,0.9189,500,UT-00181
+UT,Iron,Cedar Middle School,0.9462,500,UT-00182
+UT,Iron,Cedar North Elementary,0.8883,500,UT-00183
+UT,Sevier,Cedar Ridge High (Sevier County),0.9792,500,UT-00184
+UT,Utah,Cedar Ridge Elementary (Utah),0.9537,500,UT-00185
+UT,Cache,Cedar Ridge Elementary School (Cache),0.9611,500,UT-00186
+UT,Iron,Cedar South Elementary,0.9288,500,UT-00187
+UT,Utah,Cedar Valley High School,0.9585,500,UT-00188
+UT,Utah,Cedar Valley Elementary,0.8807,500,UT-00189
+UT,Utah,Centennial Elementary (Utah),0.9487,500,UT-00190
+UT,Davis,Centennial Jr High School (Davis),0.9696,500,UT-00191
+UT,Utah,Centennial Middle School (Utah),0.949,500,UT-00192
+UT,Duchesne,Centennial Elementary (Duchesne),0.9484,500,UT-00193
+UT,Davis,Centerville Junior High,0.968,500,UT-00194
+UT,Davis,Centerville Elementary,0.958,500,UT-00195
+UT,Davis,Central Davis Junior High,0.969,500,UT-00196
+UT,Utah,Central Elementary,0.9345,500,UT-00197
+UT,Box Elder,Century Elementary,0.8902,500,UT-00198
+UT,Salt Lake,Challenger Elementary School (Salt Lake City),0.93,500,UT-00199
+UT,Salt Lake,Challenger Middle School (Salt Lake City),0.9697,500,UT-00200
+UT,Utah,Challenger Elementary School (Utah),0.9025,500,UT-00201
+UT,Utah,Challenger Middle School (Utah),0.9474,500,UT-00202
+UT,Salt Lake,Challenger Elementary School (Sandy),0.9217,500,UT-00203
+UT,Salt Lake,Challenger Middle School (Sandy),0.8438,500,UT-00204
+UT,Davis,Challenger Elementary School (Davis),0.886,500,UT-00205
+UT,Davis,Challenger Middle School (Davis),0.92,500,UT-00206
+UT,Salt Lake,Challenger Elementary School (Holladay),0.84,500,UT-00207
+UT,Salt Lake,Challenger Elementary School (West Jordan),1,500,UT-00208
+UT,Salt Lake,Channing Hall Elementary School,0.8987,500,UT-00209
+UT,Salt Lake,Channing Hall Middle School,0.9,500,UT-00210
+UT,Utah,Cherry Creek Elementary,0.932,500,UT-00211
+UT,Utah,Cherry Hill Elementary,0.9547,500,UT-00212
+UT,Salt Lake,Children's Christian School,0.6296,500,UT-00213
+UT,Salt Lake,Churchill Junior High,0.9512,500,UT-00214
+UT,Washington,Cinnamon Hills High School,1,500,UT-00215
+UT,Washington,Cinnamon Hills Middle School,1,500,UT-00216
+UT,Piute,Circleville Elementary,0.9048,500,UT-00217
+UT,Salt Lake,City Academy (High School),0.9714,500,UT-00218
+UT,Salt Lake,City Academy (Middle School),0.8889,500,UT-00219
+UT,Tooele,Clarke N. Johnsen Jr High School,0.972,500,UT-00220
+UT,Salt Lake,Clayton Middle School,0.9858,500,UT-00221
+UT,Davis,Clearfield High School,0.9738,500,UT-00222
+UT,Emery,Cleveland Elementary,0.9252,500,UT-00223
+UT,Davis,Clinton Elementary,0.9848,500,UT-00224
+UT,Davis,Columbia Elementary (Davis),0.9514,500,UT-00225
+UT,Salt Lake,Columbia Elementary (Salt Lake),0.9556,500,UT-00226
+UT,Duchesne,Con Amore Elementary School,0.8824,500,UT-00227
+UT,Duchesne,Con Amore High School,1,500,UT-00228
+UT,Duchesne,Con Amore Middle School,1,500,UT-00229
+UT,Davis,Cook Elementary,0.9494,500,UT-00230
+UT,Tooele,Copper Canyon Elementary (Tooele),0.9581,500,UT-00231
+UT,Salt Lake,Copper Canyon Elementary (Salt Lake),0.9489,500,UT-00232
+UT,Salt Lake,Copper Hills High School,0.9779,500,UT-00233
+UT,Salt Lake,Copper Hills Elementary,0.9636,500,UT-00234
+UT,Salt Lake,Copper Hills Youth Center (High School),0.9556,500,UT-00235
+UT,Salt Lake,Copper Hills Youth Center (Middle School),0.8235,500,UT-00236
+UT,Salt Lake,Copper Mountain Middle School,0.9713,500,UT-00237
+UT,Salt Lake,Copperview Elementary,0.9755,500,UT-00238
+UT,Washington,Coral Canyon Elementary,0.8268,500,UT-00239
+UT,Salt Lake,Corner Canyon High School,0.9496,500,UT-00240
+UT,Salt Lake,Cottonwood High School,0.9815,500,UT-00241
+UT,Emery,Cottonwood Elementary (Emery),0.913,500,UT-00242
+UT,Salt Lake,Cottonwood Elementary (Salt Lake),0.9091,500,UT-00243
+UT,Weber,Country View Elementary,0.9613,500,UT-00244
+UT,Davis,Creekside Elementary,0.9667,500,UT-00245
+UT,Carbon,Creekview Elementary,0.9237,500,UT-00246
+UT,Salt Lake,Crescent Elementary,0.9505,500,UT-00247
+UT,Davis,Crestview Elementary (Davis),0.943,500,UT-00248
+UT,Salt Lake,Crestview Elementary (Salt Lake),0.9727,500,UT-00249
+UT,Washington,Crimson Cliffs High,0.8631,500,UT-00250
+UT,Washington,Crimson Cliffs Middle School,0.9398,500,UT-00251
+UT,Washington,Crimson View Elementary School,0.9603,500,UT-00252
+UT,Utah,C.S. Lewis Academy,0.9266,500,UT-00253
+UT,Salt Lake,Cyprus High School,0.9894,500,UT-00254
+UT,Utah,Dan W. Peterson High School,0.92,500,UT-00255
+UT,Utah,Dan W. Peterson Middle School,0.9643,500,UT-00256
+UT,Wasatch,Daniels Canyon Elementary,0.9367,500,UT-00257
+UT,Salt Lake,David Gourley Elementary School,0.9735,500,UT-00258
+UT,Weber,Davinci Academy (Elementary School),0.8326,500,UT-00259
+UT,Weber,Davinci Academy (High School),0.9333,500,UT-00260
+UT,Weber,Davinci Academy (Middle School),0.9042,500,UT-00261
+UT,Davis,Davis Connect (High School),0.9121,500,UT-00262
+UT,Davis,Davis Connect (Middle School),0.9815,500,UT-00263
+UT,Davis,Davis Connect (Elementary School),0.9593,500,UT-00264
+UT,Davis,Davis High School,0.9754,500,UT-00265
+UT,Uintah,Davis Elementary (Uintah),0.9134,500,UT-00266
+UT,Salt Lake,Daybreak Academy,0.3333,500,UT-00267
+UT,Salt Lake,Daybreak Elementary,0.9027,500,UT-00268
+UT,Grand,Castle Valley Academy,0.2857,500,UT-00269
+UT,Utah,Deerfield Elementary,0.9208,500,UT-00270
+UT,Millard,Delta High School,0.9601,500,UT-00271
+UT,Millard,Delta Middle School,0.9514,500,UT-00272
+UT,Millard,Delta North Elementary School,0.946,500,UT-00273
+UT,Millard,Delta South Elementary School,0.9065,500,UT-00274
+UT,Washington,Desert Canyons Elementary School,0.8696,500,UT-00275
+UT,Washington,Desert Hills High School,0.859,500,UT-00276
+UT,Washington,Desert Hills Middle School,0.8266,500,UT-00277
+UT,Utah,Diamond Fork Jr. High School,0.9658,500,UT-00278
+UT,Salt Lake,Diamond Ridge High School,0.7636,500,UT-00279
+UT,Salt Lake,Diamond Ridge Elementary,0.9917,500,UT-00280
+UT,Washington,Diamond Valley Elementary,0.7746,500,UT-00281
+UT,Tooele,Digital Education Center (11-12),0.959,500,UT-00282
+UT,Tooele,Digital Education Center (7-10),0.9231,500,UT-00283
+UT,Tooele,Digital Education Center (K-6),0.8125,500,UT-00284
+UT,Salt Lake,Dilworth Elementary,0.9718,500,UT-00285
+UT,Iron,Discovery Ranch For Girls (High School),0.6429,500,UT-00286
+UT,Iron,Discovery Ranch For Girls (Middle School),1,500,UT-00287
+UT,Box Elder,Discovery Elementary (Box Elder),0.9591,500,UT-00288
+UT,Uintah,Discovery Elementary (Uintah),0.9234,500,UT-00289
+UT,Washington,Dixie High School,0.8884,500,UT-00290
+UT,Washington,Dixie Middle School,0.9268,500,UT-00291
+UT,Utah,Dixon Middle School,0.9668,500,UT-00292
+UT,Davis,Dorius Academy (High School),0.8602,500,UT-00293
+UT,Davis,Dorius Academy (Middle School),0.7857,500,UT-00294
+UT,Salt Lake,Douglas T. Orchard Elementary School,0.9951,500,UT-00295
+UT,Davis,Doxey Elementary,0.9639,500,UT-00296
+UT,Salt Lake,Draper Park Middle School,0.8178,500,UT-00297
+UT,Salt Lake,Draper Elementary,0.9142,500,UT-00298
+UT,Utah,Dry Creek Elementary School,0.9346,500,UT-00299
+UT,Salt Lake,Dual Immersion Academy (Elementary School),0.9835,500,UT-00300
+UT,Salt Lake,Dual Immersion Academy (Middle School),0.9913,500,UT-00301
+UT,Duchesne,Duchesne High School,0.9267,500,UT-00302
+UT,Duchesne,Duchesne Middle School,0.881,500,UT-00303
+UT,Duchesne,Duchesne Elementary,0.7921,500,UT-00304
+UT,Tooele,Dugway Elementary,0.875,500,UT-00305
+UT,Tooele,Dugway High School,1,500,UT-00306
+UT,Tooele,Dugway Middle School,1,500,UT-00307
+UT,Davis,Eagle Bay Elementary,0.943,500,UT-00308
+UT,Washington,Eagle Ranch Academy (High School),0.9167,500,UT-00309
+UT,Washington,Eagle Ranch Academy (Middle School),0.875,500,UT-00310
+UT,Utah,Eagle Valley Elementary,0.9264,500,UT-00311
+UT,Duchesne,Eagle View Elementary,0.968,500,UT-00312
+UT,Duchesne,Eagle View Middle School,1,500,UT-00313
+UT,Utah,Eaglecrest Elementary,0.9282,500,UT-00314
+UT,Salt Lake,Early Light Academy At Daybreak (Elementary School),0.9293,500,UT-00315
+UT,Salt Lake,Early Light Academy At Daybreak (Middle School),0.9547,500,UT-00316
+UT,Salt Lake,East High School,0.964,500,UT-00317
+UT,Salt Lake,East Hollywood High,0.9718,500,UT-00318
+UT,Davis,East Layton Elementary,0.9379,500,UT-00319
+UT,Utah,East Meadows Elementary,0.9475,500,UT-00320
+UT,Salt Lake,East Midvale Elementary,0.9301,500,UT-00321
+UT,Weber,East Ridge Elementary (Weber),0.9611,500,UT-00322
+UT,Salt Lake,East Sandy Elementary (Salt Lake),0.9183,500,UT-00323
+UT,Duchesne,East Elementary,0.9212,500,UT-00324
+UT,Salt Lake,Eastlake Elementary,0.9488,500,UT-00325
+UT,Salt Lake,Eastmont Middle School,0.9284,500,UT-00326
+UT,Salt Lake,Eastwood Elementary,0.9704,500,UT-00327
+UT,Summit,Ecker Hill Middle School,0.9564,500,UT-00328
+UT,Utah,Edgemont Elementary,0.9343,500,UT-00329
+UT,Salt Lake,Edison Elementary,0.9596,500,UT-00330
+UT,Cache,Edith Bowen Laboratory School,0.9246,500,UT-00331
+UT,Salt Lake,Eisenhower Junior High,0.962,500,UT-00332
+UT,Davis,Elevations RTC (High School),1,500,UT-00333
+UT,Davis,Elevations RTC (Middle School),1,500,UT-00334
+UT,Salt Lake,Elizabeth Academy,0.7024,500,UT-00335
+UT,Utah,Elizabeth Delong School Of The Deaf (Elementary School),0.9259,500,UT-00336
+UT,Utah,Elizabeth Delong School Of The Deaf (Middle School),1,500,UT-00337
+UT,Salt Lake,Elk Meadows Elementary,0.9339,500,UT-00338
+UT,Salt Lake,Elk Ridge Middle School,0.9904,500,UT-00339
+UT,Salt Lake,Elk Run Elementary,0.9694,500,UT-00340
+UT,Cache,Ellis Elementary,0.9448,500,UT-00341
+UT,Davis,Ellison Park Elementary School,0.9379,500,UT-00342
+UT,Salt Lake,Emerson Elementary,0.9534,500,UT-00343
+UT,Emery,Emery High School,0.9607,500,UT-00344
+UT,Salt Lake,Endeavor Hall Elementary (Salt Lake),0.9757,500,UT-00345
+UT,Davis,Endeavour Elementary (Davis),0.9457,500,UT-00346
+UT,Iron,Enoch Elementary,0.9551,500,UT-00347
+UT,Salt Lake,Ensign Elementary,0.9616,500,UT-00348
+UT,Washington,Enterprise High School,0.8811,500,UT-00349
+UT,Washington,Enterprise Middle School,0.8239,500,UT-00350
+UT,Washington,Enterprise Elementary,0.8333,500,UT-00351
+UT,Salt Lake,Entheos Academy Kearns (Elementary School),0.9607,500,UT-00352
+UT,Salt Lake,Entheos Academy Kearns (Middle School),0.9634,500,UT-00353
+UT,Salt Lake,Entheos Academy Magna (Elementary School),0.9208,500,UT-00354
+UT,Salt Lake,Entheos Academy Magna (Middle School),0.9565,500,UT-00355
+UT,Sanpete,Ephraim Middle School,0.9479,500,UT-00356
+UT,Sanpete,Ephraim Elementary School,0.9371,500,UT-00357
+UT,Garfield,Escalante High School,0.8542,500,UT-00358
+UT,Garfield,Escalante Middle School,0.8571,500,UT-00359
+UT,Garfield,Escalante Elementary (Garfield),0.7976,500,UT-00360
+UT,Salt Lake,Escalante Elementary (Salt Lake),0.9908,500,UT-00361
+UT,Iron,Escalante Valley Elementary School (Iron),0.8797,500,UT-00362
+UT,Millard,Eskdale High School,1,500,UT-00363
+UT,Millard,Eskdale Middle School,1,500,UT-00364
+UT,Salt Lake,Esperanza Elementary School,0.9863,500,UT-00365
+UT,Salt Lake,Esperanza Middle School,1,500,UT-00366
+UT,Juab,Eureka Elementary,0.8526,500,UT-00367
+UT,Salt Lake,Evergreen Junior High,0.9845,500,UT-00368
+UT,Tooele,Excelsior Academy (Elementary School),0.9386,500,UT-00369
+UT,Tooele,Excelsior Academy (Middle School),0.9418,500,UT-00370
+UT,Davis,Fairfield Jr. High,0.9462,500,UT-00371
+UT,Sanpete,Fairview Elementary,0.8553,500,UT-00372
+UT,Davis,Faith Baptist Academy,0.6667,500,UT-00373
+UT,Washington,Falcon Ridge Academy (High School),1,500,UT-00374
+UT,Washington,Falcon Ridge Academy (Middle School),0.9,500,UT-00375
+UT,Salt Lake,Falcon Ridge Elementary,0.9718,500,UT-00376
+UT,Davis,Farmington High,0.9663,500,UT-00377
+UT,Davis,Farmington Junior High,0.9438,500,UT-00378
+UT,Davis,Farmington Elementary,0.9361,500,UT-00379
+UT,Weber,Farr West Elementary,0.9519,500,UT-00380
+UT,Cache,Fast Forward Charter High School,0.9388,500,UT-00381
+UT,Davis,Fernwood Academy,0.75,500,UT-00382
+UT,Emery,Ferron Elementary,0.9535,500,UT-00383
+UT,Iron,Fiddlers Canyon Elementary,0.9178,500,UT-00384
+UT,Box Elder,Fielding Elementary,0.9297,500,UT-00385
+UT,Millard,Fillmore Middle School,0.9462,500,UT-00386
+UT,Millard,Fillmore Elementary,0.9161,500,UT-00387
+UT,Daggett,Flaming Gorge Elementary School,0.9412,500,UT-00388
+UT,Utah,Foothill Elementary School (Orem),0.9371,500,UT-00389
+UT,Salt Lake,Foothills Elementary (Riverton),0.961,500,UT-00390
+UT,Utah,Foothills Elementary (Salem),0.9199,500,UT-00391
+UT,Utah,Forbes Elementary,0.9145,500,UT-00392
+UT,Salt Lake,Fort Herriman Middle School,0.9016,500,UT-00393
+UT,Washington,Pine View Intermediate,0.8812,500,UT-00394
+UT,Sanpete,Fountain Green Elementary,0.9178,500,UT-00395
+UT,Salt Lake,Fox Hills Elementary,0.9654,500,UT-00396
+UT,Utah,Fox Hollow Elementary (Utah),0.9444,500,UT-00397
+UT,Salt Lake,Fox Hollow Elementary School (Salt Lake),0.9642,500,UT-00398
+UT,Davis,Foxboro Elementary,0.973,500,UT-00399
+UT,Utah,Franklin Discovery Academy,0.7742,500,UT-00400
+UT,Utah,Franklin Elementary (Utah),0.9859,500,UT-00401
+UT,Salt Lake,Franklin Elementary (Salt Lake),0.8954,500,UT-00402
+UT,Utah,Freedom Preparatory Academy Provo (Elementary School),0.9506,500,UT-00403
+UT,Utah,Freedom Preparatory Academy Provo (High School),0.9432,500,UT-00404
+UT,Utah,Freedom Preparatory Academy Provo (Middle School),0.95,500,UT-00405
+UT,Utah,Freedom Preparatory Academy Orem (Elementary School),0.9303,500,UT-00406
+UT,Washington,Freedom Preparatory Academy St. George (Elementary School),0.7794,500,UT-00407
+UT,Utah,Freedom Elementary (Utah),0.9361,500,UT-00408
+UT,Weber,Freedom Elementary School (Weber),0.9576,500,UT-00409
+UT,Weber,Fremont High School,0.9687,500,UT-00410
+UT,Utah,Frontier Middle School,0.9581,500,UT-00411
+UT,Salt Lake,Elizabeth Academy High School,1,500,UT-00412
+UT,Salt Lake,Elizabeth Academy Middle School,0.9286,500,UT-00413
+UT,Garfield,Garfield Online,0.497,500,UT-00414
+UT,Box Elder,Garland Elementary,0.932,500,UT-00415
+UT,Millard,Garrison Elementary,1,500,UT-00416
+UT,Salt Lake,Gateway Academy (High School),1,500,UT-00417
+UT,Iron,Gateway Preparatory Academy (Elementary School),0.7071,500,UT-00418
+UT,Iron,Gateway Preparatory Academy (Middle School),0.7405,500,UT-00419
+UT,Salt Lake,Gearld Wright Elementary School,0.9475,500,UT-00420
+UT,Washington,George Washington Academy (Elementary School),0.8317,500,UT-00421
+UT,Washington,George Washington Academy (Middle School),0.8196,500,UT-00422
+UT,Weber,George Washington High School,0.9746,500,UT-00423
+UT,Salt Lake,Glendale Middle School,0.9726,500,UT-00424
+UT,Salt Lake,Golden Fields Elementary School,0.9052,500,UT-00425
+UT,Weber,Good Foundations Academy,0.922,500,UT-00426
+UT,Utah,Goshen Elementary,0.915,500,UT-00427
+UT,Salt Lake,Grace Lutheran School & Preschool,0.9,500,UT-00428
+UT,Grand,Grand County High School,0.9479,500,UT-00429
+UT,Salt Lake,Granger High School,0.9657,500,UT-00430
+UT,Salt Lake,Granger Elementary,0.9777,500,UT-00431
+UT,Salt Lake,Granite Connections High School,0.9777,500,UT-00432
+UT,Salt Lake,Granite Park Junior High,0.9807,500,UT-00433
+UT,Salt Lake,Granite Elementary (Sandy),0.9312,500,UT-00434
+UT,Salt Lake,Grant Elementary (Murray),0.9547,500,UT-00435
+UT,Tooele,Grantsville High School,0.9632,500,UT-00436
+UT,Tooele,Grantsville Jr High School,0.9872,500,UT-00437
+UT,Tooele,Grantsville Elementary,0.9579,500,UT-00438
+UT,Weber,Green Acres Elementary,0.9381,500,UT-00439
+UT,Cache,Green Canyon High School,0.9676,500,UT-00440
+UT,Emery,Green River High School,1,500,UT-00441
+UT,Emery,Green River Middle School,1,500,UT-00442
+UT,Cache,Greenville Elementary,0.9688,500,UT-00443
+UT,Weber,Greenwood Charter Elementary School,0.8885,500,UT-00444
+UT,Weber,Greenwood Charter Middle School,0.8596,500,UT-00445
+UT,Utah,Greenwood Elementary School,0.9498,500,UT-00446
+UT,Box Elder,Grouse Creek High School,1,500,UT-00447
+UT,Box Elder,Grouse Creek Elementary School,0.75,500,UT-00448
+UT,Utah,Grovecrest Elementary,0.9647,500,UT-00449
+UT,Salt Lake,Guadalupe School,0.9789,500,UT-00450
+UT,Sanpete,Gunnison Valley High School,0.9645,500,UT-00451
+UT,Sanpete,Gunnison Valley Middle School,0.9542,500,UT-00452
+UT,Sanpete,Gunnison Valley Elementary School,0.9307,500,UT-00453
+UT,Davis,H.C. Burton Elementary,0.9715,500,UT-00454
+UT,Weber,H. Guy Child Elementary,0.9452,500,UT-00455
+UT,Wayne,Hanksville Elementary,0.9333,500,UT-00456
+UT,Utah,Harbor Point Elementary,0.9174,500,UT-00457
+UT,Salt Lake,Harry S. Truman Elementary,0.9493,500,UT-00458
+UT,Salt Lake,Hartvigsen Elementary School,0.9615,500,UT-00459
+UT,Salt Lake,Hartvigsen High School,0.913,500,UT-00460
+UT,Salt Lake,Hartvigsen Middle School,0.925,500,UT-00461
+UT,Utah,Harvest Elementary,0.9339,500,UT-00462
+UT,Salt Lake,Hawthorn Academy West Jordan (Elementary School),0.9448,500,UT-00463
+UT,Salt Lake,Hawthorn Academy West Jordan (Middle School),0.9703,500,UT-00464
+UT,Salt Lake,Hawthorn Academy South Jordan (Elementary School),0.9297,500,UT-00465
+UT,Salt Lake,Hayden Peak Elementary,0.9597,500,UT-00466
+UT,Salt Lake,Heartland Elementary,0.9655,500,UT-00467
+UT,Wasatch,Heber Valley Elementary,0.9317,500,UT-00468
+UT,Grand,Helen M. Knight Elemenatry,0.93,500,UT-00469
+UT,Carbon,Helper Middle School,0.9356,500,UT-00470
+UT,Davis,Heritage Elementary (Davis),0.9483,500,UT-00471
+UT,Cache,Heritage Elementary (Cache),0.963,500,UT-00472
+UT,Weber,Heritage Elementary (Weber),0.9732,500,UT-00473
+UT,Washington,Heritage Elementary (Washington),0.8614,500,UT-00474
+UT,Salt Lake,Herriman High School,0.9544,500,UT-00475
+UT,Salt Lake,Herriman Elementary,0.9513,500,UT-00476
+UT,Utah,Hidden Hollow Elementary,0.9306,500,UT-00477
+UT,Salt Lake,Hidden Valley Middle,0.9443,500,UT-00478
+UT,Salt Lake,Highland High School,0.9838,500,UT-00479
+UT,Weber,Highland Jr High School,0.9891,500,UT-00480
+UT,Salt Lake,Highland Park Elementary (Salt Lake),0.9578,500,UT-00481
+UT,Utah,Highland Elementary (Utah),0.9044,500,UT-00482
+UT,Davis,Highmark Charter Elementary School,0.9111,500,UT-00483
+UT,Davis,Highmark Charter Middle School,0.9568,500,UT-00484
+UT,Davis,Hill Field Elementary,0.9632,500,UT-00485
+UT,Salt Lake,Hillcrest High School,0.9555,500,UT-00486
+UT,Salt Lake,Hillcrest Junior High,0.9615,500,UT-00487
+UT,Cache,Hillcrest Elementary (Cache),0.9727,500,UT-00488
+UT,Salt Lake,Hillsdale Elementary,1,500,UT-00489
+UT,Salt Lake,Hillside Middle School,0.9711,500,UT-00490
+UT,Salt Lake,Hillside Elementary School,0.9932,500,UT-00491
+UT,Utah,Hobble Creek Elementary,0.902,500,UT-00492
+UT,Davis,Holbrook Elementary,0.9413,500,UT-00493
+UT,Davis,Holt Elementary,0.9699,500,UT-00494
+UT,Weber,Hooper Elementary,0.9482,500,UT-00495
+UT,Weber,Horizon Academy,0.9524,500,UT-00496
+UT,Salt Lake,Horizon Elementary (Salt Lake),0.9665,500,UT-00497
+UT,Utah,Horizon Elementary School (Utah),0.8929,500,UT-00498
+UT,Utah,Horizon High School,0.8571,500,UT-00499
+UT,Utah,Horizon Middle School,0.9474,500,UT-00500
+UT,Washington,Horizon Elementary (Washington),0.8656,500,UT-00501
+UT,Salt Lake,Horizonte Instr. & Trng. Ctr.,0.9892,500,UT-00502
+UT,Salt Lake,Howard R. Driggs Elementary,0.9658,500,UT-00503
+UT,Salt Lake,Hunter High School,0.9835,500,UT-00504
+UT,Salt Lake,Hunter Junior High,0.9768,500,UT-00505
+UT,Salt Lake,Hunter Elementary,0.9788,500,UT-00506
+UT,Emery,Huntington Elementary,0.9246,500,UT-00507
+UT,Washington,Hurricane High School,0.8632,500,UT-00508
+UT,Washington,Hurricane Intermediate School,0.9286,500,UT-00509
+UT,Washington,Hurricane Middle School,0.9382,500,UT-00510
+UT,Washington,Hurricane Elementary,0.8851,500,UT-00511
+UT,Tooele,Ibapah Elementary,0.6875,500,UT-00512
+UT,Utah,Ignite Entrepreneurship Academy (Elementary School),0.8089,500,UT-00513
+UT,Utah,Ignite Entrepreneurship Academy (Middle School),0.9111,500,UT-00514
+UT,Utah,Independence High School,0.9828,500,UT-00515
+UT,Salt Lake,Indian Hills Middle School,0.966,500,UT-00516
+UT,Salt Lake,Indian Hills Elementary,0.9714,500,UT-00517
+UT,Salt Lake,Innovations High School,0.9379,500,UT-00518
+UT,Cache,Intech Collegiate Academy (High School),0.9172,500,UT-00519
+UT,Cache,Intech Collegiate Academy (Middle School),0.9184,500,UT-00520
+UT,Salt Lake,Intermountain Christian Elementary School,0.5833,500,UT-00521
+UT,Salt Lake,Intermountain Christian High School,0.8247,500,UT-00522
+UT,Salt Lake,Intermountain Christian Middle School,0.7887,500,UT-00523
+UT,Salt Lake,Iqra Academy Of Utah (Elementary School),0.9677,500,UT-00524
+UT,Salt Lake,Iqra Academy Of Utah (High School),0.8889,500,UT-00525
+UT,Salt Lake,Iqra Academy Of Utah (Middle School),0.9231,500,UT-00526
+UT,Iron,Iron Springs Elementary,0.9193,500,UT-00527
+UT,Salt Lake,Itineris Early College High,0.9621,500,UT-00528
+UT,Utah,Ivy Hall Academy (Elementary School),0.8439,500,UT-00529
+UT,Utah,Ivy Hall Academy (High School),0.8,500,UT-00530
+UT,Utah,Ivy Hall Academy (Middle School),1,500,UT-00531
+UT,Salt Lake,J.E. Cosgriff Memorial Catholic Elementary School,1,500,UT-00532
+UT,Salt Lake,J.E. Cosgriff Memorial Catholic Middle School,1,500,UT-00533
+UT,Salt Lake,Jackling Elementary,0.974,500,UT-00534
+UT,Salt Lake,James E. Moss Elementary,0.9598,500,UT-00535
+UT,Salt Lake,Jean Massieu School For The Deaf (Elementary School),0.9444,500,UT-00536
+UT,Salt Lake,Jean Massieu School For The Deaf (High School),0.9677,500,UT-00537
+UT,Salt Lake,Jean Massieu School For The Deaf (Middle School),0.9545,500,UT-00538
+UT,Davis,Jefferson Academy,0.9026,500,UT-00539
+UT,Summit,Jeremy Ranch Elementary School,0.9467,500,UT-00540
+UT,Salt Lake,Jim Bridger Elementary School,0.9933,500,UT-00541
+UT,Salt Lake,Joel P Jensen Middle School,0.9537,500,UT-00542
+UT,Salt Lake,John C. Fremont Elementary,0.9638,500,UT-00543
+UT,Salt Lake,John F. Kennedy Jr. High Sch,0.9672,500,UT-00544
+UT,Utah,John Hancock Charter Elementary School,0.8289,500,UT-00545
+UT,Utah,John Hancock Charter Middle School,0.68,500,UT-00546
+UT,Salt Lake,Jordan High School,0.9664,500,UT-00547
+UT,Salt Lake,Jordan Hills Elementary,0.9509,500,UT-00548
+UT,Salt Lake,Jordan Ridge Elementary,0.9458,500,UT-00549
+UT,Salt Lake,Jordan Valley Elementary School,1,500,UT-00550
+UT,Salt Lake,Jordan Valley High School,0.8696,500,UT-00551
+UT,Salt Lake,Jordan Valley Middle School,0.8889,500,UT-00552
+UT,Wasatch,J.R. Smith Elementary,0.9216,500,UT-00553
+UT,Juab,Juab High School,0.9432,500,UT-00554
+UT,Juab,Juab Junior High School,0.9444,500,UT-00555
+UT,Salt Lake,Juan Diego Catholic High School,0.9851,500,UT-00556
+UT,Salt Lake,Judge Memorial Catholic High School,1,500,UT-00557
+UT,Kane,Kanab High School,0.8889,500,UT-00558
+UT,Kane,Kanab Middle School,0.7885,500,UT-00559
+UT,Kane,Kanab Elementary,0.7958,500,UT-00560
+UT,Weber,Kanesville Elementary,0.9463,500,UT-00561
+UT,Utah,Karl G. Maeser Prep Academy (High School),0.9331,500,UT-00562
+UT,Utah,Karl G. Maeser Prep Academy (Middle School),0.9337,500,UT-00563
+UT,Salt Lake,Kauri Sue Hamilton Elementary School,0.9141,500,UT-00564
+UT,Salt Lake,Kauri Sue Hamilton High School,0.9302,500,UT-00565
+UT,Salt Lake,Kauri Sue Hamilton Middle School,0.7674,500,UT-00566
+UT,Davis,Kay's Creek Elementary,0.9469,500,UT-00567
+UT,Davis,Kaysville Junior High,0.9756,500,UT-00568
+UT,Davis,Kaysville Elementary,0.9248,500,UT-00569
+UT,Salt Lake,Kearns High School,0.9912,500,UT-00570
+UT,Salt Lake,Kearns Junior High,0.9931,500,UT-00571
+UT,Salt Lake,Saint Ann Catholic Elementary School,1,500,UT-00572
+UT,Salt Lake,Saint Ann Catholic Middle School,1,500,UT-00573
+UT,Salt Lake,Kelsey Peak Middle,0.95,500,UT-00574
+UT,Weber,Kenneth Burdett Elementary School,0.775,500,UT-00575
+UT,Weber,Kenneth Burdett High School,0.875,500,UT-00576
+UT,Weber,Kenneth Burdett Middle School,1,500,UT-00577
+UT,Utah,Kids Village,0.806,500,UT-00578
+UT,Davis,King Elementary,0.9436,500,UT-00579
+UT,Salt Lake,Kings Peak High,0.9582,500,UT-00580
+UT,Duchesne,Kings Peak Elementary School,0.9177,500,UT-00581
+UT,Davis,Knowlton Elementary,0.9496,500,UT-00582
+UT,Sevier,Koosharem Elementary,1,500,UT-00583
+UT,Salt Lake,La Europa Academy (High School),1,500,UT-00584
+UT,Salt Lake,La Europa Academy (Middle School),1,500,UT-00585
+UT,San Juan,La Sal Elementary,1,500,UT-00586
+UT,Utah,Lake Mountain Middle,0.9643,500,UT-00587
+UT,Kane,Lake Powell Elementary School,1,500,UT-00588
+UT,Kane,Lake Powell High School,1,500,UT-00589
+UT,Kane,Lake Powell Middle School,1,500,UT-00590
+UT,Salt Lake,Lake Ridge Elementary,0.9694,500,UT-00591
+UT,Box Elder,Lake View Elementary (Box Elder),0.9843,500,UT-00592
+UT,Utah,Lakeridge Jr High School,0.9724,500,UT-00593
+UT,Davis,Lakeside Elementary,0.9643,500,UT-00594
+UT,Utah,Lakeview Academy (Elementary School),0.8945,500,UT-00595
+UT,Utah,Lakeview Academy (Middle School),0.8561,500,UT-00596
+UT,Utah,Lakeview Elementary (Utah),0.957,500,UT-00597
+UT,Weber,Lakeview Elementary (Weber),0.9574,500,UT-00598
+UT,Utah,Landmark High School,0.9635,500,UT-00599
+UT,Uintah,Lapoint Elementary,0.9517,500,UT-00600
+UT,Utah,Larsen Elementary,0.9528,500,UT-00601
+UT,Iron,Launch High,0.8842,500,UT-00602
+UT,Washington,Lava Heights Academy (High School),0.3333,500,UT-00603
+UT,Washington,Lava Heights Academy (Middle School),0.6667,500,UT-00604
+UT,Washington,Lava Ridge Elementary,0.9306,500,UT-00605
+UT,Washington,Lava Ridge Intermediate,0.9127,500,UT-00606
+UT,Washington,Laverkin Elementary,0.8435,500,UT-00607
+UT,Davis,Layton Christian Academy (High School),0.6946,500,UT-00608
+UT,Davis,Layton Christian Academy (Elementary School),0.8958,500,UT-00609
+UT,Davis,Layton Christian Academy (Middle School,0.825,500,UT-00610
+UT,Davis,Layton High School,0.9761,500,UT-00611
+UT,Davis,Layton Elementary,0.9471,500,UT-00612
+UT,Davis,Leadership Academy Of Utah (High School),0.6307,500,UT-00613
+UT,Davis,Leadership Academy Of Utah (Middle School),0.6882,500,UT-00614
+UT,Davis,Leadership Learning Academy Elementary School (Davis),0.9585,500,UT-00615
+UT,Weber,Leadership Learning Academy Elementary School (Weber),0.9729,500,UT-00616
+UT,Davis,Legacy Jr High,0.9787,500,UT-00617
+UT,Davis,Legacy Preparatory Academy (Elementary School),0.9285,500,UT-00618
+UT,Davis,Legacy Preparatory Academy (Middle School),0.9237,500,UT-00619
+UT,Utah,Legacy Elementary (Utah),0.9387,500,UT-00620
+UT,Washington,Legacy Elementary (Washington),0.9118,500,UT-00621
+UT,Utah,Lehi High School,0.9633,500,UT-00622
+UT,Utah,Lehi Jr High School,0.9553,500,UT-00623
+UT,Utah,Lehi Elementary,0.9607,500,UT-00624
+UT,Cache,Lewiston Elementary,0.9612,500,UT-00625
+UT,Utah,Liahona Preparatory Academy (Elementary School),0.62,500,UT-00626
+UT,Utah,Liahona Preparatory Academy (High School),0.679,500,UT-00627
+UT,Utah,Liahona Preparatory Academy (Middle School),0.7561,500,UT-00628
+UT,Utah,Liberty Hills Elementary,0.9129,500,UT-00629
+UT,Salt Lake,Liberty Elementary (Murray),0.9677,500,UT-00630
+UT,Salt Lake,Liberty Elementary (Salt Lake City),0.9795,500,UT-00631
+UT,Utah,Lincoln Academy (Elementary School),0.8586,500,UT-00632
+UT,Utah,Lincoln Academy (High School),0.8776,500,UT-00633
+UT,Utah,Lincoln Academy (Middle School),0.8529,500,UT-00634
+UT,Cache,Lincoln Elementary (Cache),0.9448,500,UT-00635
+UT,Davis,Lincoln Elementary (Davis),0.9441,500,UT-00636
+UT,Weber,Lincoln Elementary (Weber),0.9678,500,UT-00637
+UT,Salt Lake,Lincoln Elementary (Granite),1,500,UT-00638
+UT,Utah,Lindon Elementary,0.9458,500,UT-00639
+UT,Summit,Little Miners Montessori,0.5714,500,UT-00640
+UT,Washington,Little Valley Elementary,0.8679,500,UT-00641
+UT,Wayne,Loa Elementary,0.934,500,UT-00642
+UT,Cache,Logan High School,0.9746,500,UT-00643
+UT,Weber,Lomond View Elementary,0.9118,500,UT-00644
+UT,Utah,Lone Peak High School,0.9273,500,UT-00645
+UT,Salt Lake,Lone Peak Elementary,0.9259,500,UT-00646
+UT,Salt Lake,Longview Elementary,0.9531,500,UT-00647
+UT,Utah,Lumen Scholar Institute (Elementary School),0.68,500,UT-00648
+UT,Utah,Lumen Scholar Institute (High School),0.7263,500,UT-00649
+UT,Utah,Lumen Scholar Institute (Middle School),0.6351,500,UT-00650
+UT,Salt Lake,The Madeleine Choir School (Elementary School),0.9961,500,UT-00651
+UT,Salt Lake,The Madeleine Choir School (Middle School),1,500,UT-00652
+UT,Uintah,Maeser Elementary,0.9353,500,UT-00653
+UT,Salt Lake,Magna Elementary,0.9731,500,UT-00654
+UT,Washington,Majestic Fields Elementary School (Washington),0.8736,500,UT-00655
+UT,Salt Lake,Majestic Elementary (Salt Lake),0.9465,500,UT-00656
+UT,Weber,Majestic Elementary (Ogden),0.9666,500,UT-00657
+UT,Weber,Malans Peak,0.9831,500,UT-00658
+UT,Salt Lake,Mana Academy Charter Elementary School,0.9838,500,UT-00659
+UT,Salt Lake,Mana Academy Charter High School,1,500,UT-00660
+UT,Salt Lake,Mana Academy Charter Middle School,1,500,UT-00661
+UT,Daggett,Manila High School,0.7848,500,UT-00662
+UT,Daggett,Manila Middle School,0.8205,500,UT-00663
+UT,Daggett,Manila Elementary School (Daggett),0.9697,500,UT-00664
+UT,Utah,Manila Elementary School (Utah),0.9346,500,UT-00665
+UT,Sanpete,Manti High School,0.92,500,UT-00666
+UT,Sanpete,Manti Elementary,0.8799,500,UT-00667
+UT,Utah,Maple Grove Middle,0.9533,500,UT-00668
+UT,Utah,Maple Mountain High School,0.9523,500,UT-00669
+UT,Utah,Maple Ridge Elementary School,0.9255,500,UT-00670
+UT,Utah,Mapleton Junior High,0.9508,500,UT-00671
+UT,Utah,Mapleton Elementary,0.8993,500,UT-00672
+UT,Grand,Margaret L Hopkin Middle,0.9452,500,UT-00673
+UT,Weber,Maria Montessori Academy (Elementary School),0.8549,500,UT-00674
+UT,Weber,Maria Montessori Academy (Middle School),0.8571,500,UT-00675
+UT,Salt Lake,Mcgillis School (Elementary School),0.9931,500,UT-00676
+UT,Salt Lake,Mcgillis School (Middle School),0.9905,500,UT-00677
+UT,Box Elder,Mckinley Elementary,0.9323,500,UT-00678
+UT,Salt Lake,Mcmillan Elementary,0.9611,500,UT-00679
+UT,Summit,Mcpolin Elementary School,0.9561,500,UT-00680
+UT,Utah,Meadow Brook Elementary School (Utah),0.9505,500,UT-00681
+UT,Utah,Meadow Elementary,0.937,500,UT-00682
+UT,Davis,Meadowbrook Elementary (Davis),0.8952,500,UT-00683
+UT,Salt Lake,Meadowlark Elementary,0.9654,500,UT-00684
+UT,Utah,Merit College Preparatory Academy (High School),0.8963,500,UT-00685
+UT,Utah,Merit College Preparatory Academy (Middle School),0.8009,500,UT-00686
+UT,Salt Lake,Midas Creek Elementary,0.9542,500,UT-00687
+UT,Tooele,Middle Canyon Elementary,0.9423,500,UT-00688
+UT,Weber,Midland Elementary,0.9523,500,UT-00689
+UT,Salt Lake,Midvale Middle School,0.968,500,UT-00690
+UT,Salt Lake,Midvale Elementary,0.9773,500,UT-00691
+UT,Salt Lake,Midvalley Elementary,0.9606,500,UT-00692
+UT,Wasatch,Midway Elementary,0.9074,500,UT-00693
+UT,Beaver,Milford High School,0.9928,500,UT-00694
+UT,Beaver,Milford Middle School,0.9839,500,UT-00695
+UT,Beaver,Milford Elementary School,0.9816,500,UT-00696
+UT,Millard,Millard High School,0.9599,500,UT-00697
+UT,Washington,Millcreek High School,0.9516,500,UT-00698
+UT,Davis,Millcreek Junior High,0.9718,500,UT-00699
+UT,Cache,Millville Elementary,0.9384,500,UT-00700
+UT,Beaver,Minersville Middle School,0.8235,500,UT-00701
+UT,Beaver,Minersville Elementary School,0.8701,500,UT-00702
+UT,Grand,Moab Charter School,0.8,500,UT-00703
+UT,Juab,Mona Elementary,0.8105,500,UT-00704
+UT,Salt Lake,Monroe Elementary (Salt Lake),0.985,500,UT-00705
+UT,Sevier,Monroe Elementary (Sevier),0.9096,500,UT-00706
+UT,Carbon,Mont Harmon Junior High,0.9558,500,UT-00707
+UT,Salt Lake,Monte Vista Elementary,0.9544,500,UT-00708
+UT,Salt Lake,Our Journey Montessori,0.9,500,UT-00709
+UT,Salt Lake,Foothill Montessori of Salt Lake,0.7368,500,UT-00710
+UT,Utah,Montessori Learning Center (Utah),0.8667,500,UT-00711
+UT,San Juan,Montezuma Creek Elementary,0.9921,500,UT-00712
+UT,San Juan,Montezuma Creek Middle School,1,500,UT-00713
+UT,Salt Lake,Monticello Academy (Elementary School),0.9546,500,UT-00714
+UT,Salt Lake,Monticello Academy (Middle School),0.9789,500,UT-00715
+UT,Davis,Monticello Academy West Point (Elementary School),0.8914,500,UT-00716
+UT,San Juan,Monticello High School (San Juan),0.9008,500,UT-00717
+UT,San Juan,Monticello Middle School (San Juan),0.8904,500,UT-00718
+UT,San Juan,Monticello Elementary (San Juan),0.8845,500,UT-00719
+UT,San Juan,Monument Valley High School,0.9922,500,UT-00720
+UT,San Juan,Monument Valley Middle School,0.931,500,UT-00721
+UT,Iron,Moonridge Academy,1,500,UT-00722
+UT,Morgan,Morgan High School,0.9458,500,UT-00723
+UT,Morgan,Morgan Middle School,0.9415,500,UT-00724
+UT,Davis,Morgan Elementary (Davis),0.9489,500,UT-00725
+UT,Morgan,Morgan Elementary (Morgan),0.8972,500,UT-00726
+UT,Salt Lake,Morningside Elementary,0.9643,500,UT-00727
+UT,Sanpete,Moroni Elementary,0.9615,500,UT-00728
+UT,Weber,Mound Fort Jr High School,0.9857,500,UT-00729
+UT,Salt Lake,Mt. Jordan Middle School,0.9641,500,UT-00730
+UT,Cache,Mount Logan Middle,0.9786,500,UT-00731
+UT,Utah,Mount Mahogany Elementary,0.9621,500,UT-00732
+UT,Weber,Mount Ogden Middle School,0.9824,500,UT-00733
+UT,Salt Lake,Mount Vernon Academy,0.9383,500,UT-00734
+UT,Salt Lake,Mount Vernon Academy (Elementary School),0.7556,500,UT-00735
+UT,Salt Lake,Mount Vernon Academy (Middle School),0.6667,500,UT-00736
+UT,Salt Lake,Mountain Creek Middle School,0.9526,500,UT-00737
+UT,Cache,Mountain Crest High School,0.9545,500,UT-00738
+UT,Morgan,Mountain Green Middle School,0.9356,500,UT-00739
+UT,Morgan,Mountain Green Elementary School,0.9078,500,UT-00740
+UT,Salt Lake,Mountain Heights Academy (High School),0.9073,500,UT-00741
+UT,Salt Lake,Mountain Heights Academy (Middle School),0.8654,500,UT-00742
+UT,Davis,Mountain High,0.9537,500,UT-00743
+UT,Salt Lake,Mountain Point Elementary,0.9173,500,UT-00744
+UT,Salt Lake,Mountain Ridge High School (Salt Lake),0.9587,500,UT-00745
+UT,Utah,Mountain Ridge Jr High School (Utah),0.9106,500,UT-00746
+UT,Salt Lake,Mountain Shadows Elementary,0.9502,500,UT-00747
+UT,Iron,Mountain Springs Preparatory Academy,0.973,500,UT-00748
+UT,Utah,Mountain Sunrise Academy (Elementary School),0.69,500,UT-00749
+UT,Utah,Mountain Sunrise Academy (Middle School),0.7812,500,UT-00750
+UT,Utah,Mountain Trails Elementary,0.9173,500,UT-00751
+UT,Utah,Mountain View High School (Utah),0.9455,500,UT-00752
+UT,Washington,Mountain View Montessori Elementary School (Washington),0.6212,500,UT-00753
+UT,Washington,Mountain View Montessori Middle School (Washington),0.6923,500,UT-00754
+UT,Davis,Mountain View Elementary (Davis),0.9499,500,UT-00755
+UT,Salt Lake,Mountain View Elementary (Salt Lake),0.97,500,UT-00756
+UT,Salt Lake,Mountain West Montessori Academy Salt Lake (Elementary School),0.8536,500,UT-00757
+UT,Salt Lake,Mountain West Montessori Academy Salt Lake (Middle School),0.9753,500,UT-00758
+UT,Cache,Mountainside Elementary,0.9343,500,UT-00759
+UT,Utah,Mountainville Academy,0.8744,500,UT-00760
+UT,Utah,Mt. Loafer Elementary,0.925,500,UT-00761
+UT,Utah,Mt. Nebo Jr. High,0.9678,500,UT-00762
+UT,Sanpete,Mt. Pleasant Elementary School,0.8389,500,UT-00763
+UT,Davis,Mueller Park Junior High,0.9744,500,UT-00764
+UT,Davis,Muir Elementary,0.9712,500,UT-00765
+UT,Weber,Municipal Elementary,0.9749,500,UT-00766
+UT,Salt Lake,Murray High School,0.9746,500,UT-00767
+UT,Duchesne,Myton Elementary,0.9224,500,UT-00768
+UT,Utah,Nahunta Hall Elementary School,0.8,500,UT-00769
+UT,Utah,Nahunta Hall High School,1,500,UT-00770
+UT,Uintah,Naples Elementary,0.9187,500,UT-00771
+UT,San Juan,Navajo Mt. High School,0.9583,500,UT-00772
+UT,Salt Lake,Navigator Pointe Academy (Elementary School),0.9299,500,UT-00773
+UT,Salt Lake,Navigator Pointe Academy (Middle School),0.8571,500,UT-00774
+UT,Juab,Nebo View Elementary,0.882,500,UT-00775
+UT,Salt Lake,Neil Armstrong Academy,0.9704,500,UT-00776
+UT,Duchesne,Neola Elementary,0.9124,500,UT-00777
+UT,Weber,New Bridge Elementary School,0.9614,500,UT-00778
+UT,Utah,New Haven High School,0.973,500,UT-00779
+UT,Utah,New Hope Academy (Elementary School),0.5,500,UT-00780
+UT,Utah,New Hope Academy (High School),1,500,UT-00781
+UT,Utah,New Hope Academy (Middle School),0.5,500,UT-00782
+UT,Box Elder,New Horizons Academy,0.8889,500,UT-00783
+UT,Salt Lake,Newman Elementary,0.9807,500,UT-00784
+UT,Salt Lake,Nibley Park Elementary (Salt Lake),0.9294,500,UT-00785
+UT,Salt Lake,Nibley Park Middle School,0.9589,500,UT-00786
+UT,Cache,Nibley Elementary (Cache),0.9686,500,UT-00787
+UT,Weber,"Northern Utah Academy For Math, Engi. & Science (Weber)",0.9165,500,UT-00788
+UT,Davis,"Northern Utah Academy For Math, Engi. & Science (Davis)",0.9445,500,UT-00789
+UT,Utah,Noah Webster Academy,0.9694,500,UT-00790
+UT,Cache,North Cache Middle School,0.9825,500,UT-00791
+UT,Davis,North Davis Junior High,0.9733,500,UT-00792
+UT,Davis,North Davis Preparatory Academy (Elementary School),0.9545,500,UT-00793
+UT,Davis,North Davis Preparatory Academy (Middle School),0.9783,500,UT-00794
+UT,Davis,North Layton Junior High,0.9721,500,UT-00795
+UT,Weber,North Ogden Junior High,0.9697,500,UT-00796
+UT,Weber,North Ogden Elementary,0.9232,500,UT-00797
+UT,Cache,North Park Elementary (Cache),0.9806,500,UT-00798
+UT,Weber,North Park Elementary (Weber),0.9545,500,UT-00799
+UT,Box Elder,North Park Elementary (Box Elder),0.9387,500,UT-00800
+UT,Utah,North Point Elementary,0.9369,500,UT-00801
+UT,Weber,North Region Blind (Elementary School),1,500,UT-00802
+UT,Weber,North Region Blind (High School),1,500,UT-00803
+UT,Weber,North Region Blind (Middle School),,500,UT-00804
+UT,Rich,North Rich Elementary,0.8952,500,UT-00805
+UT,Sanpete,North Sanpete High School,0.9036,500,UT-00806
+UT,Sanpete,North Sanpete Middle School,0.9463,500,UT-00807
+UT,Sevier,North Sevier High School,0.974,500,UT-00808
+UT,Sevier,North Sevier Middle School,0.9844,500,UT-00809
+UT,Salt Lake,North Star Academy (Elementary School),0.9272,500,UT-00810
+UT,Salt Lake,North Star Academy (Middle School),0.9387,500,UT-00811
+UT,Salt Lake,North Star Elementary (Salt Lake),0.9862,500,UT-00812
+UT,Summit,North Summit High School,0.965,500,UT-00813
+UT,Summit,North Summit Middle School,0.9534,500,UT-00814
+UT,Summit,North Summit Elementary,0.8971,500,UT-00815
+UT,Davis,Northridge High,0.9624,500,UT-00816
+UT,Utah,Northridge Elementary,0.9158,500,UT-00817
+UT,Salt Lake,Northwest Middle School,0.9791,500,UT-00818
+UT,Utah,Oak Canyon Jr High School,0.9384,500,UT-00819
+UT,Davis,Oak Hills Elementary,0.9686,500,UT-00820
+UT,Salt Lake,Oak Hollow Elementary,0.9039,500,UT-00821
+UT,Salt Lake,Oakcrest Elementary,0.9625,500,UT-00822
+UT,Salt Lake,Oakdale Elementary,0.9379,500,UT-00823
+UT,Weber,Oakgrove High School,0.7143,500,UT-00824
+UT,Weber,Oakgrove Middle School,1,500,UT-00825
+UT,Salt Lake,Oakridge Elementary (Salt Lake),0.975,500,UT-00826
+UT,Salt Lake,Oakwood Elementary,1,500,UT-00827
+UT,Utah,Odyssey Charter Elementary School (Utah),0.8955,500,UT-00828
+UT,Weber,Odyssey Elementary (Weber),0.9668,500,UT-00829
+UT,Davis,Odyssey Elementary School (Davis),0.9723,500,UT-00830
+UT,Weber,Ogden High School,0.9734,500,UT-00831
+UT,Weber,Ogden Preparatory Academy (Elementary School),0.9727,500,UT-00832
+UT,Weber,Ogden Preparatory Academy (Middle School),0.997,500,UT-00833
+UT,Wasatch,Old Mill Elementary (Wasatch),0.9399,500,UT-00834
+UT,Tooele,Old Mill Elementary School (Tooele),0.9456,500,UT-00835
+UT,Salt Lake,Olene Walker Elementary,0.9805,500,UT-00836
+UT,Salt Lake,Olympus High School,0.9732,500,UT-00837
+UT,Salt Lake,Olympus Junior High,0.9691,500,UT-00838
+UT,Salt Lake,Open Classroom (Elementary School),0.7815,500,UT-00839
+UT,Salt Lake,Open Classroom (Middle School),0.8261,500,UT-00840
+UT,Salt Lake,Oquirrh Hills Middle School,0.9636,500,UT-00841
+UT,Salt Lake,Oquirrh Elementary,0.8577,500,UT-00842
+UT,Utah,Orchard Hills Elementary,0.9418,500,UT-00843
+UT,Davis,Orchard Elementary (Davis),0.9675,500,UT-00844
+UT,Utah,Orchard Elementary (Utah),0.9387,500,UT-00845
+UT,Weber,Orchard Springs Elementary School,0.9323,500,UT-00846
+UT,Utah,Orem High School,0.9645,500,UT-00847
+UT,Utah,Orem Elementary,0.9124,500,UT-00848
+UT,Weber,Orion Jr High,0.9646,500,UT-00849
+UT,Piute,Oscarson Elementary,0.625,500,UT-00850
+UT,Salt Lake,Our Lady Of Lourdes Catholic School (Elementary School),0.9835,500,UT-00851
+UT,Salt Lake,Our Lady Of Lourdes Catholic School (Middle School),0.9677,500,UT-00852
+UT,Tooele,Overlake Elementary,0.9576,500,UT-00853
+UT,Salt Lake,Oxford Learning Source (Elementary School),1,500,UT-00854
+UT,Salt Lake,Oxford Learning Source (High School),1,500,UT-00855
+UT,Salt Lake,Oxford Learning Source (Middle School),1,500,UT-00856
+UT,Salt Lake,Pacific Heritage Academy (Elementary School),0.9458,500,UT-00857
+UT,Salt Lake,Pacific Heritage Academy (Middle School),0.9615,500,UT-00858
+UT,Sevier,Pahvant Elementary,0.9595,500,UT-00859
+UT,Garfield,Panguitch High School,0.9797,500,UT-00860
+UT,Garfield,Panguitch Middle School,0.9643,500,UT-00861
+UT,Garfield,Panguitch Elementary,0.9767,500,UT-00862
+UT,Washington,Panorama Elementary,0.8857,500,UT-00863
+UT,Salt Lake,Paradigm High School,0.8443,500,UT-00864
+UT,Salt Lake,Paradigm Middle School,0.7778,500,UT-00865
+UT,Washington,Paradise Canyon Elementary,0.9195,500,UT-00866
+UT,Summit,Park City Day Elementary School,0.9444,500,UT-00867
+UT,Summit,Park City Day Middle School,0.9512,500,UT-00868
+UT,Summit,Park City High School,0.9394,500,UT-00869
+UT,Salt Lake,Park Lane Elementary,0.9508,500,UT-00870
+UT,Utah,Park Elementary (Utah),0.9478,500,UT-00871
+UT,Box Elder,Park Valley Elementary School,1,500,UT-00872
+UT,Box Elder,Park Valley Middle School,1,500,UT-00873
+UT,Utah,Park View Elementary (Utah),0.9455,500,UT-00874
+UT,Salt Lake,Parkside Elementary (Salt Lake),0.9388,500,UT-00875
+UT,Utah,Parkside Elementary (Utah),0.9708,500,UT-00876
+UT,Salt Lake,Parkview Elementary (Salt Lake),0.9346,500,UT-00877
+UT,Summit,Parleys Park Elementary,0.9454,500,UT-00878
+UT,Iron,Parowan High School,0.944,500,UT-00879
+UT,Iron,Parowan Middle School,0.9364,500,UT-00880
+UT,Iron,Parowan Elementary,0.8961,500,UT-00881
+UT,Utah,Payson High School,0.9584,500,UT-00882
+UT,Utah,Payson Junior High,0.9646,500,UT-00883
+UT,Salt Lake,Peruvian Park Elementary,0.9589,500,UT-00884
+UT,Salt Lake,Philo T. Farnsworth Elementary School,0.9927,500,UT-00885
+UT,Salt Lake,Pine Ridge Academy (High School),1,500,UT-00886
+UT,Salt Lake,Pine Ridge Academy (Middle School),1,500,UT-00887
+UT,Washington,Pine View High School,0.9268,500,UT-00888
+UT,Washington,Pine View Middle School,0.8768,500,UT-00889
+UT,Carbon,Pinnacle Canyon Academy (Elementary School),0.9286,500,UT-00890
+UT,Carbon,Pinnacle Canyon Academy (High School),0.937,500,UT-00891
+UT,Carbon,Pinnacle Canyon Academy (Middle School),0.9438,500,UT-00892
+UT,Weber,Pioneer Elementary (Weber),0.9645,500,UT-00893
+UT,Salt Lake,Pioneer Elementary (Salt Lake),0.9699,500,UT-00894
+UT,Piute,Piute High School,0.9341,500,UT-00895
+UT,Piute,Piute Middle School,0.9,500,UT-00896
+UT,Weber,Plain City Elementary,0.9504,500,UT-00897
+UT,Sanpete,Pleasant Creek High School,0.9239,500,UT-00898
+UT,Sanpete,Pleasant Creek Middle School,0.9,500,UT-00899
+UT,Salt Lake,Pleasant Green Elementary,0.9751,500,UT-00900
+UT,Utah,Pleasant Grove High School,0.9461,500,UT-00901
+UT,Utah,Pleasant Grove Jr High School,0.9121,500,UT-00902
+UT,Salt Lake,Plymouth Elementary,0.9766,500,UT-00903
+UT,Utah,Polaris High School,0.9607,500,UT-00904
+UT,Utah,Pony Express Elementary,0.93,500,UT-00905
+UT,Salt Lake,Wasatch Canyons Academy (Elementary School),0.8,500,UT-00906
+UT,Salt Lake,Wasatch Canyons Academy (High School),0.9375,500,UT-00907
+UT,Salt Lake,Wasatch Canyons Academy (Middle School),0.9,500,UT-00908
+UT,Salt Lake,Prince Of Peace Lutheran School (Elementary School),0.839,500,UT-00909
+UT,Salt Lake,Prince Of Peace Lutheran School (Middle School),0.9333,500,UT-00910
+UT,Box Elder,Promontory School Of Expeditionary Learning (Elementary School),0.8698,500,UT-00911
+UT,Box Elder,Promontory School Of Expeditionary Learning (Middle School),0.8312,500,UT-00912
+UT,Salt Lake,Providence Hall (Elementary School),0.9006,500,UT-00913
+UT,Salt Lake,Providence Hall (High School),0.9129,500,UT-00914
+UT,Salt Lake,Providence Hall (Middle School),0.9445,500,UT-00915
+UT,Cache,Providence Elementary (Cache),0.9889,500,UT-00916
+UT,Utah,Provo Canyon High School (Provo Campus),0.9583,500,UT-00917
+UT,Utah,Provo Canyon Middle School (Provo Campus),0.8276,500,UT-00918
+UT,Utah,Provo Canyon High School (Springville Campus),1,500,UT-00919
+UT,Utah,Provo Canyon Middle School (Springville Campus),0.9167,500,UT-00920
+UT,Utah,Provo Elementary School,0.8,500,UT-00921
+UT,Utah,Provo Middle School,1,500,UT-00922
+UT,Utah,Provo High School,0.9747,500,UT-00923
+UT,Utah,Provo Peaks Elementary School,0.9497,500,UT-00924
+UT,Utah,Provost Elementary,0.9763,500,UT-00925
+UT,Salt Lake,Quail Hollow Elementary,0.9537,500,UT-00926
+UT,Weber,Quest Academy (Elementary School),0.9479,500,UT-00927
+UT,Weber,Quest Academy (Middle School),0.956,500,UT-00928
+UT,Utah,The Ranches Academy,0.9061,500,UT-00929
+UT,Davis,Reading Elementary,0.9589,500,UT-00930
+UT,Utah,Reagan Academy (Elementary School),0.9693,500,UT-00931
+UT,Utah,Reagan Academy (Middle School),0.9603,500,UT-00932
+UT,Salt Lake,Realms Of Inquiry Private School (High School),0.75,500,UT-00933
+UT,Salt Lake,Realms Of Inquiry Private School (Middle School),0.75,500,UT-00934
+UT,Juab,Red Cliffs Elementary,0.8912,500,UT-00935
+UT,Sevier,Red Hills Middle School,0.9647,500,UT-00936
+UT,Washington,Red Mountain Elementary,0.8884,500,UT-00937
+UT,Salt Lake,Redeemer Lutheran (Elementary School),0.9412,500,UT-00938
+UT,Salt Lake,Redeemer Lutheran (Middle School),1,500,UT-00939
+UT,Salt Lake,Redwood Elementary,0.9438,500,UT-00940
+UT,Utah,Rees Elementary,0.9468,500,UT-00941
+UT,Salt Lake,Reid Elementary School,0.7021,500,UT-00942
+UT,Salt Lake,Reid Middle School,0.6364,500,UT-00943
+UT,Davis,Renaissance Academy (Davis),1,500,UT-00944
+UT,Utah,Renaissance Academy Elementary (Utah),0.9238,500,UT-00945
+UT,Utah,Renaissance Academy Middle (Utah),0.8519,500,UT-00946
+UT,Rich,Rich High School,0.9557,500,UT-00947
+UT,Rich,Rich Middle School,0.9196,500,UT-00948
+UT,Sevier,Richfield High School,0.9654,500,UT-00949
+UT,Salt Lake,Ridge View Elementary,0.9087,500,UT-00950
+UT,Salt Lake,Ridgecrest Elementary,0.9457,500,UT-00951
+UT,Cache,Ridgeline High School,0.9741,500,UT-00952
+UT,Utah,Ridgeline Elementary,0.922,500,UT-00953
+UT,Cache,River Heights Elementary,0.9535,500,UT-00954
+UT,Utah,River Rock Elementary School,0.9519,500,UT-00955
+UT,Weber,Riverdale Elementary,0.9725,500,UT-00956
+UT,Salt Lake,River's Edge Elementary School,1,500,UT-00957
+UT,Salt Lake,River's Edge High School,1,500,UT-00958
+UT,Salt Lake,River's Edge Middle School,1,500,UT-00959
+UT,Washington,Riverside Elementary (Washington),0.8633,500,UT-00960
+UT,Salt Lake,Riverside Elementary (Salt Lake),0.9497,500,UT-00961
+UT,Salt Lake,Riverton High,0.9576,500,UT-00962
+UT,Salt Lake,Riverton Elementary,0.9425,500,UT-00963
+UT,Salt Lake,Riverview Junior High (Salt Lake),0.987,500,UT-00964
+UT,Utah,Riverview Elementary School (Spanish Fork),0.9451,500,UT-00965
+UT,Utah,Riverview Elementary School (Saratoga Springs),0.9387,500,UT-00966
+UT,Salt Lake,Robert Frost Elementary School,0.9642,500,UT-00967
+UT,Utah,Rock Canyon Elementary,0.8912,500,UT-00968
+UT,Utah,Rockwell Charter High School,0.8964,500,UT-00969
+UT,Utah,Rockwell Charter Middle School,0.8594,500,UT-00970
+UT,Weber,Rocky Mountain Junior High,0.9795,500,UT-00971
+UT,Wasatch,Rocky Mountain Middle School,0.9196,500,UT-00972
+UT,Utah,Rocky Mountain Elementary,0.95,500,UT-00973
+UT,Salt Lake,Rocky Peak Elementary,0.8398,500,UT-00974
+UT,Salt Lake,Rolling Meadows Elementary,0.9687,500,UT-00975
+UT,Duchesne,Roosevelt Junior High (Duchesne),0.9571,500,UT-00976
+UT,Weber,Roosevelt Elementary (Weber),0.9524,500,UT-00977
+UT,Salt Lake,Roots Charter High School,0.9375,500,UT-00978
+UT,Salt Lake,Rosamond Elementary,0.9454,500,UT-00979
+UT,Salt Lake,Rose Creek Elementary,0.9417,500,UT-00980
+UT,Salt Lake,Rose Park Elementary,0.9714,500,UT-00981
+UT,Tooele,Rose Springs Elementary,0.9455,500,UT-00982
+UT,Salt Lake,Rosecrest Elementary,0.9863,500,UT-00983
+UT,Salt Lake,Rowland Hall (Elementary),0.9777,500,UT-00984
+UT,Weber,Roy High School,0.9768,500,UT-00985
+UT,Weber,Roy Jr. High School,0.9757,500,UT-00986
+UT,Weber,Roy Elementary,0.9289,500,UT-00987
+UT,Utah,Sage Creek Elementary,0.9443,500,UT-00988
+UT,Utah,Sage Hills Elementary,0.9638,500,UT-00989
+UT,Salt Lake,Saint Andrew Catholic Elementary School,0.9767,500,UT-00990
+UT,Salt Lake,Saint Andrew Catholic Middle School,1,500,UT-00991
+UT,Washington,St. George Academy (High School),0.8344,500,UT-00992
+UT,Washington,St. George Academy (Middle School),0.7838,500,UT-00993
+UT,Salt Lake,Saint John The Baptist Elementary,0.996,500,UT-00994
+UT,Salt Lake,Saint John The Baptist Catholic Middle School,0.9941,500,UT-00995
+UT,Weber,Saint Joseph Catholic Elementary School,1,500,UT-00996
+UT,Weber,Saint Joseph Catholic Middle School,1,500,UT-00997
+UT,Tooele,St. Marguerite Catholic School,1,500,UT-00998
+UT,Davis,Saint Olaf Catholic Elementary School,0.9783,500,UT-00999
+UT,Davis,Saint Olaf Catholic Middle School,1,500,UT-01000
+UT,Salt Lake,Saint Sophia School,1,500,UT-01001
+UT,Salt Lake,Saint Vincent De Paul Parish Elementary School,1,500,UT-01002
+UT,Salt Lake,Saint Vincent De Paul Parish Middle School,1,500,UT-01003
+UT,Utah,Salem Hills High School,0.9509,500,UT-01004
+UT,Utah,Salem Junior High,0.9515,500,UT-01005
+UT,Utah,Salem Elementary,0.9031,500,UT-01006
+UT,Sevier,Salina Elementary,0.8638,500,UT-01007
+UT,Carbon,Sally Mauro Elementary,0.9274,500,UT-01008
+UT,Salt Lake,Salt Lake Arts Academy (Elementary School),0.9265,500,UT-01009
+UT,Salt Lake,Salt Lake Arts Academy (Middle School),0.9803,500,UT-01010
+UT,Salt Lake,Salt Lake Center For Science Education,0.9718,500,UT-01011
+UT,Salt Lake,Salt Lake Center For Science Bryant Middle School,0.9704,500,UT-01012
+UT,San Juan,San Juan High School,0.9882,500,UT-01013
+UT,Emery,San Rafael Junior High,0.9638,500,UT-01014
+UT,Weber,Sand Ridge Junior High,0.9606,500,UT-01015
+UT,Davis,Sand Springs Elementary,0.9531,500,UT-01016
+UT,Washington,Sandstone Elementary,0.9147,500,UT-01017
+UT,Salt Lake,Sandy Elementary,0.955,500,UT-01018
+UT,Washington,Santa Clara Elementary,0.9125,500,UT-01019
+UT,Utah,Santaquin Elementary School,0.9204,500,UT-01020
+UT,Utah,Saratoga Shores Elementary,0.9508,500,UT-01021
+UT,Tooele,Scholar Academy (Elementary School),0.9068,500,UT-01022
+UT,Tooele,Scholar Academy (Middle School),0.9306,500,UT-01023
+UT,Salt Lake,Scott M Matheson Jr High,0.9845,500,UT-01024
+UT,Utah,Sego Lily Elementary,0.9551,500,UT-01025
+UT,Tooele,Settlement Canyon Elementary,0.9498,500,UT-01026
+UT,Weber,Shadow Valley Elementary,0.9464,500,UT-01027
+UT,Utah,Shelley Elementary,0.9341,500,UT-01028
+UT,Davis,Shoreline Junior High,0.974,500,UT-01029
+UT,Utah,Sierra Bonita Elementary School,0.9195,500,UT-01030
+UT,Salt Lake,Silver Crest Elementary,0.9462,500,UT-01031
+UT,Salt Lake,Silver Hills Elementary,0.9235,500,UT-01032
+UT,Utah,Silver Lake Elementary,0.9409,500,UT-01033
+UT,Salt Lake,Silver Mesa Elementary,0.9333,500,UT-01034
+UT,Weber,Silver Ridge Elementary,0.9788,500,UT-01035
+UT,Summit,Silver Summit Academy (High School),0.9254,500,UT-01036
+UT,Summit,Silver Summit Academy (Middle School),0.9756,500,UT-01037
+UT,Summit,Silver Summit Elementary School,0.8421,500,UT-01038
+UT,Cache,Sky View High School,0.9806,500,UT-01039
+UT,Salt Lake,Skyline High School,0.9671,500,UT-01040
+UT,Utah,Skyridge High School,0.9487,500,UT-01041
+UT,Washington,Snow Canyon High School,0.882,500,UT-01042
+UT,Washington,Snow Canyon Middle,0.9121,500,UT-01043
+UT,Davis,Snow Horse Elementary School,0.9362,500,UT-01044
+UT,Utah,Snow Springs Elementary,0.9552,500,UT-01045
+UT,Weber,Snowcrest Jr. High,0.9474,500,UT-01046
+UT,Box Elder,Snowville Elementary,0.7857,500,UT-01047
+UT,Wasatch,Solider Hollow Charter Elementary School,0.7227,500,UT-01048
+UT,Wasatch,Solider Hollow Charter Middle School,0.8315,500,UT-01049
+UT,Sevier,Sorenson's Ranch High School,0.9535,500,UT-01050
+UT,Sevier,Sorenson's Ranch Middle School,0.9091,500,UT-01051
+UT,Cache,South Cache Middle School,0.9658,500,UT-01052
+UT,Davis,South Clearfield Elementary,0.9719,500,UT-01053
+UT,Davis,South Davis Junior High,0.9633,500,UT-01054
+UT,Salt Lake,South Hills Middle,0.9615,500,UT-01055
+UT,Salt Lake,South Jordan Middle School,0.9691,500,UT-01056
+UT,Salt Lake,South Jordan Elementary School,0.9395,500,UT-01057
+UT,Salt Lake,South Kearns Elementary,0.9717,500,UT-01058
+UT,Washington,South Mesa Elementary,0.8995,500,UT-01059
+UT,Weber,South Ogden Junior High,0.9618,500,UT-01060
+UT,Rich,South Rich Elementary,0.9231,500,UT-01061
+UT,Sanpete,South Sanpete Education Support Center,1,500,UT-01062
+UT,Sevier,South Sevier High School,0.957,500,UT-01063
+UT,Sevier,South Sevier Middle School,0.9373,500,UT-01064
+UT,Summit,South Summit High School,0.9939,500,UT-01065
+UT,Summit,South Summit Middle School,0.9519,500,UT-01066
+UT,Summit,South Summit Elementary,0.8976,500,UT-01067
+UT,Davis,South Weber Elementary,0.9409,500,UT-01068
+UT,Salt Lake,Southland Elementary,0.9423,500,UT-01069
+UT,Iron,Southwest Educational Academy (Elementary School),0.4978,500,UT-01070
+UT,Iron,Southwest Educational Academy (High School),0.6453,500,UT-01071
+UT,Iron,Southwest Educational Academy (Middle School),0.5809,500,UT-01072
+UT,Utah,Spanish Fork High,0.9734,500,UT-01073
+UT,Utah,Spanish Fork Jr.high School,0.9668,500,UT-01074
+UT,Utah,Spanish Oaks Elementary,0.9544,500,UT-01075
+UT,Davis,Spectrum Academy Elemenatry School (Davis),0.9443,500,UT-01076
+UT,Davis,Spectrum Academy High School (Davis),0.9658,500,UT-01077
+UT,Davis,Spectrum Academy Middle School (Davis),0.9845,500,UT-01078
+UT,Utah,Spectrum Academy Elemenatry School (Utah),0.9503,500,UT-01079
+UT,Utah,Spectrum Academy High School (Utah),0.9492,500,UT-01080
+UT,Utah,Spectrum Academy Middle School (Utah),0.9677,500,UT-01081
+UT,Utah,Spring Canyon Middle,0.9562,500,UT-01082
+UT,Sanpete,Spring City Elementary,0.8776,500,UT-01083
+UT,Cache,Spring Creek Middle School,0.9781,500,UT-01084
+UT,Utah,Spring Creek Elementary,0.9451,500,UT-01085
+UT,Utah,Spring Lake Elementary,0.9267,500,UT-01086
+UT,Washington,Springdale Elementary,0.9189,500,UT-01087
+UT,Utah,Springside Elementary School,0.9259,500,UT-01088
+UT,Utah,Springville High School,0.9446,500,UT-01089
+UT,Utah,Springville Junior High,0.9586,500,UT-01090
+UT,Salt Lake,Sprucewood Elementary,0.9162,500,UT-01091
+UT,Salt Lake,Saint Francis Xavier Catholic Elementary School,1,500,UT-01092
+UT,Salt Lake,Saint Francis Xavier Catholic Middle School,1,500,UT-01093
+UT,Tooele,Stansbury High School,0.9572,500,UT-01094
+UT,Tooele,Stansbury Park Elementary (Tooele),0.9436,500,UT-01095
+UT,Salt Lake,Stansbury Elementary (Salt Lake),0.9836,500,UT-01096
+UT,Tooele,Sterling Elementary School,1,500,UT-01097
+UT,Davis,Stewart Elementary,0.9279,500,UT-01098
+UT,Salt Lake,Stillwater Academy (High School),1,500,UT-01099
+UT,Salt Lake,Stillwater Academy (Middle School),0.5,500,UT-01100
+UT,Sevier,Storm Ridge Ranch,1,500,UT-01101
+UT,Iron,Success Academy (Iron),0.9095,500,UT-01102
+UT,Washington,Success DSU (Washington),0.951,500,UT-01103
+UT,Salt Lake,Summit Academy Draper (Elementary School),0.8575,500,UT-01104
+UT,Salt Lake,Summit Academy Draper (Middle School),0.8732,500,UT-01105
+UT,Salt Lake,Summit Academy Bluffdale (Elementary School,0.8879,500,UT-01106
+UT,Salt Lake,Summit Academy Bluffdale (High School),0.8598,500,UT-01107
+UT,Salt Lake,Summit Academy Independence (Elementary School),0.8972,500,UT-01108
+UT,Salt Lake,Summit Academy Independence (Middle School),0.933,500,UT-01109
+UT,Salt Lake,Summit Christian Academy (Elementary School),0.875,500,UT-01110
+UT,Salt Lake,Summit Christian Academy (Middle School),0.9091,500,UT-01111
+UT,Utah,Summit High School,0.9457,500,UT-01112
+UT,Cache,Summit Elementary (Cache),0.9659,500,UT-01113
+UT,Davis,Sunburst Elementary School,0.9669,500,UT-01114
+UT,Washington,Sunrise Academy Washington (High School),1,500,UT-01115
+UT,Washington,Sunrise Academy Washington (Middle School),0.9091,500,UT-01116
+UT,Box Elder,Sunrise High,1,500,UT-01117
+UT,Washington,Sunrise Ridge Intermediate,0.9181,500,UT-01118
+UT,Salt Lake,Sunrise Elementary (Salt Lake),0.9508,500,UT-01119
+UT,Cache,Sunrise Elementary (Cache),0.9554,500,UT-01120
+UT,Davis,Sunset Junior High,0.9694,500,UT-01121
+UT,Salt Lake,Sunset Ridge Middle School,0.9782,500,UT-01122
+UT,Davis,Sunset Elementary (Davis),0.9625,500,UT-01123
+UT,Utah,Sunset View Elementary (Utah),0.9558,500,UT-01124
+UT,Davis,Syracuse Arts Academy Antelope (Middle School),0.8935,500,UT-01125
+UT,Davis,Syracuse Arts Academy North (Elementary School),0.949,500,UT-01126
+UT,Davis,Syracuse High School,0.9668,500,UT-01127
+UT,Davis,Syracuse Junior High,0.9713,500,UT-01128
+UT,Davis,Syracuse Elementary,0.9736,500,UT-01129
+UT,Duchesne,Tabiona High School,0.9111,500,UT-01130
+UT,Duchesne,Tabiona Middle School,0.8667,500,UT-01131
+UT,Duchesne,Tabiona Elementary,0.7757,500,UT-01132
+UT,Davis,Taylor Elementary (Davis),0.9571,500,UT-01133
+UT,Utah,Taylor Elementary (Utah),0.9256,500,UT-01134
+UT,Salt Lake,Taylorsville High School,0.9785,500,UT-01135
+UT,Salt Lake,Taylorsville Elementary,0.9728,500,UT-01136
+UT,Utah,Telos Academy (High School),1,500,UT-01137
+UT,Uintah,Terra Academy (Elementary School),0.9011,500,UT-01138
+UT,Uintah,Terra Academy (High School),0.9412,500,UT-01139
+UT,Uintah,Terra Academy (Middle School),0.902,500,UT-01140
+UT,Salt Lake,Terra Linda Elementary,0.9372,500,UT-01141
+UT,Weber,T.H. Bell Jr. High,0.99,500,UT-01142
+UT,Cache,"The Center For Creativity,Innovation And Discovery (Elementary School)",0.9068,500,UT-01143
+UT,Cache,"The Center For Creativity,Innovation And Discovery (Middle School)",0.74,500,UT-01144
+UT,Utah,The Heritage Residential Treatment Center (High School),0.9792,500,UT-01145
+UT,Utah,The Heritage Residential Treatment Center (Middle School),0.9615,500,UT-01146
+UT,Cache,Thomas Edison Charter Elementary School North,0.9032,500,UT-01147
+UT,Cache,Thomas Edison Charter Middle School North,0.9464,500,UT-01148
+UT,Cache,Thomas Edison Charter Elementary School South,0.9203,500,UT-01149
+UT,Cache,Thomas Edison Charter Middle School South,0.9227,500,UT-01150
+UT,Salt Lake,Thomas Jefferson Junior High School,0.9879,500,UT-01151
+UT,Weber,Liberty Elementary,0.979,500,UT-01152
+UT,Salt Lake,Thomas W. Bacchus Elementary,0.9686,500,UT-01153
+UT,Washington,Three Falls Elementary,0.8536,500,UT-01154
+UT,Box Elder,Three Mile Creek School,0.968,500,UT-01155
+UT,Iron,Three Peaks School,0.8934,500,UT-01156
+UT,Utah,Thunder Ridge Elementary School,0.9301,500,UT-01157
+UT,Utah,Timberline Middle School,0.9458,500,UT-01158
+UT,Utah,Timpanogos Academy,0.8554,500,UT-01159
+UT,Utah,Timpanogos High School,0.9518,500,UT-01160
+UT,Wasatch,Timpanogos Middle School,0.8857,500,UT-01161
+UT,Utah,Timpanogos Elementary,0.9465,500,UT-01162
+UT,Utah,Timpview High School,0.9586,500,UT-01163
+UT,Juab,Tintic High School,0.9192,500,UT-01164
+UT,Juab,Tintic Middle School,0.8571,500,UT-01165
+UT,Davis,Tolman Elementary,0.9682,500,UT-01166
+UT,Washington,Tonaquint Intermediate School,0.863,500,UT-01167
+UT,Tooele,Tooele High,0.9827,500,UT-01168
+UT,Tooele,Tooele Junior High,0.9659,500,UT-01169
+UT,Summit,Trailside Elementary (Summit),0.9355,500,UT-01170
+UT,Utah,Trailside Elementary (Utah),0.9355,500,UT-01171
+UT,Utah,Traverse Mountain Elementary,0.9197,500,UT-01172
+UT,Summit,Treasure Mountain Jr High School,0.9542,500,UT-01173
+UT,Utah,Treeside Charter School,0.833,500,UT-01174
+UT,Washington,Trinity Lutheran Elementary School,0.7083,500,UT-01175
+UT,Washington,Trinity Lutheran Middle School,0.6667,500,UT-01176
+UT,Box Elder,Triumph Academy (High School),1,500,UT-01177
+UT,Box Elder,Triumph Academy (Middle School),1,500,UT-01178
+UT,San Juan,Tsebii' Nidzisgal Elementary School,0.98,500,UT-01179
+UT,Garfield,Turn-About Ranch (High School),1,500,UT-01180
+UT,Garfield,Turn-About Ranch (Middle School),0.75,500,UT-01181
+UT,Weber,Two Rivers High School,0.9326,500,UT-01182
+UT,Cache,Uinta Academy (High School),1,500,UT-01183
+UT,Cache,Uinta Academy (Middle School),1,500,UT-01184
+UT,Uintah,Uintah Basin Christian Academy (Elementary School),0.7188,500,UT-01185
+UT,Uintah,Uintah Basin Christian Academy (Middle School),0,500,UT-01186
+UT,Uintah,Uintah High School,0.9492,500,UT-01187
+UT,Uintah,Uintah Middle,0.9488,500,UT-01188
+UT,Uintah,Uintah Online Elementary School,0.8462,500,UT-01189
+UT,Uintah,Uintah Online Middle School,0.9444,500,UT-01190
+UT,Uintah,Uintah River High School,0.9756,500,UT-01191
+UT,Weber,Uintah Elementary (Weber),0.9683,500,UT-01192
+UT,Salt Lake,Uintah Elementary (Salt Lake),0.97,500,UT-01193
+UT,Duchesne,Union High School,0.9445,500,UT-01194
+UT,Salt Lake,Union Middle School,0.9607,500,UT-01195
+UT,Salt Lake,Upland Terrace Elementary,0.9773,500,UT-01196
+UT,Washington,Utah Arts Academy (High School),0.6028,500,UT-01197
+UT,Washington,Utah Arts Academy (Middle School),0.4468,500,UT-01198
+UT,Utah,Utah Autism Academy At Clear Horizons Orem (Elementary School),0.2857,500,UT-01199
+UT,Utah,Utah Autism Academy At Clear Horizons Orem (High School),0.8,500,UT-01200
+UT,Utah,Utah Autism Academy At Clear Horizons Orem (Middle School),0.5,500,UT-01201
+UT,Salt Lake,Utah Autism Academy Midvale (High School),0.8,500,UT-01202
+UT,Salt Lake,Utah Autism Academy Midvale (Middle School),0,500,UT-01203
+UT,Davis,Utah Career Path High School,0.9441,500,UT-01204
+UT,Salt Lake,Utah Connections Academy (Elementary School),0.8451,500,UT-01205
+UT,Salt Lake,Utah Connections Academy (High School),0.8841,500,UT-01206
+UT,Salt Lake,Utah Connections Academy (Middle School),0.8085,500,UT-01207
+UT,Utah,Utah County Academy Of Science,0.9446,500,UT-01208
+UT,Salt Lake,Utah International Charter Elementary School,0.8462,500,UT-01209
+UT,Salt Lake,Utah International Charter High School,0.6884,500,UT-01210
+UT,Salt Lake,Utah International Charter Middle School,0.6875,500,UT-01211
+UT,Weber,Utah Military Academy Hill Field (High School),0.907,500,UT-01212
+UT,Weber,Utah Military Academy Hill Field (Middle School),0.859,500,UT-01213
+UT,Utah,Utah Military Academy Camp Williams (High School),0.9052,500,UT-01214
+UT,Utah,Utah Military Academy Camp Williams (Middle School),0.8762,500,UT-01215
+UT,Washington,Utah Online 11-12,0.9076,500,UT-01216
+UT,Washington,Utah Online 9-10,0.8741,500,UT-01217
+UT,Washington,Utah Online K-8,0.7363,500,UT-01218
+UT,Salt Lake,Utah Virtual Academy (Elementary School),0.8327,500,UT-01219
+UT,Salt Lake,Utah Virtual Academy (High School),0.9028,500,UT-01220
+UT,Salt Lake,Utah Virtual Academy (Middle School),0.9011,500,UT-01221
+UT,Davis,Vae View Elementary,0.9271,500,UT-01222
+UT,Washington,Valley Academy (Elementary School),0.7325,500,UT-01223
+UT,Washington,Valley Academy (Middle School),0.8333,500,UT-01224
+UT,Salt Lake,Valley Crest Elementary,0.9846,500,UT-01225
+UT,Kane,Valley High School (Kane),0.9167,500,UT-01226
+UT,Kane,Valley Middle School (Kane),0.9318,500,UT-01227
+UT,Salt Lake,Valley High School (South Jordan),0.9091,500,UT-01228
+UT,Salt Lake,Valley Junior High (Granite),0.9831,500,UT-01229
+UT,Weber,Valley Elementary (Huntsville),0.9086,500,UT-01230
+UT,Kane,Valley Elementary School (Kane),0.9136,500,UT-01231
+UT,Utah,Valley View Middle (Utah),0.9119,500,UT-01232
+UT,Davis,Valley View Elementary (Bountiful),0.9669,500,UT-01233
+UT,Weber,Valley View Elementary (Roy),0.9431,500,UT-01234
+UT,Salt Lake,Vanguard Academy (High School),0.016,500,UT-01235
+UT,Salt Lake,Vanguard Academy (Middle School),0.0081,500,UT-01236
+UT,Weber,Venture Academy (Elementary School),0.92,500,UT-01237
+UT,Weber,Venture Academy (High School),0.9393,500,UT-01238
+UT,Weber,Venture Academy (Middle School),0.9326,500,UT-01239
+UT,Uintah,Vernal Middle School,0.96,500,UT-01240
+UT,Tooele,Vernon Elementary,0.95,500,UT-01241
+UT,Davis,Viewmont High School,0.9626,500,UT-01242
+UT,Salt Lake,Viewmont Elementary,0.9312,500,UT-01243
+UT,Utah,Viewpoint Middle,0.9602,500,UT-01244
+UT,Utah,Vineyard Elementary,0.9309,500,UT-01245
+UT,Utah,Vista Heights Middle School,0.9558,500,UT-01246
+UT,Washington,Vist Elementary School,0.7909,500,UT-01247
+UT,Washington,Vista High School,0.7895,500,UT-01248
+UT,Washington,Vista Middle School,0.7323,500,UT-01249
+UT,Salt Lake,Vista Elementary (Taylorsville),0.9781,500,UT-01250
+UT,Davis,Voyage Academy,0.9524,500,UT-01251
+UT,Weber,Wahlquist Jr. High,0.9723,500,UT-01252
+UT,Utah,Walden School Of Liberal Arts (Elementary School),0.6912,500,UT-01253
+UT,Utah,Walden School Of Liberal Arts (High School),0.8318,500,UT-01254
+UT,Utah,Walden School Of Liberal Arts (Middle School),0.8485,500,UT-01255
+UT,Salt Lake,Wallace Stegner Academy (Elementary School),0.9767,500,UT-01256
+UT,Salt Lake,Wallace Stegner Academy (Middle School),0.9793,500,UT-01257
+UT,Salt Lake,Wallace Stegner Academy West Valley (Elementary School),0.9793,500,UT-01258
+UT,Salt Lake,Wallace Stegner Academy West Valley (Middle School),0.9635,500,UT-01259
+UT,Sanpete,Wasatch Academy,0.9853,500,UT-01260
+UT,Wasatch,Wasatch High School,0.9233,500,UT-01261
+UT,Salt Lake,Wasatch Junior High,0.9599,500,UT-01262
+UT,Wasatch,Wasatch Learning Academy (Elementary School),0.5158,500,UT-01263
+UT,Wasatch,Wasatch Learning Academy (Middle School),0.4541,500,UT-01264
+UT,Davis,Wasatch Peak Academy,0.9524,500,UT-01265
+UT,Davis,Wasatch Elementary (Clearfield),0.9474,500,UT-01266
+UT,Weber,Wasatch Elementary (Ogden),0.9621,500,UT-01267
+UT,Utah,Wasatch Elementary (Provo),0.9488,500,UT-01268
+UT,Salt Lake,Wasatch Elementary (Salt Lake),0.9735,500,UT-01269
+UT,Salt Lake,Wasatch Waldorf Academy (Elementary School),0.7256,500,UT-01270
+UT,Salt Lake,Wasatch Waldorf Academy (Middle School),0.7563,500,UT-01271
+UT,Washington,Washington Fields Intermediate School,0.9219,500,UT-01272
+UT,Salt Lake,Washington Elementary (Salt Lake),0.9717,500,UT-01273
+UT,Washington,Washington Elementary (Washington),0.8653,500,UT-01274
+UT,Weber,Washington Terrace Elementary,0.9583,500,UT-01275
+UT,Washington,Water Canyon High School,0.4537,500,UT-01276
+UT,Washington,Water Canyon Middle School,0.5952,500,UT-01277
+UT,Washington,Water Canyon Elementary School,0.4211,500,UT-01278
+UT,Salt Lake,Waterford Elementary School,0.9418,500,UT-01279
+UT,Salt Lake,Waterford High School,0.9912,500,UT-01280
+UT,Salt Lake,Waterford Middle School,0,500,UT-01281
+UT,Wayne,Wayne High School,0.96,500,UT-01282
+UT,Wayne,Wayne Middle School,0.9545,500,UT-01283
+UT,Weber,Waypoint Academy (High School),0.8333,500,UT-01284
+UT,Weber,Waypoint Academy (Middle School),,500,UT-01285
+UT,Weber,Weber High School,0.917,500,UT-01286
+UT,Weber,Weber Innovation High School,0.951,500,UT-01287
+UT,Weber,Weber Online K-6,0.9167,500,UT-01288
+UT,Summit,Weilenmann School Of Discovery (Elementary School),0.8842,500,UT-01289
+UT,Summit,Weilenmann School Of Discovery (Middle School),0.7967,500,UT-01290
+UT,Salt Lake,Welby Elementary,0.9534,500,UT-01291
+UT,Carbon,Wellington Elementary,0.966,500,UT-01292
+UT,Cache,Wellsville Elementary,0.9509,500,UT-01293
+UT,Tooele,Wendover High School,0.9825,500,UT-01294
+UT,Tooele,Wendover Middle School,1,500,UT-01295
+UT,Davis,West Bountiful Elementary,0.9675,500,UT-01296
+UT,Davis,West Clinton Elementary,0.9614,500,UT-01297
+UT,Juab,West Desert Elementary,0.7273,500,UT-01298
+UT,Juab,West Desert High School,1,500,UT-01299
+UT,Juab,West Desert Middle School,0.8,500,UT-01300
+UT,Weber,West Haven Elementary School,0.9343,500,UT-01301
+UT,Salt Lake,West Middle School,1,500,UT-01302
+UT,Salt Lake,West High School,0.9872,500,UT-01303
+UT,Salt Lake,West Hills Middle School,0.9794,500,UT-01304
+UT,Salt Lake,West Jordan Middle School,0.9679,500,UT-01305
+UT,Salt Lake,West Kearns Elementary,0.9623,500,UT-01306
+UT,Salt Lake,West Lake Jr High,0.9889,500,UT-01307
+UT,Davis,West Point Jr High,0.978,500,UT-01308
+UT,Davis,West Point Elementary School,0.957,500,UT-01309
+UT,Salt Lake,West Valley Elementary,0.9747,500,UT-01310
+UT,Weber,West Weber Elementary,0.9473,500,UT-01311
+UT,Utah,Westfield Elementary,0.8496,500,UT-01312
+UT,Utah,Westlake High School,0.9622,500,UT-01313
+UT,Salt Lake,Westland Elementary,0.962,500,UT-01314
+UT,Utah,Westmore Elementary,0.9306,500,UT-01315
+UT,Utah,Westridge Elementary,0.9604,500,UT-01316
+UT,Utah,Westside Elementary,0.9316,500,UT-01317
+UT,Salt Lake,Westvale Elementary,0.9588,500,UT-01318
+UT,Cache,White Pine Elementary School,0.9611,500,UT-01319
+UT,Millard,White River Academy (High School),1,500,UT-01320
+UT,Millard,White River Academy (Middle School),1,500,UT-01321
+UT,San Juan,Whitehorse High School,1,500,UT-01322
+UT,San Juan,Whitehorse Middle School,1,500,UT-01323
+UT,Davis,Whitesides School,0.9425,500,UT-01324
+UT,Salt Lake,Whittier Elementary,0.9791,500,UT-01325
+UT,Box Elder,Willard Elementary,0.9309,500,UT-01326
+UT,Salt Lake,William Penn Elementary,0.987,500,UT-01327
+UT,Salt Lake,Willow Canyon Elementary (Salt Lake),0.9402,500,UT-01328
+UT,Tooele,Willow Elementary (Tooele),0.977,500,UT-01329
+UT,Salt Lake,Willow Springs Elementary,0.9543,500,UT-01330
+UT,Utah,Willowcreek Middle School,0.9593,500,UT-01331
+UT,Cache,Wilson Elementary (Cache),0.9277,500,UT-01332
+UT,Utah,Wilson Elementary (Utah),0.9459,500,UT-01333
+UT,Davis,Windridge Elementary,0.9607,500,UT-01334
+UT,Utah,Windsor Elementary,0.9565,500,UT-01335
+UT,Summit,Winter Sports School Park City,0.9524,500,UT-01336
+UT,Salt Lake,Woodrow Wilson Elementary,0.9736,500,UT-01337
+UT,Davis,Woods Cross High School,0.978,500,UT-01338
+UT,Davis,Woods Cross Elementary,0.9554,500,UT-01339
+UT,Salt Lake,Woodstock Elementary,0.9619,500,UT-01340
+UT,Salt Lake,Youth Educational Support School,1,500,UT-01341
+UT,Salt Lake,Concordia Learning Center,0.9143,500,UT-01342
+UT,Salt Lake,Intermountain Child Development Center,1,500,UT-01343
+UT,Salt Lake,Mount Olympus Christian Childcare,1,500,UT-01344
+UT,Davis,Sunrise Montessori Elementary School Layton,1,500,UT-01345
+UT,Weber,Wasatch Christian (Elementary School),0.7586,500,UT-01346
+UT,Weber,Wasatch Christian (High School),0.8,500,UT-01347
+UT,Weber,Wasatch Christian (Middle School),1,500,UT-01348
+UT,Utah,Oakridge High School (Utah),0.9333,500,UT-01349
+UT,Utah,Oakridge Middle School (Utah),0.8333,500,UT-01350
+UT,Davis,Parkside Elementary (Davis),0.9703,500,UT-01351
+UT,Weber,Polk Elementary,0.9413,500,UT-01352
+UT,Salt Lake,Rowland Hall (High School),0.9778,500,UT-01353
+UT,Salt Lake,Rowland Hall (Middle School),0.9871,500,UT-01354
+UT,Box Elder,Golden Spike Elementary,0.9468,500,UT-01355
+UT,Davis,Syracuse Arts Academy (Elementary School),0.9386,500,UT-01356
+UT,Davis,Syracuse Arts Academy (Middle School),0.9376,500,UT-01357
+UT,Salt Lake,Glacier Hills School,0.9603,500,UT-01358
+UT,Salt Lake,Oak Leaf Elementary,0.9453,500,UT-01359
+UT,Salt Lake,Dancing Moose Montessori School (Salt Lake),0.9773,500,UT-01360
+UT,Tooele,Twenty Wells Elementary,0.9327,500,UT-01361
+UT,Utah,Nebo Online Elementary School,0.6172,500,UT-01362
+UT,Utah,Nebo Online High School,0.6252,500,UT-01363
+UT,Utah,Nebo Online Middle School,0.6353,500,UT-01364
+UT,Utah,Ascent Academies Of Utah Saratoga Springs,0.9319,500,UT-01365
+UT,Utah,Dancing Moose Montessori School Thanksgiving Point (Utah),0.9688,500,UT-01366
+UT,Utah,Desert Sky Elementary,0.934,500,UT-01367
+UT,Salt Lake,American Heritage School Salt Lake City Campus (Elementary School),0.9126,500,UT-01368
+UT,Salt Lake,American Heritage School Salt Lake City Campus (High School),0.9167,500,UT-01369
+UT,Salt Lake,American Heritage School Salt Lake City Campus (Middle School),0.9077,500,UT-01370
+UT,Utah,John Hancock Charter School Eagle Mountain (Elementary School),0.87,500,UT-01371
+UT,Utah,John Hancock Charter School Eagle Mountain (Middle School),0.875,500,UT-01372
+UT,Washington,Career Tech High School,0.9172,500,UT-01373
+UT,Piute,Utah Peak Academy,0.5562,500,UT-01374
+UT,Davis,Island View School,0.9601,500,UT-01375
+UT,Salt Lake,Pinyon Montessori,1,500,UT-01376
+UT,Weber,Haven Bay,0.9417,500,UT-01377
+UT,Salt Lake,Wallace Stegner Academy Kearns (Elementary School),0.9746,500,UT-01378
+UT,Salt Lake,Wallace Stegner Academy Kearns (Middle School),0.9926,500,UT-01379
+UT,Iron,American Principles Academy (Elementary School),0.6532,500,UT-01380
+UT,Iron,American Principles Academy (Middle School),0.7073,500,UT-01381
+UT,Weber,Mountain View Jr High (Weber),0.9062,500,UT-01382
+UT,Salt Lake,Beehive Science & Technology Academy (High School),0.9375,500,UT-01383
+UT,Salt Lake,Beehive Science & Technology Academy (Middle School),0.9397,500,UT-01384
+UT,Weber,Honeybee Nature School LLC,0.9091,500,UT-01385
+UT,Uintah,Art Box Studio LLC/ Wonder Academy,0.3077,500,UT-01386
+UT,Iron,In Person Southwest Education Academy,0.9694,500,UT-01387
+UT,Salt Lake,Juniper School,0.9616,500,UT-01388
+UT,Weber,West Field High School,0.9691,500,UT-01389

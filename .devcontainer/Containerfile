@@ -1,17 +1,16 @@
-FROM rocker/tidyverse:4.4.1
+FROM ghcr.io/rocker-org/devcontainer/tidyverse:4.5
 
 # Installing only packages that are not already installed in the base image
-RUN install2.r -s \
+RUN install2.r --error \
   utils \
   DT \
-  ggplot2 \
   epiworldR \
+  measles \
   plotly \
   pkgload \
   shiny \
   bslib
 
-
-RUN install2.r -s rsconnect languageserver httpgd
+RUN install2.r --error rsconnect
 
 CMD ["bash"]

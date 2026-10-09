@@ -10,7 +10,7 @@
 
 * The default number of simulations increased from 100 to 200.
 
-* The model description now ends with a collapsed "Model assumptions & references" table listing every `ModelMeaslesSchool()` parameter: the value the app uses, the `measles` package default, its source, verification status, and why the two differ (transmission probability 0.99 vs 0.9, contact rate 3.79 vs 4.17, and vaccination coverage 0.85 vs 0.93). Each measles input's help text now names its source, and the "Learn more" link points to the canonical parameter table in the `measles` package instead of the archived `EpiForeSITE/epiworld-measles` repository (EpiForeSITE/measles#5).
+* The model description now ends with a collapsed "Model assumptions & references" table listing every `ModelMeaslesSchool()` parameter: the value the app uses, the `measles` package default, its source, and why the two differ (transmission probability 0.99 vs 0.9, contact rate 3.79 vs 4.17, and vaccination coverage 0.85 vs 0.93). Each measles input's help text now names its source, and the "Learn more" link points to the canonical parameter table in the `measles` package instead of the archived `EpiForeSITE/epiworld-measles` repository (EpiForeSITE/measles#5).
 
 * Simulations are noticeably faster: results are now collected with the `outbreak_size`, `hospitalizations`, and `active_cases` savers introduced in epiworldR 0.10.0.0, rather than post-processing the full transition and history tables.
 

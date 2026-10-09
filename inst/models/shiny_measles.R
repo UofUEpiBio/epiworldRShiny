@@ -338,7 +338,7 @@ measles_panel <- function(model_alt) {
         value   = 500
       ),
       placement = "right",
-      "# of students in the school"
+      "# of students in the school. Source: scenario input (school enrollment data when available)."
     ),
     shiny::uiOutput("measles_population_size_note"),
     bslib::tooltip(
@@ -351,7 +351,7 @@ measles_panel <- function(model_alt) {
         step    = 1
       ),
       placement = "right",
-      "# of students infected with measles at the start of the simulation"
+      "# of students infected with measles at the start of the simulation. Source: scenario input."
     ),
     bslib::tooltip(
       slider_input_rate(
@@ -362,7 +362,7 @@ measles_panel <- function(model_alt) {
         input_label = "prop_vaccinated"
       ),
       placement = "right",
-      "Proportion of students in the school who are vaccinated against measles"
+      "Proportion of students in the school who are vaccinated against measles. Source: scenario input (school vaccination data via the School Selector)."
     ),
     bslib::tooltip(
       numeric_input_ndays("measles"),
@@ -382,7 +382,7 @@ measles_panel <- function(model_alt) {
             input_label = "quarantine_willingness"
           ),
           placement = "right",
-          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing)"
+          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing). Source: assumption."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -394,7 +394,7 @@ measles_panel <- function(model_alt) {
             step    = .5
           ),
           placement = "right",
-          "Average # of days after the rash manifests before a person is detected as infected with measles"
+          "Average # of days after the rash manifests before a person is detected as infected with measles. Source: team assumption."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -406,7 +406,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine."
+          "# of days after potential exposure a quarantined person will stay home from school, if willing. This is a fixed value, not an average, and is the same for all quarantined individuals. 21 days is the CDC recommendation for measles quarantine. Source: Utah DHHS Measles Disease Plan (21 days since last exposure)."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -418,7 +418,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals."
+          "# of days an infected person is isolated after rash is detected. This is a fixed value, not an average, and is the same for all isolated individuals. Source: Utah DHHS Measles Disease Plan (isolate until 4 days after rash onset)."
         )
       )
     ),
@@ -438,7 +438,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days an infected person is hospitalized"
+          "Average # of days an infected person is hospitalized. Source: team assumption."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -460,26 +460,26 @@ measles_panel <- function(model_alt) {
             maxval = 20
           ),
           placement = "right",
-          "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days."
+          "# of people a given person interacts with per day of the simulation. The value was calculated to match the R0 of measles (15), with a transmission rate of 0.99 and a prodromal period of 4 days. Source: R0 from Guerra et al. 2017, Lancet Infect Dis."
         ),
         bslib::tooltip(
           slider_input_rate(
             "measles", "Hospitalization Rate", 0.2, maxval = 1
           ),
           placement = "right",
-          "Rate of hospitalization for infected individuals per day of the simulation"
+          "Rate of hospitalization for infected individuals per day of the simulation (a daily rate, not a probability: 0.2 per day with a 3-day rash is about a 37.5% chance of hospitalization). Source: assumption."
         ),
         bslib::tooltip(
           slider_input_rate(
             "measles", "Transmission probability", "0.99", input_label = "transmission_rate"),
           placement = "right",
-          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation"
+          "The chance an infected individual transmits the disease to a contacted susceptible individual per day of the simulation. Source: team assumption (highly transmissible; Utah DHHS Measles Disease Plan reports 90% of susceptible contacts develop disease)."
         ),
         bslib::tooltip(
           slider_input_rate(
             "measles", "Vaccination Efficacy", "0.97", input_label = "vax_efficacy"),
           placement = "right",
-          "How effective the vaccine is at preventing infection"
+          "How effective the vaccine is at preventing infection. Source: Utah DHHS Measles Disease Plan (~97%, 2 doses)."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -491,7 +491,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days the disease incubates before the individual becomes symptomatic"
+          "Average # of days the disease incubates before the individual becomes symptomatic. Source: Utah DHHS Measles Disease Plan."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -503,7 +503,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days the prodromal period lasts before the individual develops a rash"
+          "Average # of days the prodromal period lasts before the individual develops a rash. Source: Utah DHHS Measles Disease Plan."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -515,7 +515,7 @@ measles_panel <- function(model_alt) {
             step    = 1
           ),
           placement = "right",
-          "Average # of days the rash lasts before the individual recovers"
+          "Average # of days the rash lasts before the individual recovers. Source: Utah DHHS Measles Disease Plan."
         ),
         bslib::tooltip(
           seed_input("measles"),

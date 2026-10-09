@@ -29,10 +29,10 @@ The table lists every parameter of `measles::ModelMeaslesSchool()` used by this 
 | Prodromal period | 4 days | [Utah DHHS Measles Disease Plan](https://epi.utah.gov/wp-content/uploads/Measles-disease-plan.pdf): prodrome lasts 2–4 days (range 2–8); contagious 4 days before rash onset. |
 | Rash period | 3 days | [Utah DHHS Measles Disease Plan](https://epi.utah.gov/wp-content/uploads/Measles-disease-plan.pdf): contagious to 4 days after rash onset; infectivity minimal after day 2 of rash. Infectious part of the rash only; the visible rash lasts 6–7 days. |
 | Days undetected | 2 days | Assumption: about 2 days from active case to public health notification. |
-| Hospitalization rate | 0.2 per day | Conservative value agreed with Utah DHHS. A daily **rate**, not a probability: p = h / (h + 1/rash) = 0.2 / (0.2 + 1/3) ≈ 37.5%. Recent analyses report 10% (Jones et al. 2026, *NEJM Evid*, [doi:10.1056/EVIDpha2600141](https://doi.org/10.1056/EVIDpha2600141)) and 18.5% in West Texas (Wang et al. 2026, *MMWR*, [doi:10.15585/mmwr.mm7520a1](https://doi.org/10.15585/mmwr.mm7520a1)). |
+| Hospitalization rate | 0.2 per day | Assumption. A daily **rate**, not a probability: p = h / (h + 1/rash) = 0.2 / (0.2 + 1/3) ≈ 37.5%. Recent analyses report 10% (Jones et al. 2026, *NEJM Evid*, [doi:10.1056/EVIDpha2600141](https://doi.org/10.1056/EVIDpha2600141)) and 18.5% in West Texas (Wang et al. 2026, *MMWR*, [doi:10.15585/mmwr.mm7520a1](https://doi.org/10.15585/mmwr.mm7520a1)). |
 | Hospitalization duration | 7 days | Assumption. Observed stays are shorter: mean 2.1 nights in Utah (Jones et al. 2026); median 2 days in West Texas (Wang et al. 2026). |
 | Quarantine period | 21 days (with quarantine); none (without) | [Utah DHHS Measles Disease Plan](https://epi.utah.gov/wp-content/uploads/Measles-disease-plan.pdf): 21 days since last exposure. The "without quarantine" scenario passes `quarantine_period = -1`. |
-| Quarantine willingness | 1.0 | Assumption (field experience). Some analyses use 0.9. |
+| Quarantine willingness | 1.0 | Assumption. Some analyses use 0.9. |
 | Isolation period | 4 days | [Utah DHHS Measles Disease Plan](https://epi.utah.gov/wp-content/uploads/Measles-disease-plan.pdf): isolate until 4 days after rash onset. |
 | Vaccine reduction in recovery | 0 (fixed) | Not active: the model registers it as "(IGNORED) Vax improved recovery"; it has no effect. |
 | Simulation settings | 100 days, 200 simulations, seed 2023 | App settings; not epidemiological parameters. |

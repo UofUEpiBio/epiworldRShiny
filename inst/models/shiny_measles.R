@@ -382,7 +382,7 @@ measles_panel <- function(model_alt) {
             input_label = "quarantine_willingness"
           ),
           placement = "right",
-          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing). Source: team assumption (field experience)."
+          "How willing people are to stay home from school when asked to quarantine (1 = 100% willing, 0 = 0% willing). Source: assumption."
         ),
         bslib::tooltip(
           shiny::numericInput(
@@ -467,7 +467,7 @@ measles_panel <- function(model_alt) {
             "measles", "Hospitalization Rate", 0.2, maxval = 1
           ),
           placement = "right",
-          "Rate of hospitalization for infected individuals per day of the simulation (a daily rate, not a probability: 0.2 per day with a 3-day rash is about a 37.5% chance of hospitalization). Source: conservative value agreed with Utah DHHS."
+          "Rate of hospitalization for infected individuals per day of the simulation (a daily rate, not a probability: 0.2 per day with a 3-day rash is about a 37.5% chance of hospitalization). Source: assumption."
         ),
         bslib::tooltip(
           slider_input_rate(

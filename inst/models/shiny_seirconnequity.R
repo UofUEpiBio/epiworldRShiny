@@ -54,8 +54,8 @@ shiny_seirconnequity <- function(input) {
 
   # Mixing layer: the groups are the age groups. Everybody meets, on average,
   # `contact_rate` others per day, in proportion to the size of each group
-  # (the contact matrix is the expected number of contacts per day: its rows
-  # add up to the contact rate, which is the model parameter "Contact rate").
+  # (each row of the contact matrix is where an agent's contacts go, adding
+  # up to 1; the layer's "Contact rate" parameter is how many per day).
   age_group <- max.col(X[, 1:3], ties.method = "first") - 1L
   age_prop  <- tabulate(age_group + 1L, nbins = 3L) / n
 

@@ -4,20 +4,25 @@ shiny_seird <- function(input) {
 
   model_seird <- epiworldR::ModelSEIRD(
     name              = input$seird_disease_name,
+    n                 = input$seird_population_size,
     prevalence        = input$seird_prevalence,
-    transmission_rate = input$seird_transmission_rate,
+    transmission_prob = input$seird_transmission_rate,
     recovery_rate     = input$seird_recovery_rate,
-    incubation_days   = input$seird_incubation_days,
+    latent_period     = input$seird_incubation_days,
     death_rate        = input$seird_death_rate
     )
 
   # Generating random graph
-  epiworldR::agents_smallworld(
+  epiworldR::add_layer(
     model_seird,
-    n = input$seird_population_size,
-    k = input$seird_k,
-    d = as.logical(input$seird_directed),
-    p = input$seird_prob_rewiring
+    epiworldR::layer_network(
+      "network",
+      epiworldR::graph_smallworld(
+        k        = input$seird_k,
+        p        = input$seird_prob_rewiring,
+        directed = as.logical(input$seird_directed)
+      )
+    )
   )
 
   # NPIs -----------------------------------------------------------------------
@@ -33,30 +38,7 @@ shiny_seird <- function(input) {
   # Reproductive Number
   reproductive_seird <- function() plot_reproductive_epi(model_seird)
   # Table
-  table_seird <- function() {
-    df <- as.data.frame(epiworldR::get_hist_total(model_seird))
-    # Subset to only include "infection" state
-    infection_data <- df[df$state == "Infected", ]
-    # Row with the maximum count
-    max_infection_row <- infection_data[which.max(infection_data$counts), ]
-    # Row number of the maximum count in the original data frame
-    max_row_number <- which(
-      df$date == max_infection_row$date & df$state == "Infected"
-      )
-    df[max_row_number,"counts"] <- sprintf(
-      "<strong>%s</strong>",
-      df[max_row_number, "counts"]
-      )
-    # Making sure factor variables are ordered
-    df$state <- factor(
-      x      = df$state,
-      levels = c("Susceptible", "Exposed", "Infected", "Removed")
-      )
-    # Reshaping the data to wide format
-    df <- reshape(df, idvar = "date", timevar = "state", direction = "wide")
-    colnames(df) <- gsub(colnames(df), pattern = "counts.", replacement = "")
-    df
-  }
+  table_seird <- function() hist_table(model_seird)
 
   # Output list
   return(

@@ -57,7 +57,7 @@ pop_generator <- function(
 #' Find the right plotting-scale
 #'
 #' This function determines the scale of the y-axis for plot_epi.
-#' @param x The maximum value found in the model state counts
+#' @param x The maximum value found in the model stage counts
 #'
 #' @return An integer representing the scale for the y-axis. A max counts value
 #' of 10000 will return a scale of 1, 100000 will return a scale of 1000,
@@ -74,19 +74,106 @@ find_scale <- function(x) {
   res
 }
 
+#' Counts of each stage by day
+#'
+#' The history of a model (`get_hist_total()`) has one row per day, status and
+#' stage. The apps plot stages, so the counts are added up over statuses.
+#'
+#' @param model An epiworldR model that has been run.
+#' @return A data frame with columns `date`, `stage` and `counts`, with the
+#' stages in the model's order.
+#' @noRd
+stage_counts <- function(model) {
+
+  hist <- epiworldR::get_hist_total(model)
+  res  <- stats::aggregate(counts ~ date + stage, data = hist, FUN = sum)
+
+  # Keeping the order of the stages in the model
+  res$stage <- factor(res$stage, levels = unique(hist$stage))
+  res       <- res[order(res$date, res$stage), ]
+  res$stage <- as.character(res$stage)
+  rownames(res) <- NULL
+
+  res
+
+}
+
+#' Table of the counts by day (wide, one column per stage)
+#'
+#' @param model An epiworldR model that has been run.
+#' @return A data frame with a column `date` and one column per stage. The
+#' count of the day with the peak of infections is in bold (HTML).
+#' @noRd
+hist_table <- function(model) {
+
+  df <- stage_counts(model)
+
+  # Row with the peak of infections
+  infected <- df[df$stage == "Infected", ]
+  peak     <- which(
+    df$stage == "Infected" & df$date == infected$date[which.max(infected$counts)]
+  )
+
+  df$counts <- as.character(df$counts)
+  df$counts[peak] <- sprintf("<strong>%s</strong>", df$counts[peak])
+
+  df$stage <- factor(df$stage, levels = unique(df$stage))
+  df <- stats::reshape(df, idvar = "date", timevar = "stage", direction = "wide")
+  colnames(df) <- sub("^counts\\.", "", colnames(df))
+  rownames(df) <- NULL
+
+  df
+
+}
+
+#' Adds a random-mixing layer to a model
+#'
+#' Everybody is in one group and meets, on average, `contact_rate` others per
+#' day (the model parameter "Contact rate", so it can be changed after the
+#' model is built). This is what the `*CONN` models of epiworldR 0.x did.
+#'
+#' @param model An epiworldR model.
+#' @param n Population size.
+#' @param contact_rate Average number of contacts per day.
+#' @return The model, invisibly.
+#' @noRd
+add_random_mixing <- function(model, n, contact_rate) {
+
+  epiworldR::add_param(model, "Contact rate", contact_rate)
+
+  epiworldR::add_layer(
+    model,
+    epiworldR::layer_mixing(
+      "everyone",
+      groups         = rep(0L, n),
+      contact_matrix = 1
+    ) |>
+      epiworldR::set_contact_rate("Contact rate")
+  )
+
+  invisible(model)
+
+}
+
 #' Plot daily incidence
 #'
-#' This function generates a plot of the model states over time
+#' This function generates a plot of the model stages over time
 #' @param model The number of individuals in the population.
-#' @param mark_max The state which will have a mark at the peak
+#' @param mark_max The stage which will have a mark at the peak
 #'
-#' @return A plot displaying each state from the model over the course of the
+#' @return A plot displaying each stage from the model over the course of the
 #' simulation
 #' @examples
-#' library(epiworldR) # for ModelSEIRCONN function
-#' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#' library(epiworldR)
+#' model <- ModelSEIR("COVID-19", n = 1000, prevalence = 0.05,
+#'                    transmission_prob = 0.1, latent_period = 7,
+#'                    recovery_rate = 0.14)
+#' add_param(model, "Contact rate", 4)
+#' add_layer(
+#'   model,
+#'   layer_mixing("everyone", groups = rep(0, 1000), contact_matrix = 1) |>
+#'     set_contact_rate("Contact rate")
+#' )
 #' run(model, ndays = 100, seed = 123)
 #' plot_epi(model, mark_max = "Infected")
 #'
@@ -97,17 +184,16 @@ plot_epi <- function(model, mark_max) {
   if (missing(mark_max))
     mark_max <- "Infected"
 
+  # The history by day and stage (statuses, i.e., where agents are, are added up)
+  curves <- stage_counts(model)
+  states <- unique(curves$stage)
+
   # Obtain time of peak infections
-  df_model <- epiworldR::get_hist_total(model)[
-    epiworldR::get_hist_total(model)$state %in% mark_max,
-    ]
+  df_model <- curves[curves$stage %in% mark_max, ]
 
   peak_time <- which.max(df_model$counts) - 1
 
   # Begin plotting code
-  curves <- as.data.frame(epiworldR::get_hist_total(model))
-  states <- unique(curves$state)
-
   counts_scale <- find_scale(max(curves$counts))
 
   curves$counts <- curves$counts/counts_scale
@@ -120,7 +206,7 @@ plot_epi <- function(model, mark_max) {
 
   for (i in 1L:length(states)) {
     date_candidates[i] <- with(
-      curves[curves$state == states[i],],
+      curves[curves$stage == states[i],],
       sum(abs(diff(counts)) > benchmark_value )
       )
   }
@@ -139,7 +225,7 @@ plot_epi <- function(model, mark_max) {
   curves_pivot <- reshape(
     data = curves,
     idvar = "date",
-    timevar = "state",
+    timevar = "stage",
     direction = "wide",
     v.names = "counts"
   )
@@ -182,8 +268,8 @@ plot_epi <- function(model, mark_max) {
       Recovered = "green",
       Deceased  = "black",
       {
-        line_colors[color_index]
         color_index <- color_index + 1
+        line_colors[(color_index - 2) %% length(line_colors) + 1]
       }
     )
 
@@ -244,10 +330,16 @@ plot_epi <- function(model, mark_max) {
 #' @return A plot displaying the reproductive number for the model over the
 #' course of the simulation
 #' @examples
-#' library(epiworldR) # for ModelSEIRCONN function
-#' model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-#'                        contact_rate = 4, transmission_rate = 0.1,
-#'                        incubation_days = 7, recovery_rate = 0.14)
+#' library(epiworldR)
+#' model <- ModelSEIR("COVID-19", n = 1000, prevalence = 0.05,
+#'                    transmission_prob = 0.1, latent_period = 7,
+#'                    recovery_rate = 0.14)
+#' add_param(model, "Contact rate", 4)
+#' add_layer(
+#'   model,
+#'   layer_mixing("everyone", groups = rep(0, 1000), contact_matrix = 1) |>
+#'     set_contact_rate("Contact rate")
+#' )
 #' run(model, ndays = 100, seed = 123)
 #' plot_reproductive_epi(model)
 #' @export

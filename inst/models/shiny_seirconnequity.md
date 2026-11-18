@@ -11,6 +11,7 @@ The SEIR model has the following parameters:
 - **Transmission probability**: Probability of becoming infected (or exposed, depending on the model) when interacting with an infectious agent.
 - **Recovery probability (daily)**: The probability that an individual will recover from the virus on a given day.
 - **Incubation Days**: The number of days that an individual is in the exposed state before becoming infectious.
+- **Contact rate**: The number of average contacts that an individual has per day. Contacts are random across the whole population (a mixing layer whose groups are the age groups).
 - **Simulation Time (Days)**: The number of days to simulate.
 - **Seed**: The seed for the random number generator.
 - **Population Structure**: The population structure to use for the simulation.

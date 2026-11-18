@@ -1,3 +1,33 @@
+# epiworldRShiny 1.0.0-0 (dev)
+
+Tracks epiworldR 1.0.0 and measles 0.5.0 (their `v1-layers` branches, see `Remotes`), where contacts come from contact layers, models are built by the registry, and a model may hold several diseases. All the apps are ported once, with the same inputs and UI unless noted.
+
+## Apps
+
+* **Network apps** (`sir`, `sis`, `sird`, `sisd`, `seir`, `seird`): the population size is an argument of the model, and the network is a layer, `add_layer(model, layer_network("network", graph_smallworld(k, p, directed)))`, instead of `agents_smallworld()`. The inputs (population size, number of ties, directed, probability of rewiring) are the same.
+
+* **Random-mixing apps** (`sirconn`, `seirconn`, `seirconnequity`): the `*CONN` models are gone from epiworldR, so these apps build `ModelSIR()` / `ModelSEIR()` with a random-mixing layer: everybody in one group, a contact matrix of 1, and the model parameter "Contact rate" (the contact rate input) as `set_contact_rate()`. In epiworldR 1.0.0 contacts are distinct, not drawn with replacement, so results for a given seed change (the expected number of contacts does not).
+
+* **SEIR equity**: the groups are now the age groups of a mixing layer (`layer_mixing("age", groups, contact_matrix)`, with the contact matrix proportional to the size of each group, i.e., random mixing as before), and the "Contact rate" input is the layer's contact rate. The difference in susceptibility by age, sex and ethnicity is the same logit tool. The virus's transmission probability, set with `set_prob_infecting()` (defunct), is now the model's `transmission_prob`. The plot of the infected counts "Removed" as recovered (the last stage of the SEIR family is "Removed").
+
+* **Measles**: follows measles 0.5.0 (`ModelMeaslesSchool()` has the same arguments). The savers' tables have a `disease` column; the app selects columns by name.
+
+## Shared code
+
+* Names of arguments follow epiworldR 1.0.0: `transmission_prob` and `latent_period` (the inputs keep their labels, "Transmission probability" and "Incubation Days").
+
+* The outputs have `status` and `stage` columns (and a leading `disease` column): `plot_epi()` plots the stages, adding up the statuses. The tables of the apps are now all wide (one column per stage, the day with the peak of infections in bold); before, the SIR, SIS, SIRD and SISD apps showed the long table with every column of the peak row in bold.
+
+* `plot_epi()`: the lines of the stages other than Susceptible, Infected, Removed, Recovered and Deceased get distinct colors (the color was a number before).
+
+* The interventions place the vaccine and masks with `assign_share()` (`add_tool(assign = )`) instead of `proportion`.
+
+* Examples (`plot_epi()`, `plot_reproductive_epi()` and the interventions) use `ModelSEIR()` with a random-mixing layer.
+
+## Tests
+
+* New end-to-end tests (`inst/tinytest/`, run with `tinytest::test_package("epiworldRShiny")`): every app builds and runs its model with the default inputs of its panel, and the outputs it shows (plots, summary, table of counts) are checked; plus interventions and the measles app.
+
 # epiworldRShiny 0.2.7 (dev)
 
 ## Measles model
@@ -9,6 +39,8 @@
 * Removed the "Vaccination Improved Recovery" slider, as `ModelMeaslesSchool()` does not take a `vax_improved_recovery` parameter.
 
 * The default number of simulations increased from 100 to 200.
+
+* The model description now ends with a collapsed "Model assumptions & references" table listing every `ModelMeaslesSchool()` parameter: the value the app uses, the `measles` package default, its source, and why the two differ (transmission probability 0.99 vs 0.9, contact rate 3.79 vs 4.17, and vaccination coverage 0.85 vs 0.93). Each measles input's help text now names its source, and the "Learn more" link points to the canonical parameter table in the `measles` package instead of the archived `EpiForeSITE/epiworld-measles` repository (EpiForeSITE/measles#5).
 
 * Simulations are noticeably faster: results are now collected with the `outbreak_size`, `hospitalizations`, and `active_cases` savers introduced in epiworldR 0.10.0.0, rather than post-processing the full transition and history tables.
 

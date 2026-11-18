@@ -15,14 +15,19 @@ shiny_seirconnequity <- function(input) {
 
   n <- input$seirconnequity_population_size
 
-  model_seirconnequity <- epiworldR::ModelSEIRCONN(
+  # Effective transmission probability (user defined) = transmission prob. of
+  # the virus x (1 - susceptibility reduction). We use the middle group (odds of
+  # 4) as a reference.
+  model_seirconnequity <- epiworldR::ModelSEIR(
     name              = input$seirconnequity_disease_name,
-    prevalence        = input$seirconnequity_prevalence,
-    transmission_rate = input$seirconnequity_transmission_rate,
-    recovery_rate     = input$seirconnequity_recovery_rate,
-    contact_rate      = input$seirconnequity_contact_rate,
     n                 = n,
-    incubation_days   = input$seirconnequity_incubation_days
+    prevalence        = input$seirconnequity_prevalence,
+    transmission_prob = min(
+      1,
+      input$seirconnequity_transmission_rate / (1 - plogis(log(4.0)))
+    ),
+    recovery_rate     = input$seirconnequity_recovery_rate,
+    latent_period     = input$seirconnequity_incubation_days
     )
 
   set_name(model_seirconnequity, "SEIR Equity Model")
@@ -46,6 +51,27 @@ shiny_seirconnequity <- function(input) {
     model = model_seirconnequity,
     data  = epiworldRenv()$X
     )
+
+  # Mixing layer: the groups are the age groups. Everybody meets, on average,
+  # `contact_rate` others per day, in proportion to the size of each group
+  # (each row of the contact matrix is where an agent's contacts go, adding
+  # up to 1; the layer's "Contact rate" parameter is how many per day).
+  age_group <- max.col(X[, 1:3], ties.method = "first") - 1L
+  age_prop  <- tabulate(age_group + 1L, nbins = 3L) / n
+
+  add_param(
+    model_seirconnequity, "Contact rate", input$seirconnequity_contact_rate
+  )
+
+  add_layer(
+    model_seirconnequity,
+    layer_mixing(
+      "age",
+      groups         = age_group,
+      contact_matrix = matrix(age_prop, nrow = 3, ncol = 3, byrow = TRUE)
+    ) |>
+      set_contact_rate("Contact rate")
+  )
 
   # Creating immune system to add the difference in susceptibility -------------
   immune <- tool(
@@ -82,16 +108,8 @@ shiny_seirconnequity <- function(input) {
   add_tool(
     model      = model_seirconnequity,
     tool       = immune,
-    proportion = 1
+    assign     = assign_share(1)
     )
-
-  # effective trate (user defined) = t rate virus x (1 - suscept redux)
-  # we use the middle as a reference
-  set_prob_infecting(
-    virus = get_virus(model_seirconnequity, 0),
-    prob  = min(1, input$seirconnequity_transmission_rate/
-      (1 - plogis(log(4.0))))
-  )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_seirconnequity, "seirconnequity", input)
@@ -101,14 +119,14 @@ shiny_seirconnequity <- function(input) {
   epiworldR::run(model_seirconnequity, ndays = input$seirconnequity_n_days, seed = input$seirconnequity_seed)
 
   # Equity plots ---------------------------------------------------------------
-  agents_states <- epiworldR::get_agents_states(model_seirconnequity)
+  agents_stages <- epiworldR::get_agents_stages(model_seirconnequity)
 
   agents <- data.frame(
     id = 1:n,
     Age = colnames(X)[1:3][max.col(X[, 1:3])],
     Sex = c("Male", "Female")[X[, "Female"] + 1],
     Race = c("Hispanic", "Non-hispanic")[X[, "NotHispanic"] + 1],
-    State = agents_states,
+    Stage = agents_stages,
     check.names = FALSE
   )
 
@@ -118,12 +136,12 @@ shiny_seirconnequity <- function(input) {
   plot_seirconnequity <- function() {
 
     # We treat recovered and exposed as infected
-    agents$State <- ifelse(
-      agents$State %in% c("Recovered", "Exposed"),
-      "Infected", agents$State
+    agents$Stage <- ifelse(
+      agents$Stage %in% c("Removed", "Exposed"),
+      "Infected", agents$Stage
       )
 
-    subset(agents, State != "Susceptible") |>
+    subset(agents, Stage != "Susceptible") |>
       ggplot(aes(y = Age)) +
         geom_bar(aes(fill = Sex), position = "dodge") +
 
@@ -140,19 +158,7 @@ shiny_seirconnequity <- function(input) {
     function() plot_reproductive_epi(model_seirconnequity)
 
   # Table
-  table_seirconnequity <- function() {
-    df <- as.data.frame(epiworldR::get_hist_total(model_seirconnequity))
-    # Subset to only include "infection" state
-    infection_data <- df[df$state == "Infected", ]
-    # Row with the maximum count
-    max_infection_row <- infection_data[which.max(infection_data$count), ]
-    # Row number of the maximum count in the original data frame
-    max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
-    df
-  }
+  table_seirconnequity <- function() hist_table(model_seirconnequity)
 
   # Output list
   return(

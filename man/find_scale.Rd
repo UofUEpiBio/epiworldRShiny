@@ -7,7 +7,7 @@
 find_scale(x)
 }
 \arguments{
-\item{x}{The maximum value found in the model state counts}
+\item{x}{The maximum value found in the model stage counts}
 }
 \value{
 An integer representing the scale for the y-axis. A max counts value

@@ -1,15 +1,21 @@
 # alt-name: SEIR
 shiny_seirconn <- function(input) {
 
-  model_seirconn <- epiworldR::ModelSEIRCONN(
+  model_seirconn <- epiworldR::ModelSEIR(
     name              = input$seirconn_disease_name,
-    prevalence        = input$seirconn_prevalence,
-    transmission_rate = input$seirconn_transmission_rate,
-    recovery_rate     = input$seirconn_recovery_rate,
-    contact_rate      = input$seirconn_contact_rate,
     n                 = input$seirconn_population_size,
-    incubation_days   = input$seirconn_incubation_days
+    prevalence        = input$seirconn_prevalence,
+    transmission_prob = input$seirconn_transmission_rate,
+    recovery_rate     = input$seirconn_recovery_rate,
+    latent_period     = input$seirconn_incubation_days
     )
+
+  # Random mixing: everyone meets `contact_rate` others per day
+  add_random_mixing(
+    model_seirconn,
+    n            = input$seirconn_population_size,
+    contact_rate = input$seirconn_contact_rate
+  )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_seirconn, "seirconn", input)
@@ -23,19 +29,7 @@ shiny_seirconn <- function(input) {
   summary_seirconn <- function() summary(model_seirconn)
   reproductive_seirconn <- function() plot_reproductive_epi(model_seirconn)
   # Table
-  table_seirconn <- function() {
-    df <- as.data.frame(epiworldR::get_hist_total(model_seirconn))
-    # Subset to only include "infection" state
-    infection_data <- df[df$state == "Infected", ]
-    # Row with the maximum count
-    max_infection_row <- infection_data[which.max(infection_data$count), ]
-    # Row number of the maximum count in the original data frame
-    max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
-    df
-  }
+  table_seirconn <- function() hist_table(model_seirconn)
   # Output list
   return(
     list(

@@ -5,19 +5,24 @@ shiny_sisd <- function(input) {
   # Creating model
   model_sisd <- epiworldR::ModelSISD(
     name              = input$sisd_disease_name,
+    n                 = input$sisd_population_size,
     prevalence        = input$sisd_prevalence,
-    transmission_rate = input$sisd_transmission_rate,
+    transmission_prob = input$sisd_transmission_rate,
     recovery_rate     = input$sisd_recovery_rate,
     death_rate        = input$sisd_death_rate
     )
 
   # Generating random graph
-  epiworldR::agents_smallworld(
-      model_sisd,
-      n = input$sisd_population_size,
-      k = input$sisd_k,
-      d = as.logical(input$sisd_directed),
-      p = input$sisd_prob_rewiring
+  epiworldR::add_layer(
+    model_sisd,
+    epiworldR::layer_network(
+      "network",
+      epiworldR::graph_smallworld(
+        k        = input$sisd_k,
+        p        = input$sisd_prob_rewiring,
+        directed = as.logical(input$sisd_directed)
+      )
+    )
   )
 
   # NPIs -----------------------------------------------------------------------
@@ -32,19 +37,7 @@ shiny_sisd <- function(input) {
   summary_sisd <- function() summary(model_sisd)
   reproductive_sisd <- function() plot_reproductive_epi(model_sisd)
   # Table
-  table_sisd <- function() {
-    df <- as.data.frame(epiworldR::get_hist_total(model_sisd))
-    # Subset to only include "infection" state
-    infection_data <- df[df$state == "Infected", ]
-    # Row with the maximum count
-    max_infection_row <- infection_data[which.max(infection_data$count), ]
-    # Row number of the maximum count in the original data frame
-    max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
-    df
-  }
+  table_sisd <- function() hist_table(model_sisd)
   # Output list
   return(
     list(

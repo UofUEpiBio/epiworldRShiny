@@ -9,20 +9,26 @@ plot_epi(model, mark_max)
 \arguments{
 \item{model}{The number of individuals in the population.}
 
-\item{mark_max}{The state which will have a mark at the peak}
+\item{mark_max}{The stage which will have a mark at the peak}
 }
 \value{
-A plot displaying each state from the model over the course of the
+A plot displaying each stage from the model over the course of the
 simulation
 }
 \description{
-This function generates a plot of the model states over time
+This function generates a plot of the model stages over time
 }
 \examples{
-library(epiworldR) # for ModelSEIRCONN function
-model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-                       contact_rate = 4, transmission_rate = 0.1,
-                       incubation_days = 7, recovery_rate = 0.14)
+library(epiworldR)
+model <- ModelSEIR("COVID-19", n = 1000, prevalence = 0.05,
+                   transmission_prob = 0.1, latent_period = 7,
+                   recovery_rate = 0.14)
+add_param(model, "Contact rate", 4)
+add_layer(
+  model,
+  layer_mixing("everyone", groups = rep(0, 1000), contact_matrix = 1) |>
+    set_contact_rate("Contact rate")
+)
 run(model, ndays = 100, seed = 123)
 plot_epi(model, mark_max = "Infected")
 

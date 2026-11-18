@@ -21,12 +21,18 @@ substituted with the model name.
 Masking intervention (non-pharmaceutical intervention)
 }
 \examples{
-library(epiworldR) # for ModelSEIRCONN function
-model <- ModelSEIRCONN("COVID-19", n = 1000, prevalence = 0.05,
-                       contact_rate = 4, transmission_rate = 0.1,
-                       incubation_days = 7, recovery_rate = 0.14)
-run(model, ndays = 100, seed = 123)
+library(epiworldR)
+model <- ModelSEIR("COVID-19", n = 1000, prevalence = 0.05,
+                   transmission_prob = 0.1, latent_period = 7,
+                   recovery_rate = 0.14)
+add_param(model, "Contact rate", 4)
+add_layer(
+  model,
+  layer_mixing("everyone", groups = rep(0, 1000), contact_matrix = 1) |>
+    set_contact_rate("Contact rate")
+)
 npi_add_masking(model, preval = .8, transmission_reduction = .7)
+run(model, ndays = 100, seed = 123)
 }
 \seealso{
 Other interventions: 

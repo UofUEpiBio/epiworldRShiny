@@ -1,14 +1,20 @@
 # alt-name: SIR
 shiny_sirconn <- function(input) {
 
-  model_sirconn <- epiworldR::ModelSIRCONN(
+  model_sirconn <- epiworldR::ModelSIR(
     name              = input$sirconn_disease_name,
+    n                 = input$sirconn_population_size,
     prevalence        = input$sirconn_prevalence,
-    transmission_rate = input$sirconn_transmission_rate,
-    recovery_rate     = input$sirconn_recovery_rate,
-    contact_rate      = input$sirconn_contact_rate,
-    n                 = input$sirconn_population_size
+    transmission_prob = input$sirconn_transmission_rate,
+    recovery_rate     = input$sirconn_recovery_rate
     )
+
+  # Random mixing: everyone meets `contact_rate` others per day
+  add_random_mixing(
+    model_sirconn,
+    n            = input$sirconn_population_size,
+    contact_rate = input$sirconn_contact_rate
+  )
 
   # NPIs -----------------------------------------------------------------------
   interventions_add_all(model_sirconn, "sirconn", input)
@@ -22,19 +28,7 @@ shiny_sirconn <- function(input) {
   summary_sirconn <- function() summary(model_sirconn)
   reproductive_sirconn <- function() plot_reproductive_epi(model_sirconn)
   # Table
-  table_sirconn <- function() {
-    df <- as.data.frame(epiworldR::get_hist_total(model_sirconn))
-    # Subset to only include "infection" state
-    infection_data <- df[df$state == "Infected", ]
-    # Row with the maximum count
-    max_infection_row <- infection_data[which.max(infection_data$count), ]
-    # Row number of the maximum count in the original data frame
-    max_row_number <- which(df$date == max_infection_row$date &
-                              df$state == "Infected")
-    df[max_row_number,] <- sprintf("<strong>%s</strong>",
-                                       df[max_row_number,])
-    df
-  }
+  table_sirconn <- function() hist_table(model_sirconn)
   # Output list
   return(
     list(
